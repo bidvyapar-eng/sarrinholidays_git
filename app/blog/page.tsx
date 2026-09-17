@@ -2,6 +2,7 @@ import { supabase } from "@/lib/supabaseClient"
 import { Navbar } from "@/components/navbar"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import { MotionDemo } from "@/components/motion-demo"
 
 // Force dynamic rendering since we are fetching from a database
 export const dynamic = 'force-dynamic'
@@ -65,6 +66,8 @@ export default async function BlogIndex() {
             ))}
           </div>
         )}
+
+        <MotionDemo />
       </div>
     </main>
   )
