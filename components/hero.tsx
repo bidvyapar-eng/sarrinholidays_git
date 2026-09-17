@@ -9,6 +9,7 @@ export function Hero() {
       <VideoBackground />
 
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-4 pt-28 pb-16 text-center sm:px-6">
+        <div className="animate-float absolute right-[8%] top-32 hidden size-20 rounded-full border border-primary/30 bg-primary/10 blur-[1px] lg:block" aria-hidden="true" />
         <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-medium tracking-wide text-foreground/90 backdrop-blur-md">
           <span className="flex items-center gap-0.5 text-primary">
             <Star className="size-3.5 fill-current" />

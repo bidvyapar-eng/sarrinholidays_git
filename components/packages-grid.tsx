@@ -63,7 +63,7 @@ export function PackagesGrid() {
       <ul className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {packages.map((pkg) => (
           <li key={pkg.id}>
-            <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-white/12 bg-white/8 shadow-xl shadow-black/30 backdrop-blur-xl transition-colors hover:border-white/25">
+            <article className="motion-card group flex h-full flex-col overflow-hidden rounded-3xl border border-white/12 bg-white/8 shadow-xl shadow-black/30 backdrop-blur-xl transition-colors hover:border-white/25">
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
                   src={pkg.image || "/placeholder.svg"}
