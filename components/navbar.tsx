@@ -10,7 +10,7 @@ const links = [
   { label: "About", href: "/#about" },
 ]
 
-export function Navbar() {
+export function Navbar({ logoText }: { logoText?: string } = {}) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
