@@ -69,6 +69,28 @@ CREATE POLICY "Allow public read access" ON public.packages
 -- Restrict state mutations (INSERT/DELETE) strictly to authenticated session users
 CREATE POLICY "Allow admin full access" ON public.packages 
     FOR ALL USING (auth.role() = 'authenticated');
+
+-- Create the bespoke services catalog table
+CREATE TABLE public.services (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+    title TEXT NOT NULL,
+    slug TEXT UNIQUE NOT NULL,
+    short_desc TEXT NOT NULL,
+    full_desc TEXT NOT NULL,
+    icon_name TEXT NOT NULL,
+    hero_image TEXT NOT NULL,
+    sort_order INT DEFAULT 0 NOT NULL,
+    is_published BOOLEAN DEFAULT true NOT NULL
+);
+
+ALTER TABLE public.services ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Allow public read access" ON public.services 
+    FOR SELECT USING (true);
+
+CREATE POLICY "Allow operations full access" ON public.services 
+    FOR ALL USING (true);
 ```
 
 ---

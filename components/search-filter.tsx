@@ -2,38 +2,50 @@
 
 import type React from "react"
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { CalendarDays, MapPin, Search, Users } from "lucide-react"
 
-const fields = [
-  {
-    id: "destination",
-    icon: MapPin,
-    label: "Destination",
-    placeholder: "Where to?",
-    type: "text",
-  },
-  {
-    id: "dates",
-    icon: CalendarDays,
-    label: "When",
-    placeholder: "Add dates",
-    type: "text",
-  },
-  {
-    id: "guests",
-    icon: Users,
-    label: "Guests",
-    placeholder: "Add guests",
-    type: "text",
-  },
-] as const
-
 export function SearchFilter() {
+  const router = useRouter()
   const [active, setActive] = useState<string | null>(null)
+  const [formValues, setFormValues] = useState({
+    destination: "",
+    dates: "",
+    guests: "",
+  })
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("[v0] search submitted")
+    const query = formValues.destination.trim()
+
+    // Dispatch instant custom event for real-time reactivity
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(
+        new CustomEvent("sarrin:search", {
+          detail: {
+            destination: query,
+            dates: formValues.dates,
+            guests: formValues.guests,
+          },
+        })
+      )
+    }
+
+    // Update URL hash and params
+    const params = new URLSearchParams()
+    if (query) params.set("search", query)
+    const queryString = params.toString() ? `?${params.toString()}` : ""
+    router.push(`/#destinations${queryString}`, { scroll: false })
+
+    // Smooth scroll to the destinations section
+    const target = document.getElementById("destinations")
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
+  const handleChange = (id: string, value: string) => {
+    setFormValues((prev) => ({ ...prev, [id]: value }))
   }
 
   return (
@@ -42,31 +54,77 @@ export function SearchFilter() {
       className="w-full max-w-3xl rounded-[28px] border border-white/15 bg-white/10 p-2 shadow-2xl shadow-black/40 backdrop-blur-2xl"
     >
       <div className="flex flex-col gap-1 sm:flex-row sm:items-center">
-        {fields.map((field, i) => {
-          const Icon = field.icon
-          return (
-            <div
-              key={field.id}
-              className={`flex flex-1 items-center gap-3 rounded-3xl px-4 py-3 transition-colors ${
-                active === field.id ? "bg-white/15" : "hover:bg-white/10"
-              } ${i > 0 ? "sm:border-l sm:border-white/10" : ""}`}
-            >
-              <Icon className="size-5 shrink-0 text-primary" />
-              <label className="flex w-full flex-col text-left">
-                <span className="text-[11px] font-medium uppercase tracking-wider text-foreground/60">
-                  {field.label}
-                </span>
-                <input
-                  type={field.type}
-                  placeholder={field.placeholder}
-                  onFocus={() => setActive(field.id)}
-                  onBlur={() => setActive(null)}
-                  className="w-full bg-transparent text-sm font-medium text-foreground placeholder:text-foreground/45 focus:outline-none"
-                />
-              </label>
-            </div>
-          )
-        })}
+        {/* Destination */}
+        <div
+          className={`flex flex-1 items-center gap-3 rounded-3xl px-4 py-3 transition-colors ${
+            active === "destination" ? "bg-white/15" : "hover:bg-white/10"
+          }`}
+        >
+          <MapPin className="size-5 shrink-0 text-primary" />
+          <label className="flex w-full flex-col text-left">
+            <span className="text-[11px] font-medium uppercase tracking-wider text-foreground/60">
+              Destination
+            </span>
+            <input
+              type="text"
+              name="destination"
+              value={formValues.destination}
+              onChange={(e) => handleChange("destination", e.target.value)}
+              placeholder="e.g. Rajasthan, Kerala, Himalayas..."
+              onFocus={() => setActive("destination")}
+              onBlur={() => setActive(null)}
+              className="w-full bg-transparent text-sm font-medium text-foreground placeholder:text-foreground/45 focus:outline-none"
+            />
+          </label>
+        </div>
+
+        {/* Dates */}
+        <div
+          className={`flex flex-1 items-center gap-3 rounded-3xl px-4 py-3 transition-colors sm:border-l sm:border-white/10 ${
+            active === "dates" ? "bg-white/15" : "hover:bg-white/10"
+          }`}
+        >
+          <CalendarDays className="size-5 shrink-0 text-primary" />
+          <label className="flex w-full flex-col text-left">
+            <span className="text-[11px] font-medium uppercase tracking-wider text-foreground/60">
+              When
+            </span>
+            <input
+              type="text"
+              name="dates"
+              value={formValues.dates}
+              onChange={(e) => handleChange("dates", e.target.value)}
+              placeholder="Flexible dates"
+              onFocus={() => setActive("dates")}
+              onBlur={() => setActive(null)}
+              className="w-full bg-transparent text-sm font-medium text-foreground placeholder:text-foreground/45 focus:outline-none"
+            />
+          </label>
+        </div>
+
+        {/* Guests */}
+        <div
+          className={`flex flex-1 items-center gap-3 rounded-3xl px-4 py-3 transition-colors sm:border-l sm:border-white/10 ${
+            active === "guests" ? "bg-white/15" : "hover:bg-white/10"
+          }`}
+        >
+          <Users className="size-5 shrink-0 text-primary" />
+          <label className="flex w-full flex-col text-left">
+            <span className="text-[11px] font-medium uppercase tracking-wider text-foreground/60">
+              Travelers
+            </span>
+            <input
+              type="text"
+              name="guests"
+              value={formValues.guests}
+              onChange={(e) => handleChange("guests", e.target.value)}
+              placeholder="2 Guests"
+              onFocus={() => setActive("guests")}
+              onBlur={() => setActive(null)}
+              className="w-full bg-transparent text-sm font-medium text-foreground placeholder:text-foreground/45 focus:outline-none"
+            />
+          </label>
+        </div>
 
         <button
           type="submit"

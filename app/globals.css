@@ -186,3 +186,76 @@
     animation: none;
   }
 }
+
+/* Photo Sphere Viewer Custom Luxury Overrides */
+.psv-loader-container {
+  display: none !important;
+}
+
+.psv-container {
+  background: transparent !important;
+}
+
+/* Markers Plugin Overrides */
+.psv-marker {
+  cursor: pointer !important;
+}
+
+.psv-tooltip {
+  background: rgba(10, 15, 25, 0.9) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 0.85rem !important;
+  color: #fff !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.6) !important;
+  font-family: inherit !important;
+  padding: 6px 12px !important;
+}
+
+.psv-tooltip-arrow {
+  border-top-color: rgba(10, 15, 25, 0.9) !important;
+}
+
+/* Leaflet Custom Luxury Map Styling */
+.leaflet-container {
+  background: #090d16 !important;
+  font-family: inherit !important;
+}
+
+.leaflet-tile-pane {
+  filter: brightness(0.85) contrast(1.15) saturate(0.9);
+}
+
+.custom-journal-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: rgba(13, 20, 36, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 1.25rem !important;
+  color: #fff !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7) !important;
+}
+
+.leaflet-popup-tip {
+  background: rgba(13, 20, 36, 0.95) !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(0, 0, 0, 0.5) !important;
+  color: rgba(255, 255, 255, 0.4) !important;
+  font-size: 10px !important;
+  backdrop-filter: blur(8px) !important;
+  border-radius: 4px !important;
+  padding: 2px 6px !important;
+  margin: 4px !important;
+}
+
+.leaflet-control-attribution a {
+  color: var(--primary) !important;
+  text-decoration: none !important;
+}
+
