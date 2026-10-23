@@ -83,7 +83,7 @@ export default async function ServicesPage() {
       </section>
 
       {/* Concierge Desk & Operations Banner */}
-      <section className="relative border-t border-white/10 bg-slate-950/80 py-20">
+      <section className="relative border-t border-white/10 bg-slate-950/80 py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 rounded-3xl border border-white/12 bg-white/5 p-8 md:p-12 backdrop-blur-xl">
             <div className="max-w-xl text-center md:text-left">

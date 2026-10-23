@@ -223,7 +223,7 @@ export function CuratedByIntention() {
   }
 
   return (
-    <section className="relative w-full py-20 sm:py-28 lg:py-32 overflow-hidden bg-slate-950 text-foreground selection:bg-primary/30 selection:text-primary">
+    <section className="relative w-full py-16 md:py-24 overflow-hidden bg-slate-950 text-foreground selection:bg-primary/30 selection:text-primary">
       {/* Ambient background glow */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <div className="absolute top-1/4 -left-32 size-[500px] rounded-full bg-primary/10 blur-[150px]" />
@@ -236,22 +236,22 @@ export function CuratedByIntention() {
         <div className="text-center max-w-3xl mx-auto space-y-3.5 sm:space-y-4">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 backdrop-blur-md">
             <Sparkles className="size-3.5 text-primary animate-pulse" />
-            <span className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.25em] text-primary font-semibold">
+            <span className="font-mono text-xs uppercase tracking-widest text-primary font-semibold">
               Curated by Intention
             </span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-white font-medium tracking-tight leading-[1.15]">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-foreground font-medium tracking-tight leading-[1.15]">
             Thematic Indian Circuits
           </h2>
 
-          <p className="text-xs sm:text-sm md:text-base text-foreground/75 font-light leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm md:text-base text-foreground/80 font-light leading-relaxed max-w-2xl mx-auto">
             Experience our sovereign domestic luxury circuits. Handcrafted exclusively for Indian patrons, featuring palace buyouts, private charters, and high-touch concierge care.
           </p>
         </div>
 
         {/* Intention Tabs Bar (Touch-scrollable on mobile, centered on tablet/desktop) */}
-        <div className="mt-8 sm:mt-12 flex items-center overflow-x-auto sm:flex-wrap sm:justify-center gap-2 sm:gap-3 pb-3 sm:pb-0 px-1 -mx-4 sm:mx-0 px-4 sm:px-0 no-scrollbar">
+        <div className="mt-8 sm:mt-12 flex items-center overflow-x-auto sm:flex-wrap sm:justify-center gap-2 sm:gap-3 pb-3 sm:pb-0 -mx-4 sm:mx-0 px-4 sm:px-0 no-scrollbar">
           {INTENTION_TABS.map((tab) => {
             const isSelected = activeTabId === tab.id
             const Icon = tab.icon
@@ -361,7 +361,7 @@ export function CuratedByIntention() {
               {/* ============================================================ */}
               <div
                 ref={mobileCarouselRef}
-                className="flex sm:hidden overflow-x-auto snap-x snap-mandatory gap-4 px-1 pb-4 no-scrollbar -mx-4 px-4"
+                className="flex sm:hidden overflow-x-auto snap-x snap-mandatory gap-4 pb-4 no-scrollbar -mx-4 px-4"
               >
                 {filteredPackages.map((pkg, idx) => (
                   <div

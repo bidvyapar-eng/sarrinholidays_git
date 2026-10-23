@@ -21,6 +21,7 @@ import {
   HelpCircle,
   FileText,
   MapPin,
+  Phone,
 } from 'lucide-react'
 
 export const dynamic = 'force-dynamic'
@@ -362,6 +363,12 @@ function ServiceIcon({ name, className = 'size-5' }: { name: string; className?:
   }
 }
 
+export async function generateStaticParams() {
+  return fallbackServices.map((service) => ({
+    slug: service.slug,
+  }))
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -530,7 +537,7 @@ export default async function ServiceDetailPage({
   }
 
   return (
-    <main className="relative min-h-screen bg-background selection:bg-primary/30 selection:text-primary">
+    <main className="relative min-h-screen bg-background selection:bg-primary/30 selection:text-primary overflow-x-hidden w-full max-w-[100vw] pb-28 md:pb-0">
       <JsonLd data={serviceSchema} id="service-schema" />
       {/* Floating Glass Navbar */}
       <Navbar logoText={settings?.navbar_logo_text} />
@@ -565,12 +572,12 @@ export default async function ServiceDetailPage({
 
           {/* Service Classification Eyebrow Badge */}
           <div className="flex flex-wrap items-center gap-2 mb-4">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/20 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary backdrop-blur-md shadow-lg">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/20 px-3.5 py-1 text-xs font-mono font-semibold uppercase tracking-widest text-primary backdrop-blur-md shadow-lg">
               <ServiceIcon name={service.icon_name} className="size-3.5" />
               {dossier.classification}
             </span>
 
-            <span className="rounded-full border border-white/15 bg-black/50 px-3 py-1 text-[11px] font-mono text-foreground/75 backdrop-blur-md hidden sm:inline-block">
+            <span className="rounded-full border border-white/15 bg-black/50 px-3 py-1 text-xs font-mono text-foreground/75 backdrop-blur-md hidden sm:inline-block">
               {dossier.coverage}
             </span>
           </div>
@@ -598,18 +605,18 @@ export default async function ServiceDetailPage({
           {/* Bottom Fast-Facts Bar */}
           <div className="mt-8 flex flex-wrap items-center gap-4 sm:gap-8 pt-6 border-t border-white/15 text-xs text-foreground/70 font-mono">
             <div>
-              <span className="text-foreground/40 block text-[10px] uppercase">Standard Pricing</span>
+              <span className="text-foreground/40 block text-[10px] uppercase font-mono tracking-wider">Standard Pricing</span>
               <span className="text-primary font-semibold text-sm">{dossier.pricing}</span>
             </div>
             <div className="hidden sm:block h-6 w-[1px] bg-white/10" />
             <div>
-              <span className="text-foreground/40 block text-[10px] uppercase">Lead Dispatch</span>
-              <span className="text-white font-medium">{dossier.leadTime}</span>
+              <span className="text-foreground/40 block text-[10px] uppercase font-mono tracking-wider">Lead Dispatch</span>
+              <span className="text-foreground font-medium">{dossier.leadTime}</span>
             </div>
             <div className="hidden sm:block h-6 w-[1px] bg-white/10" />
             <div>
-              <span className="text-foreground/40 block text-[10px] uppercase">Confidentiality</span>
-              <span className="text-white font-medium">Strict NDA Standard</span>
+              <span className="text-foreground/40 block text-[10px] uppercase font-mono tracking-wider">Confidentiality</span>
+              <span className="text-foreground font-medium">Strict NDA Standard</span>
             </div>
           </div>
         </div>
@@ -629,7 +636,7 @@ export default async function ServiceDetailPage({
             <div>
               <div className="flex items-center gap-2 mb-3">
                 <FileText className="size-4 text-primary" />
-                <span className="text-xs uppercase tracking-[0.25em] text-primary font-mono font-medium">
+                <span className="text-xs uppercase tracking-widest text-primary font-mono font-medium">
                   Curator Perspective
                 </span>
               </div>
@@ -648,7 +655,7 @@ export default async function ServiceDetailPage({
 
             {/* Section 2: Four Core Operational Pillars */}
             <div className="pt-4">
-              <span className="text-xs uppercase tracking-[0.25em] text-primary font-mono font-medium">
+              <span className="text-xs uppercase tracking-widest text-primary font-mono font-medium">
                 Operational Framework
               </span>
               <h3 className="mt-2 font-serif text-2xl sm:text-3xl text-foreground">
@@ -677,7 +684,7 @@ export default async function ServiceDetailPage({
 
             {/* Section 3: The 3-Step Execution Sequence */}
             <div className="pt-4 border-t border-white/10">
-              <span className="text-xs uppercase tracking-[0.25em] text-primary font-mono font-medium">
+              <span className="text-xs uppercase tracking-widest text-primary font-mono font-medium">
                 Concierge Protocol
               </span>
               <h3 className="mt-2 font-serif text-2xl sm:text-3xl text-foreground">
@@ -767,11 +774,11 @@ export default async function ServiceDetailPage({
       {/* ========================================================================= */}
       {/* 3. COMPANION SERVICES SHOWCASE FOOTER */}
       {/* ========================================================================= */}
-      <section className="relative border-t border-white/10 bg-slate-950/90 py-20">
+      <section className="relative border-t border-white/10 bg-slate-950/90 py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
             <div>
-              <span className="text-xs uppercase tracking-[0.25em] text-primary font-mono">
+              <span className="text-xs uppercase tracking-widest text-primary font-mono font-medium">
                 Sarrin Private Atelier
               </span>
               <h2 className="mt-2 font-serif text-3xl text-foreground">
@@ -793,7 +800,7 @@ export default async function ServiceDetailPage({
               <Link
                 key={other.slug}
                 href={`/services/${other.slug}`}
-                className="group flex flex-col rounded-3xl border border-white/10 bg-white/5 overflow-hidden p-5 transition-all hover:border-primary/50 hover:bg-white/10 hover:-translate-y-1 shadow-xl"
+                className="group flex flex-col rounded-3xl border border-white/10 bg-white/5 overflow-hidden p-5 transition-all duration-500 ease-out hover:border-primary/50 hover:bg-white/10 hover:-translate-y-1 hover:shadow-2xl shadow-xl"
               >
                 <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/10">
                   <img
@@ -825,6 +832,44 @@ export default async function ServiceDetailPage({
           </div>
         </div>
       </section>
+
+      {/* ========================================================================= */}
+      {/* STICKY BOTTOM ACTION BAR FOR MOBILE (< 768px)                             */}
+      {/* ========================================================================= */}
+      <div className="block md:hidden fixed bottom-0 inset-x-0 z-50 bg-slate-950/95 backdrop-blur-2xl border-t border-white/10 p-3 sm:p-4 shadow-[0_-10px_35px_rgba(0,0,0,0.85)]">
+        <div className="mx-auto flex max-w-lg items-center justify-between gap-3">
+          <div className="min-w-0">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block truncate">
+              {dossier.leadTime}
+            </span>
+            <div className="flex items-baseline gap-1">
+              <span className="font-serif text-base sm:text-lg font-bold text-white truncate max-w-[140px]">
+                {dossier.pricing}
+              </span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2 shrink-0">
+            <a
+              href="https://wa.me/919820044810?text=Hello%20Sarrin%20Holidays%2C%20I%20would%20like%20to%20inquire%20about%20your%20bespoke%20services."
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Chat on WhatsApp"
+              className="flex min-h-[48px] min-w-[48px] items-center justify-center rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-emerald-300 transition-colors"
+            >
+              <Phone className="size-4" />
+            </a>
+
+            <ServiceRequestButton
+              serviceTitle={service.title}
+              classification={dossier.classification}
+              variant="card"
+              label="Plan Your Journey"
+              className="w-auto px-5 py-3 text-xs font-bold min-h-[48px]"
+            />
+          </div>
+        </div>
+      </div>
     </main>
   )
 }

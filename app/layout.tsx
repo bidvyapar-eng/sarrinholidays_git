@@ -1,20 +1,32 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Geist, Playfair_Display } from 'next/font/google'
+import { Cormorant_Garamond, Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 import { JsonLd } from '@/components/json-ld'
 
-const geistSans = Geist({
+const sans = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  variable: '--font-geist-sans',
+  variable: '--font-sans',
+  display: 'swap',
 })
 
-const playfair = Playfair_Display({
+const serif = Cormorant_Garamond({
   subsets: ['latin'],
-  variable: '--font-playfair',
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-serif',
+  display: 'swap',
 })
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sarrinholidays.com'
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  colorScheme: 'dark',
+  themeColor: '#020617',
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -98,11 +110,6 @@ export const metadata: Metadata = {
   },
 }
 
-export const viewport: Viewport = {
-  colorScheme: 'dark',
-  themeColor: '#0a2233',
-}
-
 const travelAgencySchema = {
   '@context': 'https://schema.org',
   '@type': 'TravelAgency',
@@ -171,13 +178,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${playfair.variable} bg-background`}
+      className={`${sans.variable} ${serif.variable} bg-background`}
       suppressHydrationWarning
     >
       <head>
         <JsonLd data={travelAgencySchema} id="travel-agency-schema" />
       </head>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased overflow-x-hidden min-w-[320px] max-w-[100vw]">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

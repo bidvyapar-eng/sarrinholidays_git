@@ -43,7 +43,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
     .single()
 
   return (
-    <main className="relative min-h-screen bg-background text-foreground selection:bg-primary/30 selection:text-primary overflow-x-hidden">
+    <main className="relative min-h-screen bg-background text-foreground selection:bg-primary/30 selection:text-primary overflow-x-hidden w-full max-w-[100vw]">
       {/* Floating Glass Navbar */}
       <Navbar logoText={settings?.navbar_logo_text} />
 
@@ -55,7 +55,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
       </div>
 
       {/* Main Container */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 pb-24 sm:pb-32 space-y-16">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-36 sm:pt-44 pb-20 sm:pb-32 space-y-16">
         {/* =================================================================== */}
         {/* TOP: GLOBAL CONCIERGE ROUTING SYSTEM (CONTROLLED BY FEATURE FLAG) */}
         {/* =================================================================== */}
@@ -89,19 +89,19 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
 
             {/* Corporate Office Dossiers (Mumbai & Rajasthan) */}
             <div className="space-y-6 pt-2">
-              <span className="text-xs uppercase tracking-[0.25em] text-primary font-mono font-medium block">
+              <span className="text-xs uppercase tracking-widest text-primary font-mono font-medium block">
                 Corporate Operations Desks
               </span>
 
               {/* Office 1: Mumbai Headquarters */}
-              <div className="group rounded-3xl border border-white/12 bg-white/[0.03] p-6 sm:p-7 backdrop-blur-xl transition-all duration-300 hover:border-primary/40 hover:bg-white/[0.05] shadow-xl">
+              <div className="group rounded-3xl border border-white/12 bg-white/[0.03] p-6 sm:p-7 backdrop-blur-xl transition-all duration-500 ease-out hover:border-primary/50 hover:bg-white/[0.06] hover:shadow-2xl hover:shadow-black/60 shadow-xl">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-3">
                     <div className="flex size-11 items-center justify-center rounded-2xl bg-primary/20 text-primary border border-primary/30">
                       <Building2 className="size-5" />
                     </div>
                     <div>
-                      <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary">
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-primary">
                         Pan-India Operations HQ
                       </span>
                       <h3 className="font-serif text-xl text-foreground font-medium">
@@ -151,14 +151,14 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
               </div>
 
               {/* Office 2: Rajasthan Heritage Atelier */}
-              <div className="group rounded-3xl border border-white/12 bg-white/[0.03] p-6 sm:p-7 backdrop-blur-xl transition-all duration-300 hover:border-primary/40 hover:bg-white/[0.05] shadow-xl">
+              <div className="group rounded-3xl border border-white/12 bg-white/[0.03] p-6 sm:p-7 backdrop-blur-xl transition-all duration-500 ease-out hover:border-primary/50 hover:bg-white/[0.06] hover:shadow-2xl hover:shadow-black/60 shadow-xl">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-3">
                     <div className="flex size-11 items-center justify-center rounded-2xl bg-amber-500/20 text-amber-400 border border-amber-500/30">
                       <Crown className="size-5" />
                     </div>
                     <div>
-                      <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary">
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-primary">
                         Royal Buyout Concierge
                       </span>
                       <h3 className="font-serif text-xl text-foreground font-medium">

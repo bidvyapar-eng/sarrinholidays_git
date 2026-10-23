@@ -201,17 +201,17 @@ export function PackagesGrid() {
   }
 
   return (
-    <section id="destinations" className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6">
+    <section id="destinations" className="relative mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
       {/* Section Header */}
       <div className="mx-auto max-w-2xl text-center">
-        <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-primary backdrop-blur-md">
+        <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-mono font-semibold uppercase tracking-widest text-primary backdrop-blur-md">
           <Sparkles className="size-3.5 text-primary" />
           Live Catalog • Verified Escapes
         </span>
         <h2 className="mt-4 text-balance font-serif text-4xl leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
           Signature curated <span className="italic text-primary">journeys</span>
         </h2>
-        <p className="mt-4 text-pretty text-base leading-relaxed text-foreground/70 sm:text-lg">
+        <p className="mt-4 text-pretty text-base leading-relaxed text-foreground/80 font-light sm:text-lg">
           Each itinerary is architected end-to-end with private chauffeurs, palace heritage stays, and bespoke culinary hosts.
         </p>
       </div>

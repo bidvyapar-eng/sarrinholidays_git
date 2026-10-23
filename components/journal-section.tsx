@@ -205,7 +205,7 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
   }
 
   return (
-    <section id="journal" className="relative border-y border-white/10 bg-black/30 py-24 overflow-hidden">
+    <section id="journal" className="relative border-y border-white/10 bg-black/30 py-16 md:py-24 overflow-hidden">
       {/* Decorative ambient background glows */}
       <div className="pointer-events-none absolute -top-40 right-10 size-[500px] rounded-full bg-primary/5 blur-[120px]" />
       <div className="pointer-events-none absolute -bottom-40 left-10 size-[500px] rounded-full bg-amber-500/5 blur-[120px]" />
@@ -215,17 +215,17 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-xs uppercase tracking-[0.25em] text-primary font-medium">
+              <span className="text-xs uppercase tracking-widest text-primary font-mono font-medium">
                 From The Journal
               </span>
-              <span className="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 text-[10px] font-semibold text-primary uppercase tracking-wider">
+              <span className="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 text-[10px] font-semibold text-primary uppercase tracking-widest font-mono">
                 <Sparkles className="size-3" /> Visual Discovery
               </span>
             </div>
             <h2 className="mt-3 font-serif text-4xl text-foreground sm:text-5xl">
               Field notes for curious travellers.
             </h2>
-            <p className="mt-3 max-w-2xl text-base text-foreground/70 leading-relaxed">
+            <p className="mt-3 max-w-2xl text-base text-foreground/80 leading-relaxed font-light">
               Explore dispatches across royal desert heartlands, tranquil coastal lagoons, and high Himalayan
               sanctuaries. Visually navigate articles by region or browse the curated archive.
             </p>
@@ -316,7 +316,7 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
 
               {/* Active Article Spotlight Glass Card */}
               <div className="lg:col-span-5 xl:col-span-4 flex flex-col">
-                <div className="relative flex flex-col h-full rounded-3xl border border-white/15 bg-slate-900/60 backdrop-blur-2xl p-6 md:p-8 shadow-2xl justify-between overflow-hidden group">
+                <div className="relative flex flex-col h-full rounded-3xl border border-white/15 bg-slate-900/60 backdrop-blur-2xl p-6 md:p-8 shadow-2xl justify-between overflow-hidden group transition-all duration-500 ease-out hover:shadow-2xl hover:border-primary/40">
                   {/* Subtle top amber glow line */}
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-75" />
 
@@ -326,7 +326,7 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
                       <img
                         src={activeArticle.imageUrl}
                         alt={activeArticle.title}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
 
@@ -452,16 +452,22 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
                 const slug = post.slug || (post as any).id || ''
                 const meta = REGIONAL_METADATA[slug]
 
+                const imageUrl =
+                  ('imageUrl' in post ? post.imageUrl : undefined) ||
+                  ('image_url' in post ? (post as any).image_url : undefined) ||
+                  (post as any).featured_image ||
+                  ''
+
                 return (
                   <article
                     key={post.id}
-                    className="group flex flex-col rounded-3xl border border-white/10 bg-white/5 overflow-hidden transition-all duration-300 hover:border-primary/40 hover:bg-white/10 hover:-translate-y-1 shadow-xl"
+                    className="group flex flex-col rounded-3xl border border-white/10 bg-white/5 overflow-hidden transition-all duration-500 ease-out hover:border-primary/50 hover:bg-white/10 hover:shadow-2xl hover:shadow-black/60 shadow-xl"
                   >
                     <div className="relative aspect-video w-full overflow-hidden">
                       <img
-                        src={post.image_url}
+                        src={imageUrl}
                         alt={post.title}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                       {meta && (
@@ -473,13 +479,13 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
                     </div>
 
                     <div className="flex flex-col flex-1 p-6">
-                      <span className="text-xs uppercase tracking-[0.2em] text-primary font-medium">
+                      <span className="text-xs uppercase tracking-widest text-primary font-mono font-medium">
                         {post.category}
                       </span>
                       <h3 className="mt-2 font-serif text-2xl text-foreground leading-snug group-hover:text-primary transition-colors">
                         {post.title}
                       </h3>
-                      <p className="mt-3 text-sm leading-relaxed text-foreground/65 flex-1">
+                      <p className="mt-3 text-sm leading-relaxed text-foreground/75 font-light flex-1">
                         {post.excerpt}
                       </p>
 

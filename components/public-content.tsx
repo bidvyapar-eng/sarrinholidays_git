@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import { ArrowUpRight, Compass, Sparkles, BookOpen, HeartHandshake } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 import { fallbackDestinations, fallbackSite, type Destination, type Experience, type JournalPost } from '@/lib/cms'
-
 import { JournalSection } from '@/components/journal-section'
 
 export function PublicContent() {
@@ -12,10 +11,120 @@ export function PublicContent() {
   const [destinations, setDestinations] = useState<Destination[]>(fallbackDestinations)
   const [experiences, setExperiences] = useState<Experience[]>([])
   const [journal, setJournal] = useState<JournalPost[]>([])
-  useEffect(() => { const load = async () => { const supabase = createClient(); const [{ data: s }, { data: d }, { data: e }, { data: j }] = await Promise.all([supabase.from('site_settings').select('value').eq('key','site').maybeSingle(), supabase.from('destinations').select('*').eq('is_published',true).order('sort_order'), supabase.from('experiences').select('*').eq('is_published',true).order('sort_order'), supabase.from('journal_posts').select('*').eq('is_published',true).order('sort_order')]); if (s?.value) setSite({ ...fallbackSite, ...s.value }); if (d?.length) setDestinations(d); if (e) setExperiences(e); if (j) setJournal(j) }; void load() }, [])
-  return <>
-    <section id="experiences" className="mx-auto max-w-6xl px-4 py-24 sm:px-6"><div className="max-w-2xl"><span className="text-xs uppercase tracking-[.2em] text-primary">The Sarrin way</span><h2 className="mt-3 font-serif text-4xl text-foreground sm:text-5xl">Travel with more meaning.</h2><p className="mt-4 leading-relaxed text-foreground/70">Every detail is considered, so you can be fully present wherever the journey takes you.</p></div><div className="mt-12 grid gap-5 md:grid-cols-3">{(experiences.length ? experiences : [{id:'1',category:'Stay',title:'Places with a pulse',description:'Design-led hideaways and warm local hosts.',image_url:'/package-amalfi.png'},{id:'2',category:'Taste',title:'Tables worth travelling for',description:'Markets, chefs, and meals that become memories.',image_url:'/package-kyoto.png'},{id:'3',category:'Discover',title:'The world, your way',description:'Rare access with thoughtful guides.',image_url:'/package-serengeti.png'}] as Experience[]).map((item, i) => <article key={item.id} className="group overflow-hidden rounded-3xl border border-white/10 bg-white/7"><img src={item.image_url} alt="" className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105" /><div className="p-6"><span className="text-xs uppercase tracking-[.2em] text-primary">{item.category}</span><h3 className="mt-2 font-serif text-2xl text-foreground">{item.title}</h3><p className="mt-2 text-sm leading-relaxed text-foreground/65">{item.description}</p></div></article>)}</div></section>
-    <JournalSection initialPosts={journal} />
-    <section id="about" className="mx-auto max-w-6xl px-4 py-24 sm:px-6"><div className="grid gap-8 rounded-[2rem] border border-primary/20 bg-primary/10 p-8 md:grid-cols-[1.2fr_.8fr] md:p-12"><div><span className="text-xs uppercase tracking-[.2em] text-primary">About Sarrin Holidays</span><h2 className="mt-3 font-serif text-4xl text-foreground sm:text-5xl">A little further from ordinary.</h2><p className="mt-5 max-w-xl leading-relaxed text-foreground/75">We design considered journeys for people who want to feel a place, not simply pass through it. Our concierge team turns curiosity into a seamless, deeply personal escape.</p><button className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">Talk to a concierge <HeartHandshake className="size-4" /></button></div><div className="flex items-center justify-center"><div className="rounded-full border border-primary/30 bg-background/40 p-10"><Compass className="size-20 text-primary" /></div></div></div></section>
-  </>
+
+  useEffect(() => {
+    const load = async () => {
+      const supabase = createClient()
+      const [{ data: s }, { data: d }, { data: e }, { data: j }] = await Promise.all([
+        supabase.from('site_settings').select('value').eq('key', 'site').maybeSingle(),
+        supabase.from('destinations').select('*').eq('is_published', true).order('sort_order'),
+        supabase.from('experiences').select('*').eq('is_published', true).order('sort_order'),
+        supabase.from('journal_posts').select('*').eq('is_published', true).order('sort_order'),
+      ])
+      if (s?.value) setSite({ ...fallbackSite, ...s.value })
+      if (d?.length) setDestinations(d)
+      if (e) setExperiences(e)
+      if (j) setJournal(j)
+    }
+    void load()
+  }, [])
+
+  return (
+    <>
+      <section id="experiences" className="mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
+        <div className="max-w-2xl">
+          <span className="text-xs font-mono uppercase tracking-widest text-primary font-medium">
+            The Sarrin Way
+          </span>
+          <h2 className="mt-3 font-serif text-4xl text-foreground sm:text-5xl">
+            Travel with more meaning.
+          </h2>
+          <p className="mt-4 leading-relaxed text-foreground/80">
+            Every detail is considered, so you can be fully present wherever the journey takes you.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
+          {(experiences.length
+            ? experiences
+            : [
+                {
+                  id: '1',
+                  category: 'Stay',
+                  title: 'Places with a pulse',
+                  description: 'Design-led hideaways and warm local hosts.',
+                  image_url: '/package-amalfi.png',
+                },
+                {
+                  id: '2',
+                  category: 'Taste',
+                  title: 'Tables worth travelling for',
+                  description: 'Markets, chefs, and meals that become memories.',
+                  image_url: '/package-kyoto.png',
+                },
+                {
+                  id: '3',
+                  category: 'Discover',
+                  title: 'The world, your way',
+                  description: 'Rare access with thoughtful guides.',
+                  image_url: '/package-serengeti.png',
+                },
+              ] as Experience[]
+          ).map((item) => (
+            <article
+              key={item.id}
+              className="group overflow-hidden rounded-3xl border border-white/10 bg-white/5 transition-all duration-500 ease-out hover:border-primary/50 hover:bg-white/[0.08] hover:shadow-2xl hover:shadow-black/60"
+            >
+              <div className="overflow-hidden">
+                <img
+                  src={item.image_url}
+                  alt=""
+                  className="aspect-[4/3] w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6">
+                <span className="text-xs font-mono uppercase tracking-widest text-primary font-medium">
+                  {item.category}
+                </span>
+                <h3 className="mt-2 font-serif text-2xl text-foreground">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-foreground/75 font-light">
+                  {item.description}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <JournalSection initialPosts={journal} />
+
+      <section id="about" className="mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
+        <div className="grid gap-8 rounded-[2rem] border border-primary/25 bg-gradient-to-br from-primary/10 via-slate-900/80 to-primary/5 p-8 md:grid-cols-[1.2fr_.8fr] md:p-12 backdrop-blur-xl">
+          <div>
+            <span className="text-xs font-mono uppercase tracking-widest text-primary font-medium">
+              About Sarrin Holidays
+            </span>
+            <h2 className="mt-3 font-serif text-4xl text-foreground sm:text-5xl">
+              A little further from ordinary.
+            </h2>
+            <p className="mt-5 max-w-xl leading-relaxed text-foreground/80 font-light">
+              We design considered journeys for people who want to feel a place, not simply pass through it. Our concierge team turns curiosity into a seamless, deeply personal escape.
+            </p>
+            <a
+              href="/contact"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary hover:bg-[#c5a030] border border-primary/40 px-6 py-3.5 text-xs font-semibold uppercase tracking-widest text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:brightness-105 active:scale-95"
+            >
+              <span>Talk to a concierge</span>
+              <HeartHandshake className="size-4" />
+            </a>
+          </div>
+          <div className="flex items-center justify-center">
+            <div className="rounded-full border border-primary/30 bg-background/50 p-10 backdrop-blur-xl shadow-2xl">
+              <Compass className="size-20 text-primary" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  )
 }

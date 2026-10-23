@@ -635,7 +635,7 @@ export function ServiceDrawer({
                               {/* Section 2: Specific Dates & Flexibility */}
                               <div className="space-y-4 pt-3 border-t border-white/10">
                                 <div className="space-y-1.5">
-                                  <label className="text-xs font-mono uppercase tracking-wider text-foreground/75 flex items-center gap-2">
+                                  <label className="text-xs font-mono uppercase tracking-wider text-foreground/90 font-medium flex items-center gap-2">
                                     <Calendar className="size-3.5 text-primary" /> Specific Target Dates (Optional)
                                   </label>
                                   <input
@@ -643,7 +643,7 @@ export function ServiceDrawer({
                                     value={specificDate}
                                     onChange={(e) => setSpecificDate(e.target.value)}
                                     placeholder="e.g., Diwali Weekend (Oct 30 – Nov 04, 2026) or Year-End Dec 28"
-                                    className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-xs sm:text-sm text-foreground placeholder-white/30 backdrop-blur-md outline-none transition-all hover:border-white/30 focus:border-primary focus:bg-white/[0.08]"
+                                    className="w-full min-h-[48px] rounded-lg border border-white/12 bg-white/5 px-4 py-3 text-[16px] md:text-sm text-foreground placeholder:text-foreground/45 backdrop-blur-md outline-none transition-all duration-300 hover:border-white/25 focus:border-gold/60 focus:bg-white/[0.08] focus:ring-1 focus:ring-gold/50 focus:shadow-[0_0_15px_rgba(212,175,55,0.15)]"
                                   />
                                 </div>
 
@@ -725,10 +725,10 @@ export function ServiceDrawer({
                                   <select
                                     value={departureCity}
                                     onChange={(e) => setDepartureCity(e.target.value)}
-                                    className="w-full rounded-xl border border-white/15 bg-slate-900 px-3.5 py-2.5 text-xs text-foreground outline-none focus:border-primary cursor-pointer"
+                                    className="w-full min-h-[48px] rounded-lg border border-white/12 bg-white/5 px-4 py-3 text-[16px] md:text-sm text-foreground outline-none transition-all duration-300 hover:border-white/25 focus:border-gold/60 focus:bg-white/[0.08] focus:ring-1 focus:ring-gold/50 focus:shadow-[0_0_15px_rgba(212,175,55,0.15)] cursor-pointer"
                                   >
                                     {INDIAN_ORIGIN_HUBS.map((hub) => (
-                                      <option key={hub.id} value={hub.name}>
+                                      <option key={hub.id} value={hub.name} className="bg-slate-900 text-foreground">
                                         {hub.name} ({hub.code}) — {hub.state}
                                       </option>
                                     ))}
@@ -738,7 +738,7 @@ export function ServiceDrawer({
                                 {/* Conditional Other City input */}
                                 {departureCity === 'Other City' && (
                                   <div className="space-y-1.5 pt-1">
-                                    <label className="text-[11px] font-mono uppercase tracking-wider text-foreground/75">
+                                    <label className="text-xs font-mono uppercase tracking-wider text-foreground/85 font-medium">
                                       Specify Origin City / Airstrip *
                                     </label>
                                     <input
@@ -747,7 +747,7 @@ export function ServiceDrawer({
                                       value={customDepartureCity}
                                       onChange={(e) => setCustomDepartureCity(e.target.value)}
                                       placeholder="e.g., Jaipur, Surat, Chandigarh, Kochi, Indore, Lucknow..."
-                                      className="w-full rounded-xl border border-primary/40 bg-white/5 px-4 py-2.5 text-xs sm:text-sm text-foreground placeholder-white/30 backdrop-blur-md outline-none transition-all hover:border-primary focus:border-primary focus:bg-white/[0.08]"
+                                      className="w-full min-h-[48px] rounded-lg border border-white/12 bg-white/5 px-4 py-3 text-[16px] md:text-sm text-foreground placeholder:text-foreground/45 backdrop-blur-md outline-none transition-all duration-300 hover:border-white/25 focus:border-gold/60 focus:bg-white/[0.08] focus:ring-1 focus:ring-gold/50 focus:shadow-[0_0_15px_rgba(212,175,55,0.15)]"
                                     />
                                   </div>
                                 )}
@@ -838,9 +838,9 @@ export function ServiceDrawer({
                                       type="button"
                                       disabled={adults <= 1}
                                       onClick={() => setAdults((prev) => Math.max(1, prev - 1))}
-                                      className="size-8 rounded-lg border border-white/15 bg-white/5 flex items-center justify-center text-foreground/70 hover:bg-white/15 hover:text-white disabled:opacity-30 cursor-pointer"
+                                      className="size-10 rounded-xl border border-white/15 bg-white/5 flex items-center justify-center text-foreground/70 hover:bg-white/15 hover:text-white disabled:opacity-30 cursor-pointer"
                                     >
-                                      <Minus className="size-3.5" />
+                                      <Minus className="size-4" />
                                     </button>
                                     <span className="font-mono text-base font-bold text-primary w-5 text-center">
                                       {adults}
@@ -848,9 +848,9 @@ export function ServiceDrawer({
                                     <button
                                       type="button"
                                       onClick={() => setAdults((prev) => prev + 1)}
-                                      className="size-8 rounded-lg border border-white/15 bg-white/5 flex items-center justify-center text-foreground/70 hover:bg-white/15 hover:text-white cursor-pointer"
+                                      className="size-10 rounded-xl border border-white/15 bg-white/5 flex items-center justify-center text-foreground/70 hover:bg-white/15 hover:text-white cursor-pointer"
                                     >
-                                      <Plus className="size-3.5" />
+                                      <Plus className="size-4" />
                                     </button>
                                   </div>
                                 </div>
@@ -868,9 +868,9 @@ export function ServiceDrawer({
                                       type="button"
                                       disabled={children <= 0}
                                       onClick={() => setChildren((prev) => Math.max(0, prev - 1))}
-                                      className="size-8 rounded-lg border border-white/15 bg-white/5 flex items-center justify-center text-foreground/70 hover:bg-white/15 hover:text-white disabled:opacity-30 cursor-pointer"
+                                      className="size-10 rounded-xl border border-white/15 bg-white/5 flex items-center justify-center text-foreground/70 hover:bg-white/15 hover:text-white disabled:opacity-30 cursor-pointer"
                                     >
-                                      <Minus className="size-3.5" />
+                                      <Minus className="size-4" />
                                     </button>
                                     <span className="font-mono text-base font-bold text-primary w-5 text-center">
                                       {children}
@@ -878,9 +878,9 @@ export function ServiceDrawer({
                                     <button
                                       type="button"
                                       onClick={() => setChildren((prev) => prev + 1)}
-                                      className="size-8 rounded-lg border border-white/15 bg-white/5 flex items-center justify-center text-foreground/70 hover:bg-white/15 hover:text-white cursor-pointer"
+                                      className="size-10 rounded-xl border border-white/15 bg-white/5 flex items-center justify-center text-foreground/70 hover:bg-white/15 hover:text-white cursor-pointer"
                                     >
-                                      <Plus className="size-3.5" />
+                                      <Plus className="size-4" />
                                     </button>
                                   </div>
                                 </div>
@@ -1000,7 +1000,7 @@ export function ServiceDrawer({
 
                               {/* Freeform VIP Briefing Notes */}
                               <div className="space-y-2 pt-2 border-t border-white/10">
-                                <label className="text-xs font-mono uppercase tracking-wider text-foreground/75 flex items-center gap-2">
+                                <label className="text-xs font-mono uppercase tracking-wider text-foreground/90 font-medium flex items-center gap-2">
                                   <Sparkles className="size-3.5 text-primary" /> Confidential Briefing Notes (Optional)
                                 </label>
                                 <textarea
@@ -1008,7 +1008,7 @@ export function ServiceDrawer({
                                   value={vipBrief}
                                   onChange={(e) => setVipBrief(e.target.value)}
                                   placeholder="Describe any private jet tarmac connections, armed escort, antique shopping curators, or discreet celebration requests..."
-                                  className="w-full rounded-xl border border-white/15 bg-white/5 p-3 text-xs text-foreground placeholder-white/30 backdrop-blur-md outline-none transition-all hover:border-white/30 focus:border-primary focus:bg-white/[0.08]"
+                                  className="w-full rounded-lg border border-white/12 bg-white/5 px-4 py-3 text-[16px] md:text-sm text-foreground placeholder:text-foreground/45 backdrop-blur-md outline-none transition-all duration-300 hover:border-white/25 focus:border-gold/60 focus:bg-white/[0.08] focus:ring-1 focus:ring-gold/50 focus:shadow-[0_0_15px_rgba(212,175,55,0.15)] resize-none leading-relaxed"
                                 />
                               </div>
                             </motion.div>
@@ -1051,19 +1051,19 @@ export function ServiceDrawer({
                                   <select
                                     value={title}
                                     onChange={(e) => setTitle(e.target.value)}
-                                    className="w-full rounded-xl border border-white/15 bg-slate-900 px-2.5 py-3 text-xs text-foreground outline-none focus:border-primary cursor-pointer"
+                                    className="w-full min-h-[48px] rounded-lg border border-white/12 bg-white/5 px-3 py-3 text-[16px] md:text-sm text-foreground outline-none transition-all duration-300 hover:border-white/25 focus:border-gold/60 focus:bg-white/[0.08] focus:ring-1 focus:ring-gold/50 focus:shadow-[0_0_15px_rgba(212,175,55,0.15)] cursor-pointer"
                                   >
-                                    <option value="Mr.">Mr.</option>
-                                    <option value="Ms.">Ms.</option>
-                                    <option value="Dr.">Dr.</option>
-                                    <option value="Lord">Lord</option>
-                                    <option value="Lady">Lady</option>
-                                    <option value="Ambassador">Amb.</option>
+                                    <option value="Mr." className="bg-slate-900 text-foreground">Mr.</option>
+                                    <option value="Ms." className="bg-slate-900 text-foreground">Ms.</option>
+                                    <option value="Dr." className="bg-slate-900 text-foreground">Dr.</option>
+                                    <option value="Lord" className="bg-slate-900 text-foreground">Lord</option>
+                                    <option value="Lady" className="bg-slate-900 text-foreground">Lady</option>
+                                    <option value="Ambassador" className="bg-slate-900 text-foreground">Amb.</option>
                                   </select>
                                 </div>
 
                                 <div className="col-span-3 space-y-1.5">
-                                  <label className="text-[11px] font-mono uppercase tracking-wider text-foreground/75">
+                                  <label className="text-xs font-mono uppercase tracking-wider text-foreground/90 font-medium">
                                     Full Legal / Preferred Name *
                                   </label>
                                   <input
@@ -1072,14 +1072,14 @@ export function ServiceDrawer({
                                     value={fullName}
                                     onChange={(e) => setFullName(e.target.value)}
                                     placeholder="Alistair Sterling"
-                                    className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-xs sm:text-sm text-foreground placeholder-white/30 backdrop-blur-md outline-none transition-all hover:border-white/30 focus:border-primary"
+                                    className="w-full min-h-[48px] rounded-lg border border-white/12 bg-white/5 px-4 py-3 text-[16px] md:text-sm text-foreground placeholder:text-foreground/45 backdrop-blur-md outline-none transition-all duration-300 hover:border-white/25 focus:border-gold/60 focus:bg-white/[0.08] focus:ring-1 focus:ring-gold/50 focus:shadow-[0_0_15px_rgba(212,175,55,0.15)]"
                                   />
                                 </div>
                               </div>
 
                               {/* Email */}
                               <div className="space-y-1.5">
-                                <label className="text-[11px] font-mono uppercase tracking-wider text-foreground/75 flex items-center gap-1.5">
+                                <label className="text-xs font-mono uppercase tracking-wider text-foreground/90 font-medium flex items-center gap-1.5">
                                   <Mail className="size-3.5 text-primary" /> Primary Confidential Email *
                                 </label>
                                 <input
@@ -1088,13 +1088,13 @@ export function ServiceDrawer({
                                   value={email}
                                   onChange={(e) => setEmail(e.target.value)}
                                   placeholder="client@familyoffice.in"
-                                  className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-xs sm:text-sm text-foreground placeholder-white/30 backdrop-blur-md outline-none transition-all hover:border-white/30 focus:border-primary"
+                                  className="w-full min-h-[48px] rounded-lg border border-white/12 bg-white/5 px-4 py-3 text-[16px] md:text-sm text-foreground placeholder:text-foreground/45 backdrop-blur-md outline-none transition-all duration-300 hover:border-white/25 focus:border-gold/60 focus:bg-white/[0.08] focus:ring-1 focus:ring-gold/50 focus:shadow-[0_0_15px_rgba(212,175,55,0.15)]"
                                 />
                               </div>
 
                               {/* Phone / WhatsApp: Strict Indian Mobile Validation (+91, 10 Digits) */}
                               <div className="space-y-1.5">
-                                <label className="text-[11px] font-mono uppercase tracking-wider text-foreground/75 flex items-center justify-between">
+                                <label className="text-xs font-mono uppercase tracking-wider text-foreground/90 font-medium flex items-center justify-between">
                                   <span className="flex items-center gap-1.5">
                                     <Phone className="size-3.5 text-primary" /> Direct Indian Mobile / WhatsApp *
                                   </span>
@@ -1105,7 +1105,7 @@ export function ServiceDrawer({
 
                                 <div className="relative flex items-center">
                                   {/* +91 Fixed Flag/Prefix Badge */}
-                                  <div className="flex items-center gap-1.5 px-3 py-3 rounded-l-xl border border-r-0 border-white/15 bg-white/10 text-white text-xs sm:text-sm font-mono select-none">
+                                  <div className="flex min-h-[48px] items-center gap-1.5 px-3.5 py-3 rounded-l-lg border border-r-0 border-white/12 bg-white/10 text-white text-[16px] md:text-sm font-mono select-none">
                                     <span className="text-sm leading-none">🇮🇳</span>
                                     <span className="font-semibold text-primary">+91</span>
                                   </div>
@@ -1119,17 +1119,17 @@ export function ServiceDrawer({
                                     onChange={(e) => handlePhoneChange(e.target.value)}
                                     placeholder="98200 44810"
                                     maxLength={11} // 10 digits + 1 space
-                                    className={`w-full rounded-r-xl border border-white/15 bg-white/5 px-3.5 py-3 text-xs sm:text-sm text-foreground font-mono placeholder-white/30 backdrop-blur-md outline-none transition-all hover:border-white/30 ${
+                                    className={`w-full min-h-[48px] rounded-r-lg border border-white/12 bg-white/5 px-4 py-3 text-[16px] md:text-sm text-foreground font-mono placeholder:text-foreground/45 backdrop-blur-md outline-none transition-all duration-300 hover:border-white/25 ${
                                       isPhoneValid
-                                        ? 'border-emerald-500/60 focus:border-emerald-400 focus:ring-1 focus:ring-emerald-500/40'
+                                        ? 'border-emerald-500/60 focus:border-emerald-400 focus:ring-1 focus:ring-emerald-500/40 focus:shadow-[0_0_15px_rgba(16,185,129,0.15)]'
                                         : phoneDigits.length > 0
-                                        ? 'border-amber-500/50 focus:border-amber-400'
-                                        : 'focus:border-primary'
+                                        ? 'border-amber-500/50 focus:border-amber-400 focus:ring-1 focus:ring-amber-500/40'
+                                        : 'focus:border-gold/60 focus:bg-white/[0.08] focus:ring-1 focus:ring-gold/50 focus:shadow-[0_0_15px_rgba(212,175,55,0.15)]'
                                     }`}
                                   />
 
                                   {/* Real-time Status Icon */}
-                                  <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                                  <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none">
                                     {isPhoneValid ? (
                                       <CheckCircle2 className="size-4 text-emerald-400" />
                                     ) : phoneDigits.length > 0 ? (
@@ -1215,45 +1215,51 @@ export function ServiceDrawer({
                         {/* ===================================================== */}
                         <div className="pt-6 border-t border-white/10 flex items-center justify-between gap-3">
                           {currentStep > 1 ? (
-                            <button
+                            <motion.button
                               type="button"
                               onClick={goToPrevStep}
-                              className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl border border-white/15 bg-white/5 text-xs font-mono uppercase tracking-wider text-foreground/80 hover:bg-white/10 hover:text-white transition-colors cursor-pointer"
+                              whileHover={{ scale: 1.02 }}
+                              whileTap={{ scale: 0.98 }}
+                              className="inline-flex min-h-[48px] items-center gap-1.5 px-4 py-3 rounded-lg border border-white/12 bg-white/5 text-xs font-mono uppercase tracking-wider text-foreground/85 hover:bg-white/10 hover:border-white/25 hover:text-white transition-all duration-300 cursor-pointer"
                             >
                               <ArrowLeft className="size-3.5" />
                               <span>Back</span>
-                            </button>
+                            </motion.button>
                           ) : (
                             <div />
                           )}
 
                           {currentStep < 4 ? (
-                            <button
+                            <motion.button
                               type="button"
                               onClick={goToNextStep}
-                              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary via-amber-500 to-primary py-3 px-6 text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground shadow-xl shadow-primary/25 hover:brightness-110 active:scale-95 transition-all cursor-pointer"
+                              whileHover={{ scale: 1.015 }}
+                              whileTap={{ scale: 0.98 }}
+                              className="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gradient-to-r from-gold via-[#e0c774] to-gold hover:from-[#c5a030] hover:to-[#b89326] border border-gold/50 py-3.5 px-6 text-xs font-semibold uppercase tracking-[0.18em] text-[#0B0F19] shadow-xl shadow-gold/25 transition-all duration-300 hover:brightness-105 cursor-pointer"
                             >
                               <span>Next Step</span>
-                              <ArrowRight className="size-3.5" />
-                            </button>
+                              <ArrowRight className="size-3.5 text-[#0B0F19]" />
+                            </motion.button>
                           ) : (
-                            <button
+                            <motion.button
                               type="submit"
                               disabled={isPending}
-                              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary via-amber-500 to-primary py-3.5 px-7 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground shadow-2xl shadow-primary/30 hover:brightness-110 active:scale-95 transition-all disabled:opacity-50 cursor-pointer"
+                              whileHover={{ scale: isPending ? 1 : 1.015 }}
+                              whileTap={{ scale: isPending ? 1 : 0.98 }}
+                              className="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gradient-to-r from-gold via-[#e0c774] to-gold hover:from-[#c5a030] hover:to-[#b89326] border border-gold/50 py-3.5 px-7 text-xs font-semibold uppercase tracking-[0.2em] text-[#0B0F19] shadow-xl shadow-gold/25 transition-all duration-300 hover:brightness-105 disabled:opacity-50 cursor-pointer"
                             >
                               {isPending ? (
                                 <>
-                                  <Loader2 className="size-4 animate-spin" />
+                                  <Loader2 className="size-4 animate-spin text-[#0B0F19]" />
                                   <span>Transmitting Dossier...</span>
                                 </>
                               ) : (
                                 <>
-                                  <Send className="size-3.5" />
+                                  <Send className="size-3.5 text-[#0B0F19]" />
                                   <span>Transmit VIP Brief</span>
                                 </>
                               )}
-                            </button>
+                            </motion.button>
                           )}
                         </div>
                       </form>

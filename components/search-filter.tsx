@@ -53,10 +53,10 @@ export function SearchFilter() {
       onSubmit={onSubmit}
       className="w-full max-w-3xl rounded-[28px] border border-white/15 bg-white/10 p-2 shadow-2xl shadow-black/40 backdrop-blur-2xl"
     >
-      <div className="flex flex-col gap-1 sm:flex-row sm:items-center">
+      <div className="flex flex-col gap-1.5 md:flex-row md:items-center">
         {/* Destination */}
         <div
-          className={`flex flex-1 items-center gap-3 rounded-3xl px-4 py-3 transition-colors ${
+          className={`flex min-h-[50px] flex-1 items-center gap-3 rounded-2xl px-4 py-2.5 transition-colors ${
             active === "destination" ? "bg-white/15" : "hover:bg-white/10"
           }`}
         >
@@ -73,14 +73,14 @@ export function SearchFilter() {
               placeholder="e.g. Rajasthan, Kerala, Himalayas..."
               onFocus={() => setActive("destination")}
               onBlur={() => setActive(null)}
-              className="w-full bg-transparent text-sm font-medium text-foreground placeholder:text-foreground/45 focus:outline-none"
+              className="w-full bg-transparent text-[16px] md:text-sm font-medium text-foreground placeholder:text-foreground/45 focus:outline-none"
             />
           </label>
         </div>
 
         {/* Dates */}
         <div
-          className={`flex flex-1 items-center gap-3 rounded-3xl px-4 py-3 transition-colors sm:border-l sm:border-white/10 ${
+          className={`flex min-h-[50px] flex-1 items-center gap-3 rounded-2xl px-4 py-2.5 transition-colors md:border-l md:border-white/10 ${
             active === "dates" ? "bg-white/15" : "hover:bg-white/10"
           }`}
         >
@@ -97,14 +97,14 @@ export function SearchFilter() {
               placeholder="Flexible dates"
               onFocus={() => setActive("dates")}
               onBlur={() => setActive(null)}
-              className="w-full bg-transparent text-sm font-medium text-foreground placeholder:text-foreground/45 focus:outline-none"
+              className="w-full bg-transparent text-[16px] md:text-sm font-medium text-foreground placeholder:text-foreground/45 focus:outline-none"
             />
           </label>
         </div>
 
         {/* Guests */}
         <div
-          className={`flex flex-1 items-center gap-3 rounded-3xl px-4 py-3 transition-colors sm:border-l sm:border-white/10 ${
+          className={`flex min-h-[50px] flex-1 items-center gap-3 rounded-2xl px-4 py-2.5 transition-colors md:border-l md:border-white/10 ${
             active === "guests" ? "bg-white/15" : "hover:bg-white/10"
           }`}
         >
@@ -121,18 +121,18 @@ export function SearchFilter() {
               placeholder="2 Guests"
               onFocus={() => setActive("guests")}
               onBlur={() => setActive(null)}
-              className="w-full bg-transparent text-sm font-medium text-foreground placeholder:text-foreground/45 focus:outline-none"
+              className="w-full bg-transparent text-[16px] md:text-sm font-medium text-foreground placeholder:text-foreground/45 focus:outline-none"
             />
           </label>
         </div>
 
         <button
           type="submit"
-          className="flex items-center justify-center gap-2 rounded-3xl bg-primary px-6 py-4 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.02] active:scale-95 sm:rounded-full sm:px-5"
+          className="flex min-h-[48px] w-full md:w-auto items-center justify-center gap-2 rounded-2xl md:rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-transform hover:scale-[1.02] active:scale-95 cursor-pointer"
         >
           <Search className="size-5" />
-          <span className="sm:hidden">Search journeys</span>
-          <span className="sr-only sm:not-sr-only sm:hidden lg:not-sr-only lg:inline">
+          <span className="md:hidden">Search Curated Journeys</span>
+          <span className="sr-only md:not-sr-only md:hidden lg:not-sr-only lg:inline">
             Search
           </span>
         </button>

@@ -49,10 +49,10 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6">
       <nav
-        className={`mx-auto flex max-w-6xl items-center justify-between rounded-full border border-white/10 px-4 py-2.5 pl-5 transition-all duration-500 sm:px-6 ${
+        className={`mx-auto flex max-w-6xl items-center justify-between rounded-full border px-4 py-2.5 pl-5 transition-all duration-500 sm:px-6 ${
           scrolled
-            ? "bg-background/70 shadow-lg shadow-black/20 backdrop-blur-xl"
-            : "bg-white/5 backdrop-blur-md"
+            ? "border-white/15 bg-slate-950/75 shadow-2xl shadow-black/40 backdrop-blur-md"
+            : "border-white/10 bg-slate-950/50 shadow-lg shadow-black/20 backdrop-blur-md"
         }`}
       >
         <a
@@ -137,9 +137,9 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            className="flex size-9 items-center justify-center rounded-full text-foreground transition-colors hover:bg-white/10 md:hidden"
+            className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full text-foreground transition-colors hover:bg-white/10 md:hidden"
           >
-            {open ? <X className="size-5" /> : <Menu className="size-5" />}
+            {open ? <X className="size-6" /> : <Menu className="size-6" />}
           </button>
         </div>
       </nav>
@@ -191,7 +191,7 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
               <div className="grid grid-cols-2 gap-2 text-xs">
                 <a
                   href="tel:+912269825500"
-                  className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-primary/10 border border-primary/30 text-primary font-medium hover:bg-primary/20 transition-colors"
+                  className="flex min-h-[44px] items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-primary/10 border border-primary/30 text-primary font-medium hover:bg-primary/20 transition-colors"
                 >
                   <Phone className="size-3.5" />
                   <span>Call Desk</span>
@@ -200,7 +200,7 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
                   href="https://wa.me/919820044810?text=Hello%20Sarrin%20Holidays%2C%20I%20would%20like%20to%20inquire%20about%20a%20luxury%20journey."
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-medium hover:bg-emerald-500/25 transition-colors"
+                  className="flex min-h-[44px] items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-medium hover:bg-emerald-500/25 transition-colors"
                 >
                   <span>WhatsApp</span>
                 </a>
@@ -212,7 +212,7 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
             <a
               href="/contact"
               onClick={() => setOpen(false)}
-              className="block w-full text-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-transform active:scale-95"
+              className="flex min-h-[48px] items-center justify-center w-full text-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform active:scale-95"
             >
               Plan a trip
             </a>

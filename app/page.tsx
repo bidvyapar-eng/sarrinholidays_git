@@ -8,7 +8,7 @@ import { PublicContent } from "@/components/public-content"
 
 export default function Page() {
   return (
-    <main className="relative min-h-screen bg-background">
+    <main className="relative min-h-screen bg-background overflow-x-hidden w-full max-w-[100vw]">
       <Navbar />
       <Hero />
       <VirtualTour />

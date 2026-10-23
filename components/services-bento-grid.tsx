@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, type Variants } from 'framer-motion'
 import {
   Plane,
   Crown,
@@ -144,7 +144,7 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
     },
   }
 
-  const cardVariants = {
+  const cardVariants: Variants = {
     hidden: { opacity: 0, y: 35 },
     visible: {
       opacity: 1,
@@ -180,8 +180,8 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
               key={service.id || service.slug}
               variants={cardVariants}
               whileHover={{ y: -6 }}
-              transition={{ duration: 0.3, ease: 'easeOut' }}
-              className={`group relative flex flex-col justify-between overflow-hidden rounded-[2rem] border border-white/12 bg-slate-900/60 p-6 md:p-8 backdrop-blur-2xl shadow-2xl transition-colors duration-500 hover:border-primary/50 hover:bg-slate-900/80 ${meta.colSpan}`}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              className={`group relative flex flex-col justify-between overflow-hidden rounded-[2rem] border border-white/12 bg-slate-900/60 p-6 md:p-8 backdrop-blur-2xl shadow-xl transition-all duration-500 ease-out hover:border-primary/50 hover:bg-slate-900/80 hover:shadow-2xl hover:shadow-black/70 ${meta.colSpan}`}
             >
               {/* Subtle Ambient Hover Glow */}
               <div className="pointer-events-none absolute -right-20 -top-20 size-72 rounded-full bg-primary/10 blur-[90px] transition-opacity duration-700 opacity-0 group-hover:opacity-100" />
@@ -196,7 +196,7 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
                   <img
                     src={service.hero_image}
                     alt={service.title}
-                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover/img:scale-105"
+                    className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 group-hover/img:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
 
@@ -289,7 +289,7 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
         {/* 5th Bento Tile: Bespoke Atelier Inquiry Card (Full Width) */}
         <motion.div
           variants={cardVariants}
-          className="lg:col-span-12 relative overflow-hidden rounded-[2.5rem] border border-primary/30 bg-gradient-to-r from-primary/15 via-slate-900/80 to-amber-950/20 p-8 md:p-12 backdrop-blur-2xl shadow-2xl"
+          className="lg:col-span-12 relative overflow-hidden rounded-[2.5rem] border border-primary/30 bg-gradient-to-r from-primary/15 via-slate-900/80 to-amber-950/20 p-8 md:p-12 backdrop-blur-2xl shadow-xl transition-all duration-500 ease-out hover:border-primary/50 hover:shadow-2xl hover:shadow-black/70"
         >
           <div className="pointer-events-none absolute -right-10 top-0 size-96 rounded-full bg-primary/10 blur-[100px]" />
 

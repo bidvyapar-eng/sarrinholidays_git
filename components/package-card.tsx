@@ -34,7 +34,7 @@ function formatPrice(price: number) {
 
 export function PackageCard({ pkg, onSelect }: PackageCardProps) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-white/15 bg-slate-900/60 shadow-2xl shadow-black/40 backdrop-blur-xl transition-all duration-300 hover:border-primary/50 hover:shadow-primary/10">
+    <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-white/12 bg-slate-900/60 shadow-xl shadow-black/40 backdrop-blur-xl transition-all duration-500 ease-out hover:border-primary/50 hover:shadow-2xl hover:shadow-black/70">
       {/* Visual Media Header */}
       <div className="relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden">
         <img
@@ -43,7 +43,7 @@ export function PackageCard({ pkg, onSelect }: PackageCardProps) {
           onError={(e) => {
             e.currentTarget.src = '/scene-desert.png'
           }}
-          className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          className="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/30" />
 
@@ -169,7 +169,7 @@ export function PackageCard({ pkg, onSelect }: PackageCardProps) {
 
           <Link
             href={`/packages/${pkg.slug}`}
-            className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3.5 sm:px-4 py-2 text-[11px] sm:text-xs font-semibold text-primary-foreground transition-all hover:brightness-110 hover:scale-[1.03] active:scale-95 shadow-md shadow-primary/20 shrink-0"
+            className="inline-flex min-h-[44px] items-center gap-1.5 rounded-full bg-primary px-4 py-2.5 text-[11px] sm:text-xs font-semibold text-primary-foreground transition-all hover:brightness-110 hover:scale-[1.03] active:scale-95 shadow-md shadow-primary/20 shrink-0"
           >
             <span>View Itinerary</span>
             <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

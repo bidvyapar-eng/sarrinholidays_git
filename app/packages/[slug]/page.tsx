@@ -6,6 +6,7 @@ import { Navbar } from '@/components/navbar'
 import { fallbackPackages, type PackageItem } from '@/lib/cms'
 import { JsonLd } from '@/components/json-ld'
 import { PackageInquiryTrigger } from '@/components/package-inquiry-trigger'
+import { ItineraryAccordion } from '@/components/itinerary-accordion'
 import { ENABLE_GLOBAL_CONCIERGE } from '@/lib/features.config'
 import {
   ArrowLeft,
@@ -31,7 +32,184 @@ import {
   Globe,
   Plane,
   X,
+  Building2,
+  Car,
+  Utensils,
+  Ticket,
+  FileText,
+  Navigation,
 } from 'lucide-react'
+
+export const DOMESTIC_LUXURY_PILLARS = [
+  {
+    title: '5-Star Palace & Luxury Resort Stays',
+    desc: 'Presidential suites, private pool villas, and living royal residences with bespoke butler service.',
+    icon: Building2,
+  },
+  {
+    title: 'Inter-City Luxury Transfers',
+    desc: 'Armored chauffeur fleet (Mercedes-Maybach & Toyota Vellfire) or twin-engine helicopter charters.',
+    icon: Car,
+  },
+  {
+    title: 'Curated Regional Cuisine & Private Chef',
+    desc: 'Private palace courtyards, regional royal degustations, and master-chef bespoke dietary curation.',
+    icon: Utensils,
+  },
+  {
+    title: 'Monument VIP Passes & Curated Access',
+    desc: 'Fast-track royal fortress entries, after-hours museum access, and private historian liaisons.',
+    icon: Ticket,
+  },
+  {
+    title: 'State Entry Taxes & Toll Clearances',
+    desc: 'All inter-state green cess, luxury entry permits, and highway Fastag tolls pre-paid and cleared.',
+    icon: FileText,
+  },
+]
+
+export interface ItineraryStop {
+  day: string
+  destination: string
+  highlight: string
+  description: string
+  tags: string[]
+}
+
+export function getPackageItinerary(pkg: PackageItem): ItineraryStop[] {
+  const title = (pkg.title || '').toLowerCase()
+  const slug = (pkg.slug || '').toLowerCase()
+
+  if (slug.includes('rajasthan') || title.includes('heritage') || title.includes('palace')) {
+    return [
+      {
+        day: 'Day 01 – 03',
+        destination: 'Udaipur — Sovereign Lakes & Aravali Ramparts',
+        highlight: 'Taj Lake Palace Presidential Suite Arrival',
+        description:
+          'Private arrival transfer via vintage Rolls-Royce fleet. Check-in to the Grand Presidential Suite at Taj Lake Palace. Sunset private catamaran cruise on Lake Pichola with customized royal Mewari dinner prepared by the executive chef.',
+        tags: ['Private Boat', 'Vintage Transfer', 'Palace Suite'],
+      },
+      {
+        day: 'Day 04 – 06',
+        destination: 'Jodhpur — The Blue Fortress Citadel',
+        highlight: 'Helicopter Transfer & Umaid Bhawan Palace',
+        description:
+          'Twin-engine private helicopter flight to Jodhpur. Residence at Umaid Bhawan Palace. Exclusive after-hours torchlit private tour of Mehrangarh Fort led by the chief royal curator, followed by champagne on the ramparts.',
+        tags: ['Aviation Transfer', 'Curator Access', 'Mehrangarh Night Tour'],
+      },
+      {
+        day: 'Day 07 – 10',
+        destination: 'Jaipur — The Royal Pink Capital',
+        highlight: 'Rambagh Palace & Amber Fort Sovereign Access',
+        description:
+          'Chauffeured inter-city transfer in luxury armored SUV with pre-cleared toll corridors. Stay at Rambagh Palace Sukh Niwas Suite. Private sunrise access to Amber Fort Sheesh Mahal before public opening hours and royal polo club luncheon.',
+        tags: ['Armored SUV Fleet', 'Rambagh Palace', 'VIP Passes'],
+      },
+    ]
+  }
+
+  if (slug.includes('kerala') || title.includes('backwater') || title.includes('coast')) {
+    return [
+      {
+        day: 'Day 01 – 03',
+        destination: 'Alleppey — Backwater Palm Lagoons',
+        highlight: 'Exclusive Kettuvallam Houseboat Buyout',
+        description:
+          'Private chauffeur transfer from Kochi airport in Toyota Vellfire. Private boarding of an ultra-luxury air-conditioned 2-bedroom Kettuvallam houseboat. Dedicated Private Chef serving fresh Karimeen and Malabar coastal degustation.',
+        tags: ['Houseboat Buyout', 'Private Chef', 'Vellfire Transfer'],
+      },
+      {
+        day: 'Day 04 – 05',
+        destination: 'Bekal — Secluded Northern Coast',
+        highlight: 'Taj Bekal Cliffside Pool Villa & Ayurveda',
+        description:
+          'Chauffeured coastal transfer with all inter-district toll clearances. Stay in a secluded private plunge pool villa at Taj Bekal. Daily personalized 90-minute Ayurvedic Abhyanga sessions led by certified Vaidyas.',
+        tags: ['Private Pool Villa', 'Ayurvedic Doctor', 'Inter-City Transfer'],
+      },
+      {
+        day: 'Day 06 – 07',
+        destination: 'South Goa — Pristine Coastal Sanctuary',
+        highlight: 'Private Sunset Yacht Charter',
+        description:
+          'Private transit to private South Goa beachfront residence. Sunset catamaran and private yacht sail with sommelier wine tasting and secluded beach picnic.',
+        tags: ['Private Yacht', 'Sommelier Pairing', 'Coastal Concierge'],
+      },
+    ]
+  }
+
+  if (
+    slug.includes('spiritual') ||
+    title.includes('spiritual') ||
+    title.includes('wellness') ||
+    title.includes('himalaya')
+  ) {
+    return [
+      {
+        day: 'Day 01 – 03',
+        destination: 'Varanasi — The Eternal Sacred River',
+        highlight: 'Private Ganga Aarti VIP River Barge',
+        description:
+          'VIP tarmac reception at Varanasi airport with luxury SUV escort to BrijRama Palace. Exclusive private multi-deck bajra boat anchored for Ganga Aarti with Vedic chanting and personal priest blessing.',
+        tags: ['Private Barge', 'Vedic Priest', 'Heritage Palace'],
+      },
+      {
+        day: 'Day 04 – 05',
+        destination: 'Rishikesh — Foothills of the Divine',
+        highlight: 'Private Helipad Transit & Ganges Cleansing',
+        description:
+          'Private air charter to Dehradun and direct helipad landing. Stay at Taj Rishikesh Resort & Spa. Private riverside havan ceremony and morning guided meditation with Himalayan masters.',
+        tags: ['Helicopter Charter', 'Meditation Master', 'Private Ghat'],
+      },
+      {
+        day: 'Day 06 – 08',
+        destination: 'Narendra Nagar — Ananda in the Himalayas',
+        highlight: 'Viceregal Palace Suite & Panchakarma',
+        description:
+          'Chauffeured luxury mountain motorcade to Ananda in the Himalayas. Personalized wellness consultation, custom Dosha cuisine, and restorative hydrotherapy treatments overlooking the Doon Valley.',
+        tags: ['Ananda Palace', 'Ayurvedic Pulse', 'Mountain Chauffeur'],
+      },
+    ]
+  }
+
+  if (slug.includes('wild') || title.includes('wild') || title.includes('safari') || title.includes('tiger')) {
+    return [
+      {
+        day: 'Day 01 – 03',
+        destination: 'Ranthambore — Royal Bengal Tiger Reserve',
+        highlight: 'Exclusive 4x4 Private Gypsy Safaris',
+        description:
+          'Direct luxury train or chauffeur transfer from Jaipur. Stay at Aman-i-Khás luxury tented camp. Exclusive open-top 4x4 gypsy safaris in Zone 3 with chief wildlife naturalist tracking Royal Bengal Tigers.',
+        tags: ['Private 4x4 Gypsy', 'Master Naturalist', 'Luxury Tents'],
+      },
+      {
+        day: 'Day 04 – 06',
+        destination: 'Bandhavgarh — High-Density Apex Sanctuaries',
+        highlight: 'Mahua Kothi & Private Wilderness Tracking',
+        description:
+          'Private aviation transfer to Tala airstrip. Residence at Taj Mahua Kothi. Sunrise and twilight wilderness safaris tracking leopards, sloth bears, and tiger cubs with bespoke bush breakfasts.',
+        tags: ['Private Aviation', 'Bush Breakfast', 'Apex Reserve'],
+      },
+      {
+        day: 'Day 07 – 09',
+        destination: 'Jim Corbett — The Historic Himalayan Foothills',
+        highlight: 'Dhikala Grasslands & Riverside Camp',
+        description:
+          'Executive chauffeur motorcade through scenic foothills. Exclusive Dhikala forest permits and private elephant patrol escorts along the Ramganga river.',
+        tags: ['Dhikala Permit', 'Chauffeur Motorcade', 'VIP Forest Clearance'],
+      },
+    ]
+  }
+
+  const dests = pkg.destinations && pkg.destinations.length > 0 ? pkg.destinations : ['Royal Hub', 'Sacred Circuit', 'Coastal Haven']
+  return dests.map((dest, i) => ({
+    day: `Leg 0${i + 1}`,
+    destination: dest,
+    highlight: `Curated Sovereign Experience in ${dest}`,
+    description: `Bespoke luxury itinerary hosted in ${dest}. Includes 5-star palace accommodation, dedicated personal chauffeur, and curated VIP monument entries.`,
+    tags: ['Luxury Palace', 'Private Chauffeur', 'VIP Pass'],
+  }))
+}
 
 export const dynamic = 'force-dynamic'
 
@@ -44,6 +222,12 @@ function getPackageImage(img?: string) {
     return 'https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&q=80&w=1200'
   }
   return img
+}
+
+export async function generateStaticParams() {
+  return fallbackPackages.map((pkg) => ({
+    slug: pkg.slug,
+  }))
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -126,6 +310,8 @@ export default async function PackageDetailPage({ params }: PageProps) {
     notFound()
   }
 
+  const itineraryDays = getPackageItinerary(pkg)
+
   // 2. Fetch site settings for navbar logo
   const { data: settings } = await supabase
     .from('site_settings')
@@ -178,7 +364,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
   }
 
   return (
-    <div className="relative min-h-screen bg-slate-950 text-foreground overflow-x-hidden selection:bg-primary/30 selection:text-primary">
+    <div className="relative min-h-screen bg-slate-950 text-foreground overflow-x-hidden w-full max-w-[100vw] selection:bg-primary/30 selection:text-primary">
       <JsonLd data={touristTripSchema} id="tourist-trip-schema" />
       <Navbar logoText={settings?.navbar_logo_text} />
 
@@ -273,19 +459,19 @@ export default async function PackageDetailPage({ params }: PageProps) {
       </div>
 
       {/* Main Content Layout */}
-      <main className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8 py-16">
+      <main className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8 pt-16 md:pt-20 pb-32 lg:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Left Column: Rich Editorial Narrative & Itinerary */}
-          <div className="lg:col-span-8 space-y-12">
+          <div className="lg:col-span-8 space-y-16">
             {/* Editorial Overview */}
             <section className="space-y-4">
-              <span className="text-[11px] uppercase font-mono tracking-[0.2em] text-primary">
+              <span className="text-xs uppercase font-mono tracking-widest text-primary font-medium">
                 Curator&apos;s Prologue
               </span>
-              <h2 className="font-serif text-2xl sm:text-3xl text-white font-medium">
+              <h2 className="font-serif text-2xl sm:text-3xl text-foreground font-medium">
                 The Essence of the Expedition
               </h2>
-              <p className="text-base sm:text-lg text-neutral-300 leading-relaxed font-light">
+              <p className="text-base sm:text-lg text-foreground/80 leading-relaxed font-light">
                 {pkg.description}
               </p>
               <p className="text-sm text-neutral-400 leading-relaxed">
@@ -299,24 +485,24 @@ export default async function PackageDetailPage({ params }: PageProps) {
             {/* Signature Highlights */}
             {pkg.highlights && pkg.highlights.length > 0 && (
               <section className="space-y-6">
-                <span className="text-[11px] uppercase font-mono tracking-[0.2em] text-primary">
+                <span className="text-xs uppercase font-mono tracking-widest text-primary font-medium">
                   Signature Inclusions
                 </span>
-                <h2 className="font-serif text-2xl sm:text-3xl text-white font-medium">
+                <h2 className="font-serif text-2xl sm:text-3xl text-foreground font-medium">
                   Itinerary Highlights
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {pkg.highlights.map((highlight, index) => (
                     <div
                       key={highlight}
-                      className="p-5 rounded-2xl bg-neutral-900/60 border border-white/10 backdrop-blur-xl flex items-start gap-3.5 hover:border-primary/40 transition-colors"
+                      className="p-5 rounded-2xl bg-neutral-900/60 border border-white/10 backdrop-blur-xl flex items-start gap-3.5 transition-all duration-500 ease-out hover:border-primary/50 hover:bg-neutral-900/80 hover:shadow-2xl hover:shadow-black/50"
                     >
                       <span className="size-7 rounded-lg bg-primary/15 border border-primary/30 text-primary font-mono text-xs font-semibold flex items-center justify-center shrink-0">
                         0{index + 1}
                       </span>
                       <div>
-                        <h3 className="text-sm font-semibold text-white">{highlight}</h3>
-                        <p className="text-xs text-neutral-400 mt-1">
+                        <h3 className="text-sm font-semibold text-foreground">{highlight}</h3>
+                        <p className="text-xs text-neutral-400 mt-1 font-light">
                           Private access coordinated through our sovereign hospitality partnerships.
                         </p>
                       </div>
@@ -329,10 +515,10 @@ export default async function PackageDetailPage({ params }: PageProps) {
             {/* Destinations Breakdown */}
             {pkg.destinations && pkg.destinations.length > 0 && (
               <section className="space-y-6">
-                <span className="text-[11px] uppercase font-mono tracking-[0.2em] text-primary">
+                <span className="text-xs uppercase font-mono tracking-widest text-primary font-medium">
                   Route Architecture
                 </span>
-                <h2 className="font-serif text-2xl sm:text-3xl text-white font-medium">
+                <h2 className="font-serif text-2xl sm:text-3xl text-foreground font-medium">
                   Destinations Visited
                 </h2>
                 <div className="flex flex-wrap gap-3">
@@ -349,6 +535,9 @@ export default async function PackageDetailPage({ params }: PageProps) {
               </section>
             )}
 
+            {/* Day-by-Day Itinerary Collapsible Accordion (Radix UI) */}
+            <ItineraryAccordion items={itineraryDays} duration={pkg.duration} />
+
             {/* Visually Distinct "At a Glance" UI Section */}
             <section className="relative overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-b from-neutral-900/80 via-slate-950/90 to-neutral-900/60 p-6 sm:p-9 backdrop-blur-2xl shadow-2xl shadow-black/60 space-y-8">
               {/* Subtle Luxury Gold & Emerald Ambient Lighting */}
@@ -358,22 +547,55 @@ export default async function PackageDetailPage({ params }: PageProps) {
               {/* Section Header */}
               <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-white/10">
                 <div>
-                  <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary backdrop-blur-md mb-2">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-mono uppercase tracking-widest text-primary backdrop-blur-md mb-2">
                     <Sparkles className="size-3" />
                     At a Glance
                   </div>
-                  <h2 className="font-serif text-2xl sm:text-3xl text-white font-normal tracking-tight">
+                  <h2 className="font-serif text-2xl sm:text-3xl text-foreground font-normal tracking-tight">
                     Hyper-Transparent Itinerary Curation
                   </h2>
                   <p className="text-xs sm:text-sm text-neutral-400 mt-1 font-light max-w-2xl leading-relaxed">
-                    Designed for high-net-worth patrons and NRI families. Complete clarity separating fully hosted royal amenities from self-arranged international logistics.
+                    Designed specifically for high-net-worth patrons and discerning Indian domestic travelers. Uncompromising clarity across accommodations, transfers, gastronomy, VIP accesses, and toll clearances.
                   </p>
                 </div>
 
                 <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20">
                   <ShieldCheck className="size-3.5" />
-                  Verified Curation
+                  Verified Domestic Standard
                 </span>
+              </div>
+
+              {/* 5 Flagship Domestic Luxury Pillars */}
+              <div className="relative z-10 space-y-3">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary font-medium">
+                    Domestic Travel Specifics
+                  </span>
+                  <div className="h-px flex-1 bg-white/10" />
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+                  {DOMESTIC_LUXURY_PILLARS.map((pillar) => {
+                    const Icon = pillar.icon
+                    return (
+                      <div
+                        key={pillar.title}
+                        className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-md flex flex-col justify-between transition-all duration-500 ease-out hover:border-primary/50 hover:bg-white/[0.06] hover:shadow-xl hover:shadow-black/40"
+                      >
+                        <div className="space-y-2">
+                          <div className="size-8 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center text-primary">
+                            <Icon className="size-4" />
+                          </div>
+                          <h4 className="text-xs font-semibold text-white leading-snug">
+                            {pillar.title}
+                          </h4>
+                          <p className="text-[11px] text-neutral-400 leading-relaxed font-light">
+                            {pillar.desc}
+                          </p>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
               </div>
 
               {/* Two-Column Grid: Bespoke Inclusions vs. Client Responsibilities */}
@@ -402,10 +624,12 @@ export default async function PackageDetailPage({ params }: PageProps) {
 
                     <ul className="space-y-3 text-xs sm:text-sm text-neutral-200">
                       {(pkg.inclusions && pkg.inclusions.length > 0 ? pkg.inclusions : [
-                        'Taj Lake Palace Grand Presidential Suite & Palace stays',
-                        'Private twin-engine helicopter transfers and chauffeur fleet',
-                        'Dedicated 24/7 personal concierge and curator liaison',
-                        'All royal palace courtyard dining and sommelier pairings'
+                        '5-Star Palace & Luxury Resort stays (Presidential Suites & Private Pool Villas)',
+                        'Inter-city luxury transfers via Mercedes-Maybach / Toyota Vellfire & Helicopter charters',
+                        'Curated regional cuisine & Private Chef degustations across royal properties',
+                        'Monument VIP passes & fast-track clearances with private royal historians',
+                        'All domestic state entry taxes, highway Fastag tolls, and green clearances pre-paid',
+                        'Dedicated 24/7 personal concierge liaison and white-glove baggage service'
                       ]).map((inc, i) => (
                         <li key={i} className="flex items-start gap-3">
                           <div className="size-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-500/40">
@@ -447,10 +671,10 @@ export default async function PackageDetailPage({ params }: PageProps) {
 
                     <ul className="space-y-3 text-xs sm:text-sm text-neutral-400">
                       {(pkg.exclusions && pkg.exclusions.length > 0 ? pkg.exclusions : [
-                        'International and inter-continental airfare',
-                        'Indian consular tourist visa fees',
-                        'Discretionary royal staff and chauffeur gratuities',
-                        'Personal bespoke antique or jewelry purchases'
+                        'Commercial transcontinental or international long-haul flights',
+                        'Consular visa procurement fees for international accompanying guests',
+                        'Discretionary royal palace staff and chauffeur gratuities',
+                        'Personal bespoke antique acquisitions, gemstones, or custom textiles'
                       ]).map((exc, i) => (
                         <li key={i} className="flex items-start gap-3">
                           <div className="size-4 rounded-full bg-white/10 text-neutral-400 flex items-center justify-center shrink-0 mt-0.5 border border-white/15">
@@ -612,6 +836,41 @@ export default async function PackageDetailPage({ params }: PageProps) {
           </div>
         </div>
       </main>
+
+      {/* Sticky Bottom Action Bar for Mobile Devices (< 1024px) */}
+      <div className="block lg:hidden fixed bottom-0 inset-x-0 z-50 bg-slate-950/95 backdrop-blur-2xl border-t border-white/10 p-3 sm:p-4 shadow-[0_-10px_35px_rgba(0,0,0,0.85)]">
+        <div className="mx-auto flex max-w-lg items-center justify-between gap-3">
+          <div className="min-w-0">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block truncate">
+              All-Inclusive Domestic
+            </span>
+            <div className="flex items-baseline gap-1">
+              <span className="font-serif text-xl sm:text-2xl font-bold text-white">
+                ₹{(pkg.price < 10000 ? pkg.price * 100 : pkg.price).toLocaleString('en-IN')}
+              </span>
+              <span className="text-[10px] font-mono text-neutral-400">/ guest</span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2 shrink-0">
+            <a
+              href="https://wa.me/919820044810?text=Hello%20Sarrin%20Holidays%2C%20I%20would%20like%20to%20inquire%20about%20the%20curated%20domestic%20tour."
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Chat on WhatsApp"
+              className="flex min-h-[48px] min-w-[48px] items-center justify-center rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-emerald-300 transition-colors"
+            >
+              <Phone className="size-4" />
+            </a>
+
+            <PackageInquiryTrigger
+              packageTitle={pkg.title}
+              classification="Curated Domestic Luxury Expedition"
+              buttonText="Plan Your Journey"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

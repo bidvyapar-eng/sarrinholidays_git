@@ -379,18 +379,18 @@ export function ContactForm() {
                   <select
                     value={departureCity}
                     onChange={(e) => setDepartureCity(e.target.value)}
-                    className="w-full rounded-xl border border-white/15 bg-slate-900 px-3.5 py-2.5 text-xs text-foreground outline-none focus:border-primary cursor-pointer"
+                    className="w-full rounded-lg border border-white/12 bg-white/5 px-4 py-3 min-h-[48px] text-[16px] md:text-sm text-foreground outline-none transition-all duration-300 hover:border-white/25 focus:border-gold/60 focus:bg-white/[0.08] focus:ring-1 focus:ring-gold/50 focus:shadow-[0_0_15px_rgba(212,175,55,0.15)] cursor-pointer"
                   >
                     {INDIAN_ORIGIN_HUBS.map((hub) => (
-                      <option key={hub.id} value={hub.name}>
+                      <option key={hub.id} value={hub.name} className="bg-slate-900 text-foreground">
                         {hub.name} ({hub.code}) — {hub.state}
                       </option>
                     ))}
                   </select>
 
                   {departureCity === 'Other City' && (
-                    <div className="space-y-1 pt-1">
-                      <label className="text-[11px] font-mono uppercase tracking-wider text-foreground/75">
+                    <div className="space-y-1.5 pt-1">
+                      <label className="text-xs font-mono uppercase tracking-wider text-foreground/85 font-medium">
                         Specify Origin City / Airstrip *
                       </label>
                       <input
@@ -399,7 +399,7 @@ export function ContactForm() {
                         value={customDepartureCity}
                         onChange={(e) => setCustomDepartureCity(e.target.value)}
                         placeholder="e.g., Jaipur, Surat, Chandigarh, Kochi, Indore, Lucknow..."
-                        className="w-full rounded-xl border border-primary/40 bg-white/5 px-4 py-2.5 text-xs sm:text-sm text-foreground placeholder-white/30 backdrop-blur-md outline-none transition-all hover:border-primary focus:border-primary focus:bg-white/[0.08]"
+                        className="w-full rounded-lg border border-white/12 bg-white/5 px-4 py-3 min-h-[48px] text-[16px] md:text-sm text-foreground placeholder:text-foreground/45 backdrop-blur-md outline-none transition-all duration-300 hover:border-white/25 focus:border-gold/60 focus:bg-white/[0.08] focus:ring-1 focus:ring-gold/50 focus:shadow-[0_0_15px_rgba(212,175,55,0.15)]"
                       />
                     </div>
                   )}
@@ -451,7 +451,7 @@ export function ContactForm() {
                 {/* Field 5: Name & Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
                   <div className="space-y-1.5">
-                    <label className="flex items-center gap-1.5 text-xs font-medium text-foreground/75 uppercase tracking-wider font-mono">
+                    <label className="flex items-center gap-1.5 text-xs font-medium text-foreground/90 uppercase tracking-wider font-mono">
                       <User className="size-3.5 text-primary" /> Full Name *
                     </label>
                     <input
@@ -461,12 +461,12 @@ export function ContactForm() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Lord Sterling / Ambassador Mehta"
-                      className="w-full rounded-xl border border-white/15 bg-white/[0.05] px-4 py-3 text-xs sm:text-sm text-foreground placeholder-white/30 backdrop-blur-md outline-none transition-all duration-200 hover:border-white/30 focus:border-primary focus:bg-white/[0.08] focus:ring-1 focus:ring-primary/40"
+                      className="w-full rounded-lg border border-white/12 bg-white/5 px-4 py-3 min-h-[48px] text-[16px] md:text-sm text-foreground placeholder:text-foreground/45 backdrop-blur-md outline-none transition-all duration-300 hover:border-white/25 focus:border-gold/60 focus:bg-white/[0.08] focus:ring-1 focus:ring-gold/50 focus:shadow-[0_0_15px_rgba(212,175,55,0.15)]"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="flex items-center gap-1.5 text-xs font-medium text-foreground/75 uppercase tracking-wider font-mono">
+                    <label className="flex items-center gap-1.5 text-xs font-medium text-foreground/90 uppercase tracking-wider font-mono">
                       <Mail className="size-3.5 text-primary" /> Private Email *
                     </label>
                     <input
@@ -476,14 +476,14 @@ export function ContactForm() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="client@private-office.com"
-                      className="w-full rounded-xl border border-white/15 bg-white/[0.05] px-4 py-3 text-xs sm:text-sm text-foreground placeholder-white/30 backdrop-blur-md outline-none transition-all duration-200 hover:border-white/30 focus:border-primary focus:bg-white/[0.08] focus:ring-1 focus:ring-primary/40"
+                      className="w-full rounded-lg border border-white/12 bg-white/5 px-4 py-3 min-h-[48px] text-[16px] md:text-sm text-foreground placeholder:text-foreground/45 backdrop-blur-md outline-none transition-all duration-300 hover:border-white/25 focus:border-gold/60 focus:bg-white/[0.08] focus:ring-1 focus:ring-gold/50 focus:shadow-[0_0_15px_rgba(212,175,55,0.15)]"
                     />
                   </div>
                 </div>
 
                 {/* Field 6: Strict Indian Mobile Validation (+91, 10 Digits) */}
                 <div className="space-y-1.5">
-                  <label className="flex items-center justify-between text-xs font-medium text-foreground/75 uppercase tracking-wider font-mono">
+                  <label className="flex items-center justify-between text-xs font-medium text-foreground/90 uppercase tracking-wider font-mono">
                     <span className="flex items-center gap-1.5">
                       <Phone className="size-3.5 text-primary" /> Direct Indian Mobile / WhatsApp *
                     </span>
@@ -492,7 +492,7 @@ export function ContactForm() {
 
                   <div className="relative flex items-center">
                     {/* +91 Fixed Badge */}
-                    <div className="flex items-center gap-1.5 px-3 py-3 rounded-l-xl border border-r-0 border-white/15 bg-white/10 text-white text-xs sm:text-sm font-mono select-none">
+                    <div className="flex min-h-[48px] items-center gap-1.5 px-3.5 py-3 rounded-l-lg border border-r-0 border-white/12 bg-white/10 text-white text-[16px] md:text-sm font-mono select-none">
                       <span className="text-sm leading-none">🇮🇳</span>
                       <span className="font-semibold text-primary">+91</span>
                     </div>
@@ -506,17 +506,17 @@ export function ContactForm() {
                       onChange={(e) => handlePhoneChange(e.target.value)}
                       placeholder="98200 44810"
                       maxLength={11} // 10 digits + 1 space
-                      className={`w-full rounded-r-xl border border-white/15 bg-white/[0.05] px-3.5 py-3 text-xs sm:text-sm text-foreground font-mono placeholder-white/30 backdrop-blur-md outline-none transition-all duration-200 hover:border-white/30 ${
+                      className={`w-full rounded-r-lg border border-white/12 bg-white/5 px-4 py-3 min-h-[48px] text-[16px] md:text-sm text-foreground font-mono placeholder:text-foreground/45 backdrop-blur-md outline-none transition-all duration-300 hover:border-white/25 ${
                         isPhoneValid
-                          ? 'border-emerald-500/60 focus:border-emerald-400 focus:ring-1 focus:ring-emerald-500/40'
+                          ? 'border-emerald-500/60 focus:border-emerald-400 focus:ring-1 focus:ring-emerald-500/40 focus:shadow-[0_0_15px_rgba(16,185,129,0.15)]'
                           : phoneDigits.length > 0
-                          ? 'border-amber-500/50 focus:border-amber-400'
-                          : 'focus:border-primary'
+                          ? 'border-amber-500/50 focus:border-amber-400 focus:ring-1 focus:ring-amber-500/40'
+                          : 'focus:border-gold/60 focus:bg-white/[0.08] focus:ring-1 focus:ring-gold/50 focus:shadow-[0_0_15px_rgba(212,175,55,0.15)]'
                       }`}
                     />
 
                     {/* Real-time Status Icon */}
-                    <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                    <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none">
                       {isPhoneValid ? (
                         <CheckCircle2 className="size-4 text-emerald-400" />
                       ) : phoneDigits.length > 0 ? (
@@ -554,7 +554,7 @@ export function ContactForm() {
 
                 {/* Field 4: Message / Requirements */}
                 <div className="space-y-1.5">
-                  <label className="flex items-center gap-1.5 text-xs font-medium text-foreground/75 uppercase tracking-wider font-mono">
+                  <label className="flex items-center gap-1.5 text-xs font-medium text-foreground/90 uppercase tracking-wider font-mono">
                     <MessageSquare className="size-3.5 text-primary" /> Confidential Requirements & Dates
                   </label>
                   <textarea
@@ -564,7 +564,7 @@ export function ContactForm() {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Outline passenger manifest, palace dates, security clearances, or medical wellness goals..."
-                    className="w-full rounded-xl border border-white/15 bg-white/[0.05] px-4 py-3 text-xs sm:text-sm text-foreground placeholder-white/30 backdrop-blur-md outline-none transition-all duration-200 hover:border-white/30 focus:border-primary focus:bg-white/[0.08] focus:ring-1 focus:ring-primary/40 resize-none leading-relaxed"
+                    className="w-full rounded-lg border border-white/12 bg-white/5 px-4 py-3 text-[16px] md:text-sm text-foreground placeholder:text-foreground/45 backdrop-blur-md outline-none transition-all duration-300 hover:border-white/25 focus:border-gold/60 focus:bg-white/[0.08] focus:ring-1 focus:ring-gold/50 focus:shadow-[0_0_15px_rgba(212,175,55,0.15)] resize-none leading-relaxed"
                   />
                 </div>
 
@@ -582,18 +582,18 @@ export function ContactForm() {
                   disabled={isPending}
                   whileHover={{ scale: isPending ? 1 : 1.015 }}
                   whileTap={{ scale: isPending ? 1 : 0.98 }}
-                  className="w-full inline-flex items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-r from-primary via-amber-500 to-primary py-4 px-6 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground shadow-2xl shadow-primary/25 transition-all hover:shadow-primary/40 active:scale-95 disabled:opacity-60 cursor-pointer"
+                  className="w-full min-h-[48px] inline-flex items-center justify-center gap-2.5 rounded-lg bg-gradient-to-r from-gold via-[#e0c774] to-gold hover:from-[#c5a030] hover:to-[#b89326] border border-gold/50 py-4 px-6 text-xs font-semibold uppercase tracking-[0.2em] text-[#0B0F19] shadow-xl shadow-gold/25 transition-all duration-300 hover:brightness-105 active:scale-95 disabled:opacity-60 cursor-pointer"
                 >
                   {isPending ? (
                     <>
-                      <Loader2 className="size-4 animate-spin" />
+                      <Loader2 className="size-4 animate-spin text-[#0B0F19]" />
                       <span>Encrypting & Dispatching Dossier...</span>
                     </>
                   ) : (
                     <>
-                      <Send className="size-3.5" />
+                      <Send className="size-3.5 text-[#0B0F19]" />
                       <span>Send Confidential Inquiry</span>
-                      <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      <ArrowUpRight className="size-4 text-[#0B0F19] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </>
                   )}
                 </motion.button>

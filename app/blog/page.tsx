@@ -23,7 +23,7 @@ export default async function BlogIndex() {
     <main className="relative min-h-screen bg-background">
       <Navbar logoText={settings?.navbar_logo_text} />
       
-      <div className="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 mx-auto max-w-6xl">
+      <div className="relative pt-36 pb-20 md:pb-24 px-4 sm:px-6 lg:px-8 mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">Sarrinholidays Journal</span>
           <h1 className="mt-4 font-serif text-5xl leading-tight tracking-tight text-foreground sm:text-6xl">
@@ -41,13 +41,13 @@ export default async function BlogIndex() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogs.map((blog) => (
-              <Link href={`/blog/${blog.slug}`} key={blog.id} className="group flex flex-col h-full rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors overflow-hidden">
+              <Link href={`/blog/${blog.slug}`} key={blog.id} className="group flex flex-col h-full rounded-2xl bg-white/5 border border-white/10 transition-all duration-500 ease-out hover:border-primary/50 hover:bg-white/[0.08] hover:shadow-2xl hover:shadow-black/60 overflow-hidden">
                 {blog.image_url && (
                   <div className="relative aspect-video overflow-hidden">
                     <img 
                       src={blog.image_url} 
                       alt={blog.title} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" 
                     />
                   </div>
                 )}

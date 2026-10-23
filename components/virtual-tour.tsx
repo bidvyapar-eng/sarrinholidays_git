@@ -142,7 +142,7 @@ export const defaultScenes: VirtualTourScene[] = [
 
 export function VirtualTour() {
   return (
-    <section id="virtual-tour" className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6">
+    <section id="virtual-tour" className="relative mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
       {/* Section Headline */}
       <div className="mx-auto max-w-3xl text-center">
         <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-primary backdrop-blur-md">
