@@ -5,18 +5,16 @@ import { useSearchParams } from "next/navigation"
 import Link from "next/link"
 import {
   ArrowUpRight,
-  Sparkles,
   MapPin,
   Calendar,
   Star,
-  Flame,
   Search,
   X,
   CheckCircle2,
   Compass,
   ChevronRight,
-  ShieldCheck,
   Send,
+  Crown,
 } from "lucide-react"
 import { createClient } from "@/lib/supabase/client"
 import { fallbackPackages, type PackageItem } from "@/lib/cms"
@@ -24,11 +22,11 @@ import { PackageCard } from "@/components/package-card"
 
 const categories = [
   "All Circuits",
-  "Heritage & Palaces",
-  "Backwaters & Coast",
-  "Spiritual & Wellness",
+  "Kerala Backwaters",
+  "Kashmir & Valleys",
+  "Goa Coastal",
+  "Spiritual & Heritage",
   "Wild & Untamed",
-  "Trending",
 ] as const
 type Category = (typeof categories)[number]
 
@@ -91,18 +89,36 @@ export function PackagesGrid() {
                 scarcity_status: item.scarcity_status !== undefined ? item.scarcity_status : fallback?.scarcity_status,
               }
             })
+            let cachedCustom: PackageItem[] = []
+            try {
+              const stored = localStorage.getItem('sarrin_admin_custom_packages')
+              if (stored) cachedCustom = JSON.parse(stored)
+            } catch (e) {}
+
             const missingFallbacks = fallbackPackages.filter(
               (f) => !data.some((d: any) => d.slug === f.slug)
             )
-            setPackages([...merged, ...missingFallbacks])
+            const combined = [...cachedCustom.filter(c => !merged.some(m => m.slug === c.slug)), ...merged, ...missingFallbacks.filter(f => !cachedCustom.some(c => c.slug === f.slug))]
+            setPackages(combined)
           } else {
-            setPackages(fallbackPackages)
+            let cachedCustom: PackageItem[] = []
+            try {
+              const stored = localStorage.getItem('sarrin_admin_custom_packages')
+              if (stored) cachedCustom = JSON.parse(stored)
+            } catch (e) {}
+            const combined = [...cachedCustom, ...fallbackPackages.filter(f => !cachedCustom.some(c => c.slug === f.slug))]
+            setPackages(combined)
           }
         }
       } catch (err) {
         console.error("Failed to load packages from Supabase, using fallback:", err)
         if (!isCancelled) {
-          setPackages(fallbackPackages)
+          let cachedCustom: PackageItem[] = []
+          try {
+            const stored = localStorage.getItem('sarrin_admin_custom_packages')
+            if (stored) cachedCustom = JSON.parse(stored)
+          } catch (e) {}
+          setPackages([...cachedCustom, ...fallbackPackages.filter(f => !cachedCustom.some(c => c.slug === f.slug))])
         }
       } finally {
         if (!isCancelled) {
@@ -122,13 +138,7 @@ export function PackagesGrid() {
   const filteredPackages = useMemo(() => {
     return packages.filter((pkg) => {
       // Category filter
-      if (activeCategory === "Trending" && !pkg.is_trending) {
-        return false
-      }
-      if (
-        activeCategory !== "All Circuits" &&
-        activeCategory !== "Trending"
-      ) {
+      if (activeCategory !== "All Circuits") {
         const catLower = activeCategory.toLowerCase()
         const tags = [
           ...(pkg.experience_tags || []),
@@ -138,14 +148,17 @@ export function PackagesGrid() {
         const title = pkg.title.toLowerCase()
         const desc = pkg.description.toLowerCase()
 
-        if (catLower.includes("heritage")) {
-          const match = tags.some((t) => t.includes("heritage") || t.includes("palace") || t.includes("udaipur") || t.includes("jaipur") || t.includes("jodhpur")) || title.includes("heritage") || title.includes("palace")
+        if (catLower.includes("kerala")) {
+          const match = tags.some((t) => t.includes("kerala") || t.includes("alleppey") || t.includes("munnar") || t.includes("thekkady") || t.includes("kovalam") || t.includes("backwater") || t.includes("houseboat")) || title.includes("kerala")
           if (!match) return false
-        } else if (catLower.includes("backwaters") || catLower.includes("coast")) {
-          const match = tags.some((t) => t.includes("backwater") || t.includes("coast") || t.includes("alleppey") || t.includes("bekal") || t.includes("goa") || t.includes("houseboat")) || title.includes("backwater") || title.includes("coast")
+        } else if (catLower.includes("kashmir")) {
+          const match = tags.some((t) => t.includes("kashmir") || t.includes("srinagar") || t.includes("gulmarg") || t.includes("pahalgam") || t.includes("sonamarg")) || title.includes("kashmir")
           if (!match) return false
-        } else if (catLower.includes("spiritual") || catLower.includes("wellness")) {
-          const match = tags.some((t) => t.includes("spiritual") || t.includes("wellness") || t.includes("rishikesh") || t.includes("varanasi") || t.includes("ananda") || t.includes("sacred")) || title.includes("spiritual") || title.includes("wellness")
+        } else if (catLower.includes("goa")) {
+          const match = tags.some((t) => t.includes("goa") || t.includes("colva") || t.includes("coast")) || title.includes("goa")
+          if (!match) return false
+        } else if (catLower.includes("spiritual") || catLower.includes("heritage")) {
+          const match = tags.some((t) => t.includes("spiritual") || t.includes("varanasi") || t.includes("heritage") || t.includes("kashi") || t.includes("palace") || t.includes("rajasthan") || t.includes("udaipur")) || title.includes("varanasi") || title.includes("heritage") || title.includes("palace")
           if (!match) return false
         } else if (catLower.includes("wild") || catLower.includes("untamed")) {
           const match = tags.some((t) => t.includes("wild") || t.includes("untamed") || t.includes("ranthambore") || t.includes("corbett") || t.includes("bandhavgarh") || t.includes("safari") || t.includes("tiger")) || title.includes("wild") || title.includes("safari")
@@ -204,9 +217,8 @@ export function PackagesGrid() {
     <section id="destinations" className="relative mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
       {/* Section Header */}
       <div className="mx-auto max-w-2xl text-center">
-        <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-mono font-semibold uppercase tracking-widest text-primary backdrop-blur-md">
-          <Sparkles className="size-3.5 text-primary" />
-          Live Catalog • Verified Escapes
+        <span className="text-xs font-mono uppercase tracking-[0.25em] text-primary/90 font-medium block">
+          Curated Expeditions
         </span>
         <h2 className="mt-4 text-balance font-serif text-4xl leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
           Signature curated <span className="italic text-primary">journeys</span>
@@ -226,13 +238,12 @@ export function PackagesGrid() {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-4 py-2 text-xs font-semibold tracking-wide transition-all ${
+                className={`inline-flex items-center whitespace-nowrap rounded-full px-4 py-2 text-xs font-semibold tracking-wide transition-all ${
                   isSelected
                     ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20 scale-[1.02]"
                     : "border border-white/15 bg-white/5 text-foreground/75 hover:border-white/30 hover:bg-white/10"
                 }`}
               >
-                {category === "Trending" && <Flame className="size-3.5 text-amber-400" />}
                 {category}
               </button>
             )
@@ -366,9 +377,9 @@ export function PackagesGrid() {
                 {selectedPackage.duration}
               </span>
               {selectedPackage.is_trending && (
-                <span className="inline-flex items-center gap-1 rounded-full border border-amber-400/40 bg-amber-500/20 px-2.5 py-1 text-xs font-semibold text-amber-300">
-                  <Flame className="size-3 text-amber-400" />
-                  Trending Journey
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-400/30 bg-amber-500/10 px-2.5 py-1 text-xs font-medium text-amber-300">
+                  <Crown className="size-3 text-amber-400" />
+                  Iconic Curation
                 </span>
               )}
               {selectedPackage.rating && (
@@ -465,13 +476,13 @@ export function PackagesGrid() {
             {/* Bottom Concierge Checkout / Inquiry Bar */}
             <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-white/15 pt-6">
               <div>
-                <span className="block text-xs uppercase tracking-wider text-foreground/50">
-                  Starting Investment
+                <span className="block text-xs uppercase tracking-wider text-primary font-mono font-medium">
+                  Bespoke Private Itinerary
                 </span>
-                <span className="font-serif text-3xl font-semibold text-white">
-                  {formatPrice(selectedPackage.price)}
+                <span className="font-serif text-2xl font-semibold text-white">
+                  Pricing on Request
                 </span>
-                <span className="text-xs text-foreground/60 ml-2">all-inclusive curation</span>
+                <span className="block text-xs text-foreground/60 mt-0.5">Customized to your travel dates & party</span>
               </div>
 
               <div className="flex flex-wrap items-center gap-3">
@@ -479,17 +490,21 @@ export function PackagesGrid() {
                   href={`/packages/${selectedPackage.slug}`}
                   className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-5 py-3 text-xs font-semibold uppercase tracking-wider text-white transition-all hover:bg-white/20 hover:border-primary/40"
                 >
-                  <span>Full Dossier Page</span>
+                  <span>View Itinerary Details</span>
                   <ArrowUpRight className="size-3.5" />
                 </Link>
 
                 <a
-                  href="#about"
+                  href={`https://wa.me/918419887730?text=${encodeURIComponent(
+                    `Hello Sarrin Holidays, I would like to inquire about ${selectedPackage.title} (${selectedPackage.duration}).`
+                  )}`}
+                  target="_blank"
+                  rel="noreferrer"
                   onClick={() => setSelectedPackage(null)}
                   className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:brightness-110 hover:scale-105 active:scale-95 shadow-lg shadow-primary/25"
                 >
                   <Send className="size-4" />
-                  Request Private Access
+                  Get in Touch
                 </a>
               </div>
             </div>

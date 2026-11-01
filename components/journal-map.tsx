@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from 'react'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
-import { Plus, Minus, Compass, Navigation } from 'lucide-react'
+import { Plus, Minus, Compass } from 'lucide-react'
 
 export interface MappedArticle {
   id: string
@@ -223,8 +223,7 @@ export default function JournalMap({
       </div>
 
       {/* Subcontinent HUD Info Badge */}
-      <div className="absolute top-5 left-5 z-[500] pointer-events-none hidden sm:flex items-center gap-2 rounded-full border border-white/10 bg-black/70 backdrop-blur-md px-3.5 py-1.5 shadow-lg">
-        <Navigation className="size-3.5 text-primary animate-pulse" />
+      <div className="absolute top-5 left-5 z-[500] pointer-events-none hidden sm:flex items-center rounded-full border border-white/10 bg-black/70 backdrop-blur-md px-3.5 py-1.5 shadow-lg">
         <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-foreground/75">
           Cartographic Discovery • India
         </span>

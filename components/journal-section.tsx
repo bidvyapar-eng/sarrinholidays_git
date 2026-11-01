@@ -9,7 +9,6 @@ import {
   Compass,
   MapPin,
   LayoutGrid,
-  Sparkles,
   CheckCircle2,
   Clock,
   Navigation,
@@ -217,9 +216,6 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
             <div className="flex items-center gap-2">
               <span className="text-xs uppercase tracking-widest text-primary font-mono font-medium">
                 From The Journal
-              </span>
-              <span className="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 text-[10px] font-semibold text-primary uppercase tracking-widest font-mono">
-                <Sparkles className="size-3" /> Visual Discovery
               </span>
             </div>
             <h2 className="mt-3 font-serif text-4xl text-foreground sm:text-5xl">

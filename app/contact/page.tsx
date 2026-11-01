@@ -5,13 +5,10 @@ import { GlobalConciergeRouting } from '@/components/global-concierge-routing'
 import {
   Building2,
   Crown,
-  ShieldCheck,
   Clock,
-  Award,
   MapPin,
   Phone,
   Mail,
-  Sparkles,
   Compass,
   ArrowUpRight,
   Calendar,
@@ -40,7 +37,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
     .from('site_settings')
     .select('navbar_logo_text')
     .limit(1)
-    .single()
+    .maybeSingle()
 
   return (
     <main className="relative min-h-screen bg-background text-foreground selection:bg-primary/30 selection:text-primary overflow-x-hidden w-full max-w-[100vw]">
@@ -73,8 +70,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
           <div className="lg:col-span-6 xl:col-span-5 space-y-12">
             {/* Header / Editorial Intro */}
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary backdrop-blur-md">
-                <Sparkles className="size-3.5" />
+              <div className="inline-flex items-center rounded-full border border-primary/40 bg-primary/10 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary backdrop-blur-md">
                 Concierge Desk &amp; Sovereign Atelier
               </div>
 
@@ -87,13 +83,79 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
               </p>
             </div>
 
-            {/* Corporate Office Dossiers (Mumbai & Rajasthan) */}
+            {/* Corporate Office Dossiers (Registered HQ & Luxury Ateliers) */}
             <div className="space-y-6 pt-2">
               <span className="text-xs uppercase tracking-widest text-primary font-mono font-medium block">
-                Corporate Operations Desks
+                Official Registered Office &amp; Operations Desks
               </span>
 
-              {/* Office 1: Mumbai Headquarters */}
+              {/* Office 1: Registered Central Headquarters (Nashik) */}
+              <div className="group rounded-3xl border border-primary/40 bg-gradient-to-br from-primary/10 via-white/[0.04] to-black/60 p-6 sm:p-7 backdrop-blur-xl transition-all duration-500 ease-out hover:border-primary/60 hover:shadow-2xl hover:shadow-primary/20 shadow-xl">
+                <div className="flex items-start justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="flex size-11 items-center justify-center rounded-2xl bg-primary/20 text-primary border border-primary/40">
+                      <Building2 className="size-5" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-primary">
+                        Central Registered Office
+                      </span>
+                      <h3 className="font-serif text-xl text-foreground font-medium">
+                        Sarrin Holidays Headquarters
+                      </h3>
+                    </div>
+                  </div>
+
+                  <span className="inline-flex items-center gap-1 rounded-full bg-primary/20 px-2.5 py-0.5 text-[10px] font-mono text-primary border border-primary/30">
+                    MSME Verified
+                  </span>
+                </div>
+
+                <div className="mt-5 space-y-3 text-xs sm:text-sm text-foreground/75 font-light">
+                  <div className="flex items-start gap-2.5">
+                    <MapPin className="size-4 text-primary shrink-0 mt-0.5" />
+                    <span className="leading-snug">
+                      Shop No 42, Jagtap Complex, Satpur, Nashik, Maharashtra - 422012
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-2.5 font-mono text-xs">
+                    <Phone className="size-3.5 text-primary shrink-0" />
+                    <a href="tel:+918419887730" className="hover:text-primary transition-colors font-medium text-white">
+                      +91 8419887730
+                    </a>
+                    <span className="text-foreground/40">|</span>
+                    <a href="https://wa.me/918419887730" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 transition-colors">
+                      WhatsApp 24/7
+                    </a>
+                  </div>
+
+                  <div className="flex items-center gap-2.5 font-mono text-xs">
+                    <Mail className="size-3.5 text-primary shrink-0" />
+                    <a href="mailto:info@sarrinholidays.com" className="hover:text-primary transition-colors">
+                      info@sarrinholidays.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="mt-4 pt-3 border-t border-white/10 flex flex-wrap items-center justify-between gap-2">
+                  <div className="flex flex-wrap gap-2">
+                    {['Curated Circuits', 'VIP Hospitality', 'Direct Air Bookings'].map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full bg-white/5 px-2.5 py-0.5 text-[10px] font-mono text-foreground/60 border border-white/10"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="text-[10px] font-mono text-primary/80">
+                    Reg: UDYAM-MH-23-0433487
+                  </span>
+                </div>
+              </div>
+
+              {/* Office 2: Metropolitan Liaison Desk */}
               <div className="group rounded-3xl border border-white/12 bg-white/[0.03] p-6 sm:p-7 backdrop-blur-xl transition-all duration-500 ease-out hover:border-primary/50 hover:bg-white/[0.06] hover:shadow-2xl hover:shadow-black/60 shadow-xl">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-3">
@@ -102,10 +164,10 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                     </div>
                     <div>
                       <span className="text-[10px] font-mono uppercase tracking-widest text-primary">
-                        Pan-India Operations HQ
+                        Metropolitan Liaison
                       </span>
                       <h3 className="font-serif text-xl text-foreground font-medium">
-                        Mumbai Metropolitan Desk
+                        Mumbai Operations Hub
                       </h3>
                     </div>
                   </div>
@@ -119,14 +181,14 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                   <div className="flex items-start gap-2.5">
                     <MapPin className="size-4 text-primary shrink-0 mt-0.5" />
                     <span className="leading-snug">
-                      Level 18, The Capital, G Block, Bandra Kurla Complex (BKC), Mumbai, Maharashtra 400051
+                      BKC Financial Corridor &amp; Mumbai International Transit Liaison
                     </span>
                   </div>
 
                   <div className="flex items-center gap-2.5 font-mono text-xs">
                     <Phone className="size-3.5 text-primary shrink-0" />
-                    <a href="tel:+912269825500" className="hover:text-primary transition-colors">
-                      +91 (0) 22 6982 5500
+                    <a href="tel:+918419887730" className="hover:text-primary transition-colors">
+                      +91 8419887730
                     </a>
                   </div>
 
@@ -268,8 +330,8 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
             {/* Sovereign Commitments Badges */}
             <div className="rounded-3xl border border-white/10 bg-slate-950/60 p-6 backdrop-blur-md grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
               <div className="space-y-1">
-                <div className="flex items-center gap-1.5 text-primary font-semibold font-mono text-[11px] uppercase">
-                  <ShieldCheck className="size-3.5" /> Strict NDA
+                <div className="text-primary font-semibold font-mono text-[11px] uppercase tracking-wider">
+                  Strict NDA
                 </div>
                 <p className="text-foreground/60 text-[11px] leading-relaxed">
                   Sovereign client privacy covenants and diplomatic non-disclosure.
@@ -277,8 +339,8 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
               </div>
 
               <div className="space-y-1 sm:border-l sm:border-white/10 sm:pl-4">
-                <div className="flex items-center gap-1.5 text-primary font-semibold font-mono text-[11px] uppercase">
-                  <Clock className="size-3.5" /> 2-Hour SLA
+                <div className="text-primary font-semibold font-mono text-[11px] uppercase tracking-wider">
+                  2-Hour SLA
                 </div>
                 <p className="text-foreground/60 text-[11px] leading-relaxed">
                   Fast response times for rapid mountain and jet dispatch.
@@ -286,8 +348,8 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
               </div>
 
               <div className="space-y-1 sm:border-l sm:border-white/10 sm:pl-4">
-                <div className="flex items-center gap-1.5 text-primary font-semibold font-mono text-[11px] uppercase">
-                  <Award className="size-3.5" /> White Glove
+                <div className="text-primary font-semibold font-mono text-[11px] uppercase tracking-wider">
+                  White Glove
                 </div>
                 <p className="text-foreground/60 text-[11px] leading-relaxed">
                   Direct senior curator management on every bespoke manifest.

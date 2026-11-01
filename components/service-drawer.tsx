@@ -5,11 +5,9 @@ import * as Dialog from '@radix-ui/react-dialog'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   X,
-  Sparkles,
   Calendar,
   User,
   Users,
-  ShieldCheck,
   Send,
   CheckCircle2,
   Clock,
@@ -86,7 +84,7 @@ export const SEASONS = [
     label: 'Diwali Break',
     subtitle: 'October – November 2026',
     desc: 'Palace illuminations, royal fireworks & private family festival galas',
-    urgencyBadge: '🔥 Palace Scarcity • High Demand',
+    urgencyBadge: 'Palace Scarcity • High Demand',
     urgencyClass: 'border-red-500/40 bg-red-500/15 text-red-300 shadow-sm shadow-red-500/20',
   },
   {
@@ -94,7 +92,7 @@ export const SEASONS = [
     label: 'Year-End & Winter Holidays',
     subtitle: 'Dec 20, 2026 – Jan 05, 2027',
     desc: 'Regal desert dunes, Udaipur lake soirees & winter soiree suites',
-    urgencyBadge: '⚡ Peak Season • Limited Inventory',
+    urgencyBadge: 'Peak Season • Limited Inventory',
     urgencyClass: 'border-amber-500/40 bg-amber-500/15 text-amber-300 shadow-sm shadow-amber-500/20',
   },
   {
@@ -102,7 +100,7 @@ export const SEASONS = [
     label: 'Summer Holidays',
     subtitle: 'April – June 2027',
     desc: 'Himalayan alpine cool retreats, Kashmir & Ladakh private helicopter charters',
-    urgencyBadge: '🏔️ Peak Mountain Coolers',
+    urgencyBadge: 'Himalayan High Season',
     urgencyClass: 'border-cyan-500/40 bg-cyan-500/15 text-cyan-300 shadow-sm shadow-cyan-500/20',
   },
   {
@@ -110,7 +108,7 @@ export const SEASONS = [
     label: 'Long Weekend Getaways',
     subtitle: '3 – 4 Day Curated Escapes',
     desc: 'Holi, Independence / Republic Day & festive private fortress retreats',
-    urgencyBadge: '✨ Instant Concierge Dispatch',
+    urgencyBadge: 'Priority Concierge Allocation',
     urgencyClass: 'border-emerald-500/40 bg-emerald-500/15 text-emerald-300 shadow-sm shadow-emerald-500/20',
   },
   {
@@ -118,7 +116,7 @@ export const SEASONS = [
     label: 'Monsoon Palace Sabbatical',
     subtitle: 'July – September 2027',
     desc: 'Lush green Aravalis, Ayurvedic panchakarma & misty fort suites',
-    urgencyBadge: '🌧️ Peacock & Monsoon Blooms',
+    urgencyBadge: 'Monsoon Sanctuary Season',
     urgencyClass: 'border-teal-500/40 bg-teal-500/15 text-teal-300 shadow-sm shadow-teal-500/20',
   },
 ]
@@ -495,8 +493,8 @@ export function ServiceDrawer({
 
                         {/* Heading & Subtitle */}
                         <div className="space-y-2 max-w-md mx-auto">
-                          <span className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.25em] text-primary">
-                            <Sparkles className="size-3" /> Confidential Brief Logged
+                          <span className="inline-flex items-center text-[10px] font-mono uppercase tracking-[0.25em] text-primary">
+                            Confidential Brief Logged
                           </span>
                           <h3 className="font-serif text-3xl text-white font-normal">
                             Dossier Transmitted
@@ -1000,8 +998,8 @@ export function ServiceDrawer({
 
                               {/* Freeform VIP Briefing Notes */}
                               <div className="space-y-2 pt-2 border-t border-white/10">
-                                <label className="text-xs font-mono uppercase tracking-wider text-foreground/90 font-medium flex items-center gap-2">
-                                  <Sparkles className="size-3.5 text-primary" /> Confidential Briefing Notes (Optional)
+                                <label className="text-xs font-mono uppercase tracking-wider text-foreground/90 font-medium">
+                                  Confidential Briefing Notes (Optional)
                                 </label>
                                 <textarea
                                   rows={3}
@@ -1106,7 +1104,7 @@ export function ServiceDrawer({
                                 <div className="relative flex items-center">
                                   {/* +91 Fixed Flag/Prefix Badge */}
                                   <div className="flex min-h-[48px] items-center gap-1.5 px-3.5 py-3 rounded-l-lg border border-r-0 border-white/12 bg-white/10 text-white text-[16px] md:text-sm font-mono select-none">
-                                    <span className="text-sm leading-none">🇮🇳</span>
+                                    <span className="text-[11px] font-mono font-semibold tracking-wider text-foreground/80">IND</span>
                                     <span className="font-semibold text-primary">+91</span>
                                   </div>
 
@@ -1269,9 +1267,8 @@ export function ServiceDrawer({
                   {/* Drawer Footer Notice */}
                   {!submitted && (
                     <div className="relative z-10 px-6 sm:px-8 py-4 border-t border-white/10 bg-black/40 text-center">
-                      <p className="text-[11px] text-foreground/50 font-mono flex items-center justify-center gap-1.5">
-                        <ShieldCheck className="size-3.5 text-primary" />
-                        <span>Sovereign Discretion • TLS 1.3 Encrypted Protocol</span>
+                      <p className="text-[11px] text-foreground/50 font-mono tracking-wider uppercase">
+                        Sovereign Discretion • TLS 1.3 Encrypted Protocol
                       </p>
                     </div>
                   )}

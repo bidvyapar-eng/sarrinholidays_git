@@ -1,4 +1,3 @@
-import { Star } from "lucide-react"
 import { SearchFilter } from "@/components/search-filter"
 import { VideoBackground } from "@/components/video-background"
 
@@ -9,35 +8,36 @@ export function Hero() {
       <VideoBackground />
 
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-4 pt-36 pb-20 md:pb-24 text-center sm:px-6">
-        <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-medium tracking-wide text-foreground/90 backdrop-blur-md">
-          <span className="flex items-center gap-0.5 text-primary">
-            <Star className="size-3.5 fill-current" />
-            <Star className="size-3.5 fill-current" />
-            <Star className="size-3.5 fill-current" />
-          </span>
-          Rated 4.9 by 12,000+ travelers
+        {/* Eyebrow: Quiet Luxury Editorial Typography */}
+        <span className="text-xs font-mono uppercase tracking-[0.25em] text-primary/90 font-medium block">
+          India&apos;s Sovereign Travel Atelier
         </span>
 
-        <h1 className="mt-6 max-w-4xl text-balance font-serif text-5xl leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-          Journeys crafted for the{" "}
-          <span className="italic text-primary">extraordinary</span>
+        {/* H1 Primary SEO Title */}
+        <h1 className="mt-5 max-w-4xl text-balance font-serif text-5xl leading-[1.08] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+          Bespoke Indian Expeditions. <br className="hidden sm:inline" />
+          <span className="italic text-primary font-light">Sovereign Luxury.</span>
         </h1>
 
-        <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-foreground/75 sm:text-lg">
-          From private island retreats to alpine hideaways, discover
-          handcrafted escapes to the world&apos;s most breathtaking places.
+        {/* High-Converting, Grounded Editorial Subtitle */}
+        <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-foreground/80 sm:text-lg font-light">
+          Handcrafted private itineraries uniting 18th-century living palace suites in Rajasthan,
+          exclusive houseboat buyouts along Kerala&apos;s emerald lagoons, and high-altitude Himalayan
+          wellness retreats. Architected with private aviation and 24/7 dedicated concierge service.
         </p>
 
+        {/* Interactive Search & Filter Bar */}
         <div className="mt-10 w-full">
           <SearchFilter />
         </div>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-foreground/60">
-          <span>Private villas</span>
-          <span className="hidden size-1 rounded-full bg-foreground/30 sm:inline-block" />
-          <span>Curated itineraries</span>
-          <span className="hidden size-1 rounded-full bg-foreground/30 sm:inline-block" />
-          <span>24/7 concierge</span>
+        {/* Authentic Editorial Trust Credentials */}
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs sm:text-sm text-foreground/75 font-mono tracking-wider uppercase">
+          <span>Taj &amp; Oberoi Living Palaces</span>
+          <span className="size-1 rounded-full bg-primary/40 inline-block" />
+          <span>Twin-Engine Helicopter Charters</span>
+          <span className="size-1 rounded-full bg-primary/40 inline-block" />
+          <span>Strict Non-Disclosure Protocol</span>
         </div>
       </div>
     </section>

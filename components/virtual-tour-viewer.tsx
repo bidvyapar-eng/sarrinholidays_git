@@ -11,14 +11,10 @@ import {
   Minimize2,
   Play,
   Pause,
-  ZoomIn,
-  ZoomOut,
   RotateCcw,
-  Sparkles,
   MapPin,
   X,
   ArrowUpRight,
-  ShieldCheck,
 } from 'lucide-react'
 
 export interface VirtualTourHotspot {
@@ -46,6 +42,20 @@ export interface VirtualTourScene {
 interface VirtualTourViewerProps {
   scenes: VirtualTourScene[]
   initialSceneId?: string
+}
+
+function getSceneShortTitle(scene: VirtualTourScene): string {
+  if (scene.id === 'taj-palace-suite') return 'Taj Mahal Palace'
+  if (scene.id === 'kerala-houseboat-lagoon') return 'Kerala Houseboat'
+  if (scene.id === 'rajasthan-heritage-terrace') return 'Rajasthan Citadel'
+  return scene.title.split('—')[0].trim()
+}
+
+function getSceneShortTag(scene: VirtualTourScene): string {
+  if (scene.id === 'taj-palace-suite') return 'Palace Suite'
+  if (scene.id === 'kerala-houseboat-lagoon') return 'Backwaters'
+  if (scene.id === 'rajasthan-heritage-terrace') return 'Terrace Suite'
+  return scene.tag
 }
 
 function buildMarkers(hotspots?: VirtualTourHotspot[]) {
@@ -135,10 +145,15 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
           loadingTxt: undefined,
           loadingImg: undefined,
           defaultZoomLvl: 45,
-          minFov: 30,
-          maxFov: 90,
-          touchmoveTwoFingers: false,
+          minFov: 25,
+          maxFov: 95,
+          mousewheel: true,
           mousewheelCtrlKey: false,
+          touchmoveTwoFingers: false,
+          mousemove: true,
+          moveSpeed: 1.2,
+          zoomSpeed: 1.3,
+          moveInertia: 0.85,
           navbar: false, // Custom luxury HUD
           plugins: [
             [
@@ -259,16 +274,6 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
     } catch (_) {}
   }
 
-  // Zoom controls
-  const handleZoom = (direction: 'in' | 'out') => {
-    if (!viewerRef.current) return
-    try {
-      const current = viewerRef.current.getZoomLevel()
-      const target = direction === 'in' ? Math.min(100, current + 15) : Math.max(0, current - 15)
-      viewerRef.current.zoom(target)
-    } catch (_) {}
-  }
-
   // Fullscreen
   const toggleFullscreen = () => {
     if (!viewerRef.current) return
@@ -293,7 +298,10 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
     <div className="relative w-full overflow-hidden rounded-[2.5rem] border border-white/15 bg-background/80 shadow-2xl shadow-black/50 backdrop-blur-2xl">
       {/* 360 Canvas Container */}
       <div className="relative aspect-[16/10] w-full min-h-[480px] sm:min-h-[560px] lg:min-h-[640px]">
-        <div ref={containerRef} className="size-full overflow-hidden" />
+        <div
+          ref={containerRef}
+          className="size-full overflow-hidden cursor-grab active:cursor-grabbing select-none"
+        />
 
         {/* Ambient Overlay Vignette */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40" />
@@ -311,30 +319,13 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
           </div>
         )}
 
-        {/* Top Header Badge */}
-        <div className="absolute left-6 top-6 z-20 flex flex-wrap items-center gap-3">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/50 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary backdrop-blur-md">
-            <Sparkles className="size-3.5 text-primary" />
-            Interactive 360° Virtual Tour
-          </span>
-          <span className="hidden rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-xs text-foreground/80 backdrop-blur-md sm:inline-block">
-            {activeScene.tag}
-          </span>
-          {activeScene.hotspots && activeScene.hotspots.length > 0 && (
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary backdrop-blur-md">
-              <MapPin className="size-3" />
-              {activeScene.hotspots.length} Clickable Hotspots
-            </span>
-          )}
-        </div>
-
-        {/* Top Right Floating Controls */}
-        <div className="absolute right-6 top-6 z-20 flex items-center gap-2">
+        {/* Top Right Floating Controls (No Zoom Buttons) */}
+        <div className="absolute right-4 sm:right-6 top-4 sm:top-6 z-20 flex items-center gap-2">
           {/* Toggle Hotspots Button */}
           <button
             onClick={toggleHotspots}
             title={showHotspots ? 'Hide Amenity Hotspots' : 'Show Amenity Hotspots'}
-            className={`flex size-10 items-center justify-center rounded-full border border-white/15 backdrop-blur-md transition-all hover:scale-105 active:scale-95 ${
+            className={`flex size-10 items-center justify-center rounded-full border border-white/15 backdrop-blur-md transition-all hover:scale-105 active:scale-95 cursor-pointer ${
               showHotspots
                 ? 'bg-primary/30 text-primary border-primary/40'
                 : 'bg-black/50 text-foreground/60 hover:bg-white/20'
@@ -346,7 +337,7 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
           <button
             onClick={toggleAutorotate}
             title={isRotating ? 'Pause Ambient Rotation' : 'Start Ambient Rotation'}
-            className={`flex size-10 items-center justify-center rounded-full border border-white/15 backdrop-blur-md transition-all hover:scale-105 active:scale-95 ${
+            className={`flex size-10 items-center justify-center rounded-full border border-white/15 backdrop-blur-md transition-all hover:scale-105 active:scale-95 cursor-pointer ${
               isRotating
                 ? 'bg-primary/30 text-primary border-primary/40'
                 : 'bg-black/50 text-foreground hover:bg-white/20'
@@ -354,58 +345,47 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
           >
             {isRotating ? <Pause className="size-4" /> : <Play className="size-4 ml-0.5" />}
           </button>
+
           <button
             onClick={resetOrientation}
             title="Reset Horizon View"
-            className="flex size-10 items-center justify-center rounded-full border border-white/15 bg-black/50 text-foreground backdrop-blur-md transition-all hover:bg-white/20 hover:scale-105 active:scale-95"
+            className="flex size-10 items-center justify-center rounded-full border border-white/15 bg-black/50 text-foreground backdrop-blur-md transition-all hover:bg-white/20 hover:scale-105 active:scale-95 cursor-pointer"
           >
             <RotateCcw className="size-4" />
           </button>
-          <button
-            onClick={() => handleZoom('in')}
-            title="Zoom In"
-            className="hidden size-10 items-center justify-center rounded-full border border-white/15 bg-black/50 text-foreground backdrop-blur-md transition-all hover:bg-white/20 hover:scale-105 active:scale-95 sm:flex"
-          >
-            <ZoomIn className="size-4" />
-          </button>
-          <button
-            onClick={() => handleZoom('out')}
-            title="Zoom Out"
-            className="hidden size-10 items-center justify-center rounded-full border border-white/15 bg-black/50 text-foreground backdrop-blur-md transition-all hover:bg-white/20 hover:scale-105 active:scale-95 sm:flex"
-          >
-            <ZoomOut className="size-4" />
-          </button>
+
           <button
             onClick={toggleFullscreen}
             title="Toggle Fullscreen"
-            className="flex size-10 items-center justify-center rounded-full border border-white/15 bg-primary px-3 text-primary-foreground backdrop-blur-md transition-all hover:brightness-110 hover:scale-105 active:scale-95"
+            className="flex size-10 items-center justify-center rounded-full border border-white/15 bg-primary px-3 text-primary-foreground backdrop-blur-md transition-all hover:brightness-110 hover:scale-105 active:scale-95 cursor-pointer"
           >
             {isFullscreen ? <Minimize2 className="size-4" /> : <Maximize2 className="size-4" />}
           </button>
         </div>
 
-        {/* Active Hotspot Spotlight Detail Card */}
+        {/* Active Amenity Hotspot Detail Card - Cleanly positioned top-left without overlapping bottom suite info */}
         {activeHotspot && (
-          <div className="absolute left-6 bottom-32 z-30 max-w-sm rounded-3xl border border-primary/30 bg-black/85 p-5 shadow-2xl backdrop-blur-2xl animate-in slide-in-from-bottom-5 duration-300">
+          <div className="absolute left-4 sm:left-6 top-4 sm:top-6 z-30 w-[calc(100%-2rem)] max-w-xs sm:max-w-sm rounded-2xl border border-primary/30 bg-black/85 p-4 sm:p-5 shadow-2xl backdrop-blur-xl animate-in fade-in slide-in-from-top-3 duration-200">
             <div className="flex items-start justify-between gap-3">
               <div>
-                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
-                  {activeHotspot.tag || 'Interactive Amenity'}
+                <span className="inline-block rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 text-[10px] font-mono font-medium uppercase tracking-[0.15em] text-primary">
+                  {activeHotspot.tag || 'Amenity Highlight'}
                 </span>
-                <h4 className="mt-1 font-serif text-xl font-medium text-white">
+                <h4 className="mt-1.5 font-serif text-base sm:text-lg font-medium text-white">
                   {activeHotspot.title}
                 </h4>
               </div>
               <button
                 onClick={() => setActiveHotspot(null)}
-                className="rounded-full border border-white/15 p-1 text-foreground/60 hover:text-white"
+                aria-label="Close amenity details"
+                className="flex size-7 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 text-foreground/70 transition-colors hover:bg-white/20 hover:text-white cursor-pointer"
               >
                 <X className="size-3.5" />
               </button>
             </div>
 
             {activeHotspot.subtitle && (
-              <p className="mt-1.5 text-xs font-medium text-primary/90">
+              <p className="mt-1 text-xs font-medium text-primary/90">
                 {activeHotspot.subtitle}
               </p>
             )}
@@ -416,9 +396,9 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
               </p>
             )}
 
-            <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-3">
+            <div className="mt-3.5 flex items-center justify-between border-t border-white/10 pt-2.5">
               <span className="text-[10px] uppercase tracking-wider text-foreground/50">
-                Spatial Feature
+                Amenity Feature
               </span>
               <a
                 href="#about"
@@ -432,25 +412,31 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
         )}
 
         {/* Bottom Floating Info & Scene HUD */}
-        <div className="absolute inset-x-6 bottom-6 z-20 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-          {/* Active Suite Meta */}
-          <div className="max-w-xl rounded-3xl border border-white/15 bg-black/60 p-5 backdrop-blur-xl sm:p-6">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-              {activeScene.location}
-            </span>
-            <h3 className="mt-1 font-serif text-2xl font-medium tracking-tight text-white sm:text-3xl">
+        <div className="absolute inset-x-4 sm:inset-x-6 bottom-4 sm:bottom-6 z-20 flex flex-col justify-between gap-3 sm:gap-4 lg:flex-row lg:items-end pointer-events-none">
+          {/* Active Suite Meta - Compact & Transparent to keep VR interior focused */}
+          <div className="pointer-events-auto max-w-sm sm:max-w-md rounded-2xl border border-white/10 bg-black/35 p-3.5 sm:p-4 backdrop-blur-md transition-all hover:bg-black/50 shadow-xl shadow-black/40">
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] font-mono font-medium uppercase tracking-[0.2em] text-primary">
+                {activeScene.location}
+              </span>
+              <span className="size-1 rounded-full bg-primary/40" />
+              <span className="text-[10px] font-mono text-foreground/50 uppercase tracking-wider">
+                {activeScene.tag}
+              </span>
+            </div>
+            <h3 className="mt-1 font-serif text-base sm:text-lg lg:text-xl font-medium tracking-tight text-white">
               {activeScene.title}
             </h3>
-            <p className="mt-2 text-sm leading-relaxed text-foreground/75">
+            <p className="mt-1 text-xs leading-relaxed text-foreground/75 line-clamp-2">
               {activeScene.description}
             </p>
 
             {/* Highlights pill tags */}
-            <div className="mt-4 flex flex-wrap gap-2">
-              {activeScene.features.map((feat) => (
+            <div className="mt-2.5 flex flex-wrap gap-1.5">
+              {activeScene.features.slice(0, 3).map((feat) => (
                 <span
                   key={feat}
-                  className="rounded-full border border-white/10 bg-white/5 px-3 py-0.5 text-[11px] font-medium text-foreground/80"
+                  className="rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[10px] font-medium text-foreground/70"
                 >
                   {feat}
                 </span>
@@ -458,39 +444,41 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
             </div>
           </div>
 
-          {/* Scene Carousel Switcher */}
-          <div className="flex items-center gap-3 overflow-x-auto pb-1 scrollbar-none">
+          {/* Scene Switcher Dock - Clean, no cut-off text, glassmorphic dock */}
+          <div className="pointer-events-auto flex items-center gap-2 overflow-x-auto max-w-full p-1.5 rounded-2xl border border-white/10 bg-black/35 backdrop-blur-md scrollbar-none shadow-xl shadow-black/40">
             {scenes.map((scene) => {
               const isSelected = scene.id === activeScene.id
+              const shortTitle = getSceneShortTitle(scene)
+              const shortTag = getSceneShortTag(scene)
               return (
                 <button
                   key={scene.id}
                   onClick={() => handleSceneSelect(scene)}
-                  className={`group relative flex items-center gap-3 rounded-2xl border p-2 text-left transition-all ${
+                  className={`group relative flex items-center gap-2.5 rounded-xl border p-1.5 pr-3 text-left transition-all shrink-0 cursor-pointer ${
                     isSelected
-                      ? 'border-primary bg-primary/20 shadow-lg shadow-primary/20 scale-[1.03]'
-                      : 'border-white/15 bg-black/60 hover:border-white/40 hover:bg-black/80'
+                      ? 'border-primary/80 bg-primary/20 shadow-md shadow-primary/20'
+                      : 'border-white/10 bg-white/5 hover:border-white/30 hover:bg-white/10'
                   }`}
                 >
-                  <div className="relative size-14 shrink-0 overflow-hidden rounded-xl border border-white/20">
+                  <div className="relative size-10 shrink-0 overflow-hidden rounded-lg border border-white/15">
                     <img
                       src={scene.thumbnail}
                       alt={scene.title}
                       className="size-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     {isSelected && (
-                      <span className="absolute inset-0 bg-primary/25 ring-2 ring-primary ring-inset" />
+                      <span className="absolute inset-0 bg-primary/20 ring-1 ring-primary ring-inset" />
                     )}
                   </div>
-                  <div className="pr-3">
-                    <span className="block text-[10px] uppercase tracking-wider text-primary">
-                      {scene.tag}
+                  <div className="min-w-0">
+                    <span className="block text-[9px] font-mono uppercase tracking-wider text-primary truncate">
+                      {shortTag}
                     </span>
-                    <span className="block font-serif text-xs font-semibold text-white whitespace-nowrap">
-                      {scene.title.split('—')[0].trim()}
+                    <span className="block font-serif text-xs font-medium text-white truncate max-w-[125px]">
+                      {shortTitle}
                     </span>
-                    <span className="block text-[10px] text-foreground/60">
-                      {scene.hotspots ? `${scene.hotspots.length} Hotspots` : '360° Panorama'}
+                    <span className="block text-[9px] text-foreground/50">
+                      {scene.hotspots ? `${scene.hotspots.length} Hotspots` : '360° View'}
                     </span>
                   </div>
                 </button>

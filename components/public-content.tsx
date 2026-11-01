@@ -1,15 +1,45 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { ArrowUpRight, Compass, Sparkles, BookOpen, HeartHandshake } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 import { fallbackDestinations, fallbackSite, type Destination, type Experience, type JournalPost } from '@/lib/cms'
 import { JournalSection } from '@/components/journal-section'
+import { AboutSection } from '@/components/about-section'
+
+const AUTHENTIC_INDIAN_EXPERIENCES: Experience[] = [
+  {
+    id: 'exp-1',
+    category: 'Royal Heritage',
+    title: 'Suites in Living Rajputana Palaces',
+    description: 'Private fortress buyouts, torchlit rampart dining, and presidential suites at Taj Lake Palace Udaipur and Rambagh Palace Jaipur.',
+    image_url: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&q=80&w=800',
+    is_published: true,
+    sort_order: 1,
+  },
+  {
+    id: 'exp-2',
+    category: 'Waterway Sanctuaries',
+    title: 'Exclusive Kettuvallam Houseboat Buyouts',
+    description: 'Silent drifting through Alleppey’s emerald palm waterways with a dedicated private coastal chef and certified Ayurvedic therapist.',
+    image_url: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80&w=800',
+    is_published: true,
+    sort_order: 2,
+  },
+  {
+    id: 'exp-3',
+    category: 'Apex Wilderness',
+    title: 'Naturalist-Led Royal Bengal Tiger Safaris',
+    description: 'Exclusive 4x4 open-top gypsy corridors across Ranthambore and Bandhavgarh with senior trackers and luxury forest pavilions.',
+    image_url: 'https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&q=80&w=800',
+    is_published: true,
+    sort_order: 3,
+  },
+]
 
 export function PublicContent() {
   const [site, setSite] = useState(fallbackSite)
   const [destinations, setDestinations] = useState<Destination[]>(fallbackDestinations)
-  const [experiences, setExperiences] = useState<Experience[]>([])
+  const [experiences, setExperiences] = useState<Experience[]>(AUTHENTIC_INDIAN_EXPERIENCES)
   const [journal, setJournal] = useState<JournalPost[]>([])
 
   useEffect(() => {
@@ -23,108 +53,67 @@ export function PublicContent() {
       ])
       if (s?.value) setSite({ ...fallbackSite, ...s.value })
       if (d?.length) setDestinations(d)
-      if (e) setExperiences(e)
-      if (j) setJournal(j)
+      if (e?.length) setExperiences(e)
+      if (j?.length) setJournal(j)
     }
     void load()
   }, [])
 
   return (
     <>
+      {/* 1. Curated Experiences Section */}
       <section id="experiences" className="mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
         <div className="max-w-2xl">
           <span className="text-xs font-mono uppercase tracking-widest text-primary font-medium">
-            The Sarrin Way
+            The Sarrin Philosophy
           </span>
-          <h2 className="mt-3 font-serif text-4xl text-foreground sm:text-5xl">
-            Travel with more meaning.
+          <h2 className="mt-3 font-serif text-3xl sm:text-5xl text-foreground">
+            Travel with profound authenticity.
           </h2>
-          <p className="mt-4 leading-relaxed text-foreground/80">
-            Every detail is considered, so you can be fully present wherever the journey takes you.
+          <p className="mt-4 leading-relaxed text-foreground/80 font-light">
+            Every encounter is privately negotiated and personally accompanied by master historians,
+            wildlife naturalists, or senior concierge liaisons.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {(experiences.length
-            ? experiences
-            : [
-                {
-                  id: '1',
-                  category: 'Stay',
-                  title: 'Places with a pulse',
-                  description: 'Design-led hideaways and warm local hosts.',
-                  image_url: '/package-amalfi.png',
-                },
-                {
-                  id: '2',
-                  category: 'Taste',
-                  title: 'Tables worth travelling for',
-                  description: 'Markets, chefs, and meals that become memories.',
-                  image_url: '/package-kyoto.png',
-                },
-                {
-                  id: '3',
-                  category: 'Discover',
-                  title: 'The world, your way',
-                  description: 'Rare access with thoughtful guides.',
-                  image_url: '/package-serengeti.png',
-                },
-              ] as Experience[]
-          ).map((item) => (
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {experiences.map((item) => (
             <article
               key={item.id}
-              className="group overflow-hidden rounded-3xl border border-white/10 bg-white/5 transition-all duration-500 ease-out hover:border-primary/50 hover:bg-white/[0.08] hover:shadow-2xl hover:shadow-black/60"
+              className="group overflow-hidden rounded-3xl border border-white/10 bg-white/5 transition-all duration-500 ease-out hover:border-primary/50 hover:bg-white/[0.08] hover:shadow-2xl hover:shadow-black/60 flex flex-col"
             >
-              <div className="overflow-hidden">
+              <div className="overflow-hidden aspect-[4/3] w-full relative">
                 <img
                   src={item.image_url}
-                  alt=""
-                  className="aspect-[4/3] w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                  alt={item.title}
+                  className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  loading="lazy"
                 />
-              </div>
-              <div className="p-6">
-                <span className="text-xs font-mono uppercase tracking-widest text-primary font-medium">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
+                <span className="absolute top-4 left-4 rounded-full border border-white/15 bg-black/50 px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-primary backdrop-blur-md">
                   {item.category}
                 </span>
-                <h3 className="mt-2 font-serif text-2xl text-foreground">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-foreground/75 font-light">
-                  {item.description}
-                </p>
+              </div>
+              <div className="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="font-serif text-xl sm:text-2xl text-foreground group-hover:text-primary transition-colors duration-300">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-foreground/75 font-light">
+                    {item.description}
+                  </p>
+                </div>
               </div>
             </article>
           ))}
         </div>
       </section>
 
+      {/* 2. Journal & Editorial Section */}
       <JournalSection initialPosts={journal} />
 
-      <section id="about" className="mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
-        <div className="grid gap-8 rounded-[2rem] border border-primary/25 bg-gradient-to-br from-primary/10 via-slate-900/80 to-primary/5 p-8 md:grid-cols-[1.2fr_.8fr] md:p-12 backdrop-blur-xl">
-          <div>
-            <span className="text-xs font-mono uppercase tracking-widest text-primary font-medium">
-              About Sarrin Holidays
-            </span>
-            <h2 className="mt-3 font-serif text-4xl text-foreground sm:text-5xl">
-              A little further from ordinary.
-            </h2>
-            <p className="mt-5 max-w-xl leading-relaxed text-foreground/80 font-light">
-              We design considered journeys for people who want to feel a place, not simply pass through it. Our concierge team turns curiosity into a seamless, deeply personal escape.
-            </p>
-            <a
-              href="/contact"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary hover:bg-[#c5a030] border border-primary/40 px-6 py-3.5 text-xs font-semibold uppercase tracking-widest text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:brightness-105 active:scale-95"
-            >
-              <span>Talk to a concierge</span>
-              <HeartHandshake className="size-4" />
-            </a>
-          </div>
-          <div className="flex items-center justify-center">
-            <div className="rounded-full border border-primary/30 bg-background/50 p-10 backdrop-blur-xl shadow-2xl">
-              <Compass className="size-20 text-primary" />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 3. The Sarrin Atelier About Section */}
+      <AboutSection />
     </>
   )
 }

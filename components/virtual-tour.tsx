@@ -1,7 +1,7 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import { Sparkles, Eye, ShieldCheck, Compass } from 'lucide-react'
+import { Compass } from 'lucide-react'
 import type { VirtualTourScene } from '@/components/virtual-tour-viewer'
 
 // Dynamic import with SSR disabled to guarantee safety with WebGL, canvas, and browser window APIs
@@ -145,9 +145,8 @@ export function VirtualTour() {
     <section id="virtual-tour" className="relative mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
       {/* Section Headline */}
       <div className="mx-auto max-w-3xl text-center">
-        <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-primary backdrop-blur-md">
-          <Eye className="size-3.5 text-primary" />
-          Immersive Spatial Previews
+        <span className="text-xs font-mono uppercase tracking-[0.25em] text-primary/90 font-medium block">
+          Spatial Previews
         </span>
         <h2 className="mt-4 font-serif text-4xl leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
           Step inside our finest suites <span className="italic text-primary">in 360° VR</span>
@@ -160,26 +159,6 @@ export function VirtualTour() {
       {/* 360 Interactive Viewer Canvas */}
       <div className="mt-14">
         <VirtualTourViewer scenes={defaultScenes} />
-      </div>
-
-      {/* Trust & Concierge Bar */}
-      <div className="mt-8 flex flex-wrap items-center justify-between gap-4 rounded-3xl border border-white/10 bg-white/5 px-6 py-4 backdrop-blur-xl">
-        <div className="flex items-center gap-3 text-xs uppercase tracking-wider text-foreground/75">
-          <ShieldCheck className="size-4 text-primary" />
-          <span>True-Scale Spatial Curations • Certified Luxury Venues</span>
-        </div>
-        <div className="flex items-center gap-3">
-          <span className="text-xs text-foreground/60 hidden sm:inline">
-            Need a bespoke walkthrough?
-          </span>
-          <a
-            href="#about"
-            className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold text-foreground transition-all hover:bg-white/20 hover:scale-105"
-          >
-            <Sparkles className="size-3 text-primary" />
-            Request Private Access
-          </a>
-        </div>
       </div>
     </section>
   )

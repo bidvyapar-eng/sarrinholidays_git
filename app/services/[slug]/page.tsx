@@ -11,7 +11,6 @@ import {
   ArrowLeft,
   Plane,
   Crown,
-  Sparkles,
   ShieldCheck,
   CheckCircle2,
   Clock,
@@ -353,13 +352,13 @@ function ServiceIcon({ name, className = 'size-5' }: { name: string; className?:
       return <Plane className={className} />
     case 'crown':
       return <Crown className={className} />
-    case 'sparkles':
-      return <Sparkles className={className} />
     case 'shieldcheck':
     case 'shield':
       return <ShieldCheck className={className} />
+    case 'compass':
+      return <Compass className={className} />
     default:
-      return <Sparkles className={className} />
+      return <Crown className={className} />
   }
 }
 
@@ -439,18 +438,11 @@ export default async function ServiceDetailPage({
   const resolvedParams = await params
 
   // 1. Fetch site settings
-  const { data: settings } = await supabase
-    .from('site_settings')
-    .select('navbar_logo_text')
-    .limit(1)
-    .single()
-
-  // 2. Fetch service from Supabase
-  const { data: dbService } = await supabase
-    .from('services')
-    .select('*')
-    .eq('slug', resolvedParams.slug)
-    .maybeSingle()
+  // 1. Parallel fetch site settings and service
+  const [{ data: settings }, { data: dbService }] = await Promise.all([
+    supabase.from('site_settings').select('navbar_logo_text').limit(1).maybeSingle(),
+    supabase.from('services').select('*').eq('slug', resolvedParams.slug).maybeSingle(),
+  ])
 
   // Fallback to local data if database is syncing
   const service: ServiceItem | undefined =

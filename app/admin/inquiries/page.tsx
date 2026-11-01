@@ -20,7 +20,6 @@ import {
   AlertCircle,
   MoreVertical,
   Calendar,
-  Sparkles,
   ArrowUpRight,
   ExternalLink,
   ShieldCheck,

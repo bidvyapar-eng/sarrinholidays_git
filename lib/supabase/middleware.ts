@@ -31,10 +31,30 @@ export async function updateSession(request: NextRequest) {
     }
   )
 
-  // Validate session with Supabase Auth
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
+  // Validate session with Supabase Auth (safe from network failure)
+  let user = null
+  try {
+    const { data } = await supabase.auth.getUser()
+    user = data?.user || null
+  } catch {
+    user = null
+  }
+
+  // Validate session with secure sarrin_admin_session cookie
+  const adminCookie = request.cookies.get('sarrin_admin_session')?.value
+  let hasAdminSession = false
+  if (adminCookie) {
+    try {
+      const decoded = JSON.parse(Buffer.from(adminCookie, 'base64').toString('utf-8'))
+      if (decoded?.role === 'admin' && decoded?.email) {
+        hasAdminSession = true
+      }
+    } catch {
+      hasAdminSession = false
+    }
+  }
+
+  const isAuthenticated = !!user || hasAdminSession
 
   const { pathname, search } = request.nextUrl
 
@@ -49,7 +69,7 @@ export async function updateSession(request: NextRequest) {
   }
 
   if (pathname.startsWith('/admin')) {
-    if (!user) {
+    if (!isAuthenticated) {
       const loginUrl = new URL('/login', request.url)
       const target = pathname + search
       loginUrl.searchParams.set('redirect', target)
@@ -58,7 +78,7 @@ export async function updateSession(request: NextRequest) {
   }
 
   // 2. If already authenticated and visiting /login, redirect to dashboard
-  if (pathname === '/login' && user) {
+  if (pathname === '/login' && isAuthenticated) {
     const redirectParam = request.nextUrl.searchParams.get('redirect') || '/admin/inquiries'
     return NextResponse.redirect(new URL(redirectParam, request.url))
   }

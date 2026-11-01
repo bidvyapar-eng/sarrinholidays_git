@@ -8,6 +8,7 @@ import { JsonLd } from '@/components/json-ld'
 import { PackageInquiryTrigger } from '@/components/package-inquiry-trigger'
 import { ItineraryAccordion } from '@/components/itinerary-accordion'
 import { ENABLE_GLOBAL_CONCIERGE } from '@/lib/features.config'
+import { SocialShare } from '@/components/social-share'
 import {
   ArrowLeft,
   Calendar,
@@ -24,7 +25,6 @@ import {
   Phone,
   Mail,
   Award,
-  Sparkles,
   Info,
   Check,
   Minus,
@@ -80,60 +80,248 @@ export function getPackageItinerary(pkg: PackageItem): ItineraryStop[] {
   const title = (pkg.title || '').toLowerCase()
   const slug = (pkg.slug || '').toLowerCase()
 
-  if (slug.includes('rajasthan') || title.includes('heritage') || title.includes('palace')) {
+  // 1. Kerala 8D Grand Circuit
+  if (slug.includes('kerala-gods-own-country') || (slug.includes('kerala') && (slug.includes('8d') || slug.includes('7n')))) {
     return [
       {
-        day: 'Day 01 – 03',
-        destination: 'Udaipur — Sovereign Lakes & Aravali Ramparts',
-        highlight: 'Taj Lake Palace Presidential Suite Arrival',
+        day: 'Day 01',
+        destination: 'Arrival in Kochi — Heritage & Colonial Harbor',
+        highlight: 'Chinese Fishing Nets, Synagogue & Mattancherry',
         description:
-          'Private arrival transfer via vintage Rolls-Royce fleet. Check-in to the Grand Presidential Suite at Taj Lake Palace. Sunset private catamaran cruise on Lake Pichola with customized royal Mewari dinner prepared by the executive chef.',
-        tags: ['Private Boat', 'Vintage Transfer', 'Palace Suite'],
+          'Arrival at Kochi Airport with private reception. Check-in to Abad Atrium (Superior Room) or similar. Afternoon sightseeing of Chinese Fishing Nets, St. Francis Church, Santa Cruz Basilica, Jewish Synagogue, and historic Mattancherry Palace. Evening at leisure.',
+        tags: ['Kochi Harbor', 'Abad Atrium', 'Private AC Car'],
       },
       {
-        day: 'Day 04 – 06',
-        destination: 'Jodhpur — The Blue Fortress Citadel',
-        highlight: 'Helicopter Transfer & Umaid Bhawan Palace',
+        day: 'Day 02',
+        destination: 'Kochi to Munnar — Tea Plantation Hills',
+        highlight: 'Cheeyappara & Valara Waterfalls En Route',
         description:
-          'Twin-engine private helicopter flight to Jodhpur. Residence at Umaid Bhawan Palace. Exclusive after-hours torchlit private tour of Mehrangarh Fort led by the chief royal curator, followed by champagne on the ramparts.',
-        tags: ['Aviation Transfer', 'Curator Access', 'Mehrangarh Night Tour'],
+          'Breakfast and check-out. Scenic morning drive towards the misty hills of Munnar with en route photo stops at Valara and Cheeyappara Waterfalls. Check-in to The Leaf (Green Leaf) or similar resort in Munnar. Evening free to relax or walk through tea gardens.',
+        tags: ['Cheeyappara Falls', 'The Leaf Munnar', 'Tea Estates'],
       },
       {
-        day: 'Day 07 – 10',
-        destination: 'Jaipur — The Royal Pink Capital',
-        highlight: 'Rambagh Palace & Amber Fort Sovereign Access',
+        day: 'Day 03',
+        destination: 'Munnar — Tea Estates & Scenic Reservoirs',
+        highlight: 'Mattupetty Dam, Kundala Lake & Echo Point',
         description:
-          'Chauffeured inter-city transfer in luxury armored SUV with pre-cleared toll corridors. Stay at Rambagh Palace Sukh Niwas Suite. Private sunrise access to Amber Fort Sheesh Mahal before public opening hours and royal polo club luncheon.',
-        tags: ['Armored SUV Fleet', 'Rambagh Palace', 'VIP Passes'],
+          'Full-day guided exploration of Munnar. Visit Mattupetty Dam, Kundala Lake, Echo Point, and panoramic tea plantation viewpoints. Enjoy refreshing mountain air and photograph sprawling green slopes. Overnight stay in Munnar.',
+        tags: ['Mattupetty Dam', 'Kundala Lake', 'Echo Point'],
+      },
+      {
+        day: 'Day 04',
+        destination: 'Munnar to Thekkady — Cardamom Hills & Wildlife',
+        highlight: 'Periyar Wildlife Sanctuary Boat Cruise',
+        description:
+          'Check out after breakfast and drive through the fragrant Cardamom Hills to Thekkady. Check-in to Spice Grove (Deluxe Room). Afternoon boat ride on Periyar Lake inside the Periyar Wildlife Sanctuary to spot wild elephants, gaur, and exotic birds. Optional spice plantation visit.',
+        tags: ['Periyar Lake', 'Spice Grove', 'Wildlife Boat Ride'],
+      },
+      {
+        day: 'Day 05',
+        destination: 'Thekkady to Alleppey — Palm-Fringed Backwaters',
+        highlight: 'Traditional A/C Deluxe Houseboat Overnight Cruise',
+        description:
+          'Drive to Alleppey jetty and board your private traditional A/C Deluxe Houseboat. Cruise through serene canals, village waterways, and paddy fields. Savor freshly prepared authentic Kerala meals on board and spend a peaceful night on the calm waters.',
+        tags: ['Alleppey Houseboat', 'Private Chef Meals', 'Backwaters'],
+      },
+      {
+        day: 'Day 06',
+        destination: 'Alleppey to Kovalam — Golden Beach Sands',
+        highlight: 'Check-in at KTDC Samudra Beachfront Resort',
+        description:
+          'Breakfast on board the houseboat before checkout. Scenic coastal drive to Kovalam. Check in to KTDC Samudra (Deluxe Room) or similar oceanfront property. Relax on the sandy beaches, watch the sunset over the Arabian Sea, or experience coastal amenities.',
+        tags: ['Kovalam Beach', 'KTDC Samudra', 'Sunset Coast'],
+      },
+      {
+        day: 'Day 07',
+        destination: 'Kovalam & Trivandrum City Tour',
+        highlight: 'Sree Padmanabhaswamy Temple & Napier Museum',
+        description:
+          'Day excursion to Trivandrum. Seek blessings at the historic Sree Padmanabhaswamy Temple, visit the Napier Museum, Chitra Art Gallery, Kuthiramalika Palace Museum, and Veli Tourist Village. Watch the waves at Shangumugham Beach before returning to Kovalam for dinner.',
+        tags: ['Padmanabhaswamy', 'Napier Museum', 'Kuthiramalika Palace'],
+      },
+      {
+        day: 'Day 08',
+        destination: 'Kovalam to Trivandrum Airport — Departure',
+        highlight: 'Private Airport Transfer for Onward Flight',
+        description:
+          'Enjoy breakfast by the sea and check out. Private AC transfer to Trivandrum International Airport for your scheduled onward flight with lifelong memories of Kerala.',
+        tags: ['Airport Transfer', 'All-Inclusive Airfare', 'End of Services'],
       },
     ]
   }
 
-  if (slug.includes('kerala') || title.includes('backwater') || title.includes('coast')) {
+  // 2. Kerala 5D Backwaters & Hills Escapade
+  if (slug.includes('kerala-backwaters-hills') || (slug.includes('kerala') && (slug.includes('5d') || slug.includes('4n')))) {
     return [
       {
-        day: 'Day 01 – 03',
-        destination: 'Alleppey — Backwater Palm Lagoons',
-        highlight: 'Exclusive Kettuvallam Houseboat Buyout',
+        day: 'Day 01',
+        destination: 'Kochi Airport to Munnar',
+        highlight: 'Hotel Cloud Palace & Misty Mountain Waterfalls',
         description:
-          'Private chauffeur transfer from Kochi airport in Toyota Vellfire. Private boarding of an ultra-luxury air-conditioned 2-bedroom Kettuvallam houseboat. Dedicated Private Chef serving fresh Karimeen and Malabar coastal degustation.',
-        tags: ['Houseboat Buyout', 'Private Chef', 'Vellfire Transfer'],
+          'Meet your driver at Kochi Airport and proceed toward Munnar. En route enjoy lush tea plantations, small mountain streams, and waterfalls. Check-in to Hotel Cloud Palace in Munnar and spend the evening at leisure.',
+        tags: ['Hotel Cloud Palace', 'Airport Pickup', 'Cheeyappara'],
       },
       {
-        day: 'Day 04 – 05',
-        destination: 'Bekal — Secluded Northern Coast',
-        highlight: 'Taj Bekal Cliffside Pool Villa & Ayurveda',
+        day: 'Day 02',
+        destination: 'Munnar — Full-Day Sightseeing',
+        highlight: 'Mattupetty Dam, Echo Point & Kundala Lake',
         description:
-          'Chauffeured coastal transfer with all inter-district toll clearances. Stay in a secluded private plunge pool villa at Taj Bekal. Daily personalized 90-minute Ayurvedic Abhyanga sessions led by certified Vaidyas.',
-        tags: ['Private Pool Villa', 'Ayurvedic Doctor', 'Inter-City Transfer'],
+          'After breakfast, embark on a scenic tour covering Mattupetty Dam, Echo Point, Kundala Lake, and tea plantation photo points. Return to Hotel Cloud Palace for an overnight stay.',
+        tags: ['Mattupetty Dam', 'Kundala Lake', 'Tea Hills'],
       },
       {
-        day: 'Day 06 – 07',
-        destination: 'South Goa — Pristine Coastal Sanctuary',
-        highlight: 'Private Sunset Yacht Charter',
+        day: 'Day 03',
+        destination: 'Munnar to Thekkady',
+        highlight: 'Hotel Sandra Palace & Cardamom Hills Drive',
         description:
-          'Private transit to private South Goa beachfront residence. Sunset catamaran and private yacht sail with sommelier wine tasting and secluded beach picnic.',
-        tags: ['Private Yacht', 'Sommelier Pairing', 'Coastal Concierge'],
+          'Breakfast and check-out. Drive to Thekkady through beautiful Cardamom Hills. Check-in at Hotel Sandra Palace. Evening at leisure for an optional spice plantation visit, cultural Kathakali show, or local shopping.',
+        tags: ['Hotel Sandra Palace', 'Cardamom Hills', 'Spice Market'],
+      },
+      {
+        day: 'Day 04',
+        destination: 'Thekkady to Alleppey — Riverine Cruise',
+        highlight: 'Full-Board Backwater Cruise with All Meals Included',
+        description:
+          'Drive to Alleppey and check in to Riverine Cruises at 12:00 noon. Enjoy a welcome drink, traditional lunch, evening tea & snacks, and delicious dinner on board while gliding through picturesque backwaters. Overnight stay on board.',
+        tags: ['Riverine Cruise', 'Full Board Meals', 'Backwater Stay'],
+      },
+      {
+        day: 'Day 05',
+        destination: 'Alleppey to Kochi Airport Departure',
+        highlight: 'Check-out at 9:00 AM & Airport Drop',
+        description:
+          'Breakfast on board the houseboat. Check out at 9:00 AM and transfer directly by private AC car to Kochi Airport for your departure, concluding your Kerala journey.',
+        tags: ['Airport Drop', 'Private Car', 'End of Tour'],
+      },
+    ]
+  }
+
+  // 3. Kashmir Holidays 7D
+  if (slug.includes('kashmir') || title.includes('kashmir')) {
+    return [
+      {
+        day: 'Day 01',
+        destination: 'Arrival in Srinagar — City of Gardens',
+        highlight: 'Chashme Shahi, Nishat Bagh & Shalimar Bagh',
+        description:
+          'Arrive at Srinagar Airport with personal reception and transfer to your hotel. Visit the famous royal Mughal Gardens: Chashme Shahi, Nishat Bagh, and Shalimar Bagh along the Dal Lake shoreline. Evening at leisure.',
+        tags: ['Mughal Gardens', 'Srinagar Stay', 'Airport Reception'],
+      },
+      {
+        day: 'Day 02',
+        destination: 'Srinagar to Sonamarg Excursion',
+        highlight: 'Meadow of Gold & Thajiwas Glacier Views',
+        description:
+          'Full-day excursion to Sonamarg along the Sindh River. Witness towering snow peaks and alpine meadows. Optional pony ride to Thajiwas Glacier. Return to Srinagar in the evening for dinner and overnight stay.',
+        tags: ['Sonamarg', 'Thajiwas Glacier', 'Alpine River'],
+      },
+      {
+        day: 'Day 03',
+        destination: 'Srinagar to Gulmarg — Meadow of Flowers',
+        highlight: 'Gulmarg Gondola Ride (Phase 1 Included)',
+        description:
+          'Drive to Gulmarg, the premier winter sports resort of India. Board the world-famous Gulmarg Gondola Ride (Phase 1 ticket included) to reach high snow slopes. Enjoy snow activities and stay overnight in Gulmarg.',
+        tags: ['Gondola Phase 1 Included', 'Snow Peaks', 'Gulmarg Resort'],
+      },
+      {
+        day: 'Day 04',
+        destination: 'Gulmarg to Pahalgam — Valley of Shepherds',
+        highlight: 'Scenic Countryside Drive along Lidder River',
+        description:
+          'After breakfast, drive to Pahalgam through saffron fields and scenic pine countryside. Check-in to hotel and relax. Take a peaceful walk along the Lidder River or explore the local handicrafts market.',
+        tags: ['Pahalgam Valley', 'Lidder River', 'Saffron Fields'],
+      },
+      {
+        day: 'Day 05',
+        destination: 'Pahalgam Sightseeing Excursion',
+        highlight: 'Aru Valley, Betaab Valley & Chandanwari',
+        description:
+          'Explore the breathtaking landscapes of Aru Valley, Betaab Valley, and Chandanwari by local vehicle. Surrounded by emerald meadows and glacier streams. Return to Pahalgam for dinner and overnight stay.',
+        tags: ['Betaab Valley', 'Aru Valley', 'Chandanwari'],
+      },
+      {
+        day: 'Day 06',
+        destination: 'Pahalgam to Srinagar Houseboat',
+        highlight: 'Martand Sun Temple & 60-Min Dal Lake Shikara Ride',
+        description:
+          'Return drive to Srinagar, visiting the historic 8th-century Martand Sun Temple en route. Check in to a traditional Deluxe Houseboat on Dal Lake. In the evening, enjoy a 60-minute sunset Shikara ride across the lotus waters.',
+        tags: ['Deluxe Houseboat', 'Shikara Ride Included', 'Martand Temple'],
+      },
+      {
+        day: 'Day 07',
+        destination: 'Srinagar Airport Departure',
+        highlight: 'Transfer to Airport for Flight to Delhi',
+        description:
+          'Breakfast on the houseboat and check out. Transfer by private Toyota Etios to Srinagar Airport for your onward journey with unforgettable memories of Kashmir.',
+        tags: ['Airport Transfer', 'Return Flights', 'End of Services'],
+      },
+    ]
+  }
+
+  // 4. Blissful Goa 4D
+  if (slug.includes('goa') || title.includes('goa')) {
+    return [
+      {
+        day: 'Day 01',
+        destination: 'Arrival in Goa — Colva Beachfront',
+        highlight: 'Hotel Colva Kinara & Leisure on Colva Sands',
+        description:
+          'Arrive in Goa and meet your driver. Transfer to Hotel Colva Kinara and check in. Spend the afternoon strolling along the wide white sands of Colva Beach, relaxing by beach shacks, and soaking in coastal sunsets.',
+        tags: ['Hotel Colva Kinara', 'Colva Beach', 'Airport Pickup'],
+      },
+      {
+        day: 'Day 02',
+        destination: 'Full-Day North Goa Sightseeing',
+        highlight: 'Fort Aguada, Baga, Candolim & Mandovi River Cruise',
+        description:
+          'Full-day North Goa tour visiting Dolphin Point, the 17th-century Portuguese Fort Aguada, Candolim Beach, and vibrant Baga Beach. Visit Snow Park and Thunder World. In the evening, embark on a scenic Mandovi River Cruise with folk dance performances.',
+        tags: ['Fort Aguada', 'Baga Beach', 'River Cruise Included'],
+      },
+      {
+        day: 'Day 03',
+        destination: 'Full-Day South Goa Heritage & Temples',
+        highlight: 'Old Goa UNESCO Churches, Mangueshi Temple & Spice Farm',
+        description:
+          'Explore South Goa heritage: Shantadurga Temple, Sahakari Spice Farm with traditional lunch, Big Foot museum, Mangueshi Temple, and the UNESCO World Heritage Basilica of Bom Jesus and Se Cathedral in Old Goa. Visit Wax World and Colva Beach.',
+        tags: ['Old Goa Churches', 'Spice Farm', 'Mangueshi Temple'],
+      },
+      {
+        day: 'Day 04',
+        destination: 'Departure from Goa',
+        highlight: 'Transfer to Airport / Railway Station',
+        description:
+          'Enjoy breakfast at Hotel Colva Kinara and check out. Private AC transfer to Goa Airport (Dabolim/Mopa) or Madgaon Railway Station for your departure journey.',
+        tags: ['Airport Drop', 'Private AC Car', 'End of Tour'],
+      },
+    ]
+  }
+
+  // 5. Experience Varanasi 3D (Dev Deepawali)
+  if (slug.includes('varanasi') || title.includes('varanasi') || slug.includes('deepawali')) {
+    return [
+      {
+        day: 'Day 01',
+        destination: 'Arrival in Varanasi & Kashi Darshan',
+        highlight: 'Kashi Vishwanath Corridor & Dashashwamedh Ganga Aarti',
+        description:
+          'Arrival at Varanasi Airport or Railway Station and transfer to heritage hotel. Visit Kashi Vishwanath Temple via the new Corridor, Annapurna Temple, and Kal Bhairav Temple. In the evening, witness the grand Ganga Aarti ceremony from the steps of Dashashwamedh Ghat.',
+        tags: ['Kashi Vishwanath Corridor', 'Ganga Aarti', 'Kal Bhairav'],
+      },
+      {
+        day: 'Day 02',
+        destination: 'Subah-e-Banaras & Dev Deepawali Festival',
+        highlight: 'Special Dev Deepawali Boat Ride, Deepdaan & Maha Aarti',
+        description:
+          'Early morning sunrise experience at Assi Ghat for Subah-e-Banaras. Visit Sankat Mochan, Durga Temple, Tulsi Manas, and New Vishwanath Temple (BHU). In the afternoon, board your dedicated Dev Deepawali festival boat. Witness millions of glowing earthen diyas illuminating all 84 ghats, participate in Deepdaan on the sacred river, and experience the magnificent Ganga Maha Aarti.',
+        tags: ['Dev Deepawali Boat', 'Deepdaan on Ganga', 'Illuminated Ghats'],
+      },
+      {
+        day: 'Day 03',
+        destination: 'Sarnath Buddhist Heritage & Departure',
+        highlight: 'Dhamek Stupa, Buddhist Monasteries & Airport Transfer',
+        description:
+          'Check out after breakfast and drive to Sarnath, the revered site where Lord Buddha delivered his first sermon. Visit the ancient Dhamek Stupa, Buddhist temples, and archaeological museum. Transfer to Varanasi Airport or Railway Station for onward journey.',
+        tags: ['Sarnath Stupa', 'Buddhist Heritage', 'Airport Transfer'],
       },
     ]
   }
@@ -287,12 +475,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function PackageDetailPage({ params }: PageProps) {
   const { slug } = await params
 
-  // 1. Fetch package from Supabase with fallback merge
-  const { data: dbPkg } = await supabase
-    .from('packages')
-    .select('*')
-    .eq('slug', slug)
-    .maybeSingle()
+  // 1. Parallel fetch package and site settings
+  const [{ data: dbPkg }, { data: settings }] = await Promise.all([
+    supabase.from('packages').select('*').eq('slug', slug).maybeSingle(),
+    supabase.from('site_settings').select('navbar_logo_text').limit(1).maybeSingle(),
+  ])
 
   const fallbackMatch = fallbackPackages.find((p) => p.slug === slug)
   const pkg: PackageItem | undefined = dbPkg
@@ -311,14 +498,6 @@ export default async function PackageDetailPage({ params }: PageProps) {
   }
 
   const itineraryDays = getPackageItinerary(pkg)
-
-  // 2. Fetch site settings for navbar logo
-  const { data: settings } = await supabase
-    .from('site_settings')
-    .select('navbar_logo_text')
-    .limit(1)
-    .maybeSingle()
-
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sarrinholidays.com'
 
   // 3. Build TouristTrip Structured Data Schema
@@ -404,8 +583,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
             </span>
 
             {pkg.scarcity_status && (
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-rose-500/20 text-rose-300 border border-rose-500/40 shadow-lg shadow-rose-950/40 animate-pulse">
-                <Sparkles className="size-3.5 text-rose-400" />
+              <span className="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-semibold bg-rose-500/20 text-rose-300 border border-rose-500/40 shadow-lg shadow-rose-950/40">
                 {pkg.scarcity_status}
               </span>
             )}
@@ -429,7 +607,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
                 key={theme}
                 className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-serif italic bg-amber-500/10 text-amber-300 border border-amber-500/30 backdrop-blur-md"
               >
-                <span>✦</span>
+                <span className="size-1 rounded-full bg-amber-400/80 inline-block mr-0.5" />
                 <span>{theme}</span>
               </span>
             ))}
@@ -448,13 +626,16 @@ export default async function PackageDetailPage({ params }: PageProps) {
             {pkg.title}
           </h1>
 
-          {/* Destinations Strip */}
-          {pkg.destinations && pkg.destinations.length > 0 && (
-            <div className="flex items-center gap-2 mt-4 text-neutral-300 text-sm font-medium">
-              <MapPin className="size-4 text-primary shrink-0" />
-              <span>{pkg.destinations.join('  •  ')}</span>
-            </div>
-          )}
+          {/* Destinations Strip & Social Share */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-5 pt-4 border-t border-white/10">
+            {pkg.destinations && pkg.destinations.length > 0 && (
+              <div className="flex items-center gap-2 text-neutral-300 text-sm font-medium">
+                <MapPin className="size-4 text-primary shrink-0" />
+                <span>{pkg.destinations.join('  •  ')}</span>
+              </div>
+            )}
+            <SocialShare title={pkg.title} />
+          </div>
         </div>
       </div>
 
@@ -547,8 +728,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
               {/* Section Header */}
               <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-white/10">
                 <div>
-                  <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-mono uppercase tracking-widest text-primary backdrop-blur-md mb-2">
-                    <Sparkles className="size-3" />
+                  <div className="inline-flex items-center rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-mono uppercase tracking-widest text-primary backdrop-blur-md mb-2">
                     At a Glance
                   </div>
                   <h2 className="font-serif text-2xl sm:text-3xl text-foreground font-normal tracking-tight">
@@ -559,8 +739,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
                   </p>
                 </div>
 
-                <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20">
-                  <ShieldCheck className="size-3.5" />
+                <span className="hidden sm:inline-flex items-center px-3 py-1 rounded-full text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20">
                   Verified Domestic Standard
                 </span>
               </div>
@@ -753,8 +932,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
               <div className="rounded-3xl border border-primary/30 bg-neutral-900/80 p-6 sm:p-8 backdrop-blur-2xl shadow-2xl shadow-black/80 space-y-6">
                 {/* Scarcity / Availability Callout on Card */}
                 {pkg.scarcity_status && (
-                  <div className="rounded-2xl border border-rose-500/30 bg-rose-500/10 p-3.5 flex items-start gap-2.5 text-xs text-rose-200">
-                    <Sparkles className="size-4 shrink-0 text-rose-400 mt-0.5" />
+                  <div className="rounded-2xl border border-rose-500/30 bg-rose-500/10 p-3.5 text-xs text-rose-200">
                     <div>
                       <div className="font-semibold text-rose-300 uppercase tracking-wider text-[10px] font-mono">
                         Exclusive Availability Notice
@@ -765,17 +943,16 @@ export default async function PackageDetailPage({ params }: PageProps) {
                 )}
 
                 <div>
-                  <span className="text-[10px] uppercase font-mono tracking-wider text-neutral-400 block mb-1">
-                    Bespoke Private Curation
+                  <span className="text-[10px] uppercase font-mono tracking-wider text-primary block mb-1">
+                    Bespoke Private Itinerary
                   </span>
                   <div className="flex items-baseline gap-2">
-                    <span className="font-serif text-3xl sm:text-4xl font-bold text-white">
-                      ₹{(pkg.price < 10000 ? pkg.price * 100 : pkg.price).toLocaleString('en-IN')}
+                    <span className="font-serif text-2xl sm:text-3xl font-medium text-white">
+                      Pricing on Request
                     </span>
-                    <span className="text-xs text-neutral-400 font-mono">/ guest</span>
                   </div>
-                  <p className="text-[11px] text-neutral-400 mt-1">
-                    Based on double occupancy • Inclusive of private transfers, palace suites & taxes
+                  <p className="text-[11px] text-neutral-400 mt-1.5 leading-relaxed font-light">
+                    Every holiday is privately tailored to your chosen travel dates, room categories, and party size with zero hidden surcharges.
                   </p>
                 </div>
 
@@ -786,7 +963,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
                   </div>
                   <div className="flex justify-between text-neutral-300">
                     <span className="text-neutral-500">Classification</span>
-                    <span className="font-semibold text-primary">Private Luxury Tour</span>
+                    <span className="font-semibold text-primary">Private Tour</span>
                   </div>
                   <div className="flex justify-between text-neutral-300">
                     <span className="text-neutral-500">Availability</span>
@@ -800,11 +977,13 @@ export default async function PackageDetailPage({ params }: PageProps) {
                   <PackageInquiryTrigger
                     packageTitle={pkg.title}
                     classification="Curated Luxury Expedition"
-                    buttonText="Request Confidential Itinerary"
+                    buttonText="Get in Touch / Request Quote"
                   />
 
                   <a
-                    href="https://wa.me/919820044810?text=Hello%20Sarrin%20Holidays%2C%20I%20would%20like%20to%20inquire%20about%20the%20curated%20itinerary."
+                    href={`https://wa.me/918419887730?text=${encodeURIComponent(
+                      `Hello Sarrin Holidays, I would like to inquire about the ${pkg.title} (${pkg.duration}).`
+                    )}`}
                     target="_blank"
                     rel="noreferrer"
                     className="w-full flex items-center justify-center gap-2 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 py-3 px-4 text-xs font-medium text-emerald-300 transition-colors"
@@ -816,7 +995,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
 
                 <div className="border-t border-white/10 pt-4 text-center">
                   <p className="text-[11px] text-neutral-500 font-mono">
-                    24/7 Chief Operations Desk: +91 (0) 22 6982 5500
+                    Official Concierge Desk: +91 8419887730
                   </p>
                 </div>
               </div>

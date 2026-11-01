@@ -6,7 +6,6 @@ import { motion, AnimatePresence, type Variants } from 'framer-motion'
 import {
   Plane,
   Crown,
-  Sparkles,
   ShieldCheck,
   ArrowUpRight,
   CheckCircle2,
@@ -34,13 +33,13 @@ function ServiceIcon({ name, className = 'size-5' }: { name: string; className?:
       return <Plane className={className} />
     case 'crown':
       return <Crown className={className} />
-    case 'sparkles':
-      return <Sparkles className={className} />
     case 'shieldcheck':
     case 'shield':
       return <ShieldCheck className={className} />
+    case 'compass':
+      return <Compass className={className} />
     default:
-      return <Sparkles className={className} />
+      return <Crown className={className} />
   }
 }
 
@@ -276,9 +275,8 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
                 <button
                   type="button"
                   onClick={() => handleOpenDrawer(service)}
-                  className="inline-flex items-center gap-1.5 rounded-xl border border-primary/40 bg-primary/10 px-3.5 py-2 text-xs font-semibold text-primary hover:bg-primary hover:text-primary-foreground transition-all cursor-pointer"
+                  className="inline-flex items-center rounded-xl border border-primary/40 bg-primary/10 px-4 py-2 text-xs font-semibold text-primary hover:bg-primary hover:text-primary-foreground transition-all cursor-pointer"
                 >
-                  <Sparkles className="size-3.5" />
                   <span>Request this Service</span>
                 </button>
               </div>
@@ -296,8 +294,8 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
           <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
             <div className="max-w-2xl">
               <div className="flex items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
-                  <Compass className="size-3.5" /> Bespoke Operations Atelier
+                <span className="inline-flex items-center rounded-full border border-primary/40 bg-primary/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+                  Bespoke Operations Atelier
                 </span>
               </div>
               <h3 className="mt-4 font-serif text-3xl text-foreground sm:text-4xl">
@@ -319,7 +317,7 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
                       slug: 'custom',
                       short_desc: 'Custom Private Request',
                       full_desc: '',
-                      icon_name: 'Sparkles',
+                      icon_name: 'Crown',
                       hero_image: '',
                     }
                   )

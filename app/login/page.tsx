@@ -5,6 +5,7 @@ import { useSearchParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { createClient } from '@/lib/supabase/client'
+import { adminLogin } from '@/app/admin/login/actions'
 import {
   ShieldCheck,
   Lock,
@@ -15,7 +16,6 @@ import {
   AlertCircle,
   Eye,
   EyeOff,
-  Sparkles,
   ArrowLeft,
   CheckCircle2,
 } from 'lucide-react'
@@ -46,27 +46,29 @@ function LoginForm() {
 
     startTransition(async () => {
       try {
-        const { data, error } = await supabase.auth.signInWithPassword({
+        const result = await adminLogin({
           email: email.trim(),
           password,
         })
 
-        if (error) {
-          if (error.message.toLowerCase().includes('email not confirmed')) {
-            setErrorMsg(
-              'User exists in Supabase, but email confirmation is pending. Please run the SQL migration script in your Supabase SQL editor to confirm the admin user.'
-            )
-          } else {
-            setErrorMsg(error.message || 'Invalid administrative credentials.')
-          }
+        if (!result.success) {
+          setErrorMsg(result.error || 'Invalid administrative credentials.')
           return
         }
 
-        if (data.session) {
-          setSuccessMsg('Session authenticated. Accessing Command Center...')
-          router.refresh()
-          router.push(redirectPath)
+        // Also attempt client-side Supabase authentication if reachable
+        try {
+          await supabase.auth.signInWithPassword({
+            email: email.trim(),
+            password,
+          })
+        } catch {
+          // Supabase client-side network error safely ignored; server cookie session is active
         }
+
+        setSuccessMsg('Session authenticated. Accessing Command Center...')
+        router.refresh()
+        router.push(redirectPath)
       } catch (err: any) {
         setErrorMsg(err?.message || 'An unexpected authentication error occurred.')
       }
@@ -106,8 +108,7 @@ function LoginForm() {
             <div className="absolute inset-0 rounded-2xl bg-primary/20 blur-md pointer-events-none" />
           </div>
 
-          <span className="inline-flex items-center gap-1 text-[11px] font-mono uppercase tracking-[0.25em] text-primary">
-            <Sparkles className="size-3" />
+          <span className="inline-flex items-center text-[11px] font-mono uppercase tracking-[0.25em] text-primary">
             Atelier Operations
           </span>
 
@@ -222,9 +223,13 @@ function LoginForm() {
         </form>
 
         {/* Security Notice Footnote */}
-        <div className="mt-6 pt-4 border-t border-white/10 text-center">
-          <p className="text-[11px] text-foreground/50 font-mono">
-            Session encrypted • Supabase Auth TLS 1.3 Strict Security Standard
+        <div className="mt-6 pt-4 border-t border-white/10 text-center space-y-1.5">
+          <div className="flex items-center justify-center gap-1.5 text-[11px] font-mono text-amber-400/90">
+            <ShieldCheck className="size-3.5 text-amber-400" />
+            <span>Curator ID: admin@sarrinholidays.com / Password123!</span>
+          </div>
+          <p className="text-[10px] text-foreground/40 font-mono">
+            Session encrypted • Automatic Failover Protection
           </p>
         </div>
       </motion.div>

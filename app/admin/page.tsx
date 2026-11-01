@@ -10,6 +10,7 @@ import {
   BookOpen,
   Boxes,
   Check,
+  CheckCircle2,
   Compass,
   Eye,
   Flame,
@@ -22,7 +23,7 @@ import {
   Save,
   Settings2,
   ShieldCheck,
-  Sparkles,
+  FileText,
   Star,
   Trash2,
   X,
@@ -37,7 +38,7 @@ const modules = [
   { id: 'destinations', label: 'Destinations', icon: Boxes },
   { id: 'experiences', label: 'Experiences', icon: BarChart3 },
   { id: 'journal_posts', label: 'Journal Posts', icon: BookOpen },
-  { id: 'site_settings', label: 'Hero & Copy', icon: Sparkles },
+  { id: 'site_settings', label: 'Hero & Copy', icon: FileText },
   { id: 'media_assets', label: 'Branding & Media', icon: ImageIcon },
   { id: 'theme', label: 'Theme Studio', icon: Palette },
 ]
@@ -321,7 +322,7 @@ function AdminDashboardInner() {
       {/* Toast Notification */}
       {notification && (
         <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full border border-primary/40 bg-background/90 px-5 py-3 text-xs font-semibold text-primary shadow-2xl backdrop-blur-xl animate-in slide-in-from-bottom-5">
-          <Sparkles className="size-4" />
+          <CheckCircle2 className="size-4" />
           {notification}
         </div>
       )}
@@ -500,7 +501,6 @@ function Overview({ rows, site, onSelect }: any) {
                 {site.heroTitle ?? 'Journeys crafted for the extraordinary'}
               </h2>
             </div>
-            <Sparkles className="size-6 text-primary" />
           </div>
           <p className="mt-4 max-w-xl leading-relaxed text-foreground/70">
             {site.heroDescription ??
@@ -537,7 +537,7 @@ function Overview({ rows, site, onSelect }: any) {
               className="flex items-center justify-between rounded-2xl border border-white/10 px-4 py-3 text-sm text-foreground hover:bg-white/8"
             >
               <span>Edit Hero Taglines</span>
-              <Sparkles className="size-4 text-primary" />
+              <FileText className="size-4 text-primary" />
             </button>
             <button
               onClick={() => onSelect('journal_posts')}

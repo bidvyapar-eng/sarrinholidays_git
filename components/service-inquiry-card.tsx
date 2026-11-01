@@ -7,8 +7,6 @@ import {
   Check,
   Phone,
   Mail,
-  ShieldCheck,
-  Sparkles,
   Clock,
   ArrowUpRight,
   ArrowRight,
@@ -80,9 +78,8 @@ export function ServiceInquiryCard({
           <button
             type="button"
             onClick={() => setDrawerOpen(true)}
-            className="w-full group inline-flex items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-primary via-amber-500 to-primary py-3.5 px-4 text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground shadow-xl shadow-primary/25 hover:shadow-primary/45 hover:scale-[1.01] active:scale-95 transition-all cursor-pointer"
+            className="w-full group inline-flex items-center justify-center gap-2.5 rounded-xl bg-primary hover:bg-[#c5a030] py-3.5 px-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground shadow-xl shadow-primary/25 hover:shadow-primary/45 hover:scale-[1.01] active:scale-95 transition-all cursor-pointer"
           >
-            <Sparkles className="size-3.5 animate-pulse" />
             <span>Request this Service</span>
             <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
           </button>
@@ -135,8 +132,8 @@ export function ServiceInquiryCard({
               <span className="text-xs font-semibold uppercase tracking-wider text-foreground/80">
                 Confidential Inquiry
               </span>
-              <span className="flex items-center gap-1 text-[10px] text-foreground/50">
-                <ShieldCheck className="size-3 text-primary" /> NDA Protected
+              <span className="text-[10px] uppercase font-mono tracking-wider text-foreground/50">
+                NDA Protected
               </span>
             </div>
 

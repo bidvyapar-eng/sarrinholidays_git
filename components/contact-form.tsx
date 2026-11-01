@@ -7,8 +7,6 @@ import {
   CheckCircle2,
   PhoneCall,
   Mail,
-  ShieldCheck,
-  Sparkles,
   User,
   Phone,
   MessageSquare,
@@ -156,8 +154,7 @@ export function ContactForm() {
         {/* Form Header */}
         <div className="relative z-10 border-b border-white/10 pb-6">
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/20 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary backdrop-blur-md">
-              <Sparkles className="size-3" />
+            <span className="inline-flex items-center rounded-full border border-primary/40 bg-primary/20 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary backdrop-blur-md">
               Direct Operations Brief
             </span>
             <span className="flex items-center gap-1.5 text-[11px] font-mono text-foreground/50">
@@ -493,7 +490,7 @@ export function ContactForm() {
                   <div className="relative flex items-center">
                     {/* +91 Fixed Badge */}
                     <div className="flex min-h-[48px] items-center gap-1.5 px-3.5 py-3 rounded-l-lg border border-r-0 border-white/12 bg-white/10 text-white text-[16px] md:text-sm font-mono select-none">
-                      <span className="text-sm leading-none">🇮🇳</span>
+                      <span className="text-[11px] font-mono font-semibold tracking-wider text-foreground/80">IND</span>
                       <span className="font-semibold text-primary">+91</span>
                     </div>
 
@@ -569,11 +566,8 @@ export function ContactForm() {
                 </div>
 
                 {/* Non-Disclosure Assurance */}
-                <div className="flex items-center gap-2 text-[11px] text-foreground/60">
-                  <ShieldCheck className="size-4 text-primary shrink-0" />
-                  <span>
-                    Transmitted under strict non-disclosure covenants. Tagged automatically as <strong>General Contact</strong>.
-                  </span>
+                <div className="text-[11px] text-foreground/60 leading-relaxed font-light">
+                  Transmitted under strict non-disclosure covenants. Tagged automatically as <strong>General Contact</strong>.
                 </div>
 
                 {/* Submit Button */}
@@ -616,7 +610,7 @@ export function ContactForm() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* Button 1: Prominent WhatsApp Button with Distinct Call Symbol */}
           <motion.a
-            href="https://wa.me/919820072774?text=Hello%20Sarrin%20Holidays%20Concierge,%20I%20would%20like%20to%20inquire%20about%20a%20bespoke%20travel%20experience."
+            href="https://wa.me/918419887730?text=Hello%20Sarrin%20Holidays%20Concierge,%20I%20would%20like%20to%20inquire%20about%20a%20bespoke%20travel%20experience."
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ y: -4, scale: 1.02 }}
@@ -629,12 +623,12 @@ export function ContactForm() {
 
             <div className="flex items-start justify-between">
               {/* Distinct Call Symbol Badge */}
-              <div className="flex size-12 items-center justify-center rounded-2xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-lg shadow-emerald-500/20 group-hover:scale-110 transition-transform">
-                <PhoneCall className="size-6 text-emerald-400 animate-pulse" />
+              <div className="flex size-12 items-center justify-center rounded-2xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+                <PhoneCall className="size-6 text-emerald-400" />
               </div>
 
-              <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/20 px-2.5 py-0.5 text-[10px] font-mono font-semibold uppercase tracking-wider text-emerald-300 border border-emerald-500/30">
-                <span className="size-1.5 rounded-full bg-emerald-400 animate-ping" />
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/20 px-2.5 py-0.5 text-[10px] font-mono font-semibold uppercase tracking-wider text-emerald-300 border border-emerald-500/30">
+                <span className="size-1.5 rounded-full bg-emerald-400" />
                 Live Desk
               </span>
             </div>
@@ -647,7 +641,7 @@ export function ContactForm() {
                 Connect via WhatsApp
               </h4>
               <p className="mt-1 text-xs text-white/70 font-mono">
-                +91 98200 SARRIN
+                +91 8419887730
               </p>
             </div>
 

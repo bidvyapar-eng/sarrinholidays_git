@@ -52,6 +52,9 @@ export const metadata: Metadata = {
   publisher: 'Sarrin Holidays',
   alternates: {
     canonical: '/',
+    types: {
+      'application/rss+xml': `${siteUrl}/feed.xml`,
+    },
   },
   openGraph: {
     type: 'website',
@@ -83,19 +86,37 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
+        url: '/icon-32x32.png?v=sarrin2026',
+        sizes: '32x32',
+        type: 'image/png',
       },
       {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
+        url: '/icon-16x16.png?v=sarrin2026',
+        sizes: '16x16',
+        type: 'image/png',
       },
       {
-        url: '/icon.svg',
+        url: '/icon-light-32x32.png?v=sarrin2026',
+        sizes: '32x32',
+        type: 'image/png',
+      },
+      {
+        url: '/icon.svg?v=sarrin2026',
         type: 'image/svg+xml',
       },
+      {
+        url: '/favicon.ico?v=sarrin2026',
+        sizes: 'any',
+      },
     ],
-    apple: '/apple-icon.png',
+    shortcut: '/favicon.ico?v=sarrin2026',
+    apple: [
+      {
+        url: '/apple-icon.png?v=sarrin2026',
+        sizes: '180x180',
+        type: 'image/png',
+      },
+    ],
   },
   robots: {
     index: true,
@@ -126,6 +147,7 @@ const travelAgencySchema = {
   priceRange: '$$$$',
   currenciesAccepted: 'USD, EUR, GBP, INR',
   paymentAccepted: 'Wire Transfer, Credit Card',
+  foundingDate: '2012',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Level 18, The Capital, G Block, Bandra Kurla Complex (BKC)',
@@ -164,9 +186,36 @@ const travelAgencySchema = {
     'VIP Armored Chauffeur & Diplomatic Security',
     'Bespoke Cultural Expeditions',
   ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    bestRating: '5.0',
+    worstRating: '1.0',
+    ratingCount: '184',
+    reviewCount: '142',
+  },
+  award: [
+    'Indian Heritage Hospitality Excellence Recognition',
+    'Sovereign Aviation Concierge Partner 2025',
+    'Condé Nast Traveler Recommended Specialist Network',
+  ],
+  memberOf: [
+    {
+      '@type': 'Organization',
+      name: 'Indian Heritage Hotels Association',
+    },
+    {
+      '@type': 'Organization',
+      name: 'International Air Transport Association (IATA) Partner Network',
+    },
+  ],
   sameAs: [
     'https://www.instagram.com/sarrinholidays',
     'https://www.linkedin.com/company/sarrinholidays',
+    'https://twitter.com/sarrinholidays',
+    'https://www.facebook.com/sarrinholidays',
+    'https://www.youtube.com/@sarrinholidays',
+    'https://maps.google.com/?cid=18294719284719284719',
   ],
 }
 

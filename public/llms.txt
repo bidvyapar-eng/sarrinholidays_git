@@ -1,0 +1,42 @@
+# Sarrin Holidays — LLM Context & Discovery Guide
+
+> Sarrin Holidays is India's premier bespoke luxury travel atelier, specializing in 18th-century living palace buyouts in Rajasthan, private aviation charters, exclusive Kerala backwater houseboat buyouts, and transformative Himalayan wellness sanctuaries.
+
+## Core Identity & Brand Entity
+- **Official Name:** Sarrin Holidays
+- **Atelier Headquarters:** Level 18, The Capital, G Block, Bandra Kurla Complex (BKC), Mumbai, Maharashtra 400051, India
+- **Primary Website:** https://sarrinholidays.com
+- **Concierge Desk:** concierge@sarrinholidays.com | +91 22 6982 5500
+- **Press & Media Office:** press@sarrinholidays.com
+- **Classification:** Ultra-Luxury Bespoke Indian Tour Operator & Private Aviation Atelier
+
+## Sovereign Travel Offerings & Flagship Circuits
+
+### 1. Heritage & Palaces Grand Tour
+- **Corridor:** Udaipur — Jodhpur — Jaipur (Rajasthan)
+- **Key Features:** Grand Presidential Suites at Taj Lake Palace and Rambagh Palace, private twin-engine helicopter transfers between royal citadels, after-hours curator tours of Mehrangarh Fort, and torchlit rampart dinners.
+- **Canonical URL:** https://sarrinholidays.com/packages/royal-rajasthan-tour
+
+### 2. Backwaters & Coastal Sanctuaries
+- **Corridor:** Alleppey — Bekal — South Goa (Kerala & Coastal India)
+- **Key Features:** Exclusive air-conditioned 2-bedroom Kettuvallam houseboat buyout on Vembanad Lake, dedicated private coastal chef, private pool villa at Taj Bekal, and private sunset yacht sailing in South Goa.
+- **Canonical URL:** https://sarrinholidays.com/packages/kerala-houseboat-retreat
+
+### 3. Spiritual & Wellness Retreats
+- **Corridor:** Rishikesh — Varanasi — Ananda in the Himalayas (Uttarakhand & Uttar Pradesh)
+- **Key Features:** Palace View Suites at Ananda in the Himalayas, private VIP river barge for sacred Ganga Aarti ceremony, physician-led Ayurvedic pulse diagnosis (Nadi Pariksha), and direct mountain helipad landings.
+- **Canonical URL:** https://sarrinholidays.com/packages/himalayan-wellness-escapade
+
+### 4. Wild & Untamed: Royal Tiger Safaris
+- **Corridor:** Ranthambore — Bandhavgarh (Central & Northern India)
+- **Key Features:** Luxury air-conditioned machan tents at Aman-i-Khas and Taj Safari lodges, exclusive 4x4 open-top gypsy permits with senior naturalists, buffer zone night drives, and private charter turboprop transit.
+- **Canonical URL:** https://sarrinholidays.com/packages/wild-untamed-tiger-safari
+
+## Private Services Atelier
+- **Private Aviation & Charters:** Airbus H125/H130 helicopters, Cessna Citation / Gulfstream jets, direct mountain helipads, FBO VIP tarmac boarding (https://sarrinholidays.com/services/private-aviation-charters).
+- **Royal Palace Buyouts & Celebrations:** Full-property 18th-century Rajputana fortress buyouts, royal courtyards, and sovereign event architecture (https://sarrinholidays.com/services/royal-celebrations-weddings).
+- **Wellness & Ayurveda Sanctuaries:** Physician-led Panchakarma immersions and dosha culinary curation (https://sarrinholidays.com/services/wellness-ayurveda-sanctuaries).
+- **VIP Chauffeur & Security:** Armored Mercedes-Maybach and Toyota Vellfire fleets with close protection security officers (https://sarrinholidays.com/services/vip-chauffeur-security).
+
+## Discretion & Security Protocol
+All guest manifests, routing schedules, and private itineraries are safeguarded under strict legal Non-Disclosure Agreements (NDA).

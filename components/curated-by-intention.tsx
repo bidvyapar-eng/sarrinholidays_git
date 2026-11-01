@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
-  Sparkles,
+  Compass,
   Crown,
   Waves,
   HeartHandshake,
@@ -32,7 +32,7 @@ const INTENTION_TABS: IntentionTab[] = [
     id: 'all',
     label: 'All Domestic Circuits',
     destinations: 'Pan-India Grand Expeditions',
-    icon: Sparkles,
+    icon: Compass,
     headline: 'Handcrafted For Sovereign Indian Royalty',
     description: 'Every curated domestic circuit across royal Rajasthan fortresses, backwater lagoons, high-altitude Himalayan retreats, and apex tiger reserves.',
     accentColor: 'from-primary via-amber-500 to-primary',
@@ -234,12 +234,9 @@ export function CuratedByIntention() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3.5 sm:space-y-4">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 backdrop-blur-md">
-            <Sparkles className="size-3.5 text-primary animate-pulse" />
-            <span className="font-mono text-xs uppercase tracking-widest text-primary font-semibold">
-              Curated by Intention
-            </span>
-          </div>
+          <span className="text-xs font-mono uppercase tracking-[0.25em] text-primary/90 font-medium block">
+            Curated by Intention
+          </span>
 
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-foreground font-medium tracking-tight leading-[1.15]">
             Thematic Indian Circuits

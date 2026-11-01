@@ -2,7 +2,7 @@ import { supabase } from "@/lib/supabaseClient"
 import { Navbar } from "@/components/navbar"
 import { fallbackServices, type ServiceItem } from "@/lib/cms"
 import { ServicesBentoGrid } from "@/components/services-bento-grid"
-import { Sparkles, Phone, Mail, ShieldCheck, Clock, Award } from "lucide-react"
+import { Phone, Mail } from "lucide-react"
 
 export const dynamic = 'force-dynamic'
 
@@ -12,19 +12,11 @@ export const metadata = {
 }
 
 export default async function ServicesPage() {
-  // Fetch site settings
-  const { data: settings } = await supabase
-    .from('site_settings')
-    .select('navbar_logo_text')
-    .limit(1)
-    .single()
-
-  // Fetch live services from Supabase
-  const { data: dbServices } = await supabase
-    .from('services')
-    .select('*')
-    .eq('is_published', true)
-    .order('sort_order', { ascending: true })
+  // Parallel fetch site settings and live services
+  const [{ data: settings }, { data: dbServices }] = await Promise.all([
+    supabase.from('site_settings').select('navbar_logo_text').limit(1).maybeSingle(),
+    supabase.from('services').select('*').eq('is_published', true).order('sort_order', { ascending: true }),
+  ])
 
   const services: ServiceItem[] =
     dbServices && dbServices.length > 0 ? (dbServices as ServiceItem[]) : fallbackServices
@@ -42,14 +34,13 @@ export default async function ServicesPage() {
       {/* Hero Header Section */}
       <section className="relative pt-36 pb-16 px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
         <div className="text-center max-w-3xl mx-auto">
-          {/* Eyebrow badge */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-primary shadow-lg shadow-primary/10">
-            <Sparkles className="size-3.5" />
-            <span>The Private Services Hub</span>
-          </div>
+          {/* Eyebrow */}
+          <span className="text-xs font-mono uppercase tracking-[0.25em] text-primary/90 font-medium block">
+            The Private Services Atelier
+          </span>
 
           {/* H1 Headline with Deep Serif Typography */}
-          <h1 className="mt-6 font-serif text-4xl sm:text-6xl lg:text-7xl font-normal leading-[1.1] tracking-tight text-foreground">
+          <h1 className="mt-5 font-serif text-4xl sm:text-6xl lg:text-7xl font-normal leading-[1.1] tracking-tight text-foreground">
             Crafted for the Discerning. <br className="hidden sm:inline" />
             <span className="italic text-primary font-light">Delivered with Precision.</span>
           </h1>
@@ -61,18 +52,12 @@ export default async function ServicesPage() {
           </p>
 
           {/* Credential Trust Badges */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-foreground/60 font-mono">
-            <span className="flex items-center gap-1.5">
-              <ShieldCheck className="size-4 text-primary" /> Strict NDA Protocol
-            </span>
-            <span className="hidden sm:inline opacity-30">•</span>
-            <span className="flex items-center gap-1.5">
-              <Clock className="size-4 text-primary" /> 24/7 Dedicated Liaison
-            </span>
-            <span className="hidden sm:inline opacity-30">•</span>
-            <span className="flex items-center gap-1.5">
-              <Award className="size-4 text-primary" /> Sovereign-Grade Access
-            </span>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-foreground/75 font-mono uppercase tracking-wider">
+            <span>Strict NDA Protocol</span>
+            <span className="opacity-30">•</span>
+            <span>24/7 Dedicated Liaison</span>
+            <span className="opacity-30">•</span>
+            <span>Sovereign Palace Access</span>
           </div>
         </div>
 

@@ -8,11 +8,11 @@ import {
   LayoutDashboard,
   Inbox,
   Package,
+  Compass,
   ShieldCheck,
   ChevronLeft,
   ChevronRight,
   LogOut,
-  Sparkles,
   ExternalLink,
   Menu,
   X,
@@ -54,8 +54,8 @@ const NAV_ITEMS: NavItem[] = [
   {
     id: 'services',
     label: 'Services',
-    href: '/admin?module=services',
-    icon: ShieldCheck,
+    href: '/admin/services',
+    icon: Compass,
   },
 ]
 
@@ -99,7 +99,7 @@ function AdminLayoutShell({ children }: { children: React.ReactNode }) {
       return pathname?.startsWith('/admin/packages') || (pathname === '/admin' && moduleParam === 'packages')
     }
     if (item.id === 'services') {
-      return pathname === '/admin' && moduleParam === 'services'
+      return pathname?.startsWith('/admin/services') || (pathname === '/admin' && moduleParam === 'services')
     }
     if (item.id === 'overview') {
       return pathname === '/admin' && (!moduleParam || moduleParam === 'overview')
