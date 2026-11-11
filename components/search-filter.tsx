@@ -326,7 +326,7 @@ export function SearchFilter() {
                   if (active !== "destination") setActive("destination")
                 }}
                 onFocus={() => setActive("destination")}
-                placeholder="e.g. Rajasthan, Kerala, Himalayas..."
+                placeholder="Rajasthan, Kerala, Ladakh"
                 className="w-full bg-transparent text-[16px] md:text-sm font-medium text-[#F4F2EC] placeholder:text-[#B8B4AA]/50 focus:outline-none"
                 autoComplete="off"
               />

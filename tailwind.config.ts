@@ -47,8 +47,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['var(--font-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        serif: ['var(--font-serif)', 'ui-serif', 'Georgia', 'serif'],
+        sans: ['var(--font-sans-inter)', 'var(--font-sans)', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-serif-cormorant)', 'var(--font-serif)', 'Cormorant Garamond', 'Georgia', 'serif'],
       },
       letterSpacing: {
         widest: '0.2em',

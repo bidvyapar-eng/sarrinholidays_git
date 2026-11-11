@@ -8,7 +8,7 @@ import { ConciergeDrawer } from '@/components/ConciergeDrawer'
 const sans = Inter({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600'],
-  variable: '--font-sans',
+  variable: '--font-sans-inter',
   display: 'swap',
 })
 
@@ -16,7 +16,7 @@ const serif = Cormorant_Garamond({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600'],
   style: ['normal', 'italic'],
-  variable: '--font-serif',
+  variable: '--font-serif-cormorant',
   display: 'swap',
 })
 
@@ -235,7 +235,7 @@ export default function RootLayout({
       <head>
         <JsonLd data={travelAgencySchema} id="travel-agency-schema" />
       </head>
-      <body className="font-sans antialiased overflow-x-hidden min-w-[320px] max-w-[100vw]">
+      <body className={`${sans.variable} ${serif.variable} font-sans antialiased overflow-x-hidden min-w-[320px] max-w-[100vw]`}>
         {children}
         <ConciergeDrawer />
         {process.env.NODE_ENV === 'production' && <Analytics />}

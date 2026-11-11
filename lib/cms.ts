@@ -84,9 +84,9 @@ export const fallbackPackages: PackageItem[] = [
     price: 55000,
     duration: '5 Days / 4 Nights',
     destinations: ['Munnar', 'Thekkady', 'Alleppey', 'Kochi'],
-    featured_image: 'https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&q=80&w=1200',
+    featured_image: '/munnar-tea-hills.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&q=80&w=800',
+      '/munnar-tea-hills.jpg',
     ],
     highlights: [
       'Curated Munnar Tea Estate Cottage & Waterfalls Trail',
@@ -272,8 +272,8 @@ export const fallbackPackages: PackageItem[] = [
     price: 145000,
     duration: '7 Days / 6 Nights',
     destinations: ['Alleppey', 'Bekal', 'South Goa'],
-    featured_image: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80&w=1200',
-    gallery: ['https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80&w=800'],
+    featured_image: '/kerala-coastal-lagoon.jpg',
+    gallery: ['/kerala-coastal-lagoon.jpg'],
     highlights: [
       'Exclusive Air-Conditioned Houseboat Buyout in Alleppey',
       'Private Pool Villa at Taj Bekal Resort & Spa',

@@ -12,7 +12,7 @@ const AUTHENTIC_INDIAN_EXPERIENCES: Experience[] = [
     category: 'Royal Heritage',
     title: 'Suites in Living Rajputana Palaces',
     description: 'Private fortress buyouts, torchlit rampart dining, and presidential suites at Taj Lake Palace Udaipur and Rambagh Palace Jaipur.',
-    image_url: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&q=80&w=800',
+    image_url: '/experiences/rajputana-palaces.jpg',
     is_published: true,
     sort_order: 1,
   },
@@ -21,7 +21,7 @@ const AUTHENTIC_INDIAN_EXPERIENCES: Experience[] = [
     category: 'Waterway Sanctuaries',
     title: 'Exclusive Kettuvallam Houseboat Buyouts',
     description: 'Silent drifting through Alleppey’s emerald palm waterways with a dedicated private coastal chef and certified Ayurvedic therapist.',
-    image_url: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80&w=800',
+    image_url: '/experiences/houseboat-buyout.jpg',
     is_published: true,
     sort_order: 2,
   },
@@ -30,7 +30,7 @@ const AUTHENTIC_INDIAN_EXPERIENCES: Experience[] = [
     category: 'Apex Wilderness',
     title: 'Naturalist-Led Royal Bengal Tiger Safaris',
     description: 'Exclusive 4x4 open-top gypsy corridors across Ranthambore and Bandhavgarh with senior trackers and luxury forest pavilions.',
-    image_url: 'https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&q=80&w=800',
+    image_url: '/experiences/tiger-safari.jpg',
     is_published: true,
     sort_order: 3,
   },
@@ -53,7 +53,17 @@ export function PublicContent() {
       ])
       if (s?.value) setSite({ ...fallbackSite, ...s.value })
       if (d?.length) setDestinations(d)
-      if (e?.length) setExperiences(e)
+      if (e?.length) {
+        setExperiences(
+          e.map((item, idx) => ({
+            ...item,
+            image_url:
+              AUTHENTIC_INDIAN_EXPERIENCES[idx]?.image_url ||
+              item.image_url ||
+              '/experiences/rajputana-palaces.jpg',
+          }))
+        )
+      }
       if (j?.length) setJournal(j)
     }
     void load()
@@ -82,17 +92,23 @@ export function PublicContent() {
 
           {/* 3 Editorial Experience Cards */}
           <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {experiences.map((item) => (
+            {experiences.map((item, idx) => (
               <article
                 key={item.id}
                 className="group overflow-hidden rounded-sm border border-stone-300/80 bg-[#EFECE4] transition-all duration-500 ease-out hover:border-[#9A7B3E]/60 hover:shadow-xl hover:shadow-stone-400/20 flex flex-col"
               >
                 <div className="overflow-hidden aspect-[4/3] w-full relative bg-stone-200">
                   <img
-                    src={item.image_url}
+                    src={item.image_url || AUTHENTIC_INDIAN_EXPERIENCES[idx]?.image_url || '/experiences/rajputana-palaces.jpg'}
                     alt={item.title}
                     className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    loading="lazy"
+                    onError={(e) => {
+                      const target = e.currentTarget
+                      const fallback = AUTHENTIC_INDIAN_EXPERIENCES[idx]?.image_url || '/experiences/rajputana-palaces.jpg'
+                      if (target.src !== fallback) {
+                        target.src = fallback
+                      }
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
                   <span className="absolute top-3.5 left-3.5 rounded-sm border border-white/20 bg-[#141310]/80 px-2.5 py-1 text-[10px] font-sans uppercase tracking-wider text-[#C5A059] backdrop-blur-md">

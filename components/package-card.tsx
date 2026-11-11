@@ -19,13 +19,16 @@ function getPackageImage(pkg: PackageItem) {
   ) {
     return 'https://images.unsplash.com/photo-1687753578819-08e5a39d715a?auto=format&fit=crop&q=80&w=1200'
   }
-  // Ensure Kerala 5D uses distinct tea gardens photo instead of duplicate houseboat
+  // Ensure Kerala 5D uses distinct tea gardens photo instead of duplicate houseboat or highway
   if (
-    pkg.slug === 'kerala-backwaters-hills-5d' &&
-    (pkg.featured_image?.includes('photo-1602216056096-3b40cc0c9944') ||
-      pkg.featured_image?.includes('photo-1593693397690-362cb9666fc2'))
+    pkg.slug === 'kerala-backwaters-hills-5d' ||
+    pkg.featured_image?.includes('photo-1596176530529-78163a4f7af2')
   ) {
-    return 'https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&q=80&w=1200'
+    return '/munnar-tea-hills.jpg'
+  }
+  // Ensure Backwaters & Coastal Sanctuaries uses distinct sunset coastal lagoon
+  if (pkg.slug === 'kerala-houseboat-retreat') {
+    return '/kerala-coastal-lagoon.jpg'
   }
   if (pkg.featured_image && !pkg.featured_image.includes('photo-1599661559902')) {
     return pkg.featured_image

@@ -21,4 +21,20 @@ node_modules
 
 # Next.js auto-generated agent instructions
 AGENTS.md
-CLAUDE.md
+CLAUDE.md
+
+# Local scratch and test artifacts
+temp_test_imgs/
+screenshots_pdf/
+*.pdf
+scripts/check_images.py
+scripts/download_*.py
+scripts/generate_crops.py
+scripts/install_local_images.py
+scripts/make_img_gallery*.py
+scripts/render_gallery2.py
+scripts/scrape_munnar.py
+scripts/showcase_master.html
+scripts/test_*.py
+scripts/verify_fixes.py
+

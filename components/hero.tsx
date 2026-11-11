@@ -38,7 +38,7 @@ export function Hero() {
           <span className="size-1 rounded-full bg-[#C5A059]/50 inline-block" />
           <span>Twin-Engine Helicopter Charters</span>
           <span className="size-1 rounded-full bg-[#C5A059]/50 inline-block" />
-          <span>Strict Non-Disclosure Protocol</span>
+          <span>Dedicated 24/7 Travelling Concierge</span>
         </div>
       </div>
     </section>

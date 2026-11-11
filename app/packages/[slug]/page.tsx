@@ -409,10 +409,13 @@ function getPackageImage(img?: string, slug?: string) {
     return 'https://images.unsplash.com/photo-1687753578819-08e5a39d715a?auto=format&fit=crop&q=80&w=1200'
   }
   if (
-    slug === 'kerala-backwaters-hills-5d' &&
-    (img?.includes('photo-1602216056096-3b40cc0c9944') || img?.includes('photo-1593693397690-362cb9666fc2'))
+    slug === 'kerala-backwaters-hills-5d' ||
+    img?.includes('photo-1596176530529-78163a4f7af2')
   ) {
-    return 'https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&q=80&w=1200'
+    return '/munnar-tea-hills.jpg'
+  }
+  if (slug === 'kerala-houseboat-retreat') {
+    return '/kerala-coastal-lagoon.jpg'
   }
   if (!img || img.includes('photo-1599661559902')) {
     return 'https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&q=80&w=1200'
