@@ -5,38 +5,23 @@ import { supabase } from '@/lib/supabaseClient'
 import { Navbar } from '@/components/navbar'
 import { fallbackPackages, type PackageItem } from '@/lib/cms'
 import { JsonLd } from '@/components/json-ld'
-import { PackageInquiryTrigger } from '@/components/package-inquiry-trigger'
+import { PackageStickyBookingCard, MobileStickyBookingBar } from '@/components/package-sticky-booking'
 import { ItineraryAccordion } from '@/components/itinerary-accordion'
 import { ENABLE_GLOBAL_CONCIERGE } from '@/lib/features.config'
 import { SocialShare } from '@/components/social-share'
 import {
-  ArrowLeft,
-  Calendar,
   MapPin,
-  Star,
-  Flame,
-  XCircle,
-  Clock,
   Compass,
   ArrowUpRight,
-  ShieldCheck,
-  Send,
-  Phone,
-  Mail,
-  Award,
-  Info,
   Check,
   Minus,
   MinusCircle,
   Globe,
-  Plane,
-  X,
   Building2,
   Car,
   Utensils,
   Ticket,
   FileText,
-  Navigation,
 } from 'lucide-react'
 
 export const DOMESTIC_LUXURY_PILLARS = [
@@ -551,95 +536,57 @@ export default async function PackageDetailPage({ params }: PageProps) {
   }
 
   return (
-    <div className="relative min-h-screen bg-slate-950 text-foreground overflow-x-hidden w-full max-w-[100vw] selection:bg-primary/30 selection:text-primary">
+    <div className="relative min-h-screen bg-[#0C0B09] text-[#F4F2EC] overflow-x-hidden w-full max-w-[100vw] selection:bg-[#C5A059]/30 selection:text-[#C5A059]">
       <JsonLd data={touristTripSchema} id="tourist-trip-schema" />
       <Navbar logoText={settings?.navbar_logo_text} />
 
       {/* Hero Header */}
-      <div className="relative w-full min-h-[65vh] lg:min-h-[75vh] flex items-end pt-32 pb-16 px-4 sm:px-8">
+      <div className="relative w-full min-h-[60vh] lg:min-h-[70vh] flex items-end pt-32 pb-16 px-4 sm:px-8">
         {/* Background Image with Gradient Overlays */}
         <div className="absolute inset-0 z-0">
           <img
             src={getPackageImage(pkg.featured_image, pkg.slug)}
             alt={pkg.title}
-            className="size-full object-cover object-center brightness-[0.75]"
+            className="size-full object-cover object-center brightness-[0.70]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-black/40" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/15 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0C0B09] via-[#0C0B09]/60 to-black/45" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#C5A059]/10 via-transparent to-transparent" />
         </div>
 
         {/* Hero Content */}
         <div className="relative z-10 mx-auto max-w-7xl w-full">
           {/* Breadcrumb Navigation */}
-          <div className="flex items-center gap-2 text-xs font-mono tracking-wider text-neutral-400 mb-6">
-            <Link href="/" className="hover:text-primary transition-colors">
+          <div className="flex items-center gap-2 text-xs font-sans uppercase tracking-[0.16em] text-[#B8B4AA] mb-5">
+            <Link href="/" className="hover:text-[#C5A059] transition-colors">
               Home
             </Link>
-            <span>/</span>
-            <Link href="/#packages" className="hover:text-primary transition-colors">
-              Curated Packages
+            <span className="text-white/30">/</span>
+            <Link href="/#destinations" className="hover:text-[#C5A059] transition-colors">
+              Curated Expeditions
             </Link>
-            <span>/</span>
-            <span className="text-neutral-200">{pkg.title}</span>
-          </div>
-
-          {/* Badges Bar */}
-          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-4">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary text-primary-foreground shadow-md shadow-primary/25">
-              <Calendar className="size-3.5" />
-              {pkg.duration}
+            <span className="text-white/30">/</span>
+            <span className="text-[#F4F2EC] font-normal truncate max-w-[280px] sm:max-w-none">
+              {pkg.title}
             </span>
-
-            {pkg.scarcity_status && (
-              <span className="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-semibold bg-rose-500/20 text-rose-300 border border-rose-500/40 shadow-lg shadow-rose-950/40">
-                {pkg.scarcity_status}
-              </span>
-            )}
-
-            {pkg.is_trending && (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30">
-                <Flame className="size-3.5 text-amber-400" />
-                Trending Journey
-              </span>
-            )}
-
-            {pkg.rating && (
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-black/40 text-amber-300 border border-white/15 backdrop-blur-md">
-                <Star className="size-3.5 fill-amber-400 text-amber-400" />
-                {pkg.rating.toFixed(1)} Exceptional
-              </span>
-            )}
-
-            {pkg.theme_tags?.map((theme) => (
-              <span
-                key={theme}
-                className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-serif italic bg-amber-500/10 text-amber-300 border border-amber-500/30 backdrop-blur-md"
-              >
-                <span className="size-1 rounded-full bg-amber-400/80 inline-block mr-0.5" />
-                <span>{theme}</span>
-              </span>
-            ))}
-
-            {pkg.experience_tags?.map((tag) => (
-              <span
-                key={tag}
-                className="hidden sm:inline-flex px-2.5 py-1 rounded-full text-[11px] font-mono tracking-wider uppercase bg-white/10 text-neutral-300 border border-white/10 backdrop-blur-md"
-              >
-                {tag}
-              </span>
-            ))}
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-white font-medium tracking-tight max-w-4xl leading-[1.1]">
+          {/* Clean Editorial Eyebrow (Replaces 8-Pill Badge Row) */}
+          <div className="mb-3.5">
+            <span className="text-xs font-sans font-medium tracking-[0.2em] uppercase text-[#C5A059] block">
+              {pkg.duration ? pkg.duration.toUpperCase() : 'MULTI-DAY'} &nbsp;·&nbsp; PRIVATE CURATED JOURNEY
+            </span>
+          </div>
+
+          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#F4F2EC] font-light tracking-tight max-w-4xl leading-[1.1]">
             {pkg.title}
           </h1>
 
           {/* Destinations Strip & Social Share */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-5 pt-4 border-t border-white/10">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-6 pt-5 border-t border-white/10">
             {pkg.destinations && pkg.destinations.length > 0 && (
-              <div className="flex items-center gap-2 text-neutral-300 text-sm font-medium">
-                <MapPin className="size-4 text-primary shrink-0" />
-                <span>{pkg.destinations.join('  •  ')}</span>
+              <div className="flex items-center gap-2 text-[#B8B4AA] text-xs sm:text-sm font-sans tracking-wide">
+                <MapPin className="size-4 text-[#C5A059] shrink-0" />
+                <span className="uppercase tracking-[0.14em]">{pkg.destinations.join('  •  ')}</span>
               </div>
             )}
             <SocialShare title={pkg.title} />
@@ -654,44 +601,41 @@ export default async function PackageDetailPage({ params }: PageProps) {
           <div className="lg:col-span-8 space-y-16">
             {/* Editorial Overview */}
             <section className="space-y-4">
-              <span className="text-xs uppercase font-mono tracking-widest text-primary font-medium">
+              <span className="text-xs uppercase font-sans tracking-[0.2em] text-[#C5A059] font-medium block">
                 Curator&apos;s Prologue
               </span>
-              <h2 className="font-serif text-2xl sm:text-3xl text-foreground font-medium">
+              <h2 className="font-serif text-2xl sm:text-3xl text-[#F4F2EC] font-light tracking-tight">
                 The Essence of the Expedition
               </h2>
-              <p className="text-base sm:text-lg text-foreground/80 leading-relaxed font-light">
+              <p className="text-base sm:text-lg text-[#F4F2EC]/90 leading-relaxed font-light">
                 {pkg.description}
               </p>
-              <p className="text-sm text-neutral-400 leading-relaxed">
-                Hand-curated by our senior Indian expedition directors, this journey marries
-                exclusive access to heritage palaces with private chauffeur transit, discreet
-                concierge logistics, and unparalleled culinary mastery. Every transfer, private
-                tour, and suite reservation is overseen by your dedicated personal concierge.
+              <p className="text-sm text-[#B8B4AA] leading-relaxed font-light">
+                Handcrafted by our senior Indian expedition directors, this journey marries exclusive access to living royal palaces with private chauffeur transit, discreet concierge logistics, and authentic regional culinary mastery. Every transfer, private suite reservation, and cultural encounter is personally coordinated by your dedicated personal concierge.
               </p>
             </section>
 
             {/* Signature Highlights */}
             {pkg.highlights && pkg.highlights.length > 0 && (
               <section className="space-y-6">
-                <span className="text-xs uppercase font-mono tracking-widest text-primary font-medium">
+                <span className="text-xs uppercase font-sans tracking-[0.2em] text-[#C5A059] font-medium block">
                   Signature Inclusions
                 </span>
-                <h2 className="font-serif text-2xl sm:text-3xl text-foreground font-medium">
+                <h2 className="font-serif text-2xl sm:text-3xl text-[#F4F2EC] font-light tracking-tight">
                   Itinerary Highlights
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {pkg.highlights.map((highlight, index) => (
                     <div
                       key={highlight}
-                      className="p-5 rounded-2xl bg-neutral-900/60 border border-white/10 backdrop-blur-xl flex items-start gap-3.5 transition-all duration-500 ease-out hover:border-primary/50 hover:bg-neutral-900/80 hover:shadow-2xl hover:shadow-black/50"
+                      className="p-5 rounded-sm bg-[#141310] border border-white/10 flex items-start gap-3.5 transition-all duration-300 hover:border-[#C5A059]/50"
                     >
-                      <span className="size-7 rounded-lg bg-primary/15 border border-primary/30 text-primary font-mono text-xs font-semibold flex items-center justify-center shrink-0">
+                      <span className="size-7 rounded-sm bg-[#C5A059]/10 border border-[#C5A059]/30 text-[#C5A059] font-sans text-xs font-medium flex items-center justify-center shrink-0">
                         0{index + 1}
                       </span>
                       <div>
-                        <h3 className="text-sm font-semibold text-foreground">{highlight}</h3>
-                        <p className="text-xs text-neutral-400 mt-1 font-light">
+                        <h3 className="text-sm font-normal text-[#F4F2EC] leading-snug">{highlight}</h3>
+                        <p className="text-xs text-[#B8B4AA] mt-1 font-light leading-relaxed">
                           Private access coordinated through our sovereign hospitality partnerships.
                         </p>
                       </div>
@@ -704,20 +648,20 @@ export default async function PackageDetailPage({ params }: PageProps) {
             {/* Destinations Breakdown */}
             {pkg.destinations && pkg.destinations.length > 0 && (
               <section className="space-y-6">
-                <span className="text-xs uppercase font-mono tracking-widest text-primary font-medium">
+                <span className="text-xs uppercase font-sans tracking-[0.2em] text-[#C5A059] font-medium block">
                   Route Architecture
                 </span>
-                <h2 className="font-serif text-2xl sm:text-3xl text-foreground font-medium">
+                <h2 className="font-serif text-2xl sm:text-3xl text-[#F4F2EC] font-light tracking-tight">
                   Destinations Visited
                 </h2>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-2.5">
                   {pkg.destinations.map((city, idx) => (
                     <div
                       key={city}
-                      className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-xs font-medium text-neutral-200"
+                      className="flex items-center gap-2.5 px-4 py-2.5 rounded-sm bg-[#141310] border border-white/10 text-xs font-sans text-[#F4F2EC]"
                     >
-                      <span className="text-primary font-mono text-[10px]">LEG 0{idx + 1}</span>
-                      <span>{city}</span>
+                      <span className="text-[#C5A059] font-sans text-[10px] uppercase tracking-wider font-medium">LEG 0{idx + 1}</span>
+                      <span className="tracking-wide">{city}</span>
                     </div>
                   ))}
                 </div>
@@ -727,36 +671,26 @@ export default async function PackageDetailPage({ params }: PageProps) {
             {/* Day-by-Day Itinerary Collapsible Accordion (Radix UI) */}
             <ItineraryAccordion items={itineraryDays} duration={pkg.duration} />
 
-            {/* Visually Distinct "At a Glance" UI Section */}
-            <section className="relative overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-b from-neutral-900/80 via-slate-950/90 to-neutral-900/60 p-6 sm:p-9 backdrop-blur-2xl shadow-2xl shadow-black/60 space-y-8">
-              {/* Subtle Luxury Gold & Emerald Ambient Lighting */}
-              <div className="pointer-events-none absolute -top-24 -left-24 size-64 rounded-full bg-emerald-500/10 blur-[90px]" />
-              <div className="pointer-events-none absolute -bottom-24 -right-24 size-64 rounded-full bg-primary/10 blur-[90px]" />
-
+            {/* Journey Inclusions & White-Glove Standards Section */}
+            <section className="relative overflow-hidden rounded-sm border border-white/10 bg-[#141310] p-6 sm:p-9 shadow-2xl shadow-black/60 space-y-8">
               {/* Section Header */}
-              <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-white/10">
-                <div>
-                  <div className="inline-flex items-center rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-mono uppercase tracking-widest text-primary backdrop-blur-md mb-2">
-                    At a Glance
-                  </div>
-                  <h2 className="font-serif text-2xl sm:text-3xl text-foreground font-normal tracking-tight">
-                    Hyper-Transparent Itinerary Curation
-                  </h2>
-                  <p className="text-xs sm:text-sm text-neutral-400 mt-1 font-light max-w-2xl leading-relaxed">
-                    Designed specifically for high-net-worth patrons and discerning Indian domestic travelers. Uncompromising clarity across accommodations, transfers, gastronomy, VIP accesses, and toll clearances.
-                  </p>
-                </div>
-
-                <span className="hidden sm:inline-flex items-center px-3 py-1 rounded-full text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20">
-                  Verified Domestic Standard
+              <div className="relative z-10 pb-6 border-b border-white/10">
+                <span className="text-xs font-sans uppercase tracking-[0.2em] text-[#C5A059] font-medium block mb-2">
+                  Signature Privileges &amp; Specifics
                 </span>
+                <h2 className="font-serif text-2xl sm:text-3xl text-[#F4F2EC] font-light tracking-tight">
+                  Journey Inclusions &amp; White-Glove Standards
+                </h2>
+                <p className="text-xs sm:text-sm text-[#B8B4AA] mt-2 font-light max-w-2xl leading-relaxed">
+                  Every element of your journey is privately negotiated and accompanied by uncompromising hospitality covenants, transparent inclusions, and dedicated on-ground management.
+                </p>
               </div>
 
               {/* 5 Flagship Domestic Luxury Pillars */}
               <div className="relative z-10 space-y-3">
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary font-medium">
-                    Domestic Travel Specifics
+                  <span className="text-[11px] font-sans uppercase tracking-[0.2em] text-[#C5A059] font-medium">
+                    Domestic Travel Specifications
                   </span>
                   <div className="h-px flex-1 bg-white/10" />
                 </div>
@@ -766,16 +700,16 @@ export default async function PackageDetailPage({ params }: PageProps) {
                     return (
                       <div
                         key={pillar.title}
-                        className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-md flex flex-col justify-between transition-all duration-500 ease-out hover:border-primary/50 hover:bg-white/[0.06] hover:shadow-xl hover:shadow-black/40"
+                        className="rounded-sm border border-white/10 bg-[#0C0B09] p-4 flex flex-col justify-between transition-all duration-300 hover:border-[#C5A059]/40"
                       >
                         <div className="space-y-2">
-                          <div className="size-8 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center text-primary">
+                          <div className="size-8 rounded-sm bg-[#C5A059]/10 border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059]">
                             <Icon className="size-4" />
                           </div>
-                          <h4 className="text-xs font-semibold text-white leading-snug">
+                          <h4 className="text-xs font-medium text-[#F4F2EC] leading-snug">
                             {pillar.title}
                           </h4>
-                          <p className="text-[11px] text-neutral-400 leading-relaxed font-light">
+                          <p className="text-[11px] text-[#B8B4AA] leading-relaxed font-light">
                             {pillar.desc}
                           </p>
                         </div>
@@ -785,31 +719,26 @@ export default async function PackageDetailPage({ params }: PageProps) {
                 </div>
               </div>
 
-              {/* Two-Column Grid: Bespoke Inclusions vs. Client Responsibilities */}
-              <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-                {/* Column 1: Bespoke Inclusions (with Checkmark Icons) */}
-                <div className="flex flex-col justify-between rounded-2xl border border-emerald-500/30 bg-neutral-900/60 p-6 sm:p-7 backdrop-blur-xl relative overflow-hidden space-y-6 shadow-lg shadow-emerald-950/20 group hover:border-emerald-500/50 transition-colors">
+              {/* Two-Column Grid: Inclusions vs Exclusions */}
+              <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Column 1: Curated Inclusions */}
+                <div className="flex flex-col justify-between rounded-sm border border-white/10 bg-[#0C0B09] p-6 sm:p-7 relative space-y-6">
                   <div className="space-y-4">
-                    <div className="flex items-center justify-between pb-3 border-b border-white/10">
-                      <div className="flex items-center gap-3">
-                        <div className="flex size-10 items-center justify-center rounded-xl bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 shadow-md">
-                          <Award className="size-5" />
-                        </div>
-                        <div>
-                          <h3 className="font-serif text-xl text-white font-medium">
-                            Bespoke Inclusions
-                          </h3>
-                          <span className="text-[10px] font-mono text-emerald-400/90 uppercase tracking-wider block">
-                            Complimentary Sarrin Privileges
-                          </span>
-                        </div>
+                    <div className="pb-3 border-b border-white/10 flex items-center justify-between">
+                      <div>
+                        <span className="text-[10px] font-sans text-[#C5A059] uppercase tracking-[0.2em] font-medium block">
+                          Included Within Tariff
+                        </span>
+                        <h3 className="font-serif text-xl sm:text-2xl text-[#F4F2EC] font-light mt-0.5">
+                          Curated Inclusions
+                        </h3>
                       </div>
-                      <span className="text-[10px] font-mono text-emerald-300 bg-emerald-500/20 px-2 py-0.5 rounded-full border border-emerald-500/30">
+                      <span className="text-[10px] font-sans uppercase tracking-wider text-[#C5A059] bg-[#C5A059]/10 px-2.5 py-1 rounded-sm border border-[#C5A059]/30">
                         Included
                       </span>
                     </div>
 
-                    <ul className="space-y-3 text-xs sm:text-sm text-neutral-200">
+                    <ul className="space-y-3.5 text-xs sm:text-sm text-[#B8B4AA]">
                       {(pkg.inclusions && pkg.inclusions.length > 0 ? pkg.inclusions : [
                         '5-Star Palace & Luxury Resort stays (Presidential Suites & Private Pool Villas)',
                         'Inter-city luxury transfers via Mercedes-Maybach / Toyota Vellfire & Helicopter charters',
@@ -819,85 +748,78 @@ export default async function PackageDetailPage({ params }: PageProps) {
                         'Dedicated 24/7 personal concierge liaison and white-glove baggage service'
                       ]).map((inc, i) => (
                         <li key={i} className="flex items-start gap-3">
-                          <span className="size-1.5 rounded-full bg-emerald-400 shrink-0 mt-2" />
+                          <Check className="size-4 text-[#C5A059] shrink-0 mt-0.5" />
                           <span className="leading-relaxed font-light">{inc}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="pt-4 border-t border-white/10 text-[11px] text-neutral-400 flex items-center gap-2 font-mono">
-                    <span className="size-1.5 rounded-full bg-emerald-400 shrink-0" />
-                    <span>All domestic permits, chauffeurs &amp; palace taxes included</span>
+                  <div className="pt-4 border-t border-white/10 text-[11px] text-[#B8B4AA]/70 flex items-center gap-2 font-sans tracking-wide">
+                    <span className="size-1 rounded-full bg-[#C5A059] shrink-0" />
+                    <span>All regional permits, chauffeurs &amp; luxury palace taxes pre-cleared</span>
                   </div>
                 </div>
 
-                {/* Column 2: Client Responsibilities (with Subtle Minus Icons) */}
-                <div className="flex flex-col justify-between rounded-2xl border border-white/12 bg-neutral-900/60 p-6 sm:p-7 backdrop-blur-xl relative overflow-hidden space-y-6 shadow-lg group hover:border-white/25 transition-colors">
+                {/* Column 2: Client Discretionary Items */}
+                <div className="flex flex-col justify-between rounded-sm border border-white/10 bg-[#0C0B09] p-6 sm:p-7 relative space-y-6">
                   <div className="space-y-4">
-                    <div className="flex items-center justify-between pb-3 border-b border-white/10">
-                      <div className="flex items-center gap-3">
-                        <div className="flex size-10 items-center justify-center rounded-xl bg-white/5 text-neutral-400 border border-white/10 shadow-md">
-                          <MinusCircle className="size-5 text-neutral-400" />
-                        </div>
-                        <div>
-                          <h3 className="font-serif text-xl text-white font-medium">
-                            Client Responsibilities
-                          </h3>
-                          <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-wider block">
-                            Self-Arranged / Discretionary
-                          </span>
-                        </div>
+                    <div className="pb-3 border-b border-white/10 flex items-center justify-between">
+                      <div>
+                        <span className="text-[10px] font-sans text-stone-400 uppercase tracking-[0.2em] font-medium block">
+                          Discretionary &amp; Self-Arranged
+                        </span>
+                        <h3 className="font-serif text-xl sm:text-2xl text-[#F4F2EC] font-light mt-0.5">
+                          Client Discretionary Items
+                        </h3>
                       </div>
-                      <span className="text-[10px] font-mono text-neutral-400 bg-white/10 px-2 py-0.5 rounded-full border border-white/10">
+                      <span className="text-[10px] font-sans uppercase tracking-wider text-stone-400 bg-white/5 px-2.5 py-1 rounded-sm border border-white/10">
                         Excluded
                       </span>
                     </div>
 
-                    <ul className="space-y-3 text-xs sm:text-sm text-neutral-400">
+                    <ul className="space-y-3.5 text-xs sm:text-sm text-stone-400">
                       {(pkg.exclusions && pkg.exclusions.length > 0 ? pkg.exclusions : [
-                        'Commercial transcontinental or international long-haul flights',
+                        'Commercial transcontinental or international long-haul aviation',
                         'Consular visa procurement fees for international accompanying guests',
                         'Discretionary royal palace staff and chauffeur gratuities',
                         'Personal bespoke antique acquisitions, gemstones, or custom textiles'
                       ]).map((exc, i) => (
                         <li key={i} className="flex items-start gap-3">
-                          <div className="size-4 rounded-full bg-white/10 text-neutral-400 flex items-center justify-center shrink-0 mt-0.5 border border-white/15">
-                            <Minus className="size-2.5 text-neutral-400" />
-                          </div>
+                          <Minus className="size-3.5 text-stone-500 shrink-0 mt-1" />
                           <span className="leading-relaxed font-light">{exc}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="pt-4 border-t border-white/10 text-[11px] text-neutral-500 flex items-center gap-2 font-mono">
-                    <MinusCircle className="size-3.5 text-neutral-500 shrink-0" />
-                    <span>Disclosed upfront with zero hidden resort surcharges</span>
+                  <div className="pt-4 border-t border-white/10 text-[11px] text-stone-500 flex items-center gap-2 font-sans tracking-wide">
+                    <MinusCircle className="size-3.5 text-stone-500 shrink-0" />
+                    <span>Disclosed with complete transparency. Zero hidden resort surcharges</span>
                   </div>
                 </div>
               </div>
 
-              {/* NRI & Global Logistics Advisory Box (Controlled by Feature Flag) */}
+              {/* Global & NRI Protocol Notice */}
               {ENABLE_GLOBAL_CONCIERGE && (
-                <div className="relative z-10 rounded-2xl border border-amber-500/25 bg-amber-500/[0.06] p-4 sm:p-5 backdrop-blur-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="relative z-10 rounded-sm border border-[#C5A059]/20 bg-[#C5A059]/[0.03] p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   <div className="flex items-start gap-3">
-                    <div className="size-8 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center shrink-0 mt-0.5 border border-amber-500/30">
+                    <div className="size-8 rounded-sm bg-[#C5A059]/10 text-[#C5A059] flex items-center justify-center shrink-0 mt-0.5 border border-[#C5A059]/30">
                       <Globe className="size-4" />
                     </div>
                     <div>
-                      <h4 className="text-xs font-semibold text-white">
+                      <h4 className="text-xs font-medium text-[#F4F2EC]">
                         Global &amp; NRI Traveler Logistics Protocol
                       </h4>
-                      <p className="text-[11px] text-neutral-300 leading-relaxed mt-0.5 font-light">
-                        While international flights and consular visas are client-booked, our Global Concierge provides complimentary flight synchronization (with DEL/BOM tarmac escort) and e-visa pre-clearance assistance.
+                      <p className="text-[11px] text-[#B8B4AA] leading-relaxed mt-0.5 font-light">
+                        While international flights are client-arranged, our Global Concierge provides complimentary flight synchronization, VIP tarmac meet &amp; greet at BOM/DEL, and regional transit coordination.
                       </p>
                     </div>
                   </div>
 
                   <a
                     href="/contact?desk=nri"
-                    className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 text-xs font-medium transition-colors"
+                    className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-[#C5A059]/15 hover:bg-[#C5A059]/25 text-[#C5A059] border border-[#C5A059]/30 text-xs font-sans uppercase tracking-wider font-medium transition-colors"
                   >
                     <span>NRI Desk</span>
                     <ArrowUpRight className="size-3" />
@@ -906,27 +828,30 @@ export default async function PackageDetailPage({ params }: PageProps) {
               )}
             </section>
 
-            {/* Inclusions & Guarantees */}
-            <section className="p-8 rounded-3xl bg-neutral-900/40 border border-white/[0.08] backdrop-blur-xl space-y-6">
-              <h3 className="font-serif text-xl text-white font-semibold">
+            {/* Inclusions & Guarantees (The Sarrin White-Glove Standard) */}
+            <section className="p-8 rounded-sm bg-[#141310] border border-white/10 space-y-6">
+              <span className="text-xs font-sans uppercase tracking-[0.2em] text-[#C5A059] font-medium block">
+                Uncompromising Covenants
+              </span>
+              <h3 className="font-serif text-xl sm:text-2xl text-[#F4F2EC] font-light tracking-tight">
                 The Sarrin White-Glove Standard
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-neutral-300">
-                <div className="flex items-start gap-2.5">
-                  <span className="size-1.5 rounded-full bg-primary shrink-0 mt-1.5" />
-                  <span>Bespoke 24/7 dedicated personal concierge liaison throughout your stay</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-[#B8B4AA] font-light">
+                <div className="flex items-start gap-3">
+                  <span className="size-1.5 rounded-full bg-[#C5A059] shrink-0 mt-2" />
+                  <span className="leading-relaxed">Dedicated 24/7 travelling concierge liaison throughout the entirety of your Indian itinerary</span>
                 </div>
-                <div className="flex items-start gap-2.5">
-                  <span className="size-1.5 rounded-full bg-primary shrink-0 mt-1.5" />
-                  <span>Executive private chauffeur fleet and high-touch airport tarmac transfers</span>
+                <div className="flex items-start gap-3">
+                  <span className="size-1.5 rounded-full bg-[#C5A059] shrink-0 mt-2" />
+                  <span className="leading-relaxed">Executive private chauffeur fleet (Mercedes-Maybach &amp; Toyota Vellfire) and VIP tarmac airport receptions</span>
                 </div>
-                <div className="flex items-start gap-2.5">
-                  <span className="size-1.5 rounded-full bg-primary shrink-0 mt-1.5" />
-                  <span>VIP palace fast-track privileges and private curator-led heritage walks</span>
+                <div className="flex items-start gap-3">
+                  <span className="size-1.5 rounded-full bg-[#C5A059] shrink-0 mt-2" />
+                  <span className="leading-relaxed">VIP palace fast-track privileges, after-hours museum entries, and private curator-led heritage walks</span>
                 </div>
-                <div className="flex items-start gap-2.5">
-                  <span className="size-1.5 rounded-full bg-primary shrink-0 mt-1.5" />
-                  <span>Complimentary customized dietary provisioning and private sommelier pairing</span>
+                <div className="flex items-start gap-3">
+                  <span className="size-1.5 rounded-full bg-[#C5A059] shrink-0 mt-2" />
+                  <span className="leading-relaxed">Complimentary bespoke dietary provisioning, regional degustations, and private sommelier pairing</span>
                 </div>
               </div>
             </section>
@@ -934,128 +859,13 @@ export default async function PackageDetailPage({ params }: PageProps) {
 
           {/* Right Column: Sticky Booking & Pricing Card */}
           <div className="lg:col-span-4">
-            <div className="sticky top-28 space-y-6">
-              <div className="rounded-3xl border border-primary/30 bg-neutral-900/80 p-6 sm:p-8 backdrop-blur-2xl shadow-2xl shadow-black/80 space-y-6">
-                {/* Scarcity / Availability Callout on Card */}
-                {pkg.scarcity_status && (
-                  <div className="rounded-2xl border border-rose-500/30 bg-rose-500/10 p-3.5 text-xs text-rose-200">
-                    <div>
-                      <div className="font-semibold text-rose-300 uppercase tracking-wider text-[10px] font-mono">
-                        Exclusive Availability Notice
-                      </div>
-                      <p className="text-[11px] leading-snug mt-0.5">{pkg.scarcity_status}</p>
-                    </div>
-                  </div>
-                )}
-
-                <div>
-                  <span className="text-[10px] uppercase font-mono tracking-wider text-primary block mb-1">
-                    Bespoke Private Itinerary
-                  </span>
-                  <div className="flex items-baseline gap-2">
-                    <span className="font-serif text-2xl sm:text-3xl font-medium text-white">
-                      Pricing on Request
-                    </span>
-                  </div>
-                  <p className="text-[11px] text-neutral-400 mt-1.5 leading-relaxed font-light">
-                    Every holiday is privately tailored to your chosen travel dates, room categories, and party size with zero hidden surcharges.
-                  </p>
-                </div>
-
-                <div className="border-t border-white/10 pt-4 space-y-3 text-xs">
-                  <div className="flex justify-between text-neutral-300">
-                    <span className="text-neutral-500">Duration</span>
-                    <span className="font-semibold text-white">{pkg.duration}</span>
-                  </div>
-                  <div className="flex justify-between text-neutral-300">
-                    <span className="text-neutral-500">Classification</span>
-                    <span className="font-semibold text-primary">Private Tour</span>
-                  </div>
-                  <div className="flex justify-between text-neutral-300">
-                    <span className="text-neutral-500">Availability</span>
-                    <span className="font-semibold text-emerald-400">
-                      {pkg.scarcity_status ? 'High Demand / Limited' : 'Immediate Confirmation'}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="space-y-3 pt-2">
-                  <PackageInquiryTrigger
-                    packageTitle={pkg.title}
-                    classification="Curated Luxury Expedition"
-                    buttonText="Get in Touch / Request Quote"
-                  />
-
-                  <a
-                    href={`https://wa.me/918419887730?text=${encodeURIComponent(
-                      `Hello Sarrin Holidays, I would like to inquire about the ${pkg.title} (${pkg.duration}).`
-                    )}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="w-full flex items-center justify-center gap-2 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 py-3 px-4 text-xs font-medium text-emerald-300 transition-colors"
-                  >
-                    <Phone className="size-3.5" />
-                    <span>Instant WhatsApp Concierge</span>
-                  </a>
-                </div>
-
-                <div className="border-t border-white/10 pt-4 text-center">
-                  <p className="text-[11px] text-neutral-500 font-mono">
-                    Official Concierge Desk: +91 8419887730
-                  </p>
-                </div>
-              </div>
-
-              {/* Security & Confidentiality Card */}
-              <div className="p-5 rounded-2xl bg-neutral-900/40 border border-white/[0.06] text-xs text-neutral-400 space-y-2">
-                <div className="flex items-center gap-2 text-white font-medium">
-                  <ShieldCheck className="size-4 text-primary" />
-                  <span>Strict NDA & VIP Guarantee</span>
-                </div>
-                <p className="text-[11px] leading-relaxed">
-                  All guest manifests, special security requirements, and custom flight requests are
-                  safeguarded under strict confidentiality.
-                </p>
-              </div>
-            </div>
+            <PackageStickyBookingCard pkg={pkg} />
           </div>
         </div>
       </main>
 
       {/* Sticky Bottom Action Bar for Mobile Devices (< 1024px) */}
-      <div className="block lg:hidden fixed bottom-0 inset-x-0 z-50 bg-slate-950/95 backdrop-blur-2xl border-t border-white/10 p-3 sm:p-4 shadow-[0_-10px_35px_rgba(0,0,0,0.85)]">
-        <div className="mx-auto flex max-w-lg items-center justify-between gap-3">
-          <div className="min-w-0">
-            <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block truncate">
-              All-Inclusive Domestic
-            </span>
-            <div className="flex items-baseline gap-1">
-              <span className="font-serif text-xl sm:text-2xl font-bold text-white">
-                ₹{(pkg.price < 10000 ? pkg.price * 100 : pkg.price).toLocaleString('en-IN')}
-              </span>
-              <span className="text-[10px] font-mono text-neutral-400">/ guest</span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2 shrink-0">
-            <a
-              href="https://wa.me/919820044810?text=Hello%20Sarrin%20Holidays%2C%20I%20would%20like%20to%20inquire%20about%20the%20curated%20domestic%20tour."
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Chat on WhatsApp"
-              className="flex min-h-[48px] min-w-[48px] items-center justify-center rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-emerald-300 transition-colors"
-            >
-              <Phone className="size-4" />
-            </a>
-
-            <PackageInquiryTrigger
-              packageTitle={pkg.title}
-              classification="Curated Domestic Luxury Expedition"
-              buttonText="Plan Your Journey"
-            />
-          </div>
-        </div>
-      </div>
+      <MobileStickyBookingBar pkg={pkg} />
     </div>
   )
 }

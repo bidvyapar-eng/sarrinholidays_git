@@ -54,8 +54,8 @@ export function SocialShare({
 
   return (
     <div className={`flex flex-wrap items-center gap-2 select-none ${className}`}>
-      <span className="text-xs font-mono uppercase tracking-wider text-foreground/50 mr-1 flex items-center gap-1.5">
-        <Share2 className="size-3.5 text-primary" />
+      <span className="text-xs font-sans uppercase tracking-[0.16em] text-[#B8B4AA] mr-1 flex items-center gap-1.5">
+        <Share2 className="size-3.5 text-[#C5A059]" />
         <span>Share Dossier:</span>
       </span>
 
@@ -65,9 +65,9 @@ export function SocialShare({
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Share via WhatsApp"
-        className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 hover:border-emerald-500/40 hover:bg-emerald-500/10 px-3 py-1.5 text-xs text-foreground/80 hover:text-emerald-300 transition-all duration-200"
+        className="inline-flex items-center gap-1.5 rounded-sm border border-white/10 bg-[#141310] hover:border-emerald-500/40 hover:bg-emerald-500/10 px-3 py-1.5 text-xs text-[#B8B4AA] hover:text-emerald-300 transition-all duration-200"
       >
-        <span className="font-mono text-[11px]">WhatsApp</span>
+        <span className="font-sans text-[11px] tracking-wider uppercase">WhatsApp</span>
       </a>
 
       {/* LinkedIn Share */}
@@ -76,9 +76,9 @@ export function SocialShare({
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Share on LinkedIn"
-        className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 hover:border-sky-500/40 hover:bg-sky-500/10 px-3 py-1.5 text-xs text-foreground/80 hover:text-sky-300 transition-all duration-200"
+        className="inline-flex items-center gap-1.5 rounded-sm border border-white/10 bg-[#141310] hover:border-[#C5A059]/40 hover:bg-white/[0.04] px-3 py-1.5 text-xs text-[#B8B4AA] hover:text-[#F4F2EC] transition-all duration-200"
       >
-        <span className="font-mono text-[11px]">LinkedIn</span>
+        <span className="font-sans text-[11px] tracking-wider uppercase">LinkedIn</span>
       </a>
 
       {/* X / Twitter Share */}
@@ -87,9 +87,9 @@ export function SocialShare({
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Share on X (Twitter)"
-        className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 hover:border-white/30 hover:bg-white/10 px-3 py-1.5 text-xs text-foreground/80 hover:text-white transition-all duration-200"
+        className="inline-flex items-center gap-1.5 rounded-sm border border-white/10 bg-[#141310] hover:border-white/30 hover:bg-white/[0.04] px-3 py-1.5 text-xs text-[#B8B4AA] hover:text-[#F4F2EC] transition-all duration-200"
       >
-        <span className="font-mono text-[11px]">X</span>
+        <span className="font-sans text-[11px] tracking-wider uppercase">X</span>
       </a>
 
       {/* Copy Direct Link */}
@@ -97,10 +97,10 @@ export function SocialShare({
         type="button"
         onClick={handleCopy}
         aria-label="Copy Link"
-        className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-mono transition-all duration-200 cursor-pointer ${
+        className={`inline-flex items-center gap-1.5 rounded-sm border px-3 py-1.5 text-xs font-sans tracking-wider uppercase transition-all duration-200 cursor-pointer ${
           copied
             ? 'border-emerald-500/50 bg-emerald-500/20 text-emerald-300'
-            : 'border-white/10 bg-white/5 text-foreground/80 hover:border-primary/40 hover:bg-primary/10 hover:text-primary'
+            : 'border-white/10 bg-[#141310] text-[#B8B4AA] hover:border-[#C5A059]/40 hover:bg-white/[0.04] hover:text-[#F4F2EC]'
         }`}
       >
         {copied ? (
@@ -110,7 +110,7 @@ export function SocialShare({
           </>
         ) : (
           <>
-            <Copy className="size-3" />
+            <Copy className="size-3 text-[#C5A059]" />
             <span className="text-[11px]">Copy Link</span>
           </>
         )}
