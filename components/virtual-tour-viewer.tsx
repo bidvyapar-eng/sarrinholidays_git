@@ -15,6 +15,8 @@ import {
   MapPin,
   X,
   ArrowUpRight,
+  ChevronDown,
+  Info,
 } from 'lucide-react'
 
 export interface VirtualTourHotspot {
@@ -98,6 +100,7 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
   const [isFullscreen, setIsFullscreen] = useState<boolean>(false)
   const [showHotspots, setShowHotspots] = useState<boolean>(true)
   const [activeHotspot, setActiveHotspot] = useState<VirtualTourHotspot | null>(null)
+  const [isInfoExpanded, setIsInfoExpanded] = useState<boolean>(false)
 
   const activeScene = scenes.find((s) => s.id === activeSceneId) || scenes[0]
   const isInteractingRef = useRef<boolean>(false)
@@ -297,14 +300,14 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
   return (
     <div className="relative w-full overflow-hidden rounded-[2.5rem] border border-white/15 bg-background/80 shadow-2xl shadow-black/50 backdrop-blur-2xl">
       {/* 360 Canvas Container */}
-      <div className="relative aspect-[16/10] w-full min-h-[480px] sm:min-h-[560px] lg:min-h-[640px]">
+      <div className="relative w-full h-[500px] sm:h-[560px] lg:h-[640px]">
         <div
           ref={containerRef}
           className="size-full overflow-hidden cursor-grab active:cursor-grabbing select-none"
         />
 
         {/* Ambient Overlay Vignette */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/40" />
 
         {/* Loading Spinner / HUD Shield */}
         {isLoading && (
@@ -319,53 +322,53 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
           </div>
         )}
 
-        {/* Top Right Floating Controls (No Zoom Buttons) */}
-        <div className="absolute right-4 sm:right-6 top-4 sm:top-6 z-20 flex items-center gap-2">
+        {/* Top Right Floating Controls (Compact on Mobile) */}
+        <div className="absolute right-3 sm:right-6 top-3 sm:top-6 z-20 flex items-center gap-1.5 sm:gap-2">
           {/* Toggle Hotspots Button */}
           <button
             onClick={toggleHotspots}
             title={showHotspots ? 'Hide Amenity Hotspots' : 'Show Amenity Hotspots'}
-            className={`flex size-10 items-center justify-center rounded-full border border-white/15 backdrop-blur-md transition-all hover:scale-105 active:scale-95 cursor-pointer ${
+            className={`flex size-8 sm:size-10 items-center justify-center rounded-full border border-white/15 backdrop-blur-md transition-all hover:scale-105 active:scale-95 cursor-pointer ${
               showHotspots
                 ? 'bg-primary/30 text-primary border-primary/40'
                 : 'bg-black/50 text-foreground/60 hover:bg-white/20'
             }`}
           >
-            <MapPin className="size-4" />
+            <MapPin className="size-3.5 sm:size-4" />
           </button>
 
           <button
             onClick={toggleAutorotate}
             title={isRotating ? 'Pause Ambient Rotation' : 'Start Ambient Rotation'}
-            className={`flex size-10 items-center justify-center rounded-full border border-white/15 backdrop-blur-md transition-all hover:scale-105 active:scale-95 cursor-pointer ${
+            className={`flex size-8 sm:size-10 items-center justify-center rounded-full border border-white/15 backdrop-blur-md transition-all hover:scale-105 active:scale-95 cursor-pointer ${
               isRotating
                 ? 'bg-primary/30 text-primary border-primary/40'
                 : 'bg-black/50 text-foreground hover:bg-white/20'
             }`}
           >
-            {isRotating ? <Pause className="size-4" /> : <Play className="size-4 ml-0.5" />}
+            {isRotating ? <Pause className="size-3.5 sm:size-4" /> : <Play className="size-3.5 sm:size-4 ml-0.5" />}
           </button>
 
           <button
             onClick={resetOrientation}
             title="Reset Horizon View"
-            className="flex size-10 items-center justify-center rounded-full border border-white/15 bg-black/50 text-foreground backdrop-blur-md transition-all hover:bg-white/20 hover:scale-105 active:scale-95 cursor-pointer"
+            className="flex size-8 sm:size-10 items-center justify-center rounded-full border border-white/15 bg-black/50 text-foreground backdrop-blur-md transition-all hover:bg-white/20 hover:scale-105 active:scale-95 cursor-pointer"
           >
-            <RotateCcw className="size-4" />
+            <RotateCcw className="size-3.5 sm:size-4" />
           </button>
 
           <button
             onClick={toggleFullscreen}
             title="Toggle Fullscreen"
-            className="flex size-10 items-center justify-center rounded-full border border-white/15 bg-primary px-3 text-primary-foreground backdrop-blur-md transition-all hover:brightness-110 hover:scale-105 active:scale-95 cursor-pointer"
+            className="flex size-8 sm:size-10 items-center justify-center rounded-full border border-white/15 bg-primary px-2 sm:px-3 text-primary-foreground backdrop-blur-md transition-all hover:brightness-110 hover:scale-105 active:scale-95 cursor-pointer"
           >
-            {isFullscreen ? <Minimize2 className="size-4" /> : <Maximize2 className="size-4" />}
+            {isFullscreen ? <Minimize2 className="size-3.5 sm:size-4" /> : <Maximize2 className="size-3.5 sm:size-4" />}
           </button>
         </div>
 
         {/* Active Amenity Hotspot Detail Card - Cleanly positioned top-left without overlapping bottom suite info */}
         {activeHotspot && (
-          <div className="absolute left-4 sm:left-6 top-4 sm:top-6 z-30 w-[calc(100%-2rem)] max-w-xs sm:max-w-sm rounded-2xl border border-primary/30 bg-black/85 p-4 sm:p-5 shadow-2xl backdrop-blur-xl animate-in fade-in slide-in-from-top-3 duration-200">
+          <div className="absolute left-3 sm:left-6 top-3 sm:top-6 z-30 w-[calc(100%-1.5rem)] max-w-xs sm:max-w-sm rounded-2xl border border-primary/30 bg-black/85 p-4 sm:p-5 shadow-2xl backdrop-blur-xl animate-in fade-in slide-in-from-top-3 duration-200">
             <div className="flex items-start justify-between gap-3">
               <div>
                 <span className="inline-block rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 text-[10px] font-mono font-medium uppercase tracking-[0.15em] text-primary">
@@ -391,7 +394,7 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
             )}
 
             {activeHotspot.description && (
-              <p className="mt-2 text-xs leading-relaxed text-foreground/75">
+              <p className="mt-2 text-xs leading-relaxed text-foreground/75 font-light">
                 {activeHotspot.description}
               </p>
             )}
@@ -411,10 +414,11 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
           </div>
         )}
 
-        {/* Bottom Floating Info & Scene HUD */}
-        <div className="absolute inset-x-4 sm:inset-x-6 bottom-4 sm:bottom-6 z-20 flex flex-col justify-between gap-3 sm:gap-4 lg:flex-row lg:items-end pointer-events-none">
-          {/* Active Suite Meta - Compact & Transparent to keep VR interior focused */}
-          <div className="pointer-events-auto max-w-sm sm:max-w-md rounded-2xl border border-white/10 bg-black/35 p-3.5 sm:p-4 backdrop-blur-md transition-all hover:bg-black/50 shadow-xl shadow-black/40">
+        {/* Bottom Floating Info & Scene HUD — Fully Responsive for Mobile, Tablet & Desktop */}
+        <div className="absolute inset-x-3 sm:inset-x-6 bottom-3 sm:bottom-6 z-20 flex flex-col justify-between gap-2.5 sm:gap-4 lg:flex-row lg:items-end pointer-events-none">
+          
+          {/* DESKTOP SUITE META: Expanded Rich Card (>= lg) */}
+          <div className="hidden lg:block pointer-events-auto max-w-sm sm:max-w-md rounded-2xl border border-white/10 bg-black/45 p-4 backdrop-blur-md transition-all hover:bg-black/60 shadow-xl shadow-black/40">
             <div className="flex items-center gap-2">
               <span className="text-[10px] font-mono font-medium uppercase tracking-[0.2em] text-primary">
                 {activeScene.location}
@@ -424,10 +428,10 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
                 {activeScene.tag}
               </span>
             </div>
-            <h3 className="mt-1 font-serif text-base sm:text-lg lg:text-xl font-medium tracking-tight text-white">
+            <h3 className="mt-1 font-serif text-lg lg:text-xl font-medium tracking-tight text-white">
               {activeScene.title}
             </h3>
-            <p className="mt-1 text-xs leading-relaxed text-foreground/75 line-clamp-2">
+            <p className="mt-1 text-xs leading-relaxed text-foreground/75 line-clamp-2 font-light">
               {activeScene.description}
             </p>
 
@@ -444,8 +448,58 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
             </div>
           </div>
 
-          {/* Scene Switcher Dock - Clean, no cut-off text, glassmorphic dock */}
-          <div className="pointer-events-auto flex items-center gap-2 overflow-x-auto max-w-full p-1.5 rounded-2xl border border-white/10 bg-black/35 backdrop-blur-md scrollbar-none shadow-xl shadow-black/40">
+          {/* MOBILE SUITE META: Compact Sleek Pill (< lg) */}
+          <div className="lg:hidden pointer-events-auto w-full space-y-2">
+            {/* Pop-up Details Sheet when tapped */}
+            {isInfoExpanded && (
+              <div className="rounded-2xl border border-primary/30 bg-black/95 p-4 shadow-2xl backdrop-blur-2xl animate-in fade-in slide-in-from-bottom-2 duration-200">
+                <div className="flex items-start justify-between gap-2 border-b border-white/10 pb-2 mb-2">
+                  <div>
+                    <span className="text-[10px] font-mono text-primary uppercase tracking-widest block">{activeScene.location}</span>
+                    <h4 className="font-serif text-sm font-semibold text-white">{activeScene.title}</h4>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setIsInfoExpanded(false)}
+                    aria-label="Close details"
+                    className="size-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-xs text-foreground/70 hover:text-white cursor-pointer"
+                  >
+                    <X className="size-3.5" />
+                  </button>
+                </div>
+                <p className="text-xs text-foreground/80 leading-relaxed font-light">{activeScene.description}</p>
+                <div className="mt-3 flex flex-wrap gap-1.5">
+                  {activeScene.features.map((feat) => (
+                    <span key={feat} className="rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[10px] text-foreground/70">
+                      {feat}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Compact Mini Pill Bar */}
+            <div className="flex items-center justify-between gap-2 rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 backdrop-blur-md shadow-lg">
+              <div className="min-w-0 flex-1 flex items-center gap-2">
+                <span className="size-1.5 rounded-full bg-primary shrink-0" />
+                <span className="font-serif text-xs font-semibold text-white truncate">
+                  {activeScene.title.split('—')[0].trim()}
+                </span>
+                <span className="text-[10px] text-foreground/50 truncate hidden sm:inline">• {activeScene.location}</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsInfoExpanded(!isInfoExpanded)}
+                className="shrink-0 flex items-center gap-1 rounded-full bg-white/10 hover:bg-white/20 px-2.5 py-0.5 text-[10px] font-mono text-primary border border-primary/20 transition-colors"
+              >
+                <span>{isInfoExpanded ? 'Hide' : 'Suite Details'}</span>
+                <ChevronDown className={`size-3 transition-transform ${isInfoExpanded ? 'rotate-180' : ''}`} />
+              </button>
+            </div>
+          </div>
+
+          {/* Scene Switcher Dock — Smooth Horizontal Carousel on All Viewports */}
+          <div className="pointer-events-auto flex items-center gap-1.5 sm:gap-2 overflow-x-auto max-w-full p-1.5 rounded-2xl border border-white/10 bg-black/45 backdrop-blur-md [scrollbar-width:none] [&::-webkit-scrollbar]:hidden shadow-xl shadow-black/40">
             {scenes.map((scene) => {
               const isSelected = scene.id === activeScene.id
               const shortTitle = getSceneShortTitle(scene)
@@ -453,14 +507,17 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
               return (
                 <button
                   key={scene.id}
-                  onClick={() => handleSceneSelect(scene)}
-                  className={`group relative flex items-center gap-2.5 rounded-xl border p-1.5 pr-3 text-left transition-all shrink-0 cursor-pointer ${
+                  onClick={() => {
+                    handleSceneSelect(scene)
+                    setIsInfoExpanded(false)
+                  }}
+                  className={`group relative flex items-center gap-2 sm:gap-2.5 rounded-xl border p-1 sm:p-1.5 pr-2.5 sm:pr-3 text-left transition-all shrink-0 cursor-pointer ${
                     isSelected
                       ? 'border-primary/80 bg-primary/20 shadow-md shadow-primary/20'
                       : 'border-white/10 bg-white/5 hover:border-white/30 hover:bg-white/10'
                   }`}
                 >
-                  <div className="relative size-10 shrink-0 overflow-hidden rounded-lg border border-white/15">
+                  <div className="relative size-8 sm:size-10 shrink-0 overflow-hidden rounded-lg border border-white/15">
                     <img
                       src={scene.thumbnail}
                       alt={scene.title}
@@ -471,13 +528,13 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
                     )}
                   </div>
                   <div className="min-w-0">
-                    <span className="block text-[9px] font-mono uppercase tracking-wider text-primary truncate">
+                    <span className="block text-[8px] sm:text-[9px] font-mono uppercase tracking-wider text-primary truncate">
                       {shortTag}
                     </span>
-                    <span className="block font-serif text-xs font-medium text-white truncate max-w-[125px]">
+                    <span className="block font-serif text-[11px] sm:text-xs font-medium text-white truncate max-w-[105px] sm:max-w-[125px]">
                       {shortTitle}
                     </span>
-                    <span className="block text-[9px] text-foreground/50">
+                    <span className="block text-[8px] sm:text-[9px] text-foreground/50">
                       {scene.hotspots ? `${scene.hotspots.length} Hotspots` : '360° View'}
                     </span>
                   </div>

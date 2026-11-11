@@ -1,6 +1,7 @@
 'use server'
 
 import { createClient } from '@supabase/supabase-js'
+import { dispatchLeadNotification } from '@/lib/notifications'
 
 export interface VipInquiryPayload {
   serviceOrPackageTitle?: string
@@ -114,25 +115,17 @@ export async function submitVipInquiry(payload: VipInquiryPayload): Promise<VipI
   console.log(`[VIP CONCIERGE DISPATCH DOSSIER] Ref: ${referenceId} | Client: ${title ? `${title} ` : ''}${fullName} <${email}> | Phone: ${phone}`)
   console.log(`[VIP DOSSIER SPECIFICATIONS]:\n${formattedNotes}\n------------------------------------------`)
 
-  // Optional external webhook dispatch if configured
-  if (process.env.LEAD_DISPATCH_WEBHOOK) {
-    try {
-      fetch(process.env.LEAD_DISPATCH_WEBHOOK, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          referenceId,
-          type: 'VIP_INQUIRY',
-          client: { title, fullName, email, phone, preferredChannel, requiresNda },
-          expedition: { serviceOrPackageTitle, classification, departureCity: resolvedDepartureCity, dates: formattedDates, guests: totalGuests },
-          notes: formattedNotes,
-          timestamp: new Date().toISOString(),
-        })
-      }).catch((err) => console.warn('VIP dispatch webhook notice:', err.message))
-    } catch (e) {
-      // Non-blocking
-    }
-  }
+  // Dispatch lead notifications via Resend email and universal webhook (non-blocking)
+  void dispatchLeadNotification({
+    referenceId,
+    type: 'VIP_INQUIRY',
+    clientName: `${title ? `${title} ` : ''}${fullName.trim()}`,
+    clientEmail: email.trim(),
+    clientPhone: phone.trim(),
+    expeditionTitle: `${serviceOrPackageTitle} (${classification})`,
+    dossier: formattedNotes,
+    source: 'VIP Multi-Step Drawer',
+  }).catch((err) => console.warn('[VIP NOTIFICATION NOTICE]', err))
 
   try {
     // 1. Attempt insert with dedicated 'source' column

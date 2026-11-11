@@ -235,27 +235,19 @@ export function GlobalConciergeRouting({
               </span>
               <ul className="space-y-2.5 text-xs text-neutral-300">
                 <li className="flex items-start gap-2.5">
-                  <div className="size-4 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0 mt-0.5">
-                    <Check className="size-2.5" />
-                  </div>
+                  <span className="size-1.5 rounded-full bg-primary/80 shrink-0 mt-1.5" />
                   <span>Inter-state private aviation permits &amp; high-altitude helicopter transit</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <div className="size-4 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0 mt-0.5">
-                    <Check className="size-2.5" />
-                  </div>
+                  <span className="size-1.5 rounded-full bg-primary/80 shrink-0 mt-1.5" />
                   <span>Exclusive palace &amp; private island buyouts across Rajasthan &amp; Kerala</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <div className="size-4 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0 mt-0.5">
-                    <Check className="size-2.5" />
-                  </div>
+                  <span className="size-1.5 rounded-full bg-primary/80 shrink-0 mt-1.5" />
                   <span>VIP armored chauffeur motorcades with state protocol clearances</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <div className="size-4 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0 mt-0.5">
-                    <Check className="size-2.5" />
-                  </div>
+                  <span className="size-1.5 rounded-full bg-primary/80 shrink-0 mt-1.5" />
                   <span>Transparent Indian GST invoicing with corporate billing support</span>
                 </li>
               </ul>
@@ -347,33 +339,25 @@ export function GlobalConciergeRouting({
               </span>
               <ul className="space-y-2.5 text-xs text-neutral-300">
                 <li className="flex items-start gap-2.5">
-                  <div className="size-4 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
-                    <Check className="size-2.5" />
-                  </div>
+                  <span className="size-1.5 rounded-full bg-amber-400/80 shrink-0 mt-1.5" />
                   <span>
                     <strong className="text-white font-medium">Indian E-Visa &amp; Consular Guidance:</strong> Expedited pre-clearance advisory &amp; biometric support
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <div className="size-4 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
-                    <Check className="size-2.5" />
-                  </div>
+                  <span className="size-1.5 rounded-full bg-amber-400/80 shrink-0 mt-1.5" />
                   <span>
                     <strong className="text-white font-medium">International Flight Synchronization:</strong> Tarmac VIP meet &amp; greet upon arrival at DEL / BOM / BLR
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <div className="size-4 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
-                    <Check className="size-2.5" />
-                  </div>
+                  <span className="size-1.5 rounded-full bg-amber-400/80 shrink-0 mt-1.5" />
                   <span>
                     <strong className="text-white font-medium">Multi-Currency Transparent Forex:</strong> Direct billing in USD, GBP, EUR, AED with locked rates
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <div className="size-4 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
-                    <Check className="size-2.5" />
-                  </div>
+                  <span className="size-1.5 rounded-full bg-amber-400/80 shrink-0 mt-1.5" />
                   <span>
                     <strong className="text-white font-medium">24/7 Timezone Matching:</strong> Dedicated liaison on EST, PST, GMT, GST, or SGT schedules
                   </span>

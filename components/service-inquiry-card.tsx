@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react'
 import {
-  CheckCircle2,
   Send,
   Check,
   Phone,
@@ -101,7 +100,7 @@ export function ServiceInquiryCard({
         <div className="mt-3 space-y-2">
           {inclusions.map((item, i) => (
             <div key={i} className="flex items-start gap-2.5 text-xs text-foreground/80">
-              <CheckCircle2 className="size-3.5 text-primary shrink-0 mt-0.5" />
+              <span className="size-1.5 rounded-full bg-primary/80 shrink-0 mt-1.5" />
               <span className="leading-snug">{item}</span>
             </div>
           ))}

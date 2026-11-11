@@ -9,7 +9,6 @@ import {
   Compass,
   MapPin,
   LayoutGrid,
-  CheckCircle2,
   Clock,
   Navigation,
 } from 'lucide-react'
@@ -363,8 +362,8 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
                         </span>
                         <div className="space-y-1.5">
                           {activeArticle.highlights.map((h, i) => (
-                            <div key={i} className="flex items-center gap-2 text-xs text-foreground/80">
-                              <CheckCircle2 className="size-3.5 text-primary shrink-0" />
+                            <div key={i} className="flex items-center gap-2.5 text-xs text-foreground/80">
+                              <span className="size-1.5 rounded-full bg-primary/80 shrink-0" />
                               <span>{h}</span>
                             </div>
                           ))}

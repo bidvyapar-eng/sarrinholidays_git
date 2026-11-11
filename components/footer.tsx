@@ -1,7 +1,8 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useTransition } from 'react'
 import Link from 'next/link'
+import { subscribeToNewsletter } from '@/app/actions/newsletter'
 import {
   Compass,
   Phone,
@@ -12,20 +13,36 @@ import {
   Clock,
   Sparkles,
   ArrowRight,
-  CheckCircle2,
   Lock,
+  Loader2,
+  AlertCircle,
 } from 'lucide-react'
 
 export function Footer() {
   const [email, setEmail] = useState('')
   const [subscribed, setSubscribed] = useState(false)
+  const [feedbackMsg, setFeedbackMsg] = useState('')
+  const [errorMsg, setErrorMsg] = useState('')
+  const [isPending, startTransition] = useTransition()
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault()
-    if (email && email.includes('@')) {
-      setSubscribed(true)
-      setEmail('')
+    setErrorMsg('')
+    if (!email || !email.includes('@')) {
+      setErrorMsg('Please enter a valid email address.')
+      return
     }
+
+    startTransition(async () => {
+      const res = await subscribeToNewsletter(email)
+      if (res.success) {
+        setSubscribed(true)
+        setFeedbackMsg(res.message)
+        setEmail('')
+      } else {
+        setErrorMsg(res.message || 'Unable to subscribe. Please try again.')
+      }
+    })
   }
 
   return (
@@ -162,9 +179,9 @@ export function Footer() {
             </p>
 
             {subscribed ? (
-              <div className="rounded-xl border border-primary/40 bg-primary/10 p-3 text-xs text-primary font-mono flex items-center gap-2">
-                <CheckCircle2 className="size-4 shrink-0" />
-                <span>You are registered for our confidential seasonal dispatch.</span>
+              <div className="rounded-xl border border-primary/40 bg-primary/10 p-3 text-xs text-primary font-mono flex items-center gap-2.5">
+                <span className="size-1.5 rounded-full bg-primary shrink-0" />
+                <span>{feedbackMsg || 'You are registered for our confidential seasonal dispatch.'}</span>
               </div>
             ) : (
               <form onSubmit={handleSubscribe} className="space-y-2">
@@ -172,19 +189,31 @@ export function Footer() {
                   <input
                     type="email"
                     required
+                    disabled={isPending}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter private email address..."
-                    className="w-full rounded-xl border border-white/12 bg-white/5 px-3.5 py-2.5 text-xs text-foreground placeholder:text-foreground/40 outline-none transition-all focus:border-primary focus:bg-white/10"
+                    className="w-full rounded-xl border border-white/12 bg-white/5 px-3.5 py-2.5 text-xs text-foreground placeholder:text-foreground/40 outline-none transition-all focus:border-primary focus:bg-white/10 disabled:opacity-50"
                   />
                   <button
                     type="submit"
-                    className="absolute right-1.5 top-1.5 rounded-lg bg-primary hover:bg-[#c5a030] text-primary-foreground p-1.5 transition-colors cursor-pointer"
+                    disabled={isPending}
+                    className="absolute right-1.5 top-1.5 rounded-lg bg-primary hover:bg-[#c5a030] text-primary-foreground p-1.5 transition-colors cursor-pointer disabled:opacity-50"
                     aria-label="Subscribe to Private Gazette"
                   >
-                    <ArrowRight className="size-3.5" />
+                    {isPending ? (
+                      <Loader2 className="size-3.5 animate-spin" />
+                    ) : (
+                      <ArrowRight className="size-3.5" />
+                    )}
                   </button>
                 </div>
+                {errorMsg && (
+                  <div className="flex items-center gap-1.5 text-[11px] font-mono text-red-400">
+                    <AlertCircle className="size-3 shrink-0" />
+                    <span>{errorMsg}</span>
+                  </div>
+                )}
                 <span className="text-[10px] font-mono text-foreground/45 block">
                   Strictly non-commercial. Maximum 4 dispatches per year.
                 </span>

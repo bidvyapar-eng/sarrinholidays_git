@@ -10,7 +10,6 @@ import {
   Star,
   Search,
   X,
-  CheckCircle2,
   Compass,
   ChevronRight,
   Send,
@@ -451,7 +450,7 @@ export function PackagesGrid() {
                       key={idx}
                       className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/5 p-3 text-xs text-foreground/85"
                     >
-                      <CheckCircle2 className="size-4 shrink-0 text-primary" />
+                      <span className="size-1.5 rounded-full bg-primary/80 shrink-0" />
                       <span>{hl}</span>
                     </li>
                   ))}
@@ -467,7 +466,7 @@ export function PackagesGrid() {
                     key={tag}
                     className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-foreground/70"
                   >
-                    #{tag}
+                    {tag}
                   </span>
                 ))}
               </div>

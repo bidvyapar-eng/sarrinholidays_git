@@ -1,6 +1,7 @@
 'use client'
 
-import React, { useState, useTransition, useMemo } from 'react'
+import React, { useState, useTransition, useMemo, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Send,
@@ -23,6 +24,7 @@ import {
   MapPin,
   Compass,
   Calendar,
+  Sparkles,
 } from 'lucide-react'
 import { submitContactInquiry, type ContactActionResult } from '@/app/contact/actions'
 import { ENABLE_GLOBAL_CONCIERGE } from '@/lib/features.config'
@@ -54,6 +56,12 @@ export function ContactForm() {
   const [phoneDigits, setPhoneDigits] = useState<string>('')
   const [phoneError, setPhoneError] = useState<string | null>(null)
 
+  // Out of the box search lead detection
+  const searchParams = useSearchParams()
+  const customDest = searchParams?.get('destination')
+  const customDates = searchParams?.get('dates')
+  const customGuests = searchParams?.get('guests')
+
   const visibleCategories = useMemo(() => {
     if (ENABLE_GLOBAL_CONCIERGE) return INQUIRY_CATEGORIES
     return INQUIRY_CATEGORIES.filter(
@@ -70,6 +78,22 @@ export function ContactForm() {
     email: '',
     message: '',
   })
+
+  // Prefill when custom destination lead is passed from search bar
+  useEffect(() => {
+    if (customDest) {
+      setSelectedCategory('Bespoke Multi-Region Itinerary')
+      setFormData((prev) => {
+        if (prev.message) return prev
+        const datesPart = customDates ? ` Preferred travel dates: ${customDates}.` : ''
+        const guestsPart = customGuests ? ` Party size: ${customGuests}.` : ''
+        return {
+          ...prev,
+          message: `I am requesting a bespoke itinerary for ${customDest}.${datesPart}${guestsPart} Please call me to tailor accommodations, transit, and private experiences.`,
+        }
+      })
+    }
+  }, [customDest, customDates, customGuests])
 
   // Indian mobile validation (+91, 10 digits starting with 6, 7, 8, or 9)
   const isIndianMobileValid = (num: string) => /^[6-9]\d{9}$/.test(num)
@@ -169,6 +193,24 @@ export function ContactForm() {
           <p className="mt-1.5 text-xs sm:text-sm text-foreground/70 font-light leading-relaxed">
             Please register your core journey requirements. Your dossier will be assigned directly to a Senior Operations Director.
           </p>
+
+          {customDest && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-4 rounded-2xl border border-primary/40 bg-gradient-to-r from-primary/20 via-primary/10 to-transparent p-4 backdrop-blur-xl"
+            >
+              <div className="flex items-center gap-2 text-primary font-serif font-semibold text-sm">
+                <Sparkles className="size-4 text-primary" />
+                <span>Bespoke Destination Lead Request</span>
+              </div>
+              <p className="mt-1 text-xs text-foreground/80 leading-relaxed font-light">
+                You requested a custom journey for <strong className="text-primary font-semibold font-serif">&ldquo;{customDest}&rdquo;</strong>
+                {customDates && ` (${customDates})`}
+                {customGuests && ` • ${customGuests}`}. Complete your contact details below to receive a direct call from our senior travel atelier.
+              </p>
+            </motion.div>
+          )}
         </div>
 
         {/* Form Body */}

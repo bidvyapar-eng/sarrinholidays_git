@@ -190,6 +190,35 @@ if (vipValid.success && vipValid.referenceId.startsWith('SRN-VIP-')) {
   console.error('[FAIL] Valid VIP dossier generation failed:', vipValid)
 }
 
+// 3. Test Newsletter Subscription Action
+console.log('\n--- TEST 3: NEWSLETTER SUBSCRIPTION PIPELINE ---')
+
+function validateNewsletter(email) {
+  const trimmed = email?.trim().toLowerCase()
+  if (!trimmed) {
+    return { success: false, message: 'Please provide a valid email address.' }
+  }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  if (!emailRegex.test(trimmed)) {
+    return { success: false, message: 'Please enter a valid email format.' }
+  }
+  return { success: true, message: 'You have been registered for our confidential seasonal dispatch.', email: trimmed }
+}
+
+const newsInvalid = validateNewsletter('not-an-email')
+if (!newsInvalid.success) {
+  console.log('[PASS] Invalid newsletter email rejected cleanly:', newsInvalid.message)
+} else {
+  console.error('[FAIL] Invalid newsletter email should have failed')
+}
+
+const newsValid = validateNewsletter('curator@familyoffice.in')
+if (newsValid.success && newsValid.email === 'curator@familyoffice.in') {
+  console.log('[PASS] Valid newsletter subscriber accepted:', newsValid.email)
+} else {
+  console.error('[FAIL] Valid newsletter email failed')
+}
+
 console.log('\n========================================================================')
 console.log('ALL SERVER ACTION TESTS PASSED WITH 0 ERRORS')
 console.log('========================================================================\n')

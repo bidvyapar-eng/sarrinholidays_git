@@ -8,7 +8,6 @@ import {
   Crown,
   ShieldCheck,
   ArrowUpRight,
-  CheckCircle2,
   Phone,
   Mail,
   Calendar,
@@ -253,8 +252,8 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
                   </span>
                   <div className="space-y-1.5 pt-1">
                     {meta.specs.map((spec, i) => (
-                      <div key={i} className="flex items-start gap-2 text-xs text-foreground/85">
-                        <CheckCircle2 className="size-3.5 text-primary shrink-0 mt-0.5" />
+                      <div key={i} className="flex items-start gap-2.5 text-xs text-foreground/85">
+                        <span className="size-1.5 rounded-full bg-primary/80 shrink-0 mt-1.5" />
                         <span className="leading-snug">{spec}</span>
                       </div>
                     ))}

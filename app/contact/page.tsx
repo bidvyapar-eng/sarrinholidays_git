@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { supabase } from '@/lib/supabaseClient'
 import { Navbar } from '@/components/navbar'
 import { ContactForm } from '@/components/contact-form'
@@ -362,7 +363,9 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
           {/* RIGHT SIDE: Sleek Glassmorphism Form & Interactive Quick Actions */}
           {/* =================================================================== */}
           <div className="lg:col-span-6 xl:col-span-7">
-            <ContactForm />
+            <Suspense fallback={<div className="p-12 text-center text-xs font-mono text-primary/70">Initializing Atelier Concierge...</div>}>
+              <ContactForm />
+            </Suspense>
           </div>
         </div>
       </div>

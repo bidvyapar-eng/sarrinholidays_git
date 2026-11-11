@@ -81,12 +81,12 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
           </span>
         </a>
 
-        <ul className="hidden items-center gap-1 md:flex">
+        <ul className="hidden items-center gap-1 xl:flex">
           {links.map((link) => (
             <li key={link.label}>
               <a
                 href={link.href}
-                className="rounded-full px-4 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-white/10 hover:text-foreground"
+                className="rounded-full px-3.5 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-white/10 hover:text-foreground whitespace-nowrap"
               >
                 {link.label}
               </a>
@@ -94,14 +94,14 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
           ))}
         </ul>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           {/* Header Action: Global Concierge (if enabled) OR Domestic Concierge Hotline */}
           {ENABLE_GLOBAL_CONCIERGE ? (
             <button
               onClick={() => setConciergeOpen((v) => !v)}
               aria-expanded={conciergeOpen}
               aria-label="Toggle Global Concierge Routing"
-              className={`hidden sm:inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-all backdrop-blur-md ${
+              className={`hidden sm:inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-all backdrop-blur-md whitespace-nowrap shrink-0 ${
                 conciergeOpen
                   ? "border-primary bg-primary text-primary-foreground shadow-lg shadow-primary/25"
                   : "border-primary/40 bg-primary/10 text-primary hover:bg-primary/20"
@@ -118,7 +118,7 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
           ) : (
             <a
               href="tel:+912269825500"
-              className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 hover:bg-primary/20 px-3.5 py-1.5 text-xs font-semibold text-primary transition-all backdrop-blur-md"
+              className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 hover:bg-primary/20 px-3.5 py-1.5 text-xs font-semibold text-primary transition-all backdrop-blur-md whitespace-nowrap shrink-0"
               aria-label="Domestic Indian Concierge Desk"
             >
               <Phone className="size-3" />
@@ -128,7 +128,7 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
 
           <a
             href="/contact"
-            className="hidden rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03] active:scale-95 md:inline-flex"
+            className="hidden rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03] active:scale-95 whitespace-nowrap shrink-0 md:inline-flex"
           >
             Plan a trip
           </a>
@@ -137,7 +137,7 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full text-foreground transition-colors hover:bg-white/10 md:hidden"
+            className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full text-foreground transition-colors hover:bg-white/10 xl:hidden shrink-0"
           >
             {open ? <X className="size-6" /> : <Menu className="size-6" />}
           </button>
@@ -157,16 +157,16 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
         </div>
       )}
 
-      {/* Mobile Navigation Drawer */}
+      {/* Mobile & Tablet Navigation Drawer */}
       {open && (
-        <div className="mx-auto mt-2 max-w-6xl rounded-3xl border border-white/10 bg-slate-950/95 p-3 backdrop-blur-2xl shadow-2xl md:hidden space-y-3">
-          <ul className="flex flex-col">
+        <div className="mx-auto mt-2 max-w-6xl rounded-3xl border border-white/15 bg-slate-950/95 p-4 backdrop-blur-2xl shadow-2xl xl:hidden space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
+          <ul className="flex flex-col space-y-1">
             {links.map((link) => (
               <li key={link.label}>
                 <a
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-2xl px-4 py-3 text-sm font-medium text-foreground/80 transition-colors hover:bg-white/10 hover:text-foreground"
+                  className="block rounded-2xl px-4 py-2.5 text-base font-medium text-foreground/90 transition-colors hover:bg-white/10 hover:text-primary"
                 >
                   {link.label}
                 </a>

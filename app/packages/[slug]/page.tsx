@@ -15,7 +15,6 @@ import {
   MapPin,
   Star,
   Flame,
-  CheckCircle2,
   XCircle,
   Clock,
   Compass,
@@ -785,7 +784,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
                     <div className="flex items-center justify-between pb-3 border-b border-white/10">
                       <div className="flex items-center gap-3">
                         <div className="flex size-10 items-center justify-center rounded-xl bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 shadow-md">
-                          <CheckCircle2 className="size-5" />
+                          <Award className="size-5" />
                         </div>
                         <div>
                           <h3 className="font-serif text-xl text-white font-medium">
@@ -811,9 +810,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
                         'Dedicated 24/7 personal concierge liaison and white-glove baggage service'
                       ]).map((inc, i) => (
                         <li key={i} className="flex items-start gap-3">
-                          <div className="size-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-500/40">
-                            <Check className="size-2.5" />
-                          </div>
+                          <span className="size-1.5 rounded-full bg-emerald-400 shrink-0 mt-2" />
                           <span className="leading-relaxed font-light">{inc}</span>
                         </li>
                       ))}
@@ -821,7 +818,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
                   </div>
 
                   <div className="pt-4 border-t border-white/10 text-[11px] text-neutral-400 flex items-center gap-2 font-mono">
-                    <CheckCircle2 className="size-3.5 text-emerald-400 shrink-0" />
+                    <span className="size-1.5 rounded-full bg-emerald-400 shrink-0" />
                     <span>All domestic permits, chauffeurs &amp; palace taxes included</span>
                   </div>
                 </div>
@@ -907,19 +904,19 @@ export default async function PackageDetailPage({ params }: PageProps) {
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-neutral-300">
                 <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="size-4 text-primary shrink-0 mt-0.5" />
+                  <span className="size-1.5 rounded-full bg-primary shrink-0 mt-1.5" />
                   <span>Bespoke 24/7 dedicated personal concierge liaison throughout your stay</span>
                 </div>
                 <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="size-4 text-primary shrink-0 mt-0.5" />
+                  <span className="size-1.5 rounded-full bg-primary shrink-0 mt-1.5" />
                   <span>Executive private chauffeur fleet and high-touch airport tarmac transfers</span>
                 </div>
                 <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="size-4 text-primary shrink-0 mt-0.5" />
+                  <span className="size-1.5 rounded-full bg-primary shrink-0 mt-1.5" />
                   <span>VIP palace fast-track privileges and private curator-led heritage walks</span>
                 </div>
                 <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="size-4 text-primary shrink-0 mt-0.5" />
+                  <span className="size-1.5 rounded-full bg-primary shrink-0 mt-1.5" />
                   <span>Complimentary customized dietary provisioning and private sommelier pairing</span>
                 </div>
               </div>

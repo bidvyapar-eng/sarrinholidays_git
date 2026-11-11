@@ -2,7 +2,7 @@
 
 import React, { useMemo } from 'react'
 import Link from 'next/link'
-import { MapPin, CheckCircle2, ArrowUpRight } from 'lucide-react'
+import { MapPin, ArrowUpRight } from 'lucide-react'
 import type { PackageItem } from '@/lib/cms'
 
 export interface PackageCardProps {
@@ -54,22 +54,22 @@ export function PackageCard({ pkg }: PackageCardProps) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/30" />
 
-        {/* Top Floating Header Badges: Single balanced row, quiet luxury typography */}
-        <div className="absolute inset-x-3.5 top-3.5 z-10 flex items-center justify-between gap-2">
-          {/* Top-Left: Duration Pill */}
-          <span className="inline-flex items-center rounded-full border border-white/20 bg-black/65 px-3 py-1 text-[11px] font-mono tracking-wider text-white backdrop-blur-md shadow-md">
+        {/* Top Floating Header Badges: Sleek non-wrapping duration pill + optional status */}
+        <div className="absolute inset-x-3.5 top-3.5 z-10 flex items-center justify-between gap-2 pointer-events-none">
+          {/* Top-Left: Duration Pill (Never wraps, never becomes circular) */}
+          <span className="inline-flex items-center rounded-full border border-white/20 bg-slate-950/80 px-3 py-1 text-[11px] font-mono tracking-wider text-white backdrop-blur-md shadow-md shrink-0 whitespace-nowrap">
             {pkg.duration}
           </span>
 
-          {/* Top-Right: Scarcity Notice OR Curated Odyssey Tag */}
+          {/* Top-Right: Scarcity Notice OR Curated Circuit Tag */}
           {pkg.scarcity_status ? (
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-500/40 bg-black/80 px-3 py-1 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-amber-200 backdrop-blur-md shadow-md">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-500/40 bg-slate-950/85 px-2.5 py-1 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-amber-200 backdrop-blur-md shadow-md truncate max-w-[58%]">
               <span className="size-1.5 rounded-full bg-amber-400 shrink-0" />
-              <span className="whitespace-nowrap">{pkg.scarcity_status}</span>
+              <span className="truncate">{pkg.scarcity_status}</span>
             </span>
           ) : pkg.is_trending ? (
-            <span className="inline-flex items-center rounded-full border border-primary/30 bg-black/75 px-3 py-1 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-primary backdrop-blur-md shadow-md">
-              Curated Odyssey
+            <span className="inline-flex items-center rounded-full border border-primary/30 bg-slate-950/80 px-2.5 py-1 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-primary backdrop-blur-md shadow-md shrink-0 whitespace-nowrap">
+              Curated Circuit
             </span>
           ) : null}
         </div>
@@ -119,24 +119,21 @@ export function PackageCard({ pkg }: PackageCardProps) {
 
         {/* Highlights Bullet Previews */}
         {pkg.highlights && pkg.highlights.length > 0 && (
-          <ul className="mt-3.5 sm:mt-4 space-y-1.5 border-t border-white/10 pt-3 sm:pt-3.5">
+          <ul className="mt-3.5 sm:mt-4 space-y-2 border-t border-white/10 pt-3 sm:pt-3.5">
             {pkg.highlights.slice(0, 2).map((hl, idx) => (
-              <li key={idx} className="flex items-center gap-2 text-xs text-foreground/75">
-                <CheckCircle2 className="size-3.5 shrink-0 text-primary" />
+              <li key={idx} className="flex items-center gap-2.5 text-xs text-foreground/80">
+                <span className="size-1.5 rounded-full bg-primary/80 shrink-0" />
                 <span className="truncate">{hl}</span>
               </li>
             ))}
           </ul>
         )}
 
-        {/* Card Footer Pricing & Actions: Price hidden per client directive, elegant Inquire / Get in Touch Flow */}
+        {/* Card Footer Pricing & Actions: Price hidden per client directive */}
         <div className="mt-auto pt-4 sm:pt-5 border-t border-white/10 flex items-center justify-between gap-3 sm:gap-4">
           <div className="flex flex-col">
             <span className="text-xs sm:text-sm font-semibold text-primary tracking-wider font-mono uppercase">
               Pricing on Request
-            </span>
-            <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-foreground/50 font-mono">
-              Customized Itinerary
             </span>
           </div>
 

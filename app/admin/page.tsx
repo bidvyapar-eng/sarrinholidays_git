@@ -28,7 +28,17 @@ import {
   Trash2,
   X,
   Plus,
+  Bell,
+  Send,
+  Loader2,
+  AlertCircle,
 } from 'lucide-react'
+import {
+  loadIntegrationSettings,
+  saveIntegrationSettings,
+  sendTestNotification,
+  type IntegrationSettings,
+} from '@/app/actions/integrations'
 
 const modules = [
   { id: 'overview', label: 'Overview', icon: LayoutDashboard },
@@ -38,6 +48,7 @@ const modules = [
   { id: 'destinations', label: 'Destinations', icon: Boxes },
   { id: 'experiences', label: 'Experiences', icon: BarChart3 },
   { id: 'journal_posts', label: 'Journal Posts', icon: BookOpen },
+  { id: 'integrations', label: 'Email & Alerts', icon: Bell },
   { id: 'site_settings', label: 'Hero & Copy', icon: FileText },
   { id: 'media_assets', label: 'Branding & Media', icon: ImageIcon },
   { id: 'theme', label: 'Theme Studio', icon: Palette },
@@ -50,6 +61,7 @@ const labels: Record<string, string> = {
   destinations: 'Destinations',
   experiences: 'Experiences',
   journal_posts: 'Journal Posts',
+  integrations: 'Email & Webhook Alerts',
   media_assets: 'Media Assets',
 }
 
@@ -437,6 +449,8 @@ function AdminDashboardInner() {
           <div className="mx-auto max-w-7xl p-4 sm:p-8">
             {active === 'overview' ? (
               <Overview rows={rows} site={site} onSelect={setActive} />
+            ) : active === 'integrations' ? (
+              <IntegrationsEditor showToast={showToast} />
             ) : active === 'site_settings' ? (
               <SiteEditor site={site} setSite={setSite} onSave={saveSite} saving={saving} />
             ) : active === 'theme' ? (
@@ -921,6 +935,216 @@ function ThemeEditor() {
         <Check className="size-4" />
         Theme Active
       </button>
+    </div>
+  )
+}
+
+function IntegrationsEditor({ showToast }: { showToast: (msg: string, type?: 'success' | 'error') => void }) {
+  const [settings, setSettings] = useState<IntegrationSettings>({
+    emailEnabled: false,
+    recipientEmail: 'concierge@sarrinholidays.com',
+    resendApiKey: '',
+    fromEmail: 'Sarrin Concierge <onboarding@resend.dev>',
+    webhookEnabled: false,
+    webhookUrl: '',
+  })
+  const [loading, setLoading] = useState(true)
+  const [saving, setSaving] = useState(false)
+  const [testing, setTesting] = useState(false)
+  const [testResult, setTestResult] = useState<{ success: boolean; message: string; details?: string } | null>(null)
+
+  useEffect(() => {
+    loadIntegrationSettings().then((data) => {
+      setSettings(data)
+      setLoading(false)
+    })
+  }, [])
+
+  const handleSave = async () => {
+    setSaving(true)
+    const res = await saveIntegrationSettings(settings)
+    setSaving(false)
+    if (res.success) {
+      showToast('Notification settings saved!')
+    } else {
+      showToast(res.message, 'error')
+    }
+  }
+
+  const handleTest = async () => {
+    setTesting(true)
+    setTestResult(null)
+    const res = await sendTestNotification(settings)
+    setTesting(false)
+    setTestResult(res)
+    if (res.success) {
+      showToast('Test notification delivered successfully!')
+    } else {
+      showToast(res.message, 'error')
+    }
+  }
+
+  if (loading) {
+    return (
+      <div className="flex h-64 items-center justify-center">
+        <Loader2 className="size-8 animate-spin text-primary" />
+      </div>
+    )
+  }
+
+  return (
+    <div className="max-w-4xl space-y-8">
+      {/* Header Banner */}
+      <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8 backdrop-blur-xl">
+        <div className="flex items-center gap-3">
+          <Bell className="size-6 text-primary" />
+          <div>
+            <p className="text-xs uppercase tracking-[.18em] text-primary">Self-Service Automation</p>
+            <h2 className="mt-1 font-serif text-3xl text-white">Email & Webhook Alerts</h2>
+          </div>
+        </div>
+        <p className="mt-3 text-xs sm:text-sm text-foreground/70 leading-relaxed max-w-2xl">
+          Instantly dispatch high-priority VIP inquiries and contact dossiers directly to your team’s inbox via Resend or post to Slack, Discord, or your CRM via Webhooks.
+        </p>
+      </div>
+
+      {/* Resend Email Card */}
+      <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8 backdrop-blur-xl space-y-6">
+        <div className="flex items-center justify-between border-b border-white/10 pb-4">
+          <div>
+            <h3 className="font-serif text-xl text-white">Resend Transactional Email</h3>
+            <p className="text-xs text-foreground/60 mt-0.5">High-deliverability luxury HTML notifications sent directly to curators</p>
+          </div>
+          <label className="relative inline-flex items-center cursor-pointer">
+            <input
+              type="checkbox"
+              checked={settings.emailEnabled}
+              onChange={(e) => setSettings({ ...settings, emailEnabled: e.target.checked })}
+              className="sr-only peer"
+            />
+            <div className="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+          </label>
+        </div>
+
+        <div className="grid gap-5 sm:grid-cols-2">
+          <label className="block">
+            <span className="mb-2 block text-xs uppercase tracking-wider text-foreground/70 font-mono">
+              Curator Recipient Email
+            </span>
+            <input
+              type="email"
+              value={settings.recipientEmail}
+              onChange={(e) => setSettings({ ...settings, recipientEmail: e.target.value })}
+              placeholder="concierge@sarrinholidays.com"
+              className="w-full rounded-2xl border border-white/10 bg-background/60 px-4 py-3 text-xs sm:text-sm text-white placeholder:text-foreground/40 outline-none focus:border-primary"
+            />
+            <span className="mt-1.5 block text-[11px] text-foreground/45">Where incoming VIP dossiers are delivered</span>
+          </label>
+
+          <label className="block">
+            <span className="mb-2 block text-xs uppercase tracking-wider text-foreground/70 font-mono">
+              Resend API Key
+            </span>
+            <input
+              type="password"
+              value={settings.resendApiKey}
+              onChange={(e) => setSettings({ ...settings, resendApiKey: e.target.value })}
+              placeholder="re_123456789_abcdef..."
+              className="w-full rounded-2xl border border-white/10 bg-background/60 px-4 py-3 text-xs sm:text-sm text-white font-mono placeholder:text-foreground/40 outline-none focus:border-primary"
+            />
+            <span className="mt-1.5 block text-[11px] text-foreground/45">Get your key from <a href="https://resend.com" target="_blank" rel="noreferrer" className="text-primary hover:underline">resend.com</a></span>
+          </label>
+
+          <label className="block sm:col-span-2">
+            <span className="mb-2 block text-xs uppercase tracking-wider text-foreground/70 font-mono">
+              From Sender Header
+            </span>
+            <input
+              type="text"
+              value={settings.fromEmail}
+              onChange={(e) => setSettings({ ...settings, fromEmail: e.target.value })}
+              placeholder="Sarrin Concierge <concierge@sarrinholidays.com>"
+              className="w-full rounded-2xl border border-white/10 bg-background/60 px-4 py-3 text-xs sm:text-sm text-white placeholder:text-foreground/40 outline-none focus:border-primary"
+            />
+            <span className="mt-1.5 block text-[11px] text-foreground/45">Use <code className="text-primary">onboarding@resend.dev</code> during testing or your verified domain</span>
+          </label>
+        </div>
+      </div>
+
+      {/* Universal Webhook Card */}
+      <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8 backdrop-blur-xl space-y-6">
+        <div className="flex items-center justify-between border-b border-white/10 pb-4">
+          <div>
+            <h3 className="font-serif text-xl text-white">Universal Webhook Dispatch</h3>
+            <p className="text-xs text-foreground/60 mt-0.5">Post instant lead alerts to Slack, Discord, Zapier, or private webhooks</p>
+          </div>
+          <label className="relative inline-flex items-center cursor-pointer">
+            <input
+              type="checkbox"
+              checked={settings.webhookEnabled}
+              onChange={(e) => setSettings({ ...settings, webhookEnabled: e.target.checked })}
+              className="sr-only peer"
+            />
+            <div className="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+          </label>
+        </div>
+
+        <label className="block">
+          <span className="mb-2 block text-xs uppercase tracking-wider text-foreground/70 font-mono">
+            Webhook Target URL
+          </span>
+          <input
+            type="url"
+            value={settings.webhookUrl}
+            onChange={(e) => setSettings({ ...settings, webhookUrl: e.target.value })}
+            placeholder="https://hooks.slack.com/services/... or https://discord.com/api/webhooks/..."
+            className="w-full rounded-2xl border border-white/10 bg-background/60 px-4 py-3 text-xs sm:text-sm text-white font-mono placeholder:text-foreground/40 outline-none focus:border-primary"
+          />
+          <span className="mt-1.5 block text-[11px] text-foreground/45">Receives structured JSON with client contact details, dates, party size, and brief</span>
+        </label>
+      </div>
+
+      {/* Test Results Output */}
+      {testResult && (
+        <div
+          className={`rounded-2xl border p-4 text-xs font-mono flex items-start gap-3 ${
+            testResult.success
+              ? 'border-emerald-500/30 bg-emerald-950/20 text-emerald-300'
+              : 'border-red-500/30 bg-red-950/20 text-red-300'
+          }`}
+        >
+          {testResult.success ? (
+            <CheckCircle2 className="size-4 shrink-0 text-emerald-400 mt-0.5" />
+          ) : (
+            <AlertCircle className="size-4 shrink-0 text-red-400 mt-0.5" />
+          )}
+          <div>
+            <div className="font-semibold">{testResult.message}</div>
+            {testResult.details && <div className="mt-1 opacity-80">{testResult.details}</div>}
+          </div>
+        </div>
+      )}
+
+      {/* Bottom Save & Test Actions */}
+      <div className="flex flex-wrap items-center gap-4">
+        <button
+          onClick={handleSave}
+          disabled={saving}
+          className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-xs font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-transform hover:scale-105 disabled:opacity-50"
+        >
+          {saving ? <Loader2 className="size-4 animate-spin" /> : <Save className="size-4" />}
+          {saving ? 'Saving...' : 'Save Alert Settings'}
+        </button>
+
+        <button
+          onClick={handleTest}
+          disabled={testing}
+          className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3 text-xs font-semibold text-white transition-all hover:bg-white/15 disabled:opacity-50"
+        >
+          {testing ? <Loader2 className="size-4 animate-spin" /> : <Send className="size-4 text-primary" />}
+          {testing ? 'Sending Test...' : 'Send Test Lead Notification'}
+        </button>
+      </div>
     </div>
   )
 }

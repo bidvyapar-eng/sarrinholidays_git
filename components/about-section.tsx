@@ -10,7 +10,6 @@ import {
   Clock,
   Award,
   ArrowRight,
-  CheckCircle2,
   HeartHandshake,
   Users,
   MapPin,
@@ -64,20 +63,20 @@ export function AboutSection() {
 
             {/* Credential Checkpoints */}
             <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono text-foreground/85">
-              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-white/10 bg-white/5">
-                <CheckCircle2 className="size-4 text-primary shrink-0" />
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl border border-white/10 bg-white/5">
+                <span className="size-1.5 rounded-full bg-primary/80 shrink-0" />
                 <span>100% Private & Custom-Built</span>
               </div>
-              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-white/10 bg-white/5">
-                <CheckCircle2 className="size-4 text-primary shrink-0" />
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl border border-white/10 bg-white/5">
+                <span className="size-1.5 rounded-full bg-primary/80 shrink-0" />
                 <span>Direct Helipad Clearances</span>
               </div>
-              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-white/10 bg-white/5">
-                <CheckCircle2 className="size-4 text-primary shrink-0" />
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl border border-white/10 bg-white/5">
+                <span className="size-1.5 rounded-full bg-primary/80 shrink-0" />
                 <span>Strict NDA Privacy Protection</span>
               </div>
-              <div className="flex items-center gap-2 p-2.5 rounded-xl border border-white/10 bg-white/5">
-                <CheckCircle2 className="size-4 text-primary shrink-0" />
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl border border-white/10 bg-white/5">
+                <span className="size-1.5 rounded-full bg-primary/80 shrink-0" />
                 <span>24/7 Senior Flight Liaison</span>
               </div>
             </div>

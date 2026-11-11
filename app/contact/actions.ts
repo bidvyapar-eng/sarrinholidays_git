@@ -1,6 +1,7 @@
 'use server'
 
 import { supabase } from '@/lib/supabaseClient'
+import { dispatchLeadNotification } from '@/lib/notifications'
 
 export interface ContactActionResult {
   success: boolean
@@ -54,18 +55,17 @@ export async function submitContactInquiry(
   console.log(`[CONCIERGE DISPATCH PRIORITY LEAD] Ref: ${referenceId} | Client: ${name} <${email}> | Phone: ${phone || 'N/A'}`)
   console.log(`[DOSSIER DETAILS]:\n${formattedNotes}\n------------------------------------------`)
 
-  // Optional external webhook dispatch if configured
-  if (process.env.LEAD_DISPATCH_WEBHOOK) {
-    try {
-      fetch(process.env.LEAD_DISPATCH_WEBHOOK, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ referenceId, name, email, phone, subject, notes: formattedNotes, timestamp: new Date().toISOString() })
-      }).catch((err) => console.warn('Lead dispatch webhook notice:', err.message))
-    } catch (e) {
-      // Non-blocking
-    }
-  }
+  // Dispatch notifications via Resend email and universal webhook (non-blocking)
+  void dispatchLeadNotification({
+    referenceId,
+    type: 'CONTACT_FORM',
+    clientName: name,
+    clientEmail: email,
+    clientPhone: phone,
+    expeditionTitle: subject,
+    dossier: formattedNotes,
+    source: 'Contact Desk',
+  }).catch((err) => console.warn('[CONTACT NOTIFICATION NOTICE]', err))
 
   try {
     // 1. Attempt insert with dedicated 'source' column
