@@ -145,13 +145,13 @@ export function VirtualTour() {
     <section id="virtual-tour" className="relative mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
       {/* Section Headline */}
       <div className="mx-auto max-w-3xl text-center">
-        <span className="text-xs font-mono uppercase tracking-[0.25em] text-primary/90 font-medium block">
+        <span className="text-xs font-sans uppercase tracking-[0.3em] text-[#C5A059] font-medium block">
           Spatial Previews
         </span>
-        <h2 className="mt-4 font-serif text-4xl leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-          Step inside our finest suites <span className="italic text-primary">in 360° VR</span>
+        <h2 className="mt-4 font-serif font-light text-4xl leading-tight tracking-tight text-[#F4F2EC] sm:text-5xl lg:text-6xl">
+          Step inside our finest living palace suites
         </h2>
-        <p className="mt-4 text-pretty text-base leading-relaxed text-foreground/70 sm:text-lg">
+        <p className="mt-4 text-pretty text-base leading-relaxed text-[#B8B4AA] sm:text-lg">
           Before you embark, experience every corridor, hand-carved arch, and sun-drenched terrace. Drag or swipe to look around in high-fidelity equirectangular detail.
         </p>
       </div>

@@ -35,24 +35,23 @@ export default async function ServicesPage() {
       <section className="relative pt-36 pb-16 px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
         <div className="text-center max-w-3xl mx-auto">
           {/* Eyebrow */}
-          <span className="text-xs font-mono uppercase tracking-[0.25em] text-primary/90 font-medium block">
+          <span className="text-xs font-sans uppercase tracking-[0.3em] text-[#C5A059] font-medium block">
             The Private Services Atelier
           </span>
 
           {/* H1 Headline with Deep Serif Typography */}
-          <h1 className="mt-5 font-serif text-4xl sm:text-6xl lg:text-7xl font-normal leading-[1.1] tracking-tight text-foreground">
-            Crafted for the Discerning. <br className="hidden sm:inline" />
-            <span className="italic text-primary font-light">Delivered with Precision.</span>
+          <h1 className="mt-5 font-serif font-light text-4xl sm:text-6xl lg:text-7xl leading-[1.1] tracking-tight text-[#F4F2EC]">
+            Crafted for the Discerning, Delivered with Precision
           </h1>
 
           {/* Subtitle */}
-          <p className="mt-6 text-base sm:text-lg text-foreground/75 leading-relaxed font-light">
+          <p className="mt-6 text-base sm:text-lg text-[#B8B4AA] leading-relaxed font-light">
             From high-altitude Himalayan aviation charters to closed-door palace buyouts across Rajasthan,
             experience ultra-luxury travel engineering executed with sovereign discretion.
           </p>
 
           {/* Credential Trust Badges */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-foreground/75 font-mono uppercase tracking-wider">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-[#B8B4AA] font-sans uppercase tracking-[0.18em]">
             <span>Strict NDA Protocol</span>
             <span className="opacity-30">•</span>
             <span>24/7 Dedicated Liaison</span>
@@ -94,11 +93,11 @@ export default async function ServicesPage() {
               </a>
 
               <a
-                href="tel:+919820072774"
+                href="tel:+918419887730"
                 className="inline-flex items-center justify-center gap-2 rounded-2xl bg-primary px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-primary-foreground shadow-lg shadow-primary/25 hover:bg-primary/90 transition-transform hover:scale-105"
               >
                 <Phone className="size-4" />
-                <span>Direct Concierge Call</span>
+                <span>+91 84198 87730</span>
               </a>
             </div>
           </div>

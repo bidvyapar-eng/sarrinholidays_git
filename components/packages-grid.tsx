@@ -216,13 +216,13 @@ export function PackagesGrid() {
     <section id="destinations" className="relative mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
       {/* Section Header */}
       <div className="mx-auto max-w-2xl text-center">
-        <span className="text-xs font-mono uppercase tracking-[0.25em] text-primary/90 font-medium block">
+        <span className="text-xs font-sans uppercase tracking-[0.3em] text-[#C5A059] font-medium block">
           Curated Expeditions
         </span>
-        <h2 className="mt-4 text-balance font-serif text-4xl leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-          Signature curated <span className="italic text-primary">journeys</span>
+        <h2 className="mt-4 text-balance font-serif font-light text-4xl leading-tight tracking-tight text-[#F4F2EC] sm:text-5xl lg:text-6xl">
+          Curated Indian Expeditions
         </h2>
-        <p className="mt-4 text-pretty text-base leading-relaxed text-foreground/80 font-light sm:text-lg">
+        <p className="mt-4 text-pretty text-base leading-relaxed text-[#B8B4AA] font-light sm:text-lg">
           Each itinerary is architected end-to-end with private chauffeurs, palace heritage stays, and bespoke culinary hosts.
         </p>
       </div>
@@ -475,7 +475,7 @@ export function PackagesGrid() {
             {/* Bottom Concierge Checkout / Inquiry Bar */}
             <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-white/15 pt-6">
               <div>
-                <span className="block text-xs uppercase tracking-wider text-primary font-mono font-medium">
+                <span className="block text-xs uppercase tracking-wider text-[#C5A059] font-sans font-medium">
                   Bespoke Private Itinerary
                 </span>
                 <span className="font-serif text-2xl font-semibold text-white">

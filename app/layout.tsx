@@ -1,18 +1,19 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Cormorant_Garamond, Plus_Jakarta_Sans } from 'next/font/google'
+import { Cormorant_Garamond, Inter } from 'next/font/google'
 import './globals.css'
 import { JsonLd } from '@/components/json-ld'
 
-const sans = Plus_Jakarta_Sans({
+const sans = Inter({
   subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
   variable: '--font-sans',
   display: 'swap',
 })
 
 const serif = Cormorant_Garamond({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600'],
   style: ['normal', 'italic'],
   variable: '--font-serif',
   display: 'swap',
@@ -25,7 +26,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   colorScheme: 'dark',
-  themeColor: '#020617',
+  themeColor: '#0C0B09',
 }
 
 export const metadata: Metadata = {
@@ -142,7 +143,7 @@ const travelAgencySchema = {
   url: siteUrl,
   logo: `${siteUrl}/sarrin-holidays-logo.png`,
   image: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&q=80&w=1200',
-  telephone: '+91-22-6982-5500',
+  telephone: '+91 84198 87730',
   email: 'concierge@sarrinholidays.com',
   priceRange: '$$$$',
   currenciesAccepted: 'USD, EUR, GBP, INR',

@@ -63,25 +63,24 @@ export default async function AboutPage() {
       <section className="relative pt-36 pb-16 px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
         <div className="text-center max-w-3xl mx-auto">
           {/* Eyebrow badge */}
-          <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-mono uppercase tracking-[0.25em] text-primary shadow-lg shadow-primary/10">
+          <div className="inline-flex items-center rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 px-4 py-1 text-xs font-sans uppercase tracking-[0.25em] text-[#C5A059]">
             <span>The Atelier Story</span>
           </div>
 
           {/* H1 Headline */}
-          <h1 className="mt-6 font-serif text-4xl sm:text-6xl lg:text-7xl font-normal leading-[1.1] tracking-tight text-foreground">
-            Bespoke Mastery. <br className="hidden sm:inline" />
-            <span className="italic text-primary font-light">Sovereign Discretion.</span>
+          <h1 className="mt-6 font-serif font-light text-4xl sm:text-6xl lg:text-7xl leading-[1.1] tracking-tight text-[#F4F2EC]">
+            Bespoke Mastery &amp; Sovereign Discretion
           </h1>
 
           {/* Subtitle */}
-          <p className="mt-6 text-base sm:text-lg text-foreground/75 leading-relaxed font-light">
+          <p className="mt-6 text-base sm:text-lg text-[#B8B4AA] leading-relaxed font-light">
             Founded to bridge extraordinary Indian heritage with uncompromising private luxury.
             We curate living palace suites, on-demand aviation, and sacred rituals for travelers
             who seek depth rather than conventional sightseeing.
           </p>
 
           {/* Trust Badges */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-foreground/60 font-mono tracking-wider uppercase">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-[#B8B4AA] font-sans tracking-[0.18em] uppercase">
             <span>Strict NDA Protocol</span>
             <span className="hidden sm:inline opacity-30">•</span>
             <span>24/7 Dedicated Liaison</span>

@@ -200,11 +200,11 @@ export function ServiceInquiryCard({
       {/* Immediate Concierge Direct Call Footer */}
       <div className="mt-6 pt-5 border-t border-white/10 flex items-center justify-between text-xs text-foreground/60">
         <a
-          href="tel:+919820072774"
+          href="tel:+918419887730"
           className="flex items-center gap-1.5 text-foreground/80 hover:text-primary transition-colors"
         >
           <Phone className="size-3.5 text-primary" />
-          <span>+91 98200 SARRIN</span>
+          <span>+91 84198 87730</span>
         </a>
 
         <a

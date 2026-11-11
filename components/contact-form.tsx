@@ -251,7 +251,7 @@ export function ContactForm() {
                     <span>Submit Another Inquiry</span>
                   </button>
                   <a
-                    href="tel:+919820072774"
+                    href="tel:+918419887730"
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-3 text-xs font-medium text-foreground hover:bg-white/10 transition-colors"
                   >
                     <PhoneCall className="size-3.5 text-primary" />

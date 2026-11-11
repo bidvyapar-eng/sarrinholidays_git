@@ -28,16 +28,15 @@ export function AboutSection() {
 
         {/* Section Header */}
         <div className="max-w-3xl">
-          <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-mono uppercase tracking-[0.25em] text-primary shadow-sm shadow-primary/20">
-            <span>The Sarrin Atelier • Heritage & Philosophy</span>
+          <div className="inline-flex items-center rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 px-4 py-1 text-xs font-sans uppercase tracking-[0.25em] text-[#C5A059]">
+            <span>The Sarrin Atelier • Heritage &amp; Philosophy</span>
           </div>
 
-          <h2 className="mt-6 font-serif text-3xl sm:text-5xl lg:text-6xl font-normal leading-[1.15] text-foreground tracking-tight">
-            Engineered with Precision. <br />
-            <span className="italic text-primary font-light">Delivered with Sovereign Discretion.</span>
+          <h2 className="mt-6 font-serif text-3xl sm:text-5xl lg:text-6xl font-light leading-[1.15] text-[#F4F2EC] tracking-tight">
+            Engineered with Precision, Delivered with Sovereign Discretion
           </h2>
 
-          <p className="mt-6 text-base sm:text-lg text-foreground/80 leading-relaxed font-light">
+          <p className="mt-6 text-base sm:text-lg text-[#B8B4AA] leading-relaxed font-light">
             Founded to eliminate the compromises of conventional tourism, Sarrin Holidays operates
             as an intimate travel atelier for travelers who require absolute privacy, authenticated
             heritage access, and flawless logistical execution across the Indian subcontinent.
@@ -47,7 +46,7 @@ export function AboutSection() {
         {/* Story Narrative & Core Tenets Grid */}
         <div className="mt-14 grid gap-8 lg:grid-cols-2 lg:gap-12 items-start">
           {/* Left Column: Authentic Brand Narrative */}
-          <div className="space-y-6 text-foreground/75 font-light leading-relaxed text-sm sm:text-base">
+          <div className="space-y-6 text-[#B8B4AA] font-light leading-relaxed text-sm sm:text-base">
             <p>
               India is a land of sovereign histories and breathtaking geography, yet accessing its true
               wonders without friction requires rare relationships. For over a decade, our curatorial desk
@@ -62,17 +61,17 @@ export function AboutSection() {
             </p>
 
             {/* Credential Checkpoints */}
-            <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono text-foreground/85">
-              <div className="flex items-center gap-2.5 p-2.5 rounded-xl border border-white/10 bg-white/5">
-                <span className="size-1.5 rounded-full bg-primary/80 shrink-0" />
-                <span>100% Private & Custom-Built</span>
+            <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-sans text-[#F4F2EC]">
+              <div className="flex items-center gap-2.5 p-2.5 rounded-sm border border-white/10 bg-white/5">
+                <span className="size-1.5 rounded-full bg-[#C5A059] shrink-0" />
+                <span>100% Private &amp; Custom-Built</span>
               </div>
-              <div className="flex items-center gap-2.5 p-2.5 rounded-xl border border-white/10 bg-white/5">
-                <span className="size-1.5 rounded-full bg-primary/80 shrink-0" />
+              <div className="flex items-center gap-2.5 p-2.5 rounded-sm border border-white/10 bg-white/5">
+                <span className="size-1.5 rounded-full bg-[#C5A059] shrink-0" />
                 <span>Direct Helipad Clearances</span>
               </div>
-              <div className="flex items-center gap-2.5 p-2.5 rounded-xl border border-white/10 bg-white/5">
-                <span className="size-1.5 rounded-full bg-primary/80 shrink-0" />
+              <div className="flex items-center gap-2.5 p-2.5 rounded-sm border border-white/10 bg-white/5">
+                <span className="size-1.5 rounded-full bg-[#C5A059] shrink-0" />
                 <span>Strict NDA Privacy Protection</span>
               </div>
               <div className="flex items-center gap-2.5 p-2.5 rounded-xl border border-white/10 bg-white/5">
@@ -133,20 +132,20 @@ export function AboutSection() {
         {/* Atelier Key Metrics Banner */}
         <div className="mt-14 pt-10 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div>
-            <div className="font-serif text-3xl sm:text-4xl text-primary font-normal">100%</div>
-            <div className="mt-1 text-xs font-mono uppercase tracking-wider text-foreground/60">Bespoke Itineraries</div>
+            <div className="font-serif text-3xl sm:text-4xl text-[#C5A059] font-normal">100%</div>
+            <div className="mt-1 text-xs font-sans uppercase tracking-wider text-[#B8B4AA]">Bespoke Itineraries</div>
           </div>
           <div>
-            <div className="font-serif text-3xl sm:text-4xl text-foreground font-normal">15+</div>
-            <div className="mt-1 text-xs font-mono uppercase tracking-wider text-foreground/60">Years Heritage Alliances</div>
+            <div className="font-serif text-3xl sm:text-4xl text-[#F4F2EC] font-normal">15+</div>
+            <div className="mt-1 text-xs font-sans uppercase tracking-wider text-[#B8B4AA]">Years Heritage Alliances</div>
           </div>
           <div>
-            <div className="font-serif text-3xl sm:text-4xl text-primary font-normal">4.9 / 5.0</div>
-            <div className="mt-1 text-xs font-mono uppercase tracking-wider text-foreground/60">Guest Satisfaction Rating</div>
+            <div className="font-serif text-3xl sm:text-4xl text-[#C5A059] font-normal">4.9 / 5.0</div>
+            <div className="mt-1 text-xs font-sans uppercase tracking-wider text-[#B8B4AA]">Guest Satisfaction Rating</div>
           </div>
           <div>
-            <div className="font-serif text-3xl sm:text-4xl text-foreground font-normal">&lt; 2 Hrs</div>
-            <div className="mt-1 text-xs font-mono uppercase tracking-wider text-foreground/60">VIP Concierge Response</div>
+            <div className="font-serif text-3xl sm:text-4xl text-[#F4F2EC] font-normal">&lt; 2 Hrs</div>
+            <div className="mt-1 text-xs font-sans uppercase tracking-wider text-[#B8B4AA]">VIP Concierge Response</div>
           </div>
         </div>
 

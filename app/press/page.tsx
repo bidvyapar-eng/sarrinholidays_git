@@ -114,32 +114,31 @@ export default async function PressPage() {
       {/* Hero Header */}
       <section className="relative pt-36 pb-14 px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
         <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-mono uppercase tracking-[0.25em] text-primary shadow-lg shadow-primary/10">
+          <div className="inline-flex items-center gap-2 rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 px-4 py-1 text-xs font-sans uppercase tracking-[0.25em] text-[#C5A059] shadow-sm">
             <FileText className="size-3.5" />
-            <span>Digital PR & Editorial Bureau</span>
+            <span>Digital PR &amp; Editorial Bureau</span>
           </div>
 
-          <h1 className="mt-6 font-serif text-4xl sm:text-6xl lg:text-7xl font-normal leading-[1.1] tracking-tight text-foreground">
-            Press Room & <br className="hidden sm:inline" />
-            <span className="italic text-primary font-light">Media Kit</span>
+          <h1 className="mt-6 font-serif font-light text-4xl sm:text-6xl lg:text-7xl leading-[1.1] tracking-tight text-[#F4F2EC]">
+            Press Room &amp; Media Kit
           </h1>
 
-          <p className="mt-6 text-base sm:text-lg text-foreground/75 leading-relaxed font-light">
+          <p className="mt-6 text-base sm:text-lg text-[#B8B4AA] leading-relaxed font-light">
             Official dispatches, high-resolution photography accreditation, executive bios,
             and press liaison contacts for international luxury travel editors and journalists.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-foreground/70">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs font-sans text-[#B8B4AA]">
             <span className="flex items-center gap-1.5">
-              <Mail className="size-4 text-primary" /> press@sarrinholidays.com
+              <Mail className="size-4 text-[#C5A059]" /> press@sarrinholidays.com
             </span>
             <span className="hidden sm:inline opacity-30">•</span>
             <span className="flex items-center gap-1.5">
-              <ShieldCheck className="size-4 text-primary" /> Verified Fact Sheets & Imagery
+              <ShieldCheck className="size-4 text-[#C5A059]" /> Verified Fact Sheets &amp; Imagery
             </span>
             <span className="hidden sm:inline opacity-30">•</span>
             <span className="flex items-center gap-1.5">
-              <Building2 className="size-4 text-primary" /> BKC Bureau, Mumbai
+              <Building2 className="size-4 text-[#C5A059]" /> BKC Bureau, Mumbai
             </span>
           </div>
         </div>

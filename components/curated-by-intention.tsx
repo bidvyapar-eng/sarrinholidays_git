@@ -223,26 +223,26 @@ export function CuratedByIntention() {
   }
 
   return (
-    <section className="relative w-full py-16 md:py-24 overflow-hidden bg-slate-950 text-foreground selection:bg-primary/30 selection:text-primary">
+    <section className="relative w-full py-16 md:py-24 overflow-hidden bg-[#0C0B09] text-foreground selection:bg-[#C5A059]/30 selection:text-[#C5A059]">
       {/* Ambient background glow */}
       <div className="pointer-events-none absolute inset-0 z-0">
-        <div className="absolute top-1/4 -left-32 size-[500px] rounded-full bg-primary/10 blur-[150px]" />
-        <div className="absolute bottom-1/4 -right-32 size-[500px] rounded-full bg-amber-700/10 blur-[160px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-900/40 via-slate-950 to-slate-950" />
+        <div className="absolute top-1/4 -left-32 size-[500px] rounded-full bg-[#C5A059]/10 blur-[150px]" />
+        <div className="absolute bottom-1/4 -right-32 size-[500px] rounded-full bg-[#A8833E]/10 blur-[160px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#141310]/60 via-[#0C0B09] to-[#0C0B09]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3.5 sm:space-y-4">
-          <span className="text-xs font-mono uppercase tracking-[0.25em] text-primary/90 font-medium block">
+          <span className="text-xs font-sans uppercase tracking-[0.3em] text-[#C5A059] font-medium block">
             Curated by Intention
           </span>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-foreground font-medium tracking-tight leading-[1.15]">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#F4F2EC] font-light tracking-tight leading-[1.15]">
             Thematic Indian Circuits
           </h2>
 
-          <p className="text-xs sm:text-sm md:text-base text-foreground/80 font-light leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm md:text-base text-[#B8B4AA] font-light leading-relaxed max-w-2xl mx-auto">
             Experience our sovereign domestic luxury circuits. Handcrafted exclusively for Indian patrons, featuring palace buyouts, private charters, and high-touch concierge care.
           </p>
         </div>
@@ -306,8 +306,8 @@ export function CuratedByIntention() {
 
         {/* Navigation Info & Carousel Controls */}
         <div className="mt-8 sm:mt-10 flex items-center justify-between pb-3 border-b border-white/10">
-          <div className="flex items-center gap-2 text-xs font-mono text-foreground/60">
-            <span className="text-primary font-bold">
+          <div className="flex items-center gap-2 text-xs font-sans text-[#B8B4AA]">
+            <span className="text-[#C5A059] font-bold">
               0{filteredPackages.length > 0 ? (carouselIndex % filteredPackages.length) + 1 : 0}
             </span>
             <span>/</span>

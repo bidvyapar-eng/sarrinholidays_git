@@ -33,15 +33,14 @@ export default async function BlogIndex() {
       <div className="relative pt-36 pb-24 px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
         {/* Magazine Editorial Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-primary shadow-lg shadow-primary/10 mb-4">
+          <div className="inline-flex items-center gap-2 rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-[#C5A059] shadow-sm mb-4">
             <BookOpen className="size-3.5" />
             <span>The Sarrin Editorial</span>
           </div>
-          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal leading-[1.1] tracking-tight text-foreground">
-            Travel &amp; Curation <br className="hidden sm:inline" />
-            <span className="italic text-primary font-light">Insights &amp; Dispatches.</span>
+          <h1 className="font-serif font-light text-4xl sm:text-6xl lg:text-7xl leading-[1.1] tracking-tight text-[#F4F2EC]">
+            Travel Insights &amp; Atelier Dispatches
           </h1>
-          <p className="mt-5 text-base sm:text-lg text-foreground/75 leading-relaxed font-light max-w-2xl mx-auto">
+          <p className="mt-5 text-base sm:text-lg text-[#B8B4AA] leading-relaxed font-light max-w-2xl mx-auto">
             Essays on living royal heritage, sovereign palace retreats, Ayurvedic sanctuaries, and private expedition design.
           </p>
         </div>

@@ -13,33 +13,37 @@ const config: Config = {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
         primary: {
-          DEFAULT: '#D4AF37', // Subtle muted luxury gold
-          foreground: '#0B0F19',
-          50: '#FDFBF7',
-          100: '#FAF5E8',
-          200: '#F3E7C5',
-          300: '#EBD89F',
-          400: '#E0C774',
-          500: '#D4AF37',
-          600: '#B89326',
-          700: '#91711A',
-          800: '#6E5414',
-          900: '#4D390E',
+          DEFAULT: '#C5A059', // Antique Champagne Gold
+          foreground: '#0C0B09',
+          50: '#FAF7F0',
+          100: '#F4ECE0',
+          200: '#E8D9BD',
+          300: '#DCC59A',
+          400: '#D4B475',
+          500: '#C5A059',
+          600: '#A8833E',
+          700: '#85642B',
+          800: '#5C441C',
+          900: '#3D2C11',
         },
-        charcoal: {
-          950: '#0B0F19', // Rich deep slate/charcoal
-          900: '#111827',
-          800: '#1F2937',
+        obsidian: {
+          950: '#0C0B09', // Primary dark surface
+          900: '#141310', // Elevated card surface
+          800: '#1E1D19', // Elevated interactive surface
+        },
+        stone: {
+          warm: '#B8B4AA', // Warm stone body text
         },
         offwhite: {
-          50: '#F8FAFC', // Slate-50 off-white
-          100: '#F1F5F9',
+          50: '#F4F2EC', // Refined warm off-white
+          100: '#EAE6DC',
         },
         gold: {
-          DEFAULT: '#D4AF37',
-          muted: '#C5A059',
-          subtle: '#E2CE8F',
-          dark: '#997B24',
+          DEFAULT: '#C5A059',
+          hover: '#D4B475',
+          muted: '#A8833E',
+          subtle: '#E8D9BD',
+          dark: '#5C441C',
         },
       },
       fontFamily: {
