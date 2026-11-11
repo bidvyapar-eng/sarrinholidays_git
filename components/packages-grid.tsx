@@ -76,16 +76,14 @@ export function PackagesGrid() {
 
         if (!isCancelled) {
           if (!error && data && data.length > 0) {
-            // Merge with fallback packages to ensure new schema fields (theme_tags, scarcity_status) are always present
+            // Merge with fallback packages to ensure new schema fields and luxury content take precedence
             const merged = data.map((item: any) => {
               const fallback = fallbackPackages.find((f) => f.slug === item.slug)
+              if (!fallback) return item
               return {
-                ...fallback,
                 ...item,
-                theme_tags: item.theme_tags && item.theme_tags.length > 0 ? item.theme_tags : fallback?.theme_tags,
-                inclusions: item.inclusions && item.inclusions.length > 0 ? item.inclusions : fallback?.inclusions,
-                exclusions: item.exclusions && item.exclusions.length > 0 ? item.exclusions : fallback?.exclusions,
-                scarcity_status: item.scarcity_status !== undefined ? item.scarcity_status : fallback?.scarcity_status,
+                ...fallback,
+                id: item.id || fallback.id,
               }
             })
             let cachedCustom: PackageItem[] = []
@@ -206,6 +204,15 @@ export function PackagesGrid() {
   }
 
   const getPackageImage = (pkg: PackageItem) => {
+    if (pkg.slug === 'experience-varanasi-dev-deepawali-3d' || pkg.featured_image?.includes('photo-1561361513-2d000a50f0dc')) {
+      return 'https://images.unsplash.com/photo-1687753578819-08e5a39d715a?auto=format&fit=crop&q=80&w=1200'
+    }
+    if (
+      pkg.slug === 'kerala-backwaters-hills-5d' &&
+      (pkg.featured_image?.includes('photo-1602216056096-3b40cc0c9944') || pkg.featured_image?.includes('photo-1593693397690-362cb9666fc2'))
+    ) {
+      return 'https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&q=80&w=1200'
+    }
     if (!pkg.featured_image || pkg.featured_image.includes("photo-1599661559902")) {
       return "/scene-desert.png"
     }
@@ -213,14 +220,14 @@ export function PackagesGrid() {
   }
 
   return (
-    <section id="destinations" className="relative mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
+    <section id="destinations" className="relative mx-auto max-w-7xl px-4 sm:px-6 py-16 md:py-24">
       {/* Section Header */}
-      <div className="mx-auto max-w-2xl text-center">
+      <div className="mx-auto max-w-3xl text-center">
         <span className="text-xs font-sans uppercase tracking-[0.3em] text-[#C5A059] font-medium block">
           Curated Expeditions
         </span>
         <h2 className="mt-4 text-balance font-serif font-light text-4xl leading-tight tracking-tight text-[#F4F2EC] sm:text-5xl lg:text-6xl">
-          Curated Indian Expeditions
+          Curated Indian Journeys
         </h2>
         <p className="mt-4 text-pretty text-base leading-relaxed text-[#B8B4AA] font-light sm:text-lg">
           Each itinerary is architected end-to-end with private chauffeurs, palace heritage stays, and bespoke culinary hosts.
@@ -229,7 +236,7 @@ export function PackagesGrid() {
 
       {/* Filter & Search Bar Matrix */}
       <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        {/* Category Pills */}
+        {/* Category Filter Tabs */}
         <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none sm:pb-0">
           {categories.map((category) => {
             const isSelected = activeCategory === category
@@ -237,10 +244,10 @@ export function PackagesGrid() {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`inline-flex items-center whitespace-nowrap rounded-full px-4 py-2 text-xs font-semibold tracking-wide transition-all ${
+                className={`inline-flex items-center whitespace-nowrap rounded-sm px-4 py-2 text-xs font-medium uppercase tracking-wider transition-all ${
                   isSelected
-                    ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20 scale-[1.02]"
-                    : "border border-white/15 bg-white/5 text-foreground/75 hover:border-white/30 hover:bg-white/10"
+                    ? "border border-[#C5A059] bg-[#C5A059]/15 text-[#C5A059] shadow-sm"
+                    : "border border-white/10 bg-[#141310] text-[#B8B4AA] hover:border-[#C5A059]/40 hover:text-[#F4F2EC]"
                 }`}
               >
                 {category}
@@ -251,18 +258,18 @@ export function PackagesGrid() {
 
         {/* Quick In-Grid Keyword Filter */}
         <div className="relative w-full sm:w-72">
-          <Search className="pointer-events-none absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-foreground/45" />
+          <Search className="pointer-events-none absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-[#B8B4AA]/60" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search destination, style..."
-            className="w-full rounded-full border border-white/15 bg-white/5 py-2 pl-9 pr-8 text-xs font-medium text-foreground placeholder:text-foreground/45 backdrop-blur-md outline-none transition-colors focus:border-primary/60 focus:bg-white/10"
+            className="w-full rounded-sm border border-white/15 bg-[#141310] py-2 pl-9 pr-8 text-xs font-medium text-[#F4F2EC] placeholder:text-[#B8B4AA]/50 backdrop-blur-md outline-none transition-colors focus:border-[#C5A059]/60"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery("")}
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 rounded-full p-1 text-foreground/50 hover:text-foreground"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 rounded-sm p-1 text-[#B8B4AA]/60 hover:text-[#F4F2EC]"
             >
               <X className="size-3.5" />
             </button>
@@ -273,9 +280,9 @@ export function PackagesGrid() {
       {/* Active Filter Indicators */}
       {(searchQuery || activeCategory !== "All Circuits") && (
         <div className="mt-4 flex flex-wrap items-center gap-2">
-          <span className="text-xs text-foreground/60">Filtered by:</span>
+          <span className="text-xs text-[#B8B4AA]/80">Filtered by:</span>
           {activeCategory !== "All Circuits" && (
-            <span className="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs text-primary">
+            <span className="inline-flex items-center gap-1.5 rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 px-3 py-1 text-xs text-[#C5A059]">
               Category: {activeCategory}
               <button onClick={() => setActiveCategory("All Circuits")}>
                 <X className="size-3 hover:text-white" />
@@ -283,7 +290,7 @@ export function PackagesGrid() {
             </span>
           )}
           {searchQuery && (
-            <span className="inline-flex items-center gap-1 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs text-foreground">
+            <span className="inline-flex items-center gap-1.5 rounded-sm border border-white/20 bg-white/10 px-3 py-1 text-xs text-[#F4F2EC]">
               Keyword: &ldquo;{searchQuery}&rdquo;
               <button onClick={() => setSearchQuery("")}>
                 <X className="size-3 hover:text-white" />
@@ -292,11 +299,11 @@ export function PackagesGrid() {
           )}
           <button
             onClick={clearFilter}
-            className="text-xs font-medium text-primary underline-offset-4 hover:underline ml-2"
+            className="text-xs font-medium text-[#C5A059] underline-offset-4 hover:underline ml-2"
           >
             Reset all
           </button>
-          <span className="ml-auto text-xs text-foreground/50">
+          <span className="ml-auto text-xs text-[#B8B4AA]/60">
             {filteredPackages.length} {filteredPackages.length === 1 ? "journey" : "journeys"} found
           </span>
         </div>
@@ -304,41 +311,41 @@ export function PackagesGrid() {
 
       {/* Grid Content / Skeletons */}
       {loading ? (
-        <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
           {[1, 2, 3].map((i) => (
             <div
               key={i}
-              className="animate-pulse flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl"
+              className="animate-pulse flex flex-col overflow-hidden rounded-sm border border-white/10 bg-[#141310]"
             >
               <div className="aspect-[4/3] w-full bg-white/10" />
               <div className="p-6 space-y-3">
-                <div className="h-4 w-24 rounded-full bg-white/10" />
-                <div className="h-7 w-3/4 rounded-lg bg-white/10" />
-                <div className="h-14 w-full rounded-lg bg-white/10" />
+                <div className="h-4 w-24 rounded-sm bg-white/10" />
+                <div className="h-7 w-3/4 rounded-sm bg-white/10" />
+                <div className="h-14 w-full rounded-sm bg-white/10" />
                 <div className="pt-4 flex justify-between">
-                  <div className="h-6 w-20 rounded bg-white/10" />
-                  <div className="h-9 w-28 rounded-full bg-white/10" />
+                  <div className="h-6 w-20 rounded-sm bg-white/10" />
+                  <div className="h-9 w-28 rounded-sm bg-white/10" />
                 </div>
               </div>
             </div>
           ))}
         </div>
       ) : filteredPackages.length === 0 ? (
-        <div className="mt-14 rounded-3xl border border-dashed border-white/15 bg-white/5 py-16 text-center backdrop-blur-xl">
-          <Compass className="mx-auto size-12 text-primary/60" />
-          <h3 className="mt-4 font-serif text-2xl text-foreground">No matching journeys found</h3>
-          <p className="mt-2 text-sm text-foreground/60">
+        <div className="mt-14 rounded-sm border border-dashed border-white/15 bg-[#141310] py-16 text-center">
+          <Compass className="mx-auto size-12 text-[#C5A059]/60" />
+          <h3 className="mt-4 font-serif text-2xl text-[#F4F2EC]">No matching journeys found</h3>
+          <p className="mt-2 text-sm text-[#B8B4AA]">
             We couldn&apos;t find any curations matching &ldquo;{searchQuery}&rdquo;. Try another destination or view all journeys.
           </p>
           <button
             onClick={clearFilter}
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-xs font-semibold text-primary-foreground transition-transform hover:scale-105"
+            className="mt-6 inline-flex items-center gap-2 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-[#0C0B09] transition-transform"
           >
             Show All Circuits
           </button>
         </div>
       ) : (
-        <ul className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
           {filteredPackages.map((pkg) => (
             <li key={pkg.id}>
               <PackageCard pkg={pkg} onSelect={() => setSelectedPackage(pkg)} />

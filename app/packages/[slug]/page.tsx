@@ -404,7 +404,16 @@ interface PageProps {
   params: Promise<{ slug: string }>
 }
 
-function getPackageImage(img?: string) {
+function getPackageImage(img?: string, slug?: string) {
+  if (slug === 'experience-varanasi-dev-deepawali-3d' || img?.includes('photo-1561361513-2d000a50f0dc')) {
+    return 'https://images.unsplash.com/photo-1687753578819-08e5a39d715a?auto=format&fit=crop&q=80&w=1200'
+  }
+  if (
+    slug === 'kerala-backwaters-hills-5d' &&
+    (img?.includes('photo-1602216056096-3b40cc0c9944') || img?.includes('photo-1593693397690-362cb9666fc2'))
+  ) {
+    return 'https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&q=80&w=1200'
+  }
   if (!img || img.includes('photo-1599661559902')) {
     return 'https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&q=80&w=1200'
   }
@@ -438,7 +447,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sarrinholidays.com'
   const canonicalUrl = `${siteUrl}/packages/${pkg.slug}`
-  const ogImageUrl = getPackageImage(pkg.featured_image)
+  const ogImageUrl = getPackageImage(pkg.featured_image, pkg.slug)
 
   return {
     title: `${pkg.title} | Luxury Indian Itinerary`,
@@ -483,12 +492,9 @@ export default async function PackageDetailPage({ params }: PageProps) {
   const fallbackMatch = fallbackPackages.find((p) => p.slug === slug)
   const pkg: PackageItem | undefined = dbPkg
     ? {
-        ...fallbackMatch,
         ...dbPkg,
-        theme_tags: dbPkg.theme_tags && dbPkg.theme_tags.length > 0 ? dbPkg.theme_tags : fallbackMatch?.theme_tags,
-        inclusions: dbPkg.inclusions && dbPkg.inclusions.length > 0 ? dbPkg.inclusions : fallbackMatch?.inclusions,
-        exclusions: dbPkg.exclusions && dbPkg.exclusions.length > 0 ? dbPkg.exclusions : fallbackMatch?.exclusions,
-        scarcity_status: dbPkg.scarcity_status !== undefined ? dbPkg.scarcity_status : fallbackMatch?.scarcity_status,
+        ...fallbackMatch,
+        id: dbPkg.id || fallbackMatch?.id,
       }
     : fallbackMatch
 
@@ -506,7 +512,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
     '@id': `${siteUrl}/packages/${pkg.slug}#trip`,
     name: pkg.title,
     description: pkg.description,
-    image: getPackageImage(pkg.featured_image),
+    image: getPackageImage(pkg.featured_image, pkg.slug),
     touristType: ['Luxury Traveler', 'High-Net-Worth Individual', 'VIP Expedition'],
     offers: {
       '@type': 'Offer',
@@ -551,7 +557,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
         {/* Background Image with Gradient Overlays */}
         <div className="absolute inset-0 z-0">
           <img
-            src={getPackageImage(pkg.featured_image)}
+            src={getPackageImage(pkg.featured_image, pkg.slug)}
             alt={pkg.title}
             className="size-full object-cover object-center brightness-[0.75]"
           />
