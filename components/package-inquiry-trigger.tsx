@@ -1,7 +1,7 @@
 'use client'
 
-import React, { useState } from 'react'
-import { VipInquiryDrawer } from '@/components/vip-inquiry-drawer'
+import React from 'react'
+import { openConciergeDrawer } from '@/components/ConciergeDrawer'
 import { ArrowUpRight } from 'lucide-react'
 
 interface PackageInquiryTriggerProps {
@@ -17,28 +17,22 @@ export function PackageInquiryTrigger({
   buttonText = 'Request Confidential Itinerary',
   className = '',
 }: PackageInquiryTriggerProps) {
-  const [isOpen, setIsOpen] = useState(false)
-
   return (
-    <>
-      <button
-        type="button"
-        onClick={() => setIsOpen(true)}
-        className={
-          className ||
-          'w-full flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-[#c5a030] border border-primary/40 py-3.5 px-6 min-h-[48px] text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground shadow-xl shadow-primary/20 hover:brightness-105 active:scale-95 transition-all text-center cursor-pointer'
-        }
-      >
-        <span>{buttonText}</span>
-        <ArrowUpRight className="size-3.5" />
-      </button>
-
-      <VipInquiryDrawer
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        serviceTitle={packageTitle}
-        classification={classification}
-      />
-    </>
+    <button
+      type="button"
+      onClick={() =>
+        openConciergeDrawer({
+          packageTitle,
+          route: classification,
+        })
+      }
+      className={
+        className ||
+        'w-full flex items-center justify-center gap-2 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] border border-[#C5A059]/40 py-3.5 px-6 min-h-[48px] text-xs font-semibold uppercase tracking-[0.2em] text-[#0C0B09] shadow-md hover:brightness-105 active:scale-95 transition-all text-center cursor-pointer'
+      }
+    >
+      <span>{buttonText}</span>
+      <ArrowUpRight className="size-3.5" />
+    </button>
   )
 }

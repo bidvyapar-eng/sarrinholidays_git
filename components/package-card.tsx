@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import type { PackageItem } from '@/lib/cms'
+import { openConciergeDrawer } from '@/components/ConciergeDrawer'
 
 export interface PackageCardProps {
   pkg: PackageItem
@@ -112,15 +113,28 @@ export function PackageCard({ pkg }: PackageCardProps) {
             <span className="text-xs font-semibold text-[#C5A059] tracking-wider font-sans uppercase">
               {formatPricingDisplay(pkg.price)}
             </span>
+            <Link
+              href={`/packages/${pkg.slug}`}
+              className="mt-0.5 text-[10px] text-[#B8B4AA] hover:text-[#C5A059] tracking-wider uppercase transition-colors"
+            >
+              View Itinerary →
+            </Link>
           </div>
 
-          <Link
-            href={`/packages/${pkg.slug}`}
-            className="inline-flex min-h-[38px] items-center gap-1.5 rounded-sm bg-[#C5A059] px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-[#0C0B09] transition-colors hover:bg-[#D4B475] active:scale-95 shadow-sm shrink-0"
+          <button
+            type="button"
+            onClick={() =>
+              openConciergeDrawer({
+                packageTitle: pkg.title,
+                route: routeEyebrow,
+                slug: pkg.slug,
+              })
+            }
+            className="inline-flex min-h-[38px] items-center gap-1.5 rounded-sm bg-[#C5A059] px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-[#0C0B09] transition-colors hover:bg-[#D4B475] active:scale-95 shadow-sm shrink-0 cursor-pointer"
           >
-            <span>Inquire</span>
+            <span>Plan a Trip</span>
             <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
+          </button>
         </div>
       </div>
     </article>

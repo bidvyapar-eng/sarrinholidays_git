@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import { Cormorant_Garamond, Inter } from 'next/font/google'
 import './globals.css'
 import { JsonLd } from '@/components/json-ld'
+import { ConciergeDrawer } from '@/components/ConciergeDrawer'
 
 const sans = Inter({
   subsets: ['latin'],
@@ -236,6 +237,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased overflow-x-hidden min-w-[320px] max-w-[100vw]">
         {children}
+        <ConciergeDrawer />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

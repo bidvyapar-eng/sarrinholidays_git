@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { openConciergeDrawer } from '@/components/ConciergeDrawer'
 import {
   Crown,
   Plane,
@@ -123,13 +124,14 @@ export function AboutSection() {
             Connect confidentially with a senior concierge liaison to architect your itinerary.
           </p>
         </div>
-        <Link
-          href="/contact"
-          className="inline-flex shrink-0 items-center gap-2 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] text-[#0C0B09] font-semibold px-6 py-3.5 text-xs uppercase tracking-widest transition-all duration-300 shadow-md"
+        <button
+          type="button"
+          onClick={() => openConciergeDrawer()}
+          className="inline-flex shrink-0 items-center gap-2 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] text-[#0C0B09] font-semibold px-6 py-3.5 text-xs uppercase tracking-widest transition-all duration-300 shadow-md cursor-pointer"
         >
           <span>Consult Our Concierge</span>
           <ArrowRight className="size-4" />
-        </Link>
+        </button>
       </div>
     </section>
   )

@@ -18,6 +18,7 @@ import {
 import { createClient } from "@/lib/supabase/client"
 import { fallbackPackages, type PackageItem } from "@/lib/cms"
 import { PackageCard } from "@/components/package-card"
+import { openConciergeDrawer } from "@/components/ConciergeDrawer"
 
 const categories = [
   "All Circuits",
@@ -494,24 +495,28 @@ export function PackagesGrid() {
               <div className="flex flex-wrap items-center gap-3">
                 <Link
                   href={`/packages/${selectedPackage.slug}`}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-5 py-3 text-xs font-semibold uppercase tracking-wider text-white transition-all hover:bg-white/20 hover:border-primary/40"
+                  className="inline-flex items-center gap-1.5 rounded-sm border border-white/20 bg-white/10 px-5 py-3 text-xs font-semibold uppercase tracking-wider text-white transition-all hover:bg-white/20 hover:border-[#C5A059]/40"
                 >
                   <span>View Itinerary Details</span>
                   <ArrowUpRight className="size-3.5" />
                 </Link>
 
-                <a
-                  href={`https://wa.me/918419887730?text=${encodeURIComponent(
-                    `Hello Sarrin Holidays, I would like to inquire about ${selectedPackage.title} (${selectedPackage.duration}).`
-                  )}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={() => setSelectedPackage(null)}
-                  className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:brightness-110 hover:scale-105 active:scale-95 shadow-lg shadow-primary/25"
+                <button
+                  type="button"
+                  onClick={() => {
+                    const currentPkg = selectedPackage
+                    setSelectedPackage(null)
+                    openConciergeDrawer({
+                      packageTitle: currentPkg.title,
+                      route: currentPkg.destinations?.join(' • '),
+                      slug: currentPkg.slug,
+                    })
+                  }}
+                  className="inline-flex items-center gap-2 rounded-sm bg-[#C5A059] px-6 py-3 text-xs font-semibold uppercase tracking-wider text-[#0C0B09] transition-all hover:bg-[#D4B475] active:scale-95 shadow-lg shadow-[#C5A059]/25 cursor-pointer"
                 >
-                  <Send className="size-4" />
-                  Get in Touch
-                </a>
+                  <Send className="size-3.5" />
+                  <span>Get in Touch / Plan a Trip</span>
+                </button>
               </div>
             </div>
           </div>

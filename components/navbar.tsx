@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from "react"
 import { Menu, X, Globe, ChevronDown, Phone } from "lucide-react"
 import { GlobalConciergeRouting } from "@/components/global-concierge-routing"
 import { ENABLE_GLOBAL_CONCIERGE } from "@/lib/features.config"
+import { openConciergeDrawer } from "@/components/ConciergeDrawer"
 
 const links = [
   { label: "Destinations", href: "/#destinations" },
@@ -107,12 +108,13 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
             </a>
           )}
 
-          <a
-            href="/contact"
-            className="hidden md:inline-flex items-center justify-center bg-[#C5A059] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.15em] text-[#0C0B09] hover:bg-[#D4B475] transition-colors whitespace-nowrap shrink-0 shadow-sm"
+          <button
+            type="button"
+            onClick={() => openConciergeDrawer()}
+            className="hidden md:inline-flex items-center justify-center bg-[#C5A059] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.15em] text-[#0C0B09] hover:bg-[#D4B475] transition-colors whitespace-nowrap shrink-0 shadow-sm cursor-pointer"
           >
-            Plan an Expedition
-          </a>
+            Design Your Journey
+          </button>
 
           <button
             onClick={() => setOpen((v) => !v)}
@@ -190,13 +192,16 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
           )}
 
           <div className="pt-2">
-            <a
-              href="/contact"
-              onClick={() => setOpen(false)}
-              className="flex min-h-[48px] items-center justify-center w-full text-center bg-[#C5A059] px-5 py-3 text-xs font-semibold uppercase tracking-widest text-[#0C0B09] hover:bg-[#D4B475] transition-colors"
+            <button
+              type="button"
+              onClick={() => {
+                setOpen(false)
+                openConciergeDrawer()
+              }}
+              className="flex min-h-[48px] items-center justify-center w-full text-center bg-[#C5A059] px-5 py-3 text-xs font-semibold uppercase tracking-widest text-[#0C0B09] hover:bg-[#D4B475] transition-colors cursor-pointer"
             >
-              Plan an Expedition
-            </a>
+              Design Your Journey
+            </button>
           </div>
         </div>
       )}
