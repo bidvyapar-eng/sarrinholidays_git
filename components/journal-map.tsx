@@ -11,7 +11,7 @@ export interface MappedArticle {
   slug: string
   excerpt: string
   category: string
-  region: 'Rajasthan' | 'Kerala' | 'Himalayas'
+  region: string
   locationName: string
   lat: number
   lng: number
@@ -19,6 +19,8 @@ export interface MappedArticle {
   readTime: string
   relatedPackageSlug?: string
   highlights?: string[]
+  bestSeason?: string
+  idealDuration?: string
 }
 
 interface JournalMapProps {
@@ -38,7 +40,7 @@ export default function JournalMap({
   const mapRef = useRef<L.Map | null>(null)
   const markersRef = useRef<Map<string, L.Marker>>(new Map())
 
-  // Custom DivIcon generator
+  // Custom Luxury DivIcon generator with Antique Champagne Gold #C5A059 accents
   const createMarkerIcon = (isActive: boolean, region: string) => {
     return L.divIcon({
       className: 'custom-journal-marker',
@@ -46,32 +48,32 @@ export default function JournalMap({
         <div class="relative flex items-center justify-center cursor-pointer group select-none">
           <!-- Pulse ripple animation -->
           <span class="absolute -inset-2.5 rounded-full ${
-            isActive ? 'bg-amber-400/40 animate-ping' : 'bg-amber-500/20 group-hover:animate-ping'
+            isActive ? 'bg-[#C5A059]/40 animate-ping' : 'bg-[#C5A059]/20 group-hover:animate-ping'
           } pointer-events-none"></span>
           
           <!-- Outer glowing circle -->
-          <div class="relative flex size-11 items-center justify-center rounded-full transition-all duration-300 ${
+          <div class="relative flex size-10 items-center justify-center rounded-full transition-all duration-300 ${
             isActive
-              ? 'bg-gradient-to-tr from-amber-600 via-amber-400 to-yellow-200 ring-4 ring-amber-400/40 shadow-[0_0_30px_rgba(245,158,11,0.9)] scale-110'
-              : 'bg-slate-950/90 border border-amber-400/70 hover:border-amber-300 hover:scale-110 shadow-[0_0_15px_rgba(245,158,11,0.4)]'
+              ? 'bg-[#C5A059] ring-4 ring-[#C5A059]/30 shadow-[0_0_24px_rgba(197,160,89,0.85)] scale-110'
+              : 'bg-[#0C0B09] border border-[#C5A059]/70 hover:border-[#D4B475] hover:scale-110 shadow-[0_0_12px_rgba(197,160,89,0.35)]'
           }">
-            <svg class="size-5 ${isActive ? 'text-slate-950 font-bold' : 'text-amber-400'}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="size-4.5 ${isActive ? 'text-[#0C0B09] font-bold' : 'text-[#C5A059]'}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
               <circle cx="12" cy="10" r="3"/>
             </svg>
           </div>
 
           <!-- Region label pill -->
-          <div class="absolute -bottom-7 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/85 backdrop-blur-md px-3 py-0.5 text-[11px] font-semibold tracking-wider ${
-            isActive ? 'text-amber-300 border border-amber-400/80 shadow-[0_0_12px_rgba(245,158,11,0.5)]' : 'text-foreground/80 border border-white/15'
+          <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-sm bg-[#0C0B09]/95 backdrop-blur-md px-2.5 py-0.5 text-[10px] font-sans font-medium uppercase tracking-wider ${
+            isActive ? 'text-[#C5A059] border border-[#C5A059]/80 shadow-[0_0_10px_rgba(197,160,89,0.4)]' : 'text-[#F4F2EC]/85 border border-white/15'
           } transition-all duration-200 pointer-events-none">
             ${region}
           </div>
         </div>
       `,
-      iconSize: [44, 44],
-      iconAnchor: [22, 22],
-      popupAnchor: [0, -22],
+      iconSize: [40, 40],
+      iconAnchor: [20, 20],
+      popupAnchor: [0, -20],
     })
   }
 
@@ -80,7 +82,7 @@ export default function JournalMap({
     if (!containerRef.current || mapRef.current) return
 
     const map = L.map(containerRef.current, {
-      center: [22.5, 78.5],
+      center: [22.8, 79.5],
       zoom: 5,
       minZoom: 4,
       maxZoom: 14,
@@ -89,12 +91,12 @@ export default function JournalMap({
       scrollWheelZoom: false,
     })
 
-    // Esri World Dark Gray Base tiles (Free, dark luxury aesthetic, no watermark)
+    // Esri World Dark Gray Base tiles (dark luxury heritage obsidian aesthetic)
     L.tileLayer(
       'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
       {
         maxZoom: 16,
-        attribution: 'Tiles &copy; Esri &mdash; Sources: Esri, DeLorme, NAVTEQ',
+        attribution: 'Tiles &copy; Esri',
       }
     ).addTo(map)
 
@@ -159,14 +161,30 @@ export default function JournalMap({
         const bounds = L.latLngBounds(articles.map((a) => [a.lat, a.lng]))
         map.flyToBounds(bounds, { padding: [60, 60], maxZoom: 6, duration: 1.2 })
       } else {
-        map.flyTo([22.5, 78.5], 5, { duration: 1.2 })
+        map.flyTo([22.8, 79.5], 5, { duration: 1.2 })
       }
-    } else if (activeRegion.toLowerCase() === 'rajasthan') {
-      map.flyTo([26.8, 74.8], 6.5, { duration: 1.2 })
-    } else if (activeRegion.toLowerCase() === 'kerala') {
-      map.flyTo([10.2, 76.4], 7, { duration: 1.2 })
-    } else if (activeRegion.toLowerCase() === 'himalayas') {
-      map.flyTo([30.1, 78.5], 7, { duration: 1.2 })
+    } else {
+      const regionLower = activeRegion.toLowerCase()
+      if (regionLower.includes('rajasthan')) {
+        map.flyTo([26.9, 74.8], 6.5, { duration: 1.2 })
+      } else if (regionLower.includes('kerala')) {
+        map.flyTo([9.8, 76.5], 7, { duration: 1.2 })
+      } else if (regionLower.includes('ladakh') || regionLower.includes('kashmir')) {
+        map.flyTo([34.1, 76.8], 6.5, { duration: 1.2 })
+      } else if (regionLower.includes('varanasi') || regionLower.includes('awadh')) {
+        map.flyTo([25.3, 83.0], 7, { duration: 1.2 })
+      } else if (regionLower.includes('central') || regionLower.includes('tiger')) {
+        map.flyTo([23.7, 81.0], 7, { duration: 1.2 })
+      } else if (regionLower.includes('goa') || regionLower.includes('konkan')) {
+        map.flyTo([15.3, 74.1], 7.5, { duration: 1.2 })
+      } else if (regionLower.includes('northeast') || regionLower.includes('meghalaya')) {
+        map.flyTo([25.6, 92.0], 7, { duration: 1.2 })
+      } else {
+        const matched = articles.find((a) => a.region.toLowerCase() === regionLower)
+        if (matched) {
+          map.flyTo([matched.lat, matched.lng], 6.5, { duration: 1.2 })
+        }
+      }
     }
   }, [activeRegion, selectedArticleId, articles])
 
@@ -178,12 +196,12 @@ export default function JournalMap({
       const bounds = L.latLngBounds(articles.map((a) => [a.lat, a.lng]))
       mapRef.current?.flyToBounds(bounds, { padding: [60, 60], maxZoom: 6, duration: 1.2 })
     } else {
-      mapRef.current?.flyTo([22.5, 78.5], 5, { duration: 1.2 })
+      mapRef.current?.flyTo([22.8, 79.5], 5, { duration: 1.2 })
     }
   }
 
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-3xl bg-slate-950">
+    <div className="relative h-full w-full overflow-hidden rounded-sm bg-[#0C0B09]">
       {/* Map Container */}
       <div ref={containerRef} className="h-full w-full z-0 cursor-grab active:cursor-grabbing" />
 
@@ -192,12 +210,12 @@ export default function JournalMap({
 
       {/* Floating HUD Controls */}
       <div className="absolute top-5 right-5 z-[500] flex flex-col gap-2">
-        <div className="flex flex-col rounded-2xl border border-white/15 bg-black/75 backdrop-blur-xl p-1 shadow-2xl">
+        <div className="flex flex-col rounded-sm border border-white/15 bg-[#0C0B09]/90 backdrop-blur-xl p-1 shadow-2xl">
           <button
             onClick={handleZoomIn}
             title="Zoom In"
             aria-label="Zoom In"
-            className="flex size-9 items-center justify-center rounded-xl text-foreground/80 transition-colors hover:bg-white/15 hover:text-white"
+            className="flex size-9 items-center justify-center rounded-sm text-[#F4F2EC]/80 transition-colors hover:bg-white/15 hover:text-white"
           >
             <Plus className="size-4" />
           </button>
@@ -206,7 +224,7 @@ export default function JournalMap({
             onClick={handleZoomOut}
             title="Zoom Out"
             aria-label="Zoom Out"
-            className="flex size-9 items-center justify-center rounded-xl text-foreground/80 transition-colors hover:bg-white/15 hover:text-white"
+            className="flex size-9 items-center justify-center rounded-sm text-[#F4F2EC]/80 transition-colors hover:bg-white/15 hover:text-white"
           >
             <Minus className="size-4" />
           </button>
@@ -214,18 +232,18 @@ export default function JournalMap({
 
         <button
           onClick={handleResetOverview}
-          title="Reset to India Overview"
-          aria-label="Reset to India Overview"
-          className="flex size-10 items-center justify-center rounded-2xl border border-amber-400/30 bg-black/75 backdrop-blur-xl text-amber-400 shadow-2xl transition-all hover:bg-amber-400/20 hover:scale-105"
+          title="Reset to Pan-India Overview"
+          aria-label="Reset to Pan-India Overview"
+          className="flex size-10 items-center justify-center rounded-sm border border-[#C5A059]/40 bg-[#0C0B09]/90 backdrop-blur-xl text-[#C5A059] shadow-2xl transition-all hover:bg-[#C5A059]/20 hover:scale-105"
         >
           <Compass className="size-5" />
         </button>
       </div>
 
       {/* Subcontinent HUD Info Badge */}
-      <div className="absolute top-5 left-5 z-[500] pointer-events-none hidden sm:flex items-center rounded-full border border-white/10 bg-black/70 backdrop-blur-md px-3.5 py-1.5 shadow-lg">
-        <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-foreground/75">
-          Cartographic Discovery • India
+      <div className="absolute top-5 left-5 z-[500] pointer-events-none hidden sm:flex items-center rounded-sm border border-white/10 bg-[#0C0B09]/85 backdrop-blur-md px-3.5 py-1.5 shadow-lg">
+        <span className="text-[11px] font-sans font-medium uppercase tracking-[0.2em] text-[#C5A059]">
+          Cartographic Discovery • Pan-India Circuits
         </span>
       </div>
     </div>
