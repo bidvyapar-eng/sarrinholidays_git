@@ -15,6 +15,7 @@ import {
   MapPin,
   X,
   ArrowUpRight,
+  ArrowRight,
   ChevronDown,
   Info,
 } from 'lucide-react'
@@ -418,33 +419,44 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
         <div className="absolute inset-x-3 sm:inset-x-6 bottom-3 sm:bottom-6 z-20 flex flex-col justify-between gap-2.5 sm:gap-4 lg:flex-row lg:items-end pointer-events-none">
           
           {/* DESKTOP SUITE META: Expanded Rich Card (>= lg) */}
-          <div className="hidden lg:block pointer-events-auto max-w-sm sm:max-w-md rounded-2xl border border-white/10 bg-black/45 p-4 backdrop-blur-md transition-all hover:bg-black/60 shadow-xl shadow-black/40">
+          <div className="hidden lg:block pointer-events-auto max-w-sm sm:max-w-md rounded-sm border border-white/15 bg-[#0C0B09]/90 p-5 backdrop-blur-md transition-all hover:bg-[#0C0B09]/95 shadow-xl shadow-black/50">
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-mono font-medium uppercase tracking-[0.2em] text-primary">
+              <span className="text-[10px] font-sans font-medium uppercase tracking-[0.2em] text-[#C5A059]">
                 {activeScene.location}
               </span>
-              <span className="size-1 rounded-full bg-primary/40" />
-              <span className="text-[10px] font-mono text-foreground/50 uppercase tracking-wider">
+              <span className="size-1 rounded-full bg-[#C5A059]/40" />
+              <span className="text-[10px] font-sans text-[#B8B4AA] uppercase tracking-wider">
                 {activeScene.tag}
               </span>
             </div>
-            <h3 className="mt-1 font-serif text-lg lg:text-xl font-medium tracking-tight text-white">
+            <h3 className="mt-1.5 font-serif text-lg lg:text-xl font-light tracking-tight text-[#F4F2EC]">
               {activeScene.title}
             </h3>
-            <p className="mt-1 text-xs leading-relaxed text-foreground/75 line-clamp-2 font-light">
+            <p className="mt-2 text-xs leading-relaxed text-[#B8B4AA] font-light">
               {activeScene.description}
             </p>
 
-            {/* Highlights pill tags */}
-            <div className="mt-2.5 flex flex-wrap gap-1.5">
+            {/* Highlights tags */}
+            <div className="mt-3 flex flex-wrap gap-1.5">
               {activeScene.features.slice(0, 3).map((feat) => (
                 <span
                   key={feat}
-                  className="rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[10px] font-medium text-foreground/70"
+                  className="rounded-sm border border-white/10 bg-white/5 px-2.5 py-0.5 text-[10px] font-sans font-medium text-[#B8B4AA]"
                 >
                   {feat}
                 </span>
               ))}
+            </div>
+
+            {/* Interactive Gold CTA Link */}
+            <div className="mt-3.5 pt-3 border-t border-white/10">
+              <a
+                href="#destinations"
+                className="group/cta inline-flex items-center gap-1.5 text-xs font-sans font-medium text-[#C5A059] hover:text-[#D4B475] transition-colors"
+              >
+                <span>Explore Itinerary Featuring This Suite</span>
+                <ArrowRight className="size-3.5 transition-transform group-hover/cta:translate-x-1" />
+              </a>
             </div>
           </div>
 
@@ -452,45 +464,55 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
           <div className="lg:hidden pointer-events-auto w-full space-y-2">
             {/* Pop-up Details Sheet when tapped */}
             {isInfoExpanded && (
-              <div className="rounded-2xl border border-primary/30 bg-black/95 p-4 shadow-2xl backdrop-blur-2xl animate-in fade-in slide-in-from-bottom-2 duration-200">
+              <div className="rounded-sm border border-[#C5A059]/40 bg-[#0C0B09]/95 p-4 shadow-2xl backdrop-blur-2xl animate-in fade-in slide-in-from-bottom-2 duration-200">
                 <div className="flex items-start justify-between gap-2 border-b border-white/10 pb-2 mb-2">
                   <div>
-                    <span className="text-[10px] font-mono text-primary uppercase tracking-widest block">{activeScene.location}</span>
-                    <h4 className="font-serif text-sm font-semibold text-white">{activeScene.title}</h4>
+                    <span className="text-[10px] font-sans text-[#C5A059] uppercase tracking-widest block">{activeScene.location}</span>
+                    <h4 className="font-serif text-sm font-semibold text-[#F4F2EC]">{activeScene.title}</h4>
                   </div>
                   <button
                     type="button"
                     onClick={() => setIsInfoExpanded(false)}
                     aria-label="Close details"
-                    className="size-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-xs text-foreground/70 hover:text-white cursor-pointer"
+                    className="size-7 rounded-sm bg-white/10 hover:bg-white/20 flex items-center justify-center text-xs text-[#B8B4AA] hover:text-white cursor-pointer"
                   >
                     <X className="size-3.5" />
                   </button>
                 </div>
-                <p className="text-xs text-foreground/80 leading-relaxed font-light">{activeScene.description}</p>
+                <p className="text-xs text-[#B8B4AA] leading-relaxed font-light">{activeScene.description}</p>
                 <div className="mt-3 flex flex-wrap gap-1.5">
                   {activeScene.features.map((feat) => (
-                    <span key={feat} className="rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[10px] text-foreground/70">
+                    <span key={feat} className="rounded-sm border border-white/10 bg-white/5 px-2.5 py-0.5 text-[10px] font-sans text-[#B8B4AA]">
                       {feat}
                     </span>
                   ))}
+                </div>
+                <div className="mt-3 pt-2.5 border-t border-white/10">
+                  <a
+                    href="#destinations"
+                    onClick={() => setIsInfoExpanded(false)}
+                    className="inline-flex items-center gap-1.5 text-xs font-sans font-medium text-[#C5A059] hover:text-[#D4B475]"
+                  >
+                    <span>Explore Itinerary Featuring This Suite</span>
+                    <ArrowRight className="size-3.5" />
+                  </a>
                 </div>
               </div>
             )}
 
             {/* Compact Mini Pill Bar */}
-            <div className="flex items-center justify-between gap-2 rounded-xl border border-white/15 bg-black/60 px-3.5 py-2 backdrop-blur-md shadow-lg">
+            <div className="flex items-center justify-between gap-2 rounded-sm border border-white/15 bg-[#0C0B09]/80 px-3.5 py-2 backdrop-blur-md shadow-lg">
               <div className="min-w-0 flex-1 flex items-center gap-2">
-                <span className="size-1.5 rounded-full bg-primary shrink-0" />
-                <span className="font-serif text-xs font-semibold text-white truncate">
+                <span className="size-1.5 rounded-full bg-[#C5A059] shrink-0" />
+                <span className="font-serif text-xs font-medium text-[#F4F2EC] truncate">
                   {activeScene.title.split('—')[0].trim()}
                 </span>
-                <span className="text-[10px] text-foreground/50 truncate hidden sm:inline">• {activeScene.location}</span>
+                <span className="text-[10px] text-[#B8B4AA] truncate hidden sm:inline">• {activeScene.location}</span>
               </div>
               <button
                 type="button"
                 onClick={() => setIsInfoExpanded(!isInfoExpanded)}
-                className="shrink-0 flex items-center gap-1 rounded-full bg-white/10 hover:bg-white/20 px-2.5 py-0.5 text-[10px] font-mono text-primary border border-primary/20 transition-colors"
+                className="shrink-0 flex items-center gap-1 rounded-sm bg-white/10 hover:bg-white/20 px-2.5 py-0.5 text-[10px] font-sans text-[#C5A059] border border-[#C5A059]/20 transition-colors"
               >
                 <span>{isInfoExpanded ? 'Hide' : 'Suite Details'}</span>
                 <ChevronDown className={`size-3 transition-transform ${isInfoExpanded ? 'rotate-180' : ''}`} />

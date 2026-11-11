@@ -160,7 +160,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/services/vip-chauffeur-security" className="hover:text-[#F4F2EC] transition-colors">
-                  VIP Chauffeur & Armored Fleet
+                  VIP Chauffeur & Private Fleet
                 </Link>
               </li>
               <li className="pt-1">
@@ -230,7 +230,6 @@ export function Footer() {
               <Link href="/blog" className="hover:text-[#F4F2EC] transition-colors">The Journal</Link>
               <Link href="/contact" className="hover:text-[#F4F2EC] transition-colors">Contact</Link>
               <Link href="/feed.xml" target="_blank" className="hover:text-[#F4F2EC] transition-colors">RSS Feed</Link>
-              <Link href="/login" className="hover:text-[#F4F2EC] transition-colors">Admin Portal</Link>
             </div>
           </div>
         </div>

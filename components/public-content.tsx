@@ -61,51 +61,60 @@ export function PublicContent() {
 
   return (
     <>
-      {/* 1. Curated Experiences Section */}
-      <section id="experiences" className="mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
-        <div className="max-w-2xl">
-          <span className="text-xs font-mono uppercase tracking-widest text-primary font-medium">
-            The Sarrin Philosophy
-          </span>
-          <h2 className="mt-3 font-serif text-3xl sm:text-5xl text-foreground">
-            Travel with profound authenticity.
-          </h2>
-          <p className="mt-4 leading-relaxed text-foreground/80 font-light">
-            Every encounter is privately negotiated and personally accompanied by master historians,
-            wildlife naturalists, or senior concierge liaisons.
-          </p>
-        </div>
+      {/* 1. Curated Experiences Section — Warm Sandstone / Ivory Editorial Contrast */}
+      <section id="experiences" className="relative w-full bg-[#F6F3EC] text-[#141310] py-28 border-y border-stone-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          {/* Balanced 2-Column Editorial Header */}
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-12 border-b border-stone-300/70">
+            <div className="max-w-2xl">
+              <span className="text-xs font-sans uppercase tracking-[0.25em] text-[#9A7B3E] font-medium block mb-3">
+                The Sarrin Philosophy
+              </span>
+              <h2 className="font-serif font-light text-4xl sm:text-5xl lg:text-6xl text-[#141310] leading-tight tracking-tight">
+                Travel with profound authenticity.
+              </h2>
+            </div>
+            <p className="max-w-md text-sm sm:text-base leading-relaxed text-stone-600 font-light">
+              Every encounter is privately negotiated and personally accompanied by master historians,
+              wildlife naturalists, or senior concierge liaisons.
+            </p>
+          </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {experiences.map((item) => (
-            <article
-              key={item.id}
-              className="group overflow-hidden rounded-3xl border border-white/10 bg-white/5 transition-all duration-500 ease-out hover:border-primary/50 hover:bg-white/[0.08] hover:shadow-2xl hover:shadow-black/60 flex flex-col"
-            >
-              <div className="overflow-hidden aspect-[4/3] w-full relative">
-                <img
-                  src={item.image_url}
-                  alt={item.title}
-                  className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
-                <span className="absolute top-4 left-4 rounded-full border border-white/15 bg-black/50 px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-primary backdrop-blur-md">
-                  {item.category}
-                </span>
-              </div>
-              <div className="p-6 flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className="font-serif text-xl sm:text-2xl text-foreground group-hover:text-primary transition-colors duration-300">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-foreground/75 font-light">
-                    {item.description}
-                  </p>
+          {/* 3 Editorial Experience Cards */}
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
+            {experiences.map((item) => (
+              <article
+                key={item.id}
+                className="group overflow-hidden rounded-sm border border-stone-300/80 bg-[#EFECE4] transition-all duration-500 ease-out hover:border-[#9A7B3E]/60 hover:shadow-xl hover:shadow-stone-400/20 flex flex-col"
+              >
+                <div className="overflow-hidden aspect-[4/3] w-full relative bg-stone-200">
+                  <img
+                    src={item.image_url}
+                    alt={item.title}
+                    className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
+                  <span className="absolute top-3.5 left-3.5 rounded-sm border border-white/20 bg-[#141310]/80 px-2.5 py-1 text-[10px] font-sans uppercase tracking-wider text-[#C5A059] backdrop-blur-md">
+                    {item.category}
+                  </span>
                 </div>
-              </div>
-            </article>
-          ))}
+                <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+                  <div>
+                    <span className="text-[11px] font-sans font-medium uppercase tracking-[0.16em] text-[#9A7B3E] block mb-2">
+                      {item.category}
+                    </span>
+                    <h3 className="font-serif text-2xl text-[#141310] font-light leading-snug group-hover:text-[#9A7B3E] transition-colors duration-300">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 text-xs sm:text-sm leading-relaxed text-stone-600 font-light">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
