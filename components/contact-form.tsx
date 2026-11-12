@@ -165,9 +165,9 @@ export function ContactForm() {
   return (
     <div className="space-y-8">
       {/* ======================================================================= */}
-      {/* 1. SLEEK GLASSMORPHISM CONTACT FORM */}
+      {/* 1. SLEEK ARCHITECTURAL CONTACT FORM */}
       {/* ======================================================================= */}
-      <div className="relative overflow-hidden rounded-sm border border-white/10 bg-[#141310] p-6 sm:p-10 shadow-2xl transition-all duration-300">
+      <div className="relative overflow-hidden rounded-sm border border-white/10 bg-[#141310] p-8 lg:p-10 shadow-2xl transition-all duration-300">
         {/* Subtle Top Gold Hairline */}
         <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-[#C5A059] to-transparent" />
 
@@ -191,23 +191,23 @@ export function ContactForm() {
             Initiate Confidential Inquiry
           </h3>
           <p className="mt-1.5 text-xs sm:text-sm text-[#B8B4AA] font-light leading-relaxed">
-            Please register your core journey requirements. Your dossier will be assigned directly to a Senior Operations Director.
+            Please register your journey vision below. Your dossier will be assigned directly to a Senior Curatorial Director.
           </p>
 
           {customDest && (
             <motion.div
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mt-4 rounded-2xl border border-primary/40 bg-gradient-to-r from-primary/20 via-primary/10 to-transparent p-4 backdrop-blur-xl"
+              className="mt-4 rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 p-4"
             >
-              <div className="flex items-center gap-2 text-primary font-serif font-semibold text-sm">
-                <Sparkles className="size-4 text-primary" />
+              <div className="flex items-center gap-2 text-[#C5A059] font-serif text-sm font-light">
+                <Sparkles className="size-4 text-[#C5A059]" />
                 <span>Bespoke Destination Lead Request</span>
               </div>
-              <p className="mt-1 text-xs text-foreground/80 leading-relaxed font-light">
-                You requested a custom journey for <strong className="text-primary font-semibold font-serif">&ldquo;{customDest}&rdquo;</strong>
+              <p className="mt-1 text-xs text-[#B8B4AA] leading-relaxed font-light">
+                You requested a custom journey for <strong className="text-[#F4F2EC] font-normal">&ldquo;{customDest}&rdquo;</strong>
                 {customDates && ` (${customDates})`}
-                {customGuests && ` • ${customGuests}`}. Complete your contact details below to receive a direct call from our senior travel atelier.
+                {customGuests && ` • ${customGuests}`}. Complete your details below to receive a direct consultation.
               </p>
             </motion.div>
           )}
@@ -219,26 +219,26 @@ export function ContactForm() {
             {result?.success ? (
               <motion.div
                 key="success"
-                initial={{ opacity: 0, scale: 0.95, y: 15 }}
+                initial={{ opacity: 0, scale: 0.98, y: 15 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: -15 }}
+                exit={{ opacity: 0, scale: 0.98, y: -15 }}
                 transition={{ duration: 0.4, ease: 'easeOut' }}
-                className="rounded-3xl border border-primary/40 bg-primary/10 p-8 sm:p-10 text-center space-y-4 backdrop-blur-xl"
+                className="rounded-sm border border-[#C5A059]/40 bg-[#141310] p-8 sm:p-10 text-center space-y-4"
               >
-                <div className="mx-auto flex size-16 items-center justify-center rounded-full bg-primary/20 text-primary border border-primary/40 shadow-xl shadow-primary/20">
-                  <Check className="size-8" />
+                <div className="mx-auto flex size-14 items-center justify-center rounded-sm bg-[#C5A059]/10 text-[#C5A059] border border-[#C5A059]/30 shadow-lg shadow-[#C5A059]/10">
+                  <Check className="size-7" />
                 </div>
 
                 <div className="space-y-1">
-                  <span className="text-[10px] uppercase tracking-[0.25em] text-primary font-mono font-semibold">
+                  <span className="text-[10px] uppercase tracking-[0.25em] text-[#C5A059] font-sans font-medium">
                     Reference: {result.referenceId}
                   </span>
-                  <h4 className="font-serif text-2xl sm:text-3xl text-foreground">
+                  <h4 className="font-serif font-light text-2xl sm:text-3xl text-[#F4F2EC]">
                     Dossier Transmitted
                   </h4>
                 </div>
 
-                <p className="text-xs sm:text-sm text-foreground/80 leading-relaxed max-w-md mx-auto font-light">
+                <p className="text-xs sm:text-sm text-[#B8B4AA] leading-relaxed max-w-md mx-auto font-light">
                   {result.message} Your parameters have been entered into the Sarrin Holidays Operations Manifest. Expect a discreet liaison via phone or encrypted email.
                 </p>
 
@@ -246,15 +246,15 @@ export function ContactForm() {
                   <button
                     type="button"
                     onClick={handleReset}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-xs font-semibold uppercase tracking-wider text-primary-foreground shadow-lg transition-transform hover:scale-[1.02] active:scale-95 cursor-pointer"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] px-6 py-3 text-xs font-sans font-medium uppercase tracking-[0.16em] text-[#0C0B09] transition-all cursor-pointer"
                   >
                     <span>Submit Another Inquiry</span>
                   </button>
                   <a
                     href="tel:+918419887730"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-3 text-xs font-medium text-foreground hover:bg-white/10 transition-colors"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-sm border border-white/10 bg-white/5 px-6 py-3 text-xs font-sans font-medium uppercase tracking-[0.16em] text-[#F4F2EC] hover:bg-white/10 transition-colors"
                   >
-                    <PhoneCall className="size-3.5 text-primary" />
+                    <PhoneCall className="size-3.5 text-[#C5A059]" />
                     <span>Direct Concierge Phone</span>
                   </a>
                 </div>
@@ -262,7 +262,7 @@ export function ContactForm() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 {result?.error && (
-                  <div className="rounded-xl border border-red-500/40 bg-red-500/10 p-3.5 flex items-start gap-2.5 text-xs text-red-300">
+                  <div className="rounded-sm border border-red-500/40 bg-red-500/10 p-3.5 flex items-start gap-2.5 text-xs text-red-300">
                     <AlertCircle className="size-4 shrink-0 mt-0.5 text-red-400" />
                     <p className="leading-snug">{result.error}</p>
                   </div>
@@ -272,17 +272,17 @@ export function ContactForm() {
                 {ENABLE_GLOBAL_CONCIERGE && (
                   <>
                     <div className="space-y-2">
-                      <label className="block text-xs font-medium text-foreground/75 uppercase tracking-wider font-mono">
+                      <label className="block text-xs font-sans font-medium text-[#B8B4AA] uppercase tracking-wider">
                         Select Concierge Routing Desk
                       </label>
                       <div className="grid grid-cols-2 gap-2.5">
                         <button
                           type="button"
                           onClick={() => setSelectedDesk('domestic')}
-                          className={`flex items-center justify-center gap-2 rounded-2xl py-2.5 px-3 text-xs font-semibold transition-all cursor-pointer ${
+                          className={`flex items-center justify-center gap-2 rounded-sm py-2.5 px-3 text-xs font-sans font-medium uppercase tracking-wider transition-all cursor-pointer ${
                             selectedDesk === 'domestic'
-                              ? 'border border-primary bg-primary/20 text-primary shadow-md shadow-primary/20'
-                              : 'border border-white/10 bg-white/5 text-foreground/60 hover:border-white/25 hover:text-foreground'
+                              ? 'border border-[#C5A059] bg-[#C5A059]/15 text-[#C5A059] shadow-md shadow-[#C5A059]/10'
+                              : 'border border-white/10 bg-[#0C0B09] text-[#B8B4AA] hover:border-white/25 hover:text-[#F4F2EC]'
                           }`}
                         >
                           <Building2 className="size-3.5" />
@@ -292,10 +292,10 @@ export function ContactForm() {
                         <button
                           type="button"
                           onClick={() => setSelectedDesk('nri')}
-                          className={`flex items-center justify-center gap-2 rounded-2xl py-2.5 px-3 text-xs font-semibold transition-all cursor-pointer ${
+                          className={`flex items-center justify-center gap-2 rounded-sm py-2.5 px-3 text-xs font-sans font-medium uppercase tracking-wider transition-all cursor-pointer ${
                             selectedDesk === 'nri'
-                              ? 'border border-amber-500/60 bg-amber-500/20 text-amber-300 shadow-md shadow-amber-950/20'
-                              : 'border border-white/10 bg-white/5 text-foreground/60 hover:border-white/25 hover:text-foreground'
+                              ? 'border border-[#C5A059] bg-[#C5A059]/15 text-[#C5A059] shadow-md shadow-[#C5A059]/10'
+                              : 'border border-white/10 bg-[#0C0B09] text-[#B8B4AA] hover:border-white/25 hover:text-[#F4F2EC]'
                           }`}
                         >
                           <Plane className="size-3.5" />
@@ -306,13 +306,13 @@ export function ContactForm() {
 
                     {/* International / NRI Logistical Reassurance Banner */}
                     {selectedDesk === 'nri' && (
-                      <div className="rounded-2xl border border-amber-500/30 bg-amber-500/10 p-3.5 flex items-start gap-2.5 text-xs text-amber-200 animate-in fade-in duration-200">
-                        <Globe className="size-4 shrink-0 text-amber-400 mt-0.5" />
+                      <div className="rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 p-3.5 flex items-start gap-2.5 text-xs text-[#F4F2EC] animate-in fade-in duration-200">
+                        <Globe className="size-4 shrink-0 text-[#C5A059] mt-0.5" />
                         <div>
-                          <span className="font-semibold text-amber-300 font-mono text-[10px] uppercase tracking-wider block">
+                          <span className="font-sans font-medium text-[#C5A059] text-[10px] uppercase tracking-wider block">
                             Cross-Border Concierge Routing Active
                           </span>
-                          <p className="text-[11px] text-neutral-300 mt-0.5 leading-snug">
+                          <p className="text-[11px] text-[#B8B4AA] mt-0.5 leading-snug font-light">
                             Your inquiry is assigned directly to our Global NRI Desk. We coordinate international arrival flights into DEL/BOM/BLR (with VIP tarmac meet &amp; greet) and assist with Indian e-visa pre-clearance advisory.
                           </p>
                         </div>
@@ -324,10 +324,10 @@ export function ContactForm() {
                 {/* Field 1: Domestic Holiday Presets & Seasonality */}
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <label className="block text-xs font-medium text-foreground/75 uppercase tracking-wider font-mono flex items-center gap-1.5">
-                      <Calendar className="size-3.5 text-primary" /> Indian Holiday Calendar &amp; Seasonality
+                    <label className="block text-xs font-sans font-medium text-[#B8B4AA] uppercase tracking-wider flex items-center gap-1.5">
+                      <Calendar className="size-3.5 text-[#C5A059]" /> Indian Holiday Calendar &amp; Seasonality
                     </label>
-                    <span className="text-[10px] font-mono text-primary/80">Festive Windows</span>
+                    <span className="text-[10px] font-sans uppercase tracking-wider text-[#C5A059]/80">Festive Windows</span>
                   </div>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                     {SEASONS.map((s) => {
@@ -337,18 +337,18 @@ export function ContactForm() {
                           key={s.id}
                           type="button"
                           onClick={() => setSelectedSeason(s.label)}
-                          className={`p-2.5 rounded-2xl border text-left transition-all cursor-pointer ${
+                          className={`p-2.5 rounded-sm border text-left transition-all cursor-pointer ${
                             isSel
-                              ? 'border-primary bg-primary/15 shadow-md shadow-primary/20 text-primary'
-                              : 'border-white/10 bg-white/5 text-foreground/70 hover:border-white/20'
+                              ? 'border-[#C5A059] bg-[#C5A059]/15 shadow-sm text-[#C5A059]'
+                              : 'border-white/10 bg-[#0C0B09] text-[#B8B4AA] hover:border-white/20'
                           }`}
                         >
-                          <div className="flex items-center justify-between text-[11px] font-semibold">
+                          <div className="flex items-center justify-between text-[11px] font-sans font-medium">
                             <span>{s.label}</span>
-                            {isSel && <Check className="size-3 text-primary" />}
+                            {isSel && <Check className="size-3 text-[#C5A059]" />}
                           </div>
-                          <span className="text-[9px] font-mono text-foreground/50 block mt-0.5">{s.subtitle}</span>
-                          <span className={`inline-block mt-1.5 px-1.5 py-0.5 text-[9px] font-mono rounded-full border ${s.urgencyClass}`}>
+                          <span className="text-[9px] font-sans uppercase tracking-wider text-[#B8B4AA]/60 block mt-0.5">{s.subtitle}</span>
+                          <span className={`inline-block mt-1.5 px-1.5 py-0.5 text-[9px] font-sans rounded-sm border ${s.urgencyClass}`}>
                             {s.urgencyBadge}
                           </span>
                         </button>
@@ -359,7 +359,7 @@ export function ContactForm() {
 
                 {/* Field 2: Inquiry Classification Pills */}
                 <div className="space-y-2 pt-1">
-                  <label className="block text-xs font-medium text-foreground/75 uppercase tracking-wider font-mono">
+                  <label className="block text-xs font-sans font-medium text-[#B8B4AA] uppercase tracking-wider">
                     Inquiry Classification
                   </label>
                   <div className="flex flex-wrap gap-2">
@@ -370,10 +370,10 @@ export function ContactForm() {
                           key={cat}
                           type="button"
                           onClick={() => setSelectedCategory(cat)}
-                          className={`rounded-full px-3.5 py-1.5 text-[11px] font-medium transition-all duration-200 cursor-pointer ${
+                          className={`rounded-sm px-3.5 py-1.5 text-[11px] font-sans font-medium uppercase tracking-wider transition-all duration-200 cursor-pointer ${
                             isSelected
-                              ? 'bg-primary text-primary-foreground border border-primary shadow-md shadow-primary/20'
-                              : 'bg-white/5 text-foreground/70 border border-white/10 hover:border-white/25 hover:bg-white/10 hover:text-foreground'
+                              ? 'bg-[#C5A059] text-[#0C0B09] border border-[#C5A059] shadow-sm'
+                              : 'bg-[#0C0B09] text-[#B8B4AA] border border-white/10 hover:border-white/25 hover:text-[#F4F2EC]'
                           }`}
                         >
                           {cat}
@@ -386,10 +386,10 @@ export function ContactForm() {
                 {/* Field 3: Primary Indian Origin Hub (Departure City) */}
                 <div className="space-y-2.5 pt-1">
                   <div className="flex items-center justify-between">
-                    <label className="block text-xs font-medium text-foreground/75 uppercase tracking-wider font-mono flex items-center gap-1.5">
-                      <MapPin className="size-3.5 text-primary" /> Primary Indian Origin Hub (Departure City)
+                    <label className="block text-xs font-sans font-medium text-[#B8B4AA] uppercase tracking-wider flex items-center gap-1.5">
+                      <MapPin className="size-3.5 text-[#C5A059]" /> Primary Indian Origin Hub (Departure City)
                     </label>
-                    <span className="text-[10px] font-mono text-primary/80">Domestic Hub</span>
+                    <span className="text-[10px] font-sans uppercase tracking-wider text-[#C5A059]/80">Domestic Hub</span>
                   </div>
 
                   {/* Quick chips */}
@@ -401,14 +401,14 @@ export function ContactForm() {
                           key={hub.id}
                           type="button"
                           onClick={() => setDepartureCity(hub.name)}
-                          className={`p-2 rounded-xl border text-center transition-all cursor-pointer ${
+                          className={`p-2 rounded-sm border text-center transition-all cursor-pointer ${
                             isSel
-                              ? 'border-primary bg-primary/20 text-primary font-semibold shadow-sm shadow-primary/20'
-                              : 'border-white/10 bg-white/5 text-foreground/70 hover:border-white/20'
+                              ? 'border-[#C5A059] bg-[#C5A059]/20 text-[#C5A059] font-medium shadow-sm'
+                              : 'border-white/10 bg-[#0C0B09] text-[#B8B4AA] hover:border-white/20'
                           }`}
                         >
-                          <span className="block text-xs font-medium truncate">{hub.name}</span>
-                          <span className="block text-[10px] font-mono text-foreground/40">{hub.code}</span>
+                          <span className="block text-xs font-sans truncate">{hub.name}</span>
+                          <span className="block text-[10px] font-sans uppercase text-[#B8B4AA]/50">{hub.code}</span>
                         </button>
                       )
                     })}
@@ -418,7 +418,7 @@ export function ContactForm() {
                   <select
                     value={departureCity}
                     onChange={(e) => setDepartureCity(e.target.value)}
-                    className="w-full rounded-lg border border-white/12 bg-white/5 px-4 py-3 min-h-[48px] text-[16px] md:text-sm text-foreground outline-none transition-all duration-300 hover:border-white/25 focus:border-gold/60 focus:bg-white/[0.08] focus:ring-1 focus:ring-gold/50 focus:shadow-[0_0_15px_rgba(212,175,55,0.15)] cursor-pointer"
+                    className="w-full rounded-sm border border-white/15 bg-[#0C0B09] px-4 py-3 min-h-[48px] text-[16px] md:text-sm text-[#F4F2EC] outline-none transition-all duration-300 hover:border-white/25 focus:border-[#C5A059] cursor-pointer"
                   >
                     {INDIAN_ORIGIN_HUBS.map((hub) => (
                       <option key={hub.id} value={hub.name} className="bg-[#141310] text-[#F4F2EC]">
@@ -429,7 +429,7 @@ export function ContactForm() {
 
                   {departureCity === 'Other City' && (
                     <div className="space-y-1.5 pt-1">
-                      <label className="text-xs font-mono uppercase tracking-wider text-foreground/85 font-medium">
+                      <label className="text-xs font-sans uppercase tracking-wider text-[#B8B4AA] font-medium">
                         Specify Origin City / Airstrip *
                       </label>
                       <input
@@ -438,7 +438,7 @@ export function ContactForm() {
                         value={customDepartureCity}
                         onChange={(e) => setCustomDepartureCity(e.target.value)}
                         placeholder="e.g., Jaipur, Surat, Chandigarh, Kochi, Indore, Lucknow..."
-                        className="w-full rounded-lg border border-white/12 bg-white/5 px-4 py-3 min-h-[48px] text-[16px] md:text-sm text-foreground placeholder:text-foreground/45 backdrop-blur-md outline-none transition-all duration-300 hover:border-white/25 focus:border-gold/60 focus:bg-white/[0.08] focus:ring-1 focus:ring-gold/50 focus:shadow-[0_0_15px_rgba(212,175,55,0.15)]"
+                        className="w-full rounded-sm border border-white/15 bg-[#0C0B09] px-4 py-3 min-h-[48px] text-[16px] md:text-sm text-[#F4F2EC] placeholder-[#B8B4AA]/40 outline-none transition-all duration-300 hover:border-white/25 focus:border-[#C5A059]"
                       />
                     </div>
                   )}
@@ -447,10 +447,10 @@ export function ContactForm() {
                 {/* Field 4: Domestic Luxury Transit Preferences */}
                 <div className="space-y-2 pt-1">
                   <div className="flex items-center justify-between">
-                    <label className="block text-xs font-medium text-foreground/75 uppercase tracking-wider font-mono flex items-center gap-1.5">
-                      <Compass className="size-3.5 text-primary" /> Domestic Luxury Transit Preference
+                    <label className="block text-xs font-sans font-medium text-[#B8B4AA] uppercase tracking-wider flex items-center gap-1.5">
+                      <Compass className="size-3.5 text-[#C5A059]" /> Domestic Luxury Transit Preference
                     </label>
-                    <span className="text-[10px] font-mono text-primary/80">Private Leg</span>
+                    <span className="text-[10px] font-sans uppercase tracking-wider text-[#C5A059]/80">Private Leg</span>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                     {DOMESTIC_TRANSIT_OPTIONS.map((opt) => {
@@ -461,24 +461,24 @@ export function ContactForm() {
                           key={opt.id}
                           type="button"
                           onClick={() => setTransitPreference(opt.title)}
-                          className={`p-3 rounded-2xl border text-left transition-all cursor-pointer relative ${
+                          className={`p-3 rounded-sm border text-left transition-all cursor-pointer relative ${
                             isSel
-                              ? 'border-primary bg-primary/15 shadow-lg shadow-primary/20'
-                              : 'border-white/10 bg-white/[0.04] hover:border-white/20'
+                              ? 'border-[#C5A059] bg-[#C5A059]/15 shadow-sm'
+                              : 'border-white/10 bg-[#0C0B09] hover:border-white/20'
                           }`}
                         >
                           <div className="flex items-center justify-between mb-1.5">
-                            <div className={`flex size-6 items-center justify-center rounded-lg ${isSel ? 'bg-primary text-primary-foreground' : 'bg-white/10 text-primary'}`}>
+                            <div className={`flex size-6 items-center justify-center rounded-sm ${isSel ? 'bg-[#C5A059] text-[#0C0B09]' : 'bg-white/10 text-[#C5A059]'}`}>
                               <Icon className="size-3.5" />
                             </div>
-                            <span className={`text-[9px] font-mono uppercase px-2 py-0.5 rounded-full border ${isSel ? 'border-primary/40 text-primary bg-primary/10' : 'border-white/10 text-foreground/50 bg-white/5'}`}>
+                            <span className={`text-[9px] font-sans uppercase px-2 py-0.5 rounded-sm border ${isSel ? 'border-[#C5A059]/40 text-[#C5A059] bg-[#C5A059]/10' : 'border-white/10 text-[#B8B4AA]/60 bg-white/5'}`}>
                               {opt.badge}
                             </span>
                           </div>
-                          <span className={`text-xs font-semibold block ${isSel ? 'text-primary' : 'text-white'}`}>
+                          <span className={`text-xs font-sans font-medium block ${isSel ? 'text-[#C5A059]' : 'text-[#F4F2EC]'}`}>
                             {opt.title}
                           </span>
-                          <p className="text-[10px] text-foreground/60 mt-0.5 leading-snug">
+                          <p className="text-[10px] text-[#B8B4AA] mt-0.5 leading-snug font-light">
                             {opt.desc}
                           </p>
                         </button>
@@ -490,8 +490,8 @@ export function ContactForm() {
                 {/* Field 5: Name & Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
                   <div className="space-y-1.5">
-                    <label className="flex items-center gap-1.5 text-xs font-medium text-foreground/90 uppercase tracking-wider font-mono">
-                      <User className="size-3.5 text-primary" /> Full Name *
+                    <label className="flex items-center gap-1.5 text-xs font-sans font-medium text-[#B8B4AA] uppercase tracking-wider">
+                      <User className="size-3.5 text-[#C5A059]" /> Full Name *
                     </label>
                     <input
                       type="text"
@@ -499,14 +499,14 @@ export function ContactForm() {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Lord Sterling / Ambassador Mehta"
-                      className="w-full rounded-lg border border-white/12 bg-white/5 px-4 py-3 min-h-[48px] text-[16px] md:text-sm text-foreground placeholder:text-foreground/45 backdrop-blur-md outline-none transition-all duration-300 hover:border-white/25 focus:border-gold/60 focus:bg-white/[0.08] focus:ring-1 focus:ring-gold/50 focus:shadow-[0_0_15px_rgba(212,175,55,0.15)]"
+                      placeholder="e.g. Aarav Mehta"
+                      className="w-full rounded-sm border border-white/15 bg-[#0C0B09] px-4 py-3 min-h-[48px] text-[16px] md:text-sm text-[#F4F2EC] placeholder-[#B8B4AA]/40 outline-none transition-all duration-300 hover:border-white/25 focus:border-[#C5A059]"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="flex items-center gap-1.5 text-xs font-medium text-foreground/90 uppercase tracking-wider font-mono">
-                      <Mail className="size-3.5 text-primary" /> Private Email *
+                    <label className="flex items-center gap-1.5 text-xs font-sans font-medium text-[#B8B4AA] uppercase tracking-wider">
+                      <Mail className="size-3.5 text-[#C5A059]" /> Private Email *
                     </label>
                     <input
                       type="email"
@@ -514,26 +514,26 @@ export function ContactForm() {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="client@private-office.com"
-                      className="w-full rounded-lg border border-white/12 bg-white/5 px-4 py-3 min-h-[48px] text-[16px] md:text-sm text-foreground placeholder:text-foreground/45 backdrop-blur-md outline-none transition-all duration-300 hover:border-white/25 focus:border-gold/60 focus:bg-white/[0.08] focus:ring-1 focus:ring-gold/50 focus:shadow-[0_0_15px_rgba(212,175,55,0.15)]"
+                      placeholder="aarav@domain.com"
+                      className="w-full rounded-sm border border-white/15 bg-[#0C0B09] px-4 py-3 min-h-[48px] text-[16px] md:text-sm text-[#F4F2EC] placeholder-[#B8B4AA]/40 outline-none transition-all duration-300 hover:border-white/25 focus:border-[#C5A059]"
                     />
                   </div>
                 </div>
 
                 {/* Field 6: Strict Indian Mobile Validation (+91, 10 Digits) */}
                 <div className="space-y-1.5">
-                  <label className="flex items-center justify-between text-xs font-medium text-foreground/90 uppercase tracking-wider font-mono">
+                  <label className="flex items-center justify-between text-xs font-sans font-medium text-[#B8B4AA] uppercase tracking-wider">
                     <span className="flex items-center gap-1.5">
-                      <Phone className="size-3.5 text-primary" /> Direct Indian Mobile / WhatsApp *
+                      <Phone className="size-3.5 text-[#C5A059]" /> Direct Indian Mobile / WhatsApp *
                     </span>
-                    <span className="text-[10px] font-mono text-primary/80">Strict +91 (10 Digits)</span>
+                    <span className="text-[10px] font-sans uppercase tracking-wider text-[#C5A059]/80">Strict +91 (10 Digits)</span>
                   </label>
 
                   <div className="relative flex items-center">
                     {/* +91 Fixed Badge */}
-                    <div className="flex min-h-[48px] items-center gap-1.5 px-3.5 py-3 rounded-l-lg border border-r-0 border-white/12 bg-white/10 text-white text-[16px] md:text-sm font-mono select-none">
-                      <span className="text-[11px] font-mono font-semibold tracking-wider text-foreground/80">IND</span>
-                      <span className="font-semibold text-primary">+91</span>
+                    <div className="flex min-h-[48px] items-center gap-1.5 px-3.5 py-3 rounded-l-sm border border-r-0 border-white/15 bg-[#141310] text-[#F4F2EC] text-[16px] md:text-sm font-sans select-none">
+                      <span className="text-[11px] font-sans font-semibold tracking-wider text-[#B8B4AA]">IND</span>
+                      <span className="font-medium text-[#C5A059]">+91</span>
                     </div>
 
                     {/* 10-Digit Mobile Input */}
@@ -545,12 +545,12 @@ export function ContactForm() {
                       onChange={(e) => handlePhoneChange(e.target.value)}
                       placeholder="98200 44810"
                       maxLength={11} // 10 digits + 1 space
-                      className={`w-full rounded-r-lg border border-white/12 bg-white/5 px-4 py-3 min-h-[48px] text-[16px] md:text-sm text-foreground font-mono placeholder:text-foreground/45 backdrop-blur-md outline-none transition-all duration-300 hover:border-white/25 ${
+                      className={`w-full rounded-r-sm border border-white/15 bg-[#0C0B09] px-4 py-3 min-h-[48px] text-[16px] md:text-sm text-[#F4F2EC] font-sans placeholder-[#B8B4AA]/40 outline-none transition-all duration-300 hover:border-white/25 ${
                         isPhoneValid
-                          ? 'border-emerald-500/60 focus:border-emerald-400 focus:ring-1 focus:ring-emerald-500/40 focus:shadow-[0_0_15px_rgba(16,185,129,0.15)]'
+                          ? 'border-emerald-500/60 focus:border-emerald-400'
                           : phoneDigits.length > 0
-                          ? 'border-amber-500/50 focus:border-amber-400 focus:ring-1 focus:ring-amber-500/40'
-                          : 'focus:border-gold/60 focus:bg-white/[0.08] focus:ring-1 focus:ring-gold/50 focus:shadow-[0_0_15px_rgba(212,175,55,0.15)]'
+                          ? 'border-amber-500/50 focus:border-amber-400'
+                          : 'focus:border-[#C5A059]'
                       }`}
                     />
 
@@ -567,16 +567,16 @@ export function ContactForm() {
                   {/* Real-time Validation Message */}
                   <div className="pt-0.5">
                     {phoneDigits.length === 0 ? (
-                      <span className="text-[11px] text-foreground/50 font-mono">
+                      <span className="text-[11px] text-[#B8B4AA]/60 font-sans">
                         Enter 10-digit Indian mobile number (e.g., 98200 44810)
                       </span>
                     ) : isPhoneValid ? (
-                      <div className="flex items-center gap-1.5 text-xs text-emerald-400 font-mono">
+                      <div className="flex items-center gap-1.5 text-xs text-emerald-400 font-sans">
                         <CheckCircle2 className="size-3.5 shrink-0" />
                         <span>Verified Indian domestic mobile (+91 {formattedPhoneDisplay})</span>
                       </div>
                     ) : (
-                      <div className="flex items-center gap-1.5 text-xs text-amber-400 font-mono">
+                      <div className="flex items-center gap-1.5 text-xs text-amber-400 font-sans">
                         <AlertCircle className="size-3.5 shrink-0" />
                         <span>
                           {phoneDigits[0] && !['6', '7', '8', '9'].includes(phoneDigits[0])
@@ -586,15 +586,15 @@ export function ContactForm() {
                       </div>
                     )}
                     {phoneError && (
-                      <p className="text-xs text-red-400 mt-1 font-mono">{phoneError}</p>
+                      <p className="text-xs text-red-400 mt-1 font-sans">{phoneError}</p>
                     )}
                   </div>
                 </div>
 
-                {/* Field 4: Message / Requirements */}
+                {/* Field 7: Journey Vision & Preferences */}
                 <div className="space-y-1.5">
-                  <label className="flex items-center gap-1.5 text-xs font-medium text-foreground/90 uppercase tracking-wider font-mono">
-                    <MessageSquare className="size-3.5 text-primary" /> Confidential Requirements & Dates
+                  <label className="flex items-center gap-1.5 text-xs font-sans font-medium text-[#B8B4AA] uppercase tracking-wider">
+                    <MessageSquare className="size-3.5 text-[#C5A059]" /> JOURNEY VISION &amp; PREFERENCES
                   </label>
                   <textarea
                     rows={4}
@@ -602,34 +602,34 @@ export function ContactForm() {
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Outline passenger manifest, palace dates, security clearances, or medical wellness goals..."
-                    className="w-full rounded-lg border border-white/12 bg-white/5 px-4 py-3 text-[16px] md:text-sm text-foreground placeholder:text-foreground/45 backdrop-blur-md outline-none transition-all duration-300 hover:border-white/25 focus:border-gold/60 focus:bg-white/[0.08] focus:ring-1 focus:ring-gold/50 focus:shadow-[0_0_15px_rgba(212,175,55,0.15)] resize-none leading-relaxed"
+                    placeholder="Share your preferred destinations, approximate travel dates, celebration occasion, or specific hotel preferences..."
+                    className="w-full rounded-sm border border-white/15 bg-[#0C0B09] px-4 py-3 text-[16px] md:text-sm text-[#F4F2EC] placeholder-[#B8B4AA]/40 outline-none transition-all duration-300 hover:border-white/25 focus:border-[#C5A059] resize-none leading-relaxed"
                   />
                 </div>
 
-                {/* Non-Disclosure Assurance */}
-                <div className="text-[11px] text-foreground/60 leading-relaxed font-light">
-                  Transmitted under strict non-disclosure covenants. Tagged automatically as <strong>General Contact</strong>.
+                {/* Discretion Assurance */}
+                <div className="text-[11px] text-[#B8B4AA]/70 leading-relaxed font-light">
+                  Your parameters are treated with complete discretion and assigned to a dedicated Senior Curator.
                 </div>
 
                 {/* Submit Button */}
                 <motion.button
                   type="submit"
                   disabled={isPending}
-                  whileHover={{ scale: isPending ? 1 : 1.015 }}
+                  whileHover={{ scale: isPending ? 1 : 1.01 }}
                   whileTap={{ scale: isPending ? 1 : 0.98 }}
-                  className="w-full min-h-[48px] inline-flex items-center justify-center gap-2.5 rounded-lg bg-gradient-to-r from-gold via-[#e0c774] to-gold hover:from-[#c5a030] hover:to-[#b89326] border border-gold/50 py-4 px-6 text-xs font-semibold uppercase tracking-[0.2em] text-[#0B0F19] shadow-xl shadow-gold/25 transition-all duration-300 hover:brightness-105 active:scale-95 disabled:opacity-60 cursor-pointer"
+                  className="w-full min-h-[48px] inline-flex items-center justify-center gap-2.5 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] border border-[#C5A059]/50 py-4 px-6 text-xs font-sans font-medium uppercase tracking-[0.16em] text-[#0C0B09] shadow-xl shadow-[#C5A059]/20 transition-all duration-300 disabled:opacity-60 cursor-pointer"
                 >
                   {isPending ? (
                     <>
-                      <Loader2 className="size-4 animate-spin text-[#0B0F19]" />
-                      <span>Encrypting & Dispatching Dossier...</span>
+                      <Loader2 className="size-4 animate-spin text-[#0C0B09]" />
+                      <span>Transmitting Inquiry...</span>
                     </>
                   ) : (
                     <>
-                      <Send className="size-3.5 text-[#0B0F19]" />
-                      <span>Send Confidential Inquiry</span>
-                      <ArrowUpRight className="size-4 text-[#0B0F19] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      <Send className="size-3.5 text-[#0C0B09]" />
+                      <span>Submit Journey Inquiry</span>
+                      <ArrowUpRight className="size-4 text-[#0C0B09] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </>
                   )}
                 </motion.button>
@@ -640,17 +640,17 @@ export function ContactForm() {
       </div>
 
       {/* ======================================================================= */}
-      {/* 2. INTERACTIVE QUICK ACTIONS: LARGE WHATSAPP & ELEGANT EMAIL BUTTONS */}
+      {/* 2. INTERACTIVE QUICK ACTIONS: WARM OBSIDIAN & GOLD CARDS */}
       {/* ======================================================================= */}
       <div className="space-y-4">
-        <div className="flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-foreground/50 font-mono">
+        <div className="flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-[#B8B4AA]/60 font-sans">
           <span className="h-px flex-1 bg-white/10" />
-          <span>Instant Direct Communications</span>
+          <span>Direct Atelier Communications</span>
           <span className="h-px flex-1 bg-white/10" />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {/* Button 1: Prominent WhatsApp Button with Distinct Call Symbol */}
+          {/* Button 1: Warm Obsidian WhatsApp Card */}
           <motion.a
             href="https://wa.me/918419887730?text=Hello%20Sarrin%20Holidays%20Concierge,%20I%20would%20like%20to%20inquire%20about%20a%20bespoke%20travel%20experience."
             target="_blank"
@@ -658,28 +658,28 @@ export function ContactForm() {
             whileHover={{ y: -3 }}
             whileTap={{ scale: 0.98 }}
             transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-sm border border-emerald-500/30 bg-[#141310] p-5 sm:p-6 shadow-xl transition-colors hover:border-emerald-400 hover:bg-[#141310]/90 cursor-pointer"
+            className="group relative flex flex-col justify-between overflow-hidden rounded-sm border border-white/10 hover:border-[#C5A059]/50 bg-[#141310] p-6 shadow-xl transition-all cursor-pointer"
           >
-            {/* Ambient emerald glow */}
-            <div className="pointer-events-none absolute -right-10 -top-10 size-40 rounded-full bg-emerald-500/10 blur-[50px] transition-opacity group-hover:opacity-100" />
+            {/* Ambient gold glow */}
+            <div className="pointer-events-none absolute -right-10 -top-10 size-40 rounded-full bg-[#C5A059]/10 blur-[50px] transition-opacity group-hover:opacity-100" />
 
             <div className="flex items-start justify-between">
-              {/* Distinct Call Symbol Badge */}
-              <div className="flex size-11 items-center justify-center rounded-sm bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 shadow-md">
-                <PhoneCall className="size-5 text-emerald-400" />
+              {/* Call Symbol Badge */}
+              <div className="flex size-11 items-center justify-center rounded-sm bg-[#C5A059]/10 text-[#C5A059] border border-[#C5A059]/30 shadow-md">
+                <PhoneCall className="size-5 text-[#C5A059]" />
               </div>
 
-              <span className="inline-flex items-center gap-1.5 rounded-sm bg-emerald-500/10 px-2.5 py-0.5 text-[10px] font-sans font-medium uppercase tracking-wider text-emerald-300 border border-emerald-500/20">
+              <span className="inline-flex items-center gap-1.5 rounded-sm bg-[#C5A059]/10 px-2.5 py-0.5 text-[10px] font-sans font-medium uppercase tracking-wider text-[#C5A059] border border-[#C5A059]/20">
                 <span className="size-1.5 rounded-full bg-emerald-400" />
                 Live Desk
               </span>
             </div>
 
             <div className="mt-5">
-              <span className="text-[10px] font-sans uppercase tracking-[0.2em] text-emerald-400/90">
-                Instant Chat & Voice
+              <span className="text-[10px] font-sans uppercase tracking-[0.2em] text-[#C5A059]">
+                Instant Chat &amp; Voice
               </span>
-              <h4 className="mt-1 font-serif font-light text-lg sm:text-xl text-[#F4F2EC] group-hover:text-emerald-300 transition-colors">
+              <h4 className="mt-1 font-serif font-light text-lg sm:text-xl text-[#F4F2EC] group-hover:text-[#C5A059] transition-colors">
                 Connect via WhatsApp
               </h4>
               <p className="mt-1 text-xs text-[#B8B4AA] font-sans">
@@ -687,19 +687,19 @@ export function ContactForm() {
               </p>
             </div>
 
-            <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-sans font-medium uppercase tracking-wider text-emerald-400">
+            <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-sans font-medium uppercase tracking-wider text-[#C5A059]">
               <span>Open Direct Chat</span>
               <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </div>
           </motion.a>
 
-          {/* Button 2: Separate Elegant Email Button */}
+          {/* Button 2: Warm Obsidian Email Card */}
           <motion.a
             href="mailto:info@sarrinholidays.com?subject=Confidential%20Travel%20Inquiry%20-%20Sarrin%20Holidays"
             whileHover={{ y: -3 }}
             whileTap={{ scale: 0.98 }}
             transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-sm border border-white/10 bg-[#141310] p-5 sm:p-6 shadow-xl transition-colors hover:border-[#C5A059]/50 cursor-pointer"
+            className="group relative flex flex-col justify-between overflow-hidden rounded-sm border border-white/10 hover:border-[#C5A059]/50 bg-[#141310] p-6 shadow-xl transition-all cursor-pointer"
           >
             {/* Ambient gold glow */}
             <div className="pointer-events-none absolute -right-10 -top-10 size-40 rounded-full bg-[#C5A059]/10 blur-[50px] transition-opacity group-hover:opacity-100" />

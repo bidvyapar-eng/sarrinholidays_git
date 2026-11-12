@@ -72,7 +72,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
             {/* Header / Editorial Intro */}
             <div className="space-y-4">
               <div className="inline-flex items-center rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 px-3.5 py-1 text-[11px] font-sans font-medium uppercase tracking-[0.22em] text-[#C5A059]">
-                Concierge Desk &amp; Sovereign Atelier
+                Private Concierge Atelier
               </div>
 
               <h1 className="font-serif font-light text-4xl sm:text-5xl xl:text-6xl leading-[1.12] text-[#F4F2EC] tracking-tight">
@@ -80,7 +80,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
               </h1>
 
               <p className="text-base sm:text-lg text-[#B8B4AA] font-light leading-relaxed pt-2">
-                Whether you require high-altitude Himalayan aviation clearances, an exclusive heritage palace buyout across Rajasthan, or fortified executive motorcades through Mumbai&apos;s financial corridors, our Private Operations Ateliers stand ready.
+                Whether you require private palace stays across Rajasthan, serene backwater charters in Kerala, or custom multi-generational family journeys, our Private Concierge Ateliers stand ready.
               </p>
             </div>
 

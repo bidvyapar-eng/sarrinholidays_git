@@ -51,12 +51,12 @@ export default async function AboutPage() {
     .maybeSingle()
 
   return (
-    <main className="relative min-h-screen bg-background overflow-hidden selection:bg-primary/30 selection:text-primary">
+    <main className="relative min-h-screen bg-[#0C0B09] text-[#F4F2EC] overflow-hidden selection:bg-[#C5A059]/30 selection:text-[#C5A059]">
       {/* Navigation */}
       <Navbar logoText={settings?.navbar_logo_text} />
 
       {/* Ambient background glows */}
-      <div className="pointer-events-none absolute top-10 left-1/2 -translate-x-1/2 size-[650px] rounded-full bg-primary/8 blur-[140px]" />
+      <div className="pointer-events-none absolute top-10 left-1/2 -translate-x-1/2 size-[650px] rounded-full bg-[#C5A059]/8 blur-[140px]" />
       <div className="pointer-events-none absolute top-[600px] -right-40 size-[500px] rounded-full bg-amber-500/5 blur-[120px]" />
 
       {/* Hero Header Section */}
@@ -69,7 +69,7 @@ export default async function AboutPage() {
 
           {/* H1 Headline */}
           <h1 className="mt-6 font-serif font-light text-4xl sm:text-6xl lg:text-7xl leading-[1.1] tracking-tight text-[#F4F2EC]">
-            Bespoke Mastery &amp; Sovereign Discretion
+            The Art of Personal Indian Hospitality
           </h1>
 
           {/* Subtitle */}
@@ -81,11 +81,7 @@ export default async function AboutPage() {
 
           {/* Trust Badges */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-[#B8B4AA] font-sans tracking-[0.18em] uppercase">
-            <span>Strict NDA Protocol</span>
-            <span className="hidden sm:inline opacity-30">•</span>
-            <span>24/7 Dedicated Liaison</span>
-            <span className="hidden sm:inline opacity-30">•</span>
-            <span>Sovereign Palace Alliances</span>
+            <span>CURATED HERITAGE · PRIVATE ACCESS · 24/7 CONCIERGE</span>
           </div>
         </div>
       </section>
