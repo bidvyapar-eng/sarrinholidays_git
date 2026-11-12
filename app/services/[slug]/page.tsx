@@ -556,31 +556,31 @@ export default async function ServiceDetailPage({
           {/* Back Navigation Link */}
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-foreground/75 hover:text-primary transition-colors mb-6 group"
+            className="inline-flex items-center gap-2 text-xs font-sans uppercase tracking-[0.16em] text-[#B8B4AA] hover:text-[#C5A059] transition-colors mb-6 group"
           >
             <ArrowLeft className="size-3.5 transition-transform group-hover:-translate-x-1" />
             <span>Back to Services Hub</span>
           </Link>
 
           {/* Service Classification Eyebrow Badge */}
-          <div className="flex flex-wrap items-center gap-2 mb-4">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/20 px-3.5 py-1 text-xs font-mono font-semibold uppercase tracking-widest text-primary backdrop-blur-md shadow-lg">
+          <div className="flex flex-wrap items-center gap-2.5 mb-4">
+            <span className="inline-flex items-center gap-1.5 rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 px-3.5 py-1 text-xs font-sans font-medium uppercase tracking-[0.18em] text-[#C5A059]">
               <ServiceIcon name={service.icon_name} className="size-3.5" />
               {dossier.classification}
             </span>
 
-            <span className="rounded-full border border-white/15 bg-black/50 px-3 py-1 text-xs font-mono text-foreground/75 backdrop-blur-md hidden sm:inline-block">
+            <span className="rounded-sm border border-white/10 bg-[#141310] px-3 py-1 text-xs font-sans uppercase tracking-wider text-[#B8B4AA] hidden sm:inline-block">
               {dossier.coverage}
             </span>
           </div>
 
           {/* Service Main Headline */}
-          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal leading-[1.08] text-foreground max-w-4xl tracking-tight">
+          <h1 className="font-serif font-light text-4xl sm:text-6xl lg:text-7xl leading-[1.08] text-[#F4F2EC] max-w-4xl tracking-tight">
             {service.title}
           </h1>
 
           {/* Subtitle / Teaser */}
-          <p className="mt-4 max-w-2xl text-base sm:text-xl text-foreground/80 font-light leading-relaxed">
+          <p className="mt-4 max-w-2xl text-base sm:text-lg text-[#B8B4AA] font-light leading-relaxed">
             {dossier.subtitle}
           </p>
 
@@ -595,20 +595,20 @@ export default async function ServiceDetailPage({
           </div>
 
           {/* Bottom Fast-Facts Bar */}
-          <div className="mt-8 flex flex-wrap items-center gap-4 sm:gap-8 pt-6 border-t border-white/15 text-xs text-foreground/70 font-mono">
+          <div className="mt-8 flex flex-wrap items-center gap-4 sm:gap-8 pt-6 border-t border-white/10 text-xs text-[#B8B4AA] font-sans">
             <div>
-              <span className="text-foreground/40 block text-[10px] uppercase font-mono tracking-wider">Standard Pricing</span>
-              <span className="text-primary font-semibold text-sm">{dossier.pricing}</span>
+              <span className="text-[#B8B4AA]/60 block text-[10px] uppercase font-sans tracking-wider">Standard Pricing</span>
+              <span className="text-[#C5A059] font-medium text-sm">{dossier.pricing}</span>
             </div>
             <div className="hidden sm:block h-6 w-[1px] bg-white/10" />
             <div>
-              <span className="text-foreground/40 block text-[10px] uppercase font-mono tracking-wider">Lead Dispatch</span>
-              <span className="text-foreground font-medium">{dossier.leadTime}</span>
+              <span className="text-[#B8B4AA]/60 block text-[10px] uppercase font-sans tracking-wider">Lead Dispatch</span>
+              <span className="text-[#F4F2EC] font-normal">{dossier.leadTime}</span>
             </div>
             <div className="hidden sm:block h-6 w-[1px] bg-white/10" />
             <div>
-              <span className="text-foreground/40 block text-[10px] uppercase font-mono tracking-wider">Confidentiality</span>
-              <span className="text-foreground font-medium">Strict NDA Standard</span>
+              <span className="text-[#B8B4AA]/60 block text-[10px] uppercase font-sans tracking-wider">Confidentiality</span>
+              <span className="text-[#F4F2EC] font-normal">Strict NDA Standard</span>
             </div>
           </div>
         </div>
@@ -616,7 +616,6 @@ export default async function ServiceDetailPage({
 
       {/* ========================================================================= */}
       {/* 2. TWO-COLUMN RESPONSIVE LAYOUT BELOW THE FOLD */}
-      {/* Left: Rich Editorial & Pillars | Right: Sticky Glassmorphism Pricing Card */}
       {/* ========================================================================= */}
       <section className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -627,17 +626,17 @@ export default async function ServiceDetailPage({
             {/* Section 1: Editorial Essay */}
             <div>
               <div className="flex items-center gap-2 mb-3">
-                <FileText className="size-4 text-primary" />
-                <span className="text-xs uppercase tracking-widest text-primary font-mono font-medium">
+                <FileText className="size-4 text-[#C5A059]" />
+                <span className="text-xs uppercase tracking-[0.2em] text-[#C5A059] font-sans font-medium">
                   Curator Perspective
                 </span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl text-foreground leading-snug">
+              <h2 className="font-serif font-light text-3xl sm:text-4xl text-[#F4F2EC] leading-snug tracking-tight">
                 The Philosophy of Frictionless Execution
               </h2>
 
-              <div className="mt-6 space-y-5 text-base sm:text-lg text-foreground/80 leading-relaxed font-light">
-                <p className="text-xl sm:text-2xl text-foreground font-serif leading-relaxed border-l-2 border-primary/50 pl-5 italic text-foreground/90">
+              <div className="mt-6 space-y-5 text-base sm:text-lg text-[#B8B4AA] leading-relaxed font-light">
+                <p className="text-xl sm:text-2xl text-[#F4F2EC] font-serif leading-relaxed border-l-2 border-[#C5A059]/50 pl-5 italic">
                   &ldquo;{dossier.editorial.lead}&rdquo;
                 </p>
                 <p>{dossier.editorial.bodyOne}</p>
@@ -647,26 +646,26 @@ export default async function ServiceDetailPage({
 
             {/* Section 2: Four Core Operational Pillars */}
             <div className="pt-4">
-              <span className="text-xs uppercase tracking-widest text-primary font-mono font-medium">
+              <span className="text-xs uppercase tracking-[0.2em] text-[#C5A059] font-sans font-medium">
                 Operational Framework
               </span>
-              <h3 className="mt-2 font-serif text-2xl sm:text-3xl text-foreground">
-                Sovereign Standards & Capabilities
+              <h3 className="mt-2 font-serif font-light text-2xl sm:text-3xl text-[#F4F2EC] tracking-tight">
+                Sovereign Standards &amp; Capabilities
               </h3>
 
               <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-5">
                 {dossier.pillars.map((pillar, i) => (
                   <div
                     key={i}
-                    className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md hover:border-primary/40 transition-colors"
+                    className="rounded-sm border border-white/10 bg-[#141310] p-6 hover:border-[#C5A059]/40 transition-colors"
                   >
-                    <span className="inline-block rounded-full bg-primary/10 border border-primary/30 px-2.5 py-0.5 text-[10px] font-mono text-primary uppercase tracking-wider mb-3">
+                    <span className="inline-block rounded-sm bg-[#C5A059]/10 border border-[#C5A059]/30 px-2.5 py-0.5 text-[10px] font-sans text-[#C5A059] uppercase tracking-wider mb-3 font-medium">
                       {pillar.metric}
                     </span>
-                    <h4 className="font-serif text-lg text-foreground font-semibold">
+                    <h4 className="font-serif text-lg text-[#F4F2EC] font-normal">
                       {pillar.title}
                     </h4>
-                    <p className="mt-2 text-xs sm:text-sm text-foreground/70 leading-relaxed">
+                    <p className="mt-2 text-xs sm:text-sm text-[#B8B4AA] leading-relaxed font-light">
                       {pillar.desc}
                     </p>
                   </div>
@@ -676,27 +675,27 @@ export default async function ServiceDetailPage({
 
             {/* Section 3: The 3-Step Execution Sequence */}
             <div className="pt-4 border-t border-white/10">
-              <span className="text-xs uppercase tracking-widest text-primary font-mono font-medium">
+              <span className="text-xs uppercase tracking-[0.2em] text-[#C5A059] font-sans font-medium">
                 Concierge Protocol
               </span>
-              <h3 className="mt-2 font-serif text-2xl sm:text-3xl text-foreground">
+              <h3 className="mt-2 font-serif font-light text-2xl sm:text-3xl text-[#F4F2EC] tracking-tight">
                 How Your Service Unfolds
               </h3>
 
-              <div className="mt-8 space-y-6">
+              <div className="mt-8 space-y-4">
                 {dossier.timeline.map((item, i) => (
                   <div
                     key={i}
-                    className="flex flex-col sm:flex-row items-start gap-5 rounded-2xl border border-white/10 bg-slate-900/40 p-6 backdrop-blur-md"
+                    className="flex flex-col sm:flex-row items-start gap-5 rounded-sm border border-white/10 bg-[#141310] p-6"
                   >
-                    <div className="flex size-11 items-center justify-center rounded-xl bg-primary/20 text-primary font-serif font-bold text-lg shrink-0 border border-primary/40">
+                    <div className="flex size-11 items-center justify-center rounded-sm bg-[#C5A059]/15 text-[#C5A059] font-serif font-light text-lg shrink-0 border border-[#C5A059]/30">
                       {item.step}
                     </div>
                     <div>
-                      <h4 className="font-serif text-xl text-foreground font-medium">
+                      <h4 className="font-serif text-xl text-[#F4F2EC] font-normal">
                         {item.title}
                       </h4>
-                      <p className="mt-1.5 text-sm text-foreground/70 leading-relaxed">
+                      <p className="mt-1.5 text-sm text-[#B8B4AA] leading-relaxed font-light">
                         {item.desc}
                       </p>
                     </div>
@@ -707,10 +706,10 @@ export default async function ServiceDetailPage({
 
             {/* Section 4: Frequently Asked Inquiries */}
             <div className="pt-4 border-t border-white/10">
-              <span className="text-xs uppercase tracking-[0.25em] text-primary font-mono font-medium">
+              <span className="text-xs uppercase tracking-[0.2em] text-[#C5A059] font-sans font-medium">
                 Client Intelligence
               </span>
-              <h3 className="mt-2 font-serif text-2xl sm:text-3xl text-foreground">
+              <h3 className="mt-2 font-serif font-light text-2xl sm:text-3xl text-[#F4F2EC] tracking-tight">
                 Frequently Asked Inquiries
               </h3>
 
@@ -718,15 +717,15 @@ export default async function ServiceDetailPage({
                 {dossier.faqs.map((faq, i) => (
                   <div
                     key={i}
-                    className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md"
+                    className="rounded-sm border border-white/10 bg-[#141310] p-6"
                   >
                     <div className="flex items-start gap-3">
-                      <HelpCircle className="size-5 text-primary shrink-0 mt-0.5" />
+                      <HelpCircle className="size-5 text-[#C5A059] shrink-0 mt-0.5" />
                       <div>
-                        <h4 className="font-serif text-lg text-foreground font-medium">
+                        <h4 className="font-serif text-lg text-[#F4F2EC] font-normal">
                           {faq.q}
                         </h4>
-                        <p className="mt-2 text-sm text-foreground/70 leading-relaxed">
+                        <p className="mt-2 text-sm text-[#B8B4AA] leading-relaxed font-light">
                           {faq.a}
                         </p>
                       </div>
@@ -738,7 +737,7 @@ export default async function ServiceDetailPage({
 
           </div>
 
-          {/* RIGHT COLUMN: 'Sticky' Glassmorphism Pricing & Inquiry Card */}
+          {/* RIGHT COLUMN: Sticky Pricing & Inquiry Card */}
           <div className="lg:col-span-5 xl:col-span-4">
             <div className="sticky top-24 space-y-6">
               <ServiceInquiryCard
@@ -749,8 +748,8 @@ export default async function ServiceDetailPage({
               />
 
               {/* Security & Confidentiality Advisory Badge */}
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-5 text-xs text-foreground/60 backdrop-blur-md space-y-2">
-                <div className="flex items-center gap-2 text-primary font-semibold uppercase tracking-wider text-[11px]">
+              <div className="rounded-sm border border-white/10 bg-[#141310] p-5 text-xs text-[#B8B4AA] space-y-2 font-light">
+                <div className="flex items-center gap-2 text-[#C5A059] font-sans font-medium uppercase tracking-wider text-[11px]">
                   <Award className="size-4" /> Sovereign Concierge Guarantee
                 </div>
                 <p className="leading-relaxed">
@@ -766,21 +765,21 @@ export default async function ServiceDetailPage({
       {/* ========================================================================= */}
       {/* 3. COMPANION SERVICES SHOWCASE FOOTER */}
       {/* ========================================================================= */}
-      <section className="relative border-t border-white/10 bg-slate-950/90 py-16 md:py-24">
+      <section className="relative border-t border-white/10 bg-[#0C0B09] py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
             <div>
-              <span className="text-xs uppercase tracking-widest text-primary font-mono font-medium">
+              <span className="text-xs uppercase tracking-[0.2em] text-[#C5A059] font-sans font-medium">
                 Sarrin Private Atelier
               </span>
-              <h2 className="mt-2 font-serif text-3xl text-foreground">
+              <h2 className="mt-2 font-serif font-light text-3xl sm:text-4xl text-[#F4F2EC] tracking-tight">
                 Companion Private Services
               </h2>
             </div>
 
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary hover:underline"
+              className="inline-flex items-center gap-2 text-xs font-sans font-medium uppercase tracking-[0.16em] text-[#C5A059] hover:underline"
             >
               <span>View All Services</span>
               <ArrowUpRight className="size-4" />
@@ -792,29 +791,29 @@ export default async function ServiceDetailPage({
               <Link
                 key={other.slug}
                 href={`/services/${other.slug}`}
-                className="group flex flex-col rounded-3xl border border-white/10 bg-white/5 overflow-hidden p-5 transition-all duration-500 ease-out hover:border-primary/50 hover:bg-white/10 hover:-translate-y-1 hover:shadow-2xl shadow-xl"
+                className="group flex flex-col rounded-sm border border-white/10 bg-[#141310] overflow-hidden p-5 transition-all duration-300 hover:border-[#C5A059]/50 shadow-xl"
               >
-                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/10">
+                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-sm border border-white/10">
                   <img
                     src={other.hero_image}
                     alt={other.title}
                     className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                  <span className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-black/70 backdrop-blur-md px-3 py-1 text-[11px] font-semibold text-primary border border-white/10">
+                  <span className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-sm bg-[#141310]/80 backdrop-blur-md px-3 py-1 text-[11px] font-sans font-medium uppercase tracking-wider text-[#C5A059] border border-white/10">
                     <ServiceIcon name={other.icon_name} className="size-3" />
                     {other.title.split(' ')[0]}
                   </span>
                 </div>
 
                 <div className="mt-4 flex flex-col flex-1">
-                  <h4 className="font-serif text-xl text-foreground group-hover:text-primary transition-colors">
+                  <h4 className="font-serif font-light text-xl text-[#F4F2EC] group-hover:text-[#C5A059] transition-colors">
                     {other.title}
                   </h4>
-                  <p className="mt-2 text-xs text-foreground/65 line-clamp-2 leading-relaxed flex-1">
+                  <p className="mt-2 text-xs text-[#B8B4AA] line-clamp-2 leading-relaxed flex-1 font-light">
                     {other.short_desc}
                   </p>
-                  <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-primary">
+                  <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-sans font-medium uppercase tracking-[0.14em] text-[#C5A059]">
                     <span>Explore Dossier</span>
                     <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>
@@ -828,7 +827,7 @@ export default async function ServiceDetailPage({
       {/* ========================================================================= */}
       {/* STICKY BOTTOM ACTION BAR FOR MOBILE (< 768px)                             */}
       {/* ========================================================================= */}
-      <div className="block md:hidden fixed bottom-0 inset-x-0 z-50 bg-slate-950/95 backdrop-blur-2xl border-t border-white/10 p-3 sm:p-4 shadow-[0_-10px_35px_rgba(0,0,0,0.85)]">
+      <div className="block md:hidden fixed bottom-0 inset-x-0 z-50 bg-[#0C0B09]/95 backdrop-blur-2xl border-t border-white/10 p-3 sm:p-4 shadow-[0_-10px_35px_rgba(0,0,0,0.85)]">
         <div className="mx-auto flex max-w-lg items-center justify-between gap-3">
           <div className="min-w-0">
             <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block truncate">

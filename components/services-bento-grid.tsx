@@ -179,28 +179,28 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
               variants={cardVariants}
               whileHover={{ y: -6 }}
               transition={{ duration: 0.5, ease: 'easeOut' }}
-              className={`group relative flex flex-col justify-between overflow-hidden rounded-[2rem] border border-white/12 bg-slate-900/60 p-6 md:p-8 backdrop-blur-2xl shadow-xl transition-all duration-500 ease-out hover:border-primary/50 hover:bg-slate-900/80 hover:shadow-2xl hover:shadow-black/70 ${meta.colSpan}`}
+              className={`group relative flex flex-col justify-between overflow-hidden rounded-sm border border-white/10 bg-[#141310] p-6 md:p-8 shadow-xl transition-all duration-500 ease-out hover:border-[#C5A059]/50 hover:shadow-2xl hover:shadow-black/70 ${meta.colSpan}`}
             >
               {/* Subtle Ambient Hover Glow */}
               <div className="pointer-events-none absolute -right-20 -top-20 size-72 rounded-full bg-primary/10 blur-[90px] transition-opacity duration-700 opacity-0 group-hover:opacity-100" />
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059]/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
               <div>
                 {/* Visual Asset Container with Zoom on Hover */}
                 <Link
                   href={`/services/${service.slug}`}
-                  className="relative block aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/10 shadow-lg group/img"
+                  className="relative block aspect-[16/9] w-full overflow-hidden rounded-sm border border-white/10 shadow-lg group/img"
                 >
                   <img
                     src={service.hero_image}
                     alt={service.title}
                     className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 group-hover/img:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0C0B09]/90 via-[#0C0B09]/30 to-transparent" />
 
                   {/* Top Floating Badge */}
                   <div className="absolute left-3 top-3 flex items-center gap-2">
-                    <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-slate-950/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary backdrop-blur-md shadow-md">
+                    <span className="inline-flex items-center gap-1.5 rounded-sm border border-white/20 bg-[#141310]/85 px-2.5 py-1 text-[10px] font-sans font-medium uppercase tracking-wider text-[#C5A059] backdrop-blur-md shadow-md">
                       <ServiceIcon name={service.icon_name} className="size-3.5" />
                       {meta.tag}
                     </span>
@@ -211,7 +211,7 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
                     {meta.pills.map((pill, i) => (
                       <span
                         key={i}
-                        className="rounded-full bg-white/15 backdrop-blur-md px-2.5 py-0.5 text-[10px] font-medium tracking-wide text-white/90 border border-white/10"
+                        className="rounded-sm bg-[#141310]/80 backdrop-blur-md px-2 py-0.5 text-[10px] font-sans font-medium tracking-wide uppercase text-[#B8B4AA] border border-white/10"
                       >
                         {pill}
                       </span>
@@ -222,38 +222,38 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
                 {/* Service Header & Core Copy */}
                 <div className="mt-6">
                   <div className="flex items-center gap-2">
-                    <div className="flex size-8 items-center justify-center rounded-xl border border-primary/30 bg-primary/10 text-primary">
-                      <ServiceIcon name={service.icon_name} className="size-4" />
+                    <div className="flex size-7 items-center justify-center rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 text-[#C5A059]">
+                      <ServiceIcon name={service.icon_name} className="size-3.5" />
                     </div>
-                    <span className="font-mono text-xs uppercase tracking-[0.2em] text-foreground/50">
+                    <span className="font-sans text-[11px] uppercase tracking-[0.18em] text-[#C5A059] font-medium">
                       Tier 01 Private Service
                     </span>
                   </div>
 
                   <Link href={`/services/${service.slug}`} className="block group/title">
-                    <h3 className="mt-3 font-serif text-2xl text-foreground sm:text-3xl leading-snug group-hover/title:text-primary transition-colors duration-300">
+                    <h3 className="mt-3 font-serif font-light text-2xl text-[#F4F2EC] sm:text-3xl leading-snug group-hover/title:text-[#C5A059] transition-colors duration-300 tracking-tight">
                       {service.title}
                     </h3>
                   </Link>
 
-                  <p className="mt-2 text-sm font-medium text-primary/90 leading-relaxed">
+                  <p className="mt-2 text-sm font-light text-[#C5A059] leading-relaxed">
                     {service.short_desc}
                   </p>
 
-                  <p className="mt-3 text-xs leading-relaxed text-foreground/70 line-clamp-3">
+                  <p className="mt-3 text-xs leading-relaxed text-[#B8B4AA] font-light line-clamp-3">
                     {service.full_desc}
                   </p>
                 </div>
 
                 {/* Key Specifications Bulleted Grid */}
                 <div className="mt-6 space-y-2 border-t border-white/10 pt-4">
-                  <span className="text-[11px] uppercase tracking-wider text-foreground/50 font-mono">
-                    Service Standards & Protocol
+                  <span className="text-[11px] uppercase tracking-wider text-[#B8B4AA] font-sans">
+                    Service Standards &amp; Protocol
                   </span>
                   <div className="space-y-1.5 pt-1">
                     {meta.specs.map((spec, i) => (
-                      <div key={i} className="flex items-start gap-2.5 text-xs text-foreground/85">
-                        <span className="size-1.5 rounded-full bg-primary/80 shrink-0 mt-1.5" />
+                      <div key={i} className="flex items-start gap-2.5 text-xs text-[#B8B4AA] font-light">
+                        <span className="size-1.5 rounded-full bg-[#C5A059] shrink-0 mt-1.5" />
                         <span className="leading-snug">{spec}</span>
                       </div>
                     ))}
@@ -265,7 +265,7 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
               <div className="mt-8 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
                 <Link
                   href={`/services/${service.slug}`}
-                  className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-primary/90 hover:scale-[1.02] active:scale-95"
+                  className="inline-flex items-center gap-2 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] px-4 py-2.5 text-xs font-sans font-medium uppercase tracking-[0.14em] text-[#0C0B09] shadow-lg shadow-[#C5A059]/20 transition-all"
                 >
                   <span>Explore Dossier</span>
                   <ArrowUpRight className="size-3.5" />
@@ -274,7 +274,7 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
                 <button
                   type="button"
                   onClick={() => handleOpenDrawer(service)}
-                  className="inline-flex items-center rounded-xl border border-primary/40 bg-primary/10 px-4 py-2 text-xs font-semibold text-primary hover:bg-primary hover:text-primary-foreground transition-all cursor-pointer"
+                  className="inline-flex items-center rounded-sm border border-[#C5A059]/40 bg-[#C5A059]/10 px-4 py-2 text-xs font-sans font-medium uppercase tracking-[0.14em] text-[#C5A059] hover:bg-[#C5A059] hover:text-[#0C0B09] transition-all cursor-pointer"
                 >
                   <span>Request this Service</span>
                 </button>
@@ -286,21 +286,21 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
         {/* 5th Bento Tile: Bespoke Atelier Inquiry Card (Full Width) */}
         <motion.div
           variants={cardVariants}
-          className="lg:col-span-12 relative overflow-hidden rounded-[2.5rem] border border-primary/30 bg-gradient-to-r from-primary/15 via-slate-900/80 to-amber-950/20 p-8 md:p-12 backdrop-blur-2xl shadow-xl transition-all duration-500 ease-out hover:border-primary/50 hover:shadow-2xl hover:shadow-black/70"
+          className="lg:col-span-12 relative overflow-hidden rounded-sm border border-white/10 bg-[#141310] p-8 md:p-12 shadow-2xl transition-all duration-500 ease-out hover:border-[#C5A059]/50"
         >
-          <div className="pointer-events-none absolute -right-10 top-0 size-96 rounded-full bg-primary/10 blur-[100px]" />
+          <div className="pointer-events-none absolute -right-10 top-0 size-96 rounded-full bg-[#C5A059]/5 blur-[100px]" />
 
           <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
             <div className="max-w-2xl">
               <div className="flex items-center gap-2">
-                <span className="inline-flex items-center rounded-full border border-primary/40 bg-primary/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+                <span className="inline-flex items-center rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 px-3 py-1 text-[11px] font-sans font-medium uppercase tracking-[0.2em] text-[#C5A059]">
                   Bespoke Operations Atelier
                 </span>
               </div>
-              <h3 className="mt-4 font-serif text-3xl text-foreground sm:text-4xl">
+              <h3 className="mt-4 font-serif font-light text-3xl sm:text-4xl text-[#F4F2EC] tracking-tight">
                 Have a Complex or Sovereign Requirement?
               </h3>
-              <p className="mt-3 text-sm text-foreground/75 leading-relaxed">
+              <p className="mt-3 text-sm text-[#B8B4AA] leading-relaxed font-light">
                 Whether arranging multi-city private jet positioning, confidential diplomatic escorts, or historic
                 courtyard galas under NDA, our senior operations curators engineer every detail in strict confidence.
               </p>
@@ -321,7 +321,7 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
                     }
                   )
                 }
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl bg-primary px-8 py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground shadow-xl shadow-primary/25 transition-all hover:bg-primary/90 hover:scale-105"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] px-8 py-3.5 text-xs font-sans font-medium uppercase tracking-[0.16em] text-[#0C0B09] shadow-xl shadow-[#C5A059]/20 transition-all cursor-pointer"
               >
                 <span>Request Private Consultation</span>
                 <ArrowUpRight className="size-4" />
@@ -349,47 +349,47 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-lg overflow-hidden rounded-3xl border border-white/20 bg-slate-900/95 p-6 md:p-8 shadow-2xl backdrop-blur-2xl"
+              className="relative w-full max-w-lg overflow-hidden rounded-sm border border-white/10 bg-[#141310] p-6 md:p-8 shadow-2xl"
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedService(null)}
-                className="absolute right-5 top-5 rounded-full p-2 text-foreground/60 transition-colors hover:bg-white/10 hover:text-white"
+                className="absolute right-5 top-5 rounded-sm p-2 text-[#B8B4AA] transition-colors hover:bg-white/10 hover:text-white"
               >
                 <X className="size-5" />
               </button>
 
               {formSubmitted ? (
                 <div className="py-12 text-center space-y-4">
-                  <div className="mx-auto flex size-14 items-center justify-center rounded-full bg-primary/20 border border-primary text-primary">
+                  <div className="mx-auto flex size-14 items-center justify-center rounded-sm bg-[#C5A059]/10 border border-[#C5A059]/30 text-[#C5A059]">
                     <Check className="size-7" />
                   </div>
-                  <h4 className="font-serif text-2xl text-foreground">Inquiry Received</h4>
-                  <p className="text-sm text-foreground/70 max-w-sm mx-auto leading-relaxed">
+                  <h4 className="font-serif font-light text-2xl text-[#F4F2EC]">Inquiry Received</h4>
+                  <p className="text-sm text-[#B8B4AA] max-w-sm mx-auto leading-relaxed font-light">
                     Thank you. A Senior Travel Curator has been notified and will reach out discreetly within 2 hours.
                   </p>
                 </div>
               ) : (
                 <>
                   <div className="flex items-center gap-2">
-                    <div className="flex size-7 items-center justify-center rounded-lg bg-primary/20 text-primary">
+                    <div className="flex size-7 items-center justify-center rounded-sm bg-[#C5A059]/10 text-[#C5A059]">
                       <ServiceIcon name={selectedService.icon_name} className="size-3.5" />
                     </div>
-                    <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-primary">
+                    <span className="text-[11px] font-sans font-medium uppercase tracking-[0.2em] text-[#C5A059]">
                       Concierge Dispatch
                     </span>
                   </div>
 
-                  <h4 className="mt-2 font-serif text-2xl text-foreground leading-snug">
+                  <h4 className="mt-2 font-serif font-light text-2xl text-[#F4F2EC] leading-snug">
                     {selectedService.title}
                   </h4>
-                  <p className="mt-1 text-xs text-foreground/70">
+                  <p className="mt-1 text-xs text-[#B8B4AA] font-light">
                     Submit your parameters below for a personalized private service dossier.
                   </p>
 
                   <form onSubmit={handleSubmit} className="mt-6 space-y-4">
                     <div>
-                      <label className="block text-[11px] font-medium uppercase tracking-wider text-foreground/70 mb-1">
+                      <label className="block text-[11px] font-sans font-medium uppercase tracking-wider text-[#B8B4AA] mb-1">
                         Full Name
                       </label>
                       <input
@@ -398,13 +398,13 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="e.g. Lord Alistair Vance"
-                        className="w-full rounded-xl border border-white/15 bg-background/80 px-4 py-2.5 text-sm text-foreground placeholder-white/30 outline-none focus:border-primary"
+                        className="w-full rounded-sm border border-white/10 bg-[#0C0B09] px-4 py-2.5 text-sm text-[#F4F2EC] placeholder-[#B8B4AA]/30 outline-none focus:border-[#C5A059]"
                       />
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-[11px] font-medium uppercase tracking-wider text-foreground/70 mb-1">
+                        <label className="block text-[11px] font-sans font-medium uppercase tracking-wider text-[#B8B4AA] mb-1">
                           Private Email
                         </label>
                         <input
@@ -413,11 +413,11 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="client@sanctuary.com"
-                          className="w-full rounded-xl border border-white/15 bg-background/80 px-4 py-2.5 text-sm text-foreground placeholder-white/30 outline-none focus:border-primary"
+                          className="w-full rounded-sm border border-white/10 bg-[#0C0B09] px-4 py-2.5 text-sm text-[#F4F2EC] placeholder-[#B8B4AA]/30 outline-none focus:border-[#C5A059]"
                         />
                       </div>
                       <div>
-                        <label className="block text-[11px] font-medium uppercase tracking-wider text-foreground/70 mb-1">
+                        <label className="block text-[11px] font-sans font-medium uppercase tracking-wider text-[#B8B4AA] mb-1">
                           Phone / WhatsApp
                         </label>
                         <input
@@ -426,13 +426,13 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           placeholder="+91 or international"
-                          className="w-full rounded-xl border border-white/15 bg-background/80 px-4 py-2.5 text-sm text-foreground placeholder-white/30 outline-none focus:border-primary"
+                          className="w-full rounded-sm border border-white/10 bg-[#0C0B09] px-4 py-2.5 text-sm text-[#F4F2EC] placeholder-[#B8B4AA]/30 outline-none focus:border-[#C5A059]"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-medium uppercase tracking-wider text-foreground/70 mb-1">
+                      <label className="block text-[11px] font-sans font-medium uppercase tracking-wider text-[#B8B4AA] mb-1">
                         Dates, Routing & Special Instructions
                       </label>
                       <textarea
@@ -440,21 +440,21 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
                         value={formData.notes}
                         onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                         placeholder="Mention helicopter routing, palace guest count, or security requirements..."
-                        className="w-full rounded-xl border border-white/15 bg-background/80 px-4 py-2.5 text-sm text-foreground placeholder-white/30 outline-none focus:border-primary resize-none"
+                        className="w-full rounded-sm border border-white/10 bg-[#0C0B09] px-4 py-2.5 text-sm text-[#F4F2EC] placeholder-[#B8B4AA]/30 outline-none focus:border-[#C5A059] resize-none"
                       />
                     </div>
 
                     <div className="pt-2">
                       <button
                         type="submit"
-                        className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-primary py-3 text-xs font-semibold uppercase tracking-wider text-primary-foreground shadow-lg shadow-primary/25 transition-transform hover:scale-[1.02]"
+                        className="w-full inline-flex items-center justify-center gap-2 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] py-3 text-xs font-sans font-medium uppercase tracking-[0.16em] text-[#0C0B09] shadow-lg shadow-[#C5A059]/20 transition-all cursor-pointer"
                       >
                         <Send className="size-3.5" />
                         <span>Transmit Confidential Request</span>
                       </button>
                     </div>
 
-                    <p className="text-center text-[10px] text-foreground/50">
+                    <p className="text-center text-[10px] text-[#B8B4AA]/60 font-light">
                       All communications are protected under strict non-disclosure covenants.
                     </p>
                   </form>

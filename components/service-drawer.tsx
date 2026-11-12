@@ -379,19 +379,19 @@ export function ServiceDrawer({
                   animate={{ x: 0 }}
                   exit={{ x: '100%' }}
                   transition={{ type: 'spring', damping: 32, stiffness: 320 }}
-                  className="fixed inset-y-0 right-0 z-50 w-full max-w-xl bg-slate-950/95 backdrop-blur-2xl border-l border-white/15 shadow-[-25px_0_70px_rgba(0,0,0,0.95)] flex flex-col justify-between overflow-y-auto focus:outline-none selection:bg-primary/30 selection:text-primary text-foreground"
+                  className="fixed inset-y-0 right-0 z-50 w-full max-w-xl bg-[#0C0B09]/95 backdrop-blur-2xl border-l border-white/15 shadow-[-25px_0_70px_rgba(0,0,0,0.95)] flex flex-col justify-between overflow-y-auto focus:outline-none selection:bg-[#C5A059]/30 selection:text-[#C5A059] text-foreground"
                 >
                   {/* Golden Top Hairline Accent */}
-                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
+                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-[#C5A059] to-transparent" />
 
                   {/* Ambient Background Lighting Orbs */}
-                  <div className="pointer-events-none absolute -top-20 -right-20 size-72 rounded-full bg-primary/10 blur-[100px]" />
+                  <div className="pointer-events-none absolute -top-20 -right-20 size-72 rounded-full bg-[#C5A059]/10 blur-[100px]" />
                   <div className="pointer-events-none absolute bottom-10 -left-20 size-72 rounded-full bg-amber-600/10 blur-[110px]" />
 
                   {/* ========================================================= */}
                   {/* TOP HEADER & MULTI-STEP PROGRESS BAR                      */}
                   {/* ========================================================= */}
-                  <div className="relative z-10 p-6 sm:p-8 pb-4 border-b border-white/10 bg-slate-950/50 backdrop-blur-md">
+                  <div className="relative z-10 p-6 sm:p-8 pb-4 border-b border-white/10 bg-[#141310]/80 backdrop-blur-md">
                     {/* Top Row: Tag, Reference, Close */}
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
@@ -726,7 +726,7 @@ export function ServiceDrawer({
                                     className="w-full min-h-[48px] rounded-lg border border-white/12 bg-white/5 px-4 py-3 text-[16px] md:text-sm text-foreground outline-none transition-all duration-300 hover:border-white/25 focus:border-gold/60 focus:bg-white/[0.08] focus:ring-1 focus:ring-gold/50 focus:shadow-[0_0_15px_rgba(212,175,55,0.15)] cursor-pointer"
                                   >
                                     {INDIAN_ORIGIN_HUBS.map((hub) => (
-                                      <option key={hub.id} value={hub.name} className="bg-slate-900 text-foreground">
+                                      <option key={hub.id} value={hub.name} className="bg-[#141310] text-[#F4F2EC]">
                                         {hub.name} ({hub.code}) — {hub.state}
                                       </option>
                                     ))}
@@ -1051,12 +1051,12 @@ export function ServiceDrawer({
                                     onChange={(e) => setTitle(e.target.value)}
                                     className="w-full min-h-[48px] rounded-lg border border-white/12 bg-white/5 px-3 py-3 text-[16px] md:text-sm text-foreground outline-none transition-all duration-300 hover:border-white/25 focus:border-gold/60 focus:bg-white/[0.08] focus:ring-1 focus:ring-gold/50 focus:shadow-[0_0_15px_rgba(212,175,55,0.15)] cursor-pointer"
                                   >
-                                    <option value="Mr." className="bg-slate-900 text-foreground">Mr.</option>
-                                    <option value="Ms." className="bg-slate-900 text-foreground">Ms.</option>
-                                    <option value="Dr." className="bg-slate-900 text-foreground">Dr.</option>
-                                    <option value="Lord" className="bg-slate-900 text-foreground">Lord</option>
-                                    <option value="Lady" className="bg-slate-900 text-foreground">Lady</option>
-                                    <option value="Ambassador" className="bg-slate-900 text-foreground">Amb.</option>
+                                    <option value="Mr." className="bg-[#141310] text-[#F4F2EC]">Mr.</option>
+                                    <option value="Ms." className="bg-[#141310] text-[#F4F2EC]">Ms.</option>
+                                    <option value="Dr." className="bg-[#141310] text-[#F4F2EC]">Dr.</option>
+                                    <option value="Lord" className="bg-[#141310] text-[#F4F2EC]">Lord</option>
+                                    <option value="Lady" className="bg-[#141310] text-[#F4F2EC]">Lady</option>
+                                    <option value="Ambassador" className="bg-[#141310] text-[#F4F2EC]">Amb.</option>
                                   </select>
                                 </div>
 

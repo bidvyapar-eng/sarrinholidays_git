@@ -167,30 +167,30 @@ export function ContactForm() {
       {/* ======================================================================= */}
       {/* 1. SLEEK GLASSMORPHISM CONTACT FORM */}
       {/* ======================================================================= */}
-      <div className="relative overflow-hidden rounded-[2.5rem] border border-white/15 bg-slate-900/80 p-6 sm:p-10 backdrop-blur-2xl shadow-2xl transition-all duration-300">
+      <div className="relative overflow-hidden rounded-sm border border-white/10 bg-[#141310] p-6 sm:p-10 shadow-2xl transition-all duration-300">
         {/* Subtle Top Gold Hairline */}
-        <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-[#C5A059] to-transparent" />
 
         {/* Ambient Glow */}
-        <div className="pointer-events-none absolute -top-20 -right-20 size-72 rounded-full bg-primary/10 blur-[100px]" />
-        <div className="pointer-events-none absolute -bottom-20 -left-20 size-72 rounded-full bg-primary/5 blur-[100px]" />
+        <div className="pointer-events-none absolute -top-20 -right-20 size-72 rounded-full bg-[#C5A059]/10 blur-[100px]" />
+        <div className="pointer-events-none absolute -bottom-20 -left-20 size-72 rounded-full bg-[#C5A059]/5 blur-[100px]" />
 
         {/* Form Header */}
         <div className="relative z-10 border-b border-white/10 pb-6">
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <span className="inline-flex items-center rounded-full border border-primary/40 bg-primary/20 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary backdrop-blur-md">
+            <span className="inline-flex items-center rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 px-3 py-0.5 text-[10px] font-sans font-medium uppercase tracking-[0.2em] text-[#C5A059]">
               Direct Operations Brief
             </span>
-            <span className="flex items-center gap-1.5 text-[11px] font-mono text-foreground/50">
-              <Clock className="size-3 text-primary" />
+            <span className="flex items-center gap-1.5 text-[11px] font-sans uppercase tracking-wider text-[#B8B4AA]">
+              <Clock className="size-3 text-[#C5A059]" />
               SLA: &lt; 2 Hours
             </span>
           </div>
 
-          <h3 className="mt-3 font-serif text-2xl sm:text-3xl text-foreground font-normal">
+          <h3 className="mt-3 font-serif font-light text-2xl sm:text-3xl text-[#F4F2EC]">
             Initiate Confidential Inquiry
           </h3>
-          <p className="mt-1.5 text-xs sm:text-sm text-foreground/70 font-light leading-relaxed">
+          <p className="mt-1.5 text-xs sm:text-sm text-[#B8B4AA] font-light leading-relaxed">
             Please register your core journey requirements. Your dossier will be assigned directly to a Senior Operations Director.
           </p>
 
@@ -421,7 +421,7 @@ export function ContactForm() {
                     className="w-full rounded-lg border border-white/12 bg-white/5 px-4 py-3 min-h-[48px] text-[16px] md:text-sm text-foreground outline-none transition-all duration-300 hover:border-white/25 focus:border-gold/60 focus:bg-white/[0.08] focus:ring-1 focus:ring-gold/50 focus:shadow-[0_0_15px_rgba(212,175,55,0.15)] cursor-pointer"
                   >
                     {INDIAN_ORIGIN_HUBS.map((hub) => (
-                      <option key={hub.id} value={hub.name} className="bg-slate-900 text-foreground">
+                      <option key={hub.id} value={hub.name} className="bg-[#141310] text-[#F4F2EC]">
                         {hub.name} ({hub.code}) — {hub.state}
                       </option>
                     ))}
@@ -655,81 +655,81 @@ export function ContactForm() {
             href="https://wa.me/918419887730?text=Hello%20Sarrin%20Holidays%20Concierge,%20I%20would%20like%20to%20inquire%20about%20a%20bespoke%20travel%20experience."
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ y: -4, scale: 1.02 }}
-            whileTap={{ scale: 0.97 }}
+            whileHover={{ y: -3 }}
+            whileTap={{ scale: 0.98 }}
             transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-emerald-500/40 bg-gradient-to-br from-emerald-950/60 via-slate-900/90 to-emerald-950/30 p-5 sm:p-6 backdrop-blur-xl shadow-xl shadow-emerald-950/30 transition-colors hover:border-emerald-400 hover:bg-emerald-950/80 cursor-pointer"
+            className="group relative flex flex-col justify-between overflow-hidden rounded-sm border border-emerald-500/30 bg-[#141310] p-5 sm:p-6 shadow-xl transition-colors hover:border-emerald-400 hover:bg-[#141310]/90 cursor-pointer"
           >
             {/* Ambient emerald glow */}
-            <div className="pointer-events-none absolute -right-10 -top-10 size-40 rounded-full bg-emerald-500/15 blur-[50px] transition-opacity group-hover:opacity-100" />
+            <div className="pointer-events-none absolute -right-10 -top-10 size-40 rounded-full bg-emerald-500/10 blur-[50px] transition-opacity group-hover:opacity-100" />
 
             <div className="flex items-start justify-between">
               {/* Distinct Call Symbol Badge */}
-              <div className="flex size-12 items-center justify-center rounded-2xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform">
-                <PhoneCall className="size-6 text-emerald-400" />
+              <div className="flex size-11 items-center justify-center rounded-sm bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 shadow-md">
+                <PhoneCall className="size-5 text-emerald-400" />
               </div>
 
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/20 px-2.5 py-0.5 text-[10px] font-mono font-semibold uppercase tracking-wider text-emerald-300 border border-emerald-500/30">
+              <span className="inline-flex items-center gap-1.5 rounded-sm bg-emerald-500/10 px-2.5 py-0.5 text-[10px] font-sans font-medium uppercase tracking-wider text-emerald-300 border border-emerald-500/20">
                 <span className="size-1.5 rounded-full bg-emerald-400" />
                 Live Desk
               </span>
             </div>
 
             <div className="mt-5">
-              <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-emerald-400/90">
+              <span className="text-[10px] font-sans uppercase tracking-[0.2em] text-emerald-400/90">
                 Instant Chat & Voice
               </span>
-              <h4 className="mt-1 font-serif text-lg sm:text-xl text-white font-medium group-hover:text-emerald-300 transition-colors">
+              <h4 className="mt-1 font-serif font-light text-lg sm:text-xl text-[#F4F2EC] group-hover:text-emerald-300 transition-colors">
                 Connect via WhatsApp
               </h4>
-              <p className="mt-1 text-xs text-white/70 font-mono">
+              <p className="mt-1 text-xs text-[#B8B4AA] font-sans">
                 +91 8419887730
               </p>
             </div>
 
-            <div className="mt-4 pt-3 border-t border-emerald-500/20 flex items-center justify-between text-xs font-semibold text-emerald-400">
+            <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-sans font-medium uppercase tracking-wider text-emerald-400">
               <span>Open Direct Chat</span>
-              <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </div>
           </motion.a>
 
           {/* Button 2: Separate Elegant Email Button */}
           <motion.a
-            href="mailto:atelier@sarrinholidays.com?subject=Confidential%20Travel%20Inquiry%20-%20Sarrin%20Holidays"
-            whileHover={{ y: -4, scale: 1.02 }}
-            whileTap={{ scale: 0.97 }}
+            href="mailto:info@sarrinholidays.com?subject=Confidential%20Travel%20Inquiry%20-%20Sarrin%20Holidays"
+            whileHover={{ y: -3 }}
+            whileTap={{ scale: 0.98 }}
             transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-br from-slate-900/90 via-slate-900/60 to-primary/10 p-5 sm:p-6 backdrop-blur-xl shadow-xl transition-colors hover:border-primary/50 hover:bg-slate-900/95 cursor-pointer"
+            className="group relative flex flex-col justify-between overflow-hidden rounded-sm border border-white/10 bg-[#141310] p-5 sm:p-6 shadow-xl transition-colors hover:border-[#C5A059]/50 cursor-pointer"
           >
             {/* Ambient gold glow */}
-            <div className="pointer-events-none absolute -right-10 -top-10 size-40 rounded-full bg-primary/15 blur-[50px] transition-opacity group-hover:opacity-100" />
+            <div className="pointer-events-none absolute -right-10 -top-10 size-40 rounded-full bg-[#C5A059]/10 blur-[50px] transition-opacity group-hover:opacity-100" />
 
             <div className="flex items-start justify-between">
               {/* Mail Icon Badge */}
-              <div className="flex size-12 items-center justify-center rounded-2xl bg-primary/20 text-primary border border-primary/40 shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform">
-                <Mail className="size-6 text-primary" />
+              <div className="flex size-11 items-center justify-center rounded-sm bg-[#C5A059]/10 text-[#C5A059] border border-[#C5A059]/30 shadow-md">
+                <Mail className="size-5 text-[#C5A059]" />
               </div>
 
-              <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] font-mono font-medium uppercase tracking-wider text-foreground/75 border border-white/10">
-                PGP Encrypted
+              <span className="inline-flex items-center gap-1 rounded-sm bg-white/5 px-2.5 py-0.5 text-[10px] font-sans font-medium uppercase tracking-wider text-[#B8B4AA] border border-white/10">
+                Encrypted Manifest
               </span>
             </div>
 
             <div className="mt-5">
-              <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary/90">
+              <span className="text-[10px] font-sans uppercase tracking-[0.2em] text-[#C5A059]">
                 Official Correspondence
               </span>
-              <h4 className="mt-1 font-serif text-lg sm:text-xl text-white font-medium group-hover:text-primary transition-colors">
+              <h4 className="mt-1 font-serif font-light text-lg sm:text-xl text-[#F4F2EC] group-hover:text-[#C5A059] transition-colors">
                 Send Direct Email
               </h4>
-              <p className="mt-1 text-xs text-white/70 font-mono truncate">
-                atelier@sarrinholidays.com
+              <p className="mt-1 text-xs text-[#B8B4AA] font-sans truncate">
+                info@sarrinholidays.com
               </p>
             </div>
 
-            <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-primary">
+            <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-sans font-medium uppercase tracking-wider text-[#C5A059]">
               <span>Launch Mail Client</span>
-              <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </div>
           </motion.a>
         </div>

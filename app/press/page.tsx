@@ -103,12 +103,12 @@ export default async function PressPage() {
   }
 
   return (
-    <main className="relative min-h-screen bg-background overflow-hidden selection:bg-primary/30 selection:text-primary">
+    <main className="relative min-h-screen bg-[#0C0B09] text-[#F4F2EC] overflow-hidden selection:bg-[#C5A059]/30 selection:text-[#C5A059]">
       <JsonLd data={pressSchema} id="press-room-schema" />
       <Navbar logoText={settings?.navbar_logo_text} />
 
       {/* Ambient background glows */}
-      <div className="pointer-events-none absolute top-10 left-1/2 -translate-x-1/2 size-[650px] rounded-full bg-primary/8 blur-[140px]" />
+      <div className="pointer-events-none absolute top-10 left-1/2 -translate-x-1/2 size-[650px] rounded-full bg-[#C5A059]/8 blur-[140px]" />
       <div className="pointer-events-none absolute top-[700px] -right-40 size-[500px] rounded-full bg-amber-500/5 blur-[120px]" />
 
       {/* Hero Header */}
@@ -130,7 +130,7 @@ export default async function PressPage() {
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs font-sans text-[#B8B4AA]">
             <span className="flex items-center gap-1.5">
-              <Mail className="size-4 text-[#C5A059]" /> press@sarrinholidays.com
+              <Mail className="size-4 text-[#C5A059]" /> info@sarrinholidays.com
             </span>
             <span className="hidden sm:inline opacity-30">•</span>
             <span className="flex items-center gap-1.5">
@@ -150,10 +150,10 @@ export default async function PressPage() {
           {/* Left Column: Recent Press Releases (8 cols) */}
           <div className="lg:col-span-8 space-y-8">
             <div className="flex items-center justify-between border-b border-white/10 pb-4">
-              <h2 className="font-serif text-2xl text-foreground font-normal">
+              <h2 className="font-serif text-2xl text-[#F4F2EC] font-light">
                 Recent Dispatches & Announcements
               </h2>
-              <span className="text-xs font-mono text-primary uppercase tracking-wider">
+              <span className="text-xs font-sans text-[#C5A059] uppercase tracking-[0.16em]">
                 Official Releases
               </span>
             </div>
@@ -162,31 +162,31 @@ export default async function PressPage() {
               {PRESS_RELEASES.map((pr) => (
                 <article
                   key={pr.id}
-                  className="group rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8 backdrop-blur-xl transition-all duration-300 hover:border-primary/40 hover:bg-white/[0.08]"
+                  className="group rounded-sm border border-white/10 bg-[#141310] p-6 sm:p-8 transition-all duration-300 hover:border-[#C5A059]/50 shadow-xl"
                 >
-                  <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-foreground/50 mb-3">
+                  <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-sans text-[#B8B4AA]/70 mb-3 uppercase tracking-wider">
                     <span className="flex items-center gap-1.5">
-                      <Calendar className="size-3 text-primary" />
+                      <Calendar className="size-3 text-[#C5A059]" />
                       {pr.date}
                     </span>
-                    <span className="rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 text-primary text-[10px] uppercase">
+                    <span className="rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 px-2.5 py-0.5 text-[#C5A059] text-[10px] uppercase font-medium">
                       {pr.category}
                     </span>
                   </div>
 
-                  <h3 className="font-serif text-xl sm:text-2xl text-foreground group-hover:text-primary transition-colors leading-snug">
+                  <h3 className="font-serif font-light text-xl sm:text-2xl text-[#F4F2EC] group-hover:text-[#C5A059] transition-colors leading-snug">
                     {pr.title}
                   </h3>
 
-                  <p className="mt-3 text-sm text-foreground/75 leading-relaxed font-light">
+                  <p className="mt-3 text-sm text-[#B8B4AA] leading-relaxed font-light">
                     {pr.excerpt}
                   </p>
 
-                  <div className="mt-5 flex items-center justify-between text-xs font-mono text-primary pt-3 border-t border-white/5">
+                  <div className="mt-5 flex items-center justify-between text-xs font-sans text-[#C5A059] pt-3 border-t border-white/5 uppercase tracking-wider">
                     <span>{pr.readTime}</span>
                     <a
-                      href="mailto:press@sarrinholidays.com?subject=Press%20Inquiry:%20"
-                      className="inline-flex items-center gap-1 hover:underline"
+                      href="mailto:info@sarrinholidays.com?subject=Press%20Inquiry:%20"
+                      className="inline-flex items-center gap-1 hover:underline font-medium"
                     >
                       <span>Request Full Brief & Assets</span>
                       <ArrowRight className="size-3" />
@@ -200,11 +200,11 @@ export default async function PressPage() {
           {/* Right Column: Media Kit Downloads & Fact Sheet (4 cols) */}
           <div className="lg:col-span-4 space-y-6">
             {/* Media Kit Card */}
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8 backdrop-blur-xl">
-              <h3 className="font-serif text-xl text-foreground font-normal mb-2">
+            <div className="rounded-sm border border-white/10 bg-[#141310] p-6 sm:p-8 shadow-xl">
+              <h3 className="font-serif text-xl text-[#F4F2EC] font-light mb-2">
                 Download Media Assets
               </h3>
-              <p className="text-xs text-foreground/70 leading-relaxed font-light mb-6">
+              <p className="text-xs text-[#B8B4AA] leading-relaxed font-light mb-6">
                 Official vector logo marks, founder portraiture, and high-resolution palace photography cleared for editorial publication.
               </p>
 
@@ -212,50 +212,50 @@ export default async function PressPage() {
                 <a
                   href="/sarrin-holidays-logo.png"
                   download="sarrin-holidays-press-kit-logo.png"
-                  className="flex items-center justify-between p-3.5 rounded-2xl border border-white/10 bg-white/5 hover:border-primary/40 hover:bg-primary/10 transition-all text-xs font-mono text-foreground group"
+                  className="flex items-center justify-between p-3.5 rounded-sm border border-white/10 bg-white/5 hover:border-[#C5A059]/50 hover:bg-[#C5A059]/10 transition-all text-xs font-sans text-[#F4F2EC] group"
                 >
                   <div className="flex items-center gap-2.5">
-                    <Download className="size-4 text-primary" />
+                    <Download className="size-4 text-[#C5A059]" />
                     <span>Vector Brand Insignia (PNG)</span>
                   </div>
-                  <span className="text-[10px] text-foreground/40 group-hover:text-primary">Download</span>
+                  <span className="text-[10px] text-[#B8B4AA] group-hover:text-[#C5A059] uppercase tracking-wider font-medium">Download</span>
                 </a>
 
                 <a
                   href="/llms.txt"
                   target="_blank"
-                  className="flex items-center justify-between p-3.5 rounded-2xl border border-white/10 bg-white/5 hover:border-primary/40 hover:bg-primary/10 transition-all text-xs font-mono text-foreground group"
+                  className="flex items-center justify-between p-3.5 rounded-sm border border-white/10 bg-white/5 hover:border-[#C5A059]/50 hover:bg-[#C5A059]/10 transition-all text-xs font-sans text-[#F4F2EC] group"
                 >
                   <div className="flex items-center gap-2.5">
-                    <FileText className="size-4 text-primary" />
+                    <FileText className="size-4 text-[#C5A059]" />
                     <span>Brand Fact Sheet & Guidelines</span>
                   </div>
-                  <ExternalLink className="size-3.5 text-foreground/40 group-hover:text-primary" />
+                  <ExternalLink className="size-3.5 text-[#B8B4AA] group-hover:text-[#C5A059]" />
                 </a>
               </div>
             </div>
 
             {/* Editorial Contact Desk Card */}
-            <div className="rounded-3xl border border-primary/25 bg-gradient-to-br from-primary/15 via-slate-900/80 to-primary/5 p-6 sm:p-8 backdrop-blur-xl">
-              <span className="text-xs font-mono uppercase tracking-widest text-primary font-medium">
+            <div className="rounded-sm border border-white/10 bg-[#141310] p-6 sm:p-8 shadow-xl">
+              <span className="text-xs font-sans uppercase tracking-[0.2em] text-[#C5A059] font-medium">
                 Editorial Liaison
               </span>
-              <h3 className="mt-2 font-serif text-xl text-foreground font-normal">
+              <h3 className="mt-2 font-serif text-xl text-[#F4F2EC] font-light">
                 Journalist & Writer Desk
               </h3>
-              <p className="mt-2 text-xs text-foreground/75 leading-relaxed font-light">
+              <p className="mt-2 text-xs text-[#B8B4AA] leading-relaxed font-light">
                 For press trips, interviews with our royal heritage historians, or bespoke data on luxury Indian travel trends:
               </p>
 
-              <div className="mt-6 space-y-2 text-xs font-mono text-foreground">
-                <div className="text-primary font-semibold">press@sarrinholidays.com</div>
-                <div className="text-foreground/60">+91 22 6982 5500 (Ext. 4)</div>
-                <div className="text-foreground/50 text-[10px]">Response window: &lt; 4 Hours</div>
+              <div className="mt-6 space-y-2 text-xs font-sans text-[#F4F2EC]">
+                <div className="text-[#C5A059] font-medium">info@sarrinholidays.com</div>
+                <div className="text-[#B8B4AA]">+91 8419887730</div>
+                <div className="text-[#B8B4AA]/70 text-[10px] uppercase tracking-wider">Response window: &lt; 4 Hours</div>
               </div>
 
               <a
-                href="mailto:press@sarrinholidays.com?subject=Press%20Inquiry%20from%20Publication"
-                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary hover:bg-[#c5a030] text-primary-foreground font-semibold px-4 py-3 text-xs uppercase tracking-widest transition-all shadow-md shadow-primary/20"
+                href="mailto:info@sarrinholidays.com?subject=Press%20Inquiry%20from%20Publication"
+                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] text-[#0C0B09] font-medium px-4 py-3 text-xs uppercase tracking-[0.16em] transition-all shadow-md shadow-[#C5A059]/20"
               >
                 <span>Contact Press Office</span>
                 <Mail className="size-3.5" />
@@ -263,11 +263,11 @@ export default async function PressPage() {
             </div>
 
             {/* Brand Boilerplate for Journalists */}
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-primary/80 block mb-2">
+            <div className="rounded-sm border border-white/10 bg-[#141310] p-6 shadow-xl">
+              <span className="text-[10px] font-sans uppercase tracking-[0.2em] text-[#C5A059] block mb-2 font-medium">
                 Media Boilerplate
               </span>
-              <p className="text-[11px] text-foreground/70 font-mono leading-relaxed select-all">
+              <p className="text-[11px] text-[#B8B4AA] font-light leading-relaxed select-all">
                 &ldquo;Sarrin Holidays is India’s premier bespoke luxury travel atelier, curating 18th-century living palace buyouts, private aviation charters, and transformative wellness sanctuaries across the Indian subcontinent under strict non-disclosure legal covenants.&rdquo;
               </p>
             </div>

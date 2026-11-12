@@ -76,10 +76,10 @@ function LoginForm() {
   }
 
   return (
-    <div className="relative min-h-screen w-full bg-slate-950 text-foreground flex items-center justify-center p-4 sm:p-6 overflow-hidden selection:bg-primary/30 selection:text-primary">
+    <div className="relative min-h-screen w-full bg-[#0C0B09] text-foreground flex items-center justify-center p-4 sm:p-6 overflow-hidden selection:bg-[#C5A059]/30 selection:text-[#C5A059]">
       {/* Ambient background lighting */}
       <div className="pointer-events-none absolute inset-0 z-0">
-        <div className="absolute -top-32 left-1/4 size-[500px] rounded-full bg-primary/10 blur-[140px]" />
+        <div className="absolute -top-32 left-1/4 size-[500px] rounded-full bg-[#C5A059]/10 blur-[140px]" />
         <div className="absolute -bottom-32 right-1/4 size-[500px] rounded-full bg-amber-700/10 blur-[150px]" />
       </div>
 
@@ -87,7 +87,7 @@ function LoginForm() {
       <div className="absolute top-6 left-6 z-20">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-mono tracking-wider text-foreground/70 hover:border-primary/40 hover:text-primary transition-all backdrop-blur-md"
+          className="inline-flex items-center gap-2 rounded-sm border border-white/10 bg-[#141310] px-4 py-2 text-xs font-sans uppercase tracking-[0.16em] text-[#B8B4AA] hover:border-[#C5A059]/40 hover:text-[#C5A059] transition-all"
         >
           <ArrowLeft className="size-3.5" />
           <span>Return to Sarrin Holidays</span>
@@ -99,23 +99,23 @@ function LoginForm() {
         initial={{ opacity: 0, y: 20, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.4, ease: 'easeOut' }}
-        className="relative z-10 w-full max-w-md rounded-3xl border border-white/15 bg-slate-900/75 p-6 sm:p-10 shadow-2xl shadow-black/80 backdrop-blur-2xl"
+        className="relative z-10 w-full max-w-md rounded-sm border border-white/10 bg-[#141310] p-6 sm:p-10 shadow-2xl shadow-black/80"
       >
         {/* Brand Crest Header */}
         <div className="text-center mb-8">
-          <div className="relative mx-auto mb-4 flex size-14 items-center justify-center rounded-2xl border border-primary/30 bg-primary/10 text-primary shadow-lg shadow-primary/20">
+          <div className="relative mx-auto mb-4 flex size-14 items-center justify-center rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 text-[#C5A059] shadow-lg shadow-[#C5A059]/20">
             <ShieldCheck className="size-7" />
-            <div className="absolute inset-0 rounded-2xl bg-primary/20 blur-md pointer-events-none" />
+            <div className="absolute inset-0 rounded-sm bg-[#C5A059]/20 blur-md pointer-events-none" />
           </div>
 
-          <span className="inline-flex items-center text-[11px] font-mono uppercase tracking-[0.25em] text-primary">
+          <span className="inline-flex items-center text-[11px] font-sans font-medium uppercase tracking-[0.25em] text-[#C5A059]">
             Atelier Operations
           </span>
 
-          <h1 className="mt-2 font-serif text-3xl font-medium tracking-tight text-white">
+          <h1 className="mt-2 font-serif font-light text-3xl tracking-tight text-[#F4F2EC]">
             Admin Command
           </h1>
-          <p className="mt-2 text-xs text-foreground/60 leading-relaxed max-w-xs mx-auto">
+          <p className="mt-2 text-xs text-[#B8B4AA] leading-relaxed max-w-xs mx-auto font-light">
             Restricted access portal for Sarrin Holidays operations directors and managing curators.
           </p>
         </div>
@@ -241,7 +241,7 @@ export default function LoginPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen w-full bg-slate-950 flex items-center justify-center text-amber-400">
+        <div className="min-h-screen w-full bg-[#0C0B09] flex items-center justify-center text-[#C5A059]">
           <Loader2 className="size-6 animate-spin" />
         </div>
       }

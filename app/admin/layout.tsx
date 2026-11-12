@@ -108,10 +108,10 @@ function AdminLayoutShell({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div className="relative min-h-screen w-full bg-slate-950 text-foreground flex overflow-x-hidden selection:bg-primary/30 selection:text-primary">
+    <div className="relative min-h-screen w-full bg-[#0C0B09] text-foreground flex overflow-x-hidden selection:bg-[#C5A059]/30 selection:text-[#C5A059]">
       {/* Ambient background glow */}
       <div className="pointer-events-none fixed inset-0 z-0">
-        <div className="absolute top-10 left-10 size-80 rounded-full bg-primary/5 blur-[120px]" />
+        <div className="absolute top-10 left-10 size-80 rounded-full bg-[#C5A059]/5 blur-[120px]" />
         <div className="absolute bottom-10 right-10 size-80 rounded-full bg-amber-600/5 blur-[120px]" />
       </div>
 
@@ -119,7 +119,7 @@ function AdminLayoutShell({ children }: { children: React.ReactNode }) {
       {/* 1. DESKTOP COLLAPSIBLE SIDEBAR */}
       {/* ===================================================================== */}
       <aside
-        className={`hidden md:flex flex-col justify-between border-r border-white/10 bg-slate-900/70 backdrop-blur-2xl transition-all duration-300 relative z-20 shrink-0 ${
+        className={`hidden md:flex flex-col justify-between border-r border-white/10 bg-[#141310] backdrop-blur-2xl transition-all duration-300 relative z-20 shrink-0 ${
           collapsed ? 'w-20' : 'w-64'
         }`}
       >

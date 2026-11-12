@@ -95,35 +95,35 @@ export default async function AboutPage() {
 
       {/* Curatorial Philosophy & Standards Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
-        <div className="grid gap-12 lg:grid-cols-3">
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
-            <div className="flex size-12 items-center justify-center rounded-2xl bg-primary/10 text-primary border border-primary/20">
-              <Crown className="size-6" />
+        <div className="grid gap-8 lg:grid-cols-3">
+          <div className="rounded-sm border border-white/10 bg-[#141310] p-8 transition-all duration-300 hover:border-[#C5A059]/40">
+            <div className="flex size-11 items-center justify-center rounded-sm bg-[#C5A059]/10 text-[#C5A059] border border-[#C5A059]/30">
+              <Crown className="size-5" />
             </div>
-            <h3 className="mt-6 font-serif text-2xl text-foreground font-normal">Living Heritage</h3>
-            <p className="mt-3 text-sm text-foreground/75 leading-relaxed font-light">
+            <h3 className="mt-6 font-serif text-2xl text-[#F4F2EC] font-light">Living Heritage</h3>
+            <p className="mt-3 text-sm text-[#B8B4AA] leading-relaxed font-light">
               We work directly with royal trusts to unlock private living quarters, ancestral armories,
               and private courtyards closed to standard museum visitors.
             </p>
           </div>
 
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
-            <div className="flex size-12 items-center justify-center rounded-2xl bg-primary/10 text-primary border border-primary/20">
-              <Plane className="size-6" />
+          <div className="rounded-sm border border-white/10 bg-[#141310] p-8 transition-all duration-300 hover:border-[#C5A059]/40">
+            <div className="flex size-11 items-center justify-center rounded-sm bg-[#C5A059]/10 text-[#C5A059] border border-[#C5A059]/30">
+              <Plane className="size-5" />
             </div>
-            <h3 className="mt-6 font-serif text-2xl text-foreground font-normal">Frictionless Transit</h3>
-            <p className="mt-3 text-sm text-foreground/75 leading-relaxed font-light">
+            <h3 className="mt-6 font-serif text-2xl text-[#F4F2EC] font-light">Frictionless Transit</h3>
+            <p className="mt-3 text-sm text-[#B8B4AA] leading-relaxed font-light">
               By coupling chartered aircraft and high-altitude helicopters with armored chauffeur fleets,
               we reclaim valuable hours so you arrive restored, not exhausted.
             </p>
           </div>
 
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
-            <div className="flex size-12 items-center justify-center rounded-2xl bg-primary/10 text-primary border border-primary/20">
-              <HeartHandshake className="size-6" />
+          <div className="rounded-sm border border-white/10 bg-[#141310] p-8 transition-all duration-300 hover:border-[#C5A059]/40">
+            <div className="flex size-11 items-center justify-center rounded-sm bg-[#C5A059]/10 text-[#C5A059] border border-[#C5A059]/30">
+              <HeartHandshake className="size-5" />
             </div>
-            <h3 className="mt-6 font-serif text-2xl text-foreground font-normal">Personal Custodianship</h3>
-            <p className="mt-3 text-sm text-foreground/75 leading-relaxed font-light">
+            <h3 className="mt-6 font-serif text-2xl text-[#F4F2EC] font-light">Personal Custodianship</h3>
+            <p className="mt-3 text-sm text-[#B8B4AA] leading-relaxed font-light">
               Your dedicated senior concierge liaises directly with property owners, private chefs,
               and master historians to calibrate every detail in real time.
             </p>

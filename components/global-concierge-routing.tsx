@@ -42,19 +42,19 @@ export function GlobalConciergeRouting({
       <div className={`space-y-4 ${className}`}>
         <div className="flex items-center justify-between pb-2 border-b border-white/10">
           <div className="flex items-center gap-2">
-            <div className="flex size-7 items-center justify-center rounded-lg bg-primary/20 text-primary border border-primary/30">
+            <div className="flex size-7 items-center justify-center rounded-sm bg-[#C5A059]/10 text-[#C5A059] border border-[#C5A059]/30">
               <Globe className="size-4" />
             </div>
             <div>
-              <h4 className="text-xs font-semibold text-white tracking-wide">
+              <h4 className="text-xs font-serif text-[#F4F2EC] tracking-wide">
                 Global Concierge Routing
               </h4>
-              <p className="text-[10px] text-neutral-400">
+              <p className="text-[10px] text-[#B8B4AA]">
                 Select your logistical operations desk
               </p>
             </div>
           </div>
-          <span className="text-[10px] font-mono text-primary uppercase tracking-wider">
+          <span className="text-[10px] font-sans text-[#C5A059] uppercase tracking-[0.16em]">
             24/7 Dedicated
           </span>
         </div>
@@ -64,44 +64,44 @@ export function GlobalConciergeRouting({
           {/* Domestic (India) Option */}
           <div
             onClick={() => handleDeskClick('domestic')}
-            className={`group relative rounded-2xl border p-3.5 transition-all cursor-pointer backdrop-blur-xl ${
+            className={`group relative rounded-sm border p-3.5 transition-all cursor-pointer ${
               selected === 'domestic'
-                ? 'border-primary/60 bg-primary/10 shadow-lg shadow-primary/10'
-                : 'border-white/10 bg-neutral-900/60 hover:border-white/25 hover:bg-neutral-900/90'
+                ? 'border-[#C5A059]/60 bg-[#C5A059]/10 shadow-lg shadow-[#C5A059]/10'
+                : 'border-white/10 bg-[#141310] hover:border-white/25 hover:bg-[#141310]/90'
             }`}
           >
             <div className="flex items-start justify-between">
               <div className="flex items-center gap-2">
-                <div className="flex size-6 items-center justify-center rounded-md bg-white/10 text-primary">
+                <div className="flex size-6 items-center justify-center rounded-sm bg-white/10 text-[#C5A059]">
                   <Building2 className="size-3.5" />
                 </div>
                 <div>
-                  <h5 className="text-xs font-semibold text-white">Domestic (India)</h5>
-                  <span className="text-[9px] font-mono text-neutral-400">Pan-India Operations</span>
+                  <h5 className="text-xs font-serif font-medium text-[#F4F2EC]">Domestic (India)</h5>
+                  <span className="text-[9px] font-sans uppercase tracking-wider text-[#B8B4AA]">Pan-India Operations</span>
                 </div>
               </div>
               {selected === 'domestic' && (
-                <span className="size-2 rounded-full bg-primary animate-pulse" />
+                <span className="size-1.5 rounded-full bg-[#C5A059] animate-pulse" />
               )}
             </div>
 
-            <p className="text-[11px] text-neutral-300 mt-2 line-clamp-2">
+            <p className="text-[11px] text-[#B8B4AA] mt-2 line-clamp-2 font-light">
               Chauffeur fleets, private aviation charters, palace buyouts &amp; IST logistics.
             </p>
 
             <div className="mt-3 pt-2 border-t border-white/10 flex items-center justify-between">
               <a
-                href="tel:+912269825500"
+                href="tel:+918419887730"
                 onClick={(e) => e.stopPropagation()}
-                className="text-[10px] font-mono text-primary hover:underline flex items-center gap-1"
+                className="text-[10px] font-sans text-[#C5A059] hover:underline flex items-center gap-1"
               >
                 <Phone className="size-3" />
-                +91 22 6982 5500
+                +91 8419887730
               </a>
               <a
                 href="/contact?desk=domestic"
                 onClick={(e) => e.stopPropagation()}
-                className="text-[10px] font-semibold text-white/80 hover:text-primary flex items-center gap-0.5"
+                className="text-[10px] font-sans font-medium uppercase tracking-wider text-[#F4F2EC]/80 hover:text-[#C5A059] flex items-center gap-0.5"
               >
                 <span>Select Desk</span>
                 <ArrowUpRight className="size-3" />
@@ -112,38 +112,38 @@ export function GlobalConciergeRouting({
           {/* International / NRI Option */}
           <div
             onClick={() => handleDeskClick('nri')}
-            className={`group relative rounded-2xl border p-3.5 transition-all cursor-pointer backdrop-blur-xl ${
+            className={`group relative rounded-sm border p-3.5 transition-all cursor-pointer ${
               selected === 'nri'
-                ? 'border-amber-500/60 bg-amber-500/10 shadow-lg shadow-amber-950/20'
-                : 'border-white/10 bg-neutral-900/60 hover:border-white/25 hover:bg-neutral-900/90'
+                ? 'border-[#C5A059]/60 bg-[#C5A059]/10 shadow-lg shadow-[#C5A059]/10'
+                : 'border-white/10 bg-[#141310] hover:border-white/25 hover:bg-[#141310]/90'
             }`}
           >
             <div className="flex items-start justify-between">
               <div className="flex items-center gap-2">
-                <div className="flex size-6 items-center justify-center rounded-md bg-amber-500/20 text-amber-300">
+                <div className="flex size-6 items-center justify-center rounded-sm bg-[#C5A059]/20 text-[#C5A059]">
                   <Plane className="size-3.5" />
                 </div>
                 <div>
-                  <h5 className="text-xs font-semibold text-white">International / NRI</h5>
-                  <span className="text-[9px] font-mono text-amber-300/80">Cross-Border Desk</span>
+                  <h5 className="text-xs font-serif font-medium text-[#F4F2EC]">International / NRI</h5>
+                  <span className="text-[9px] font-sans uppercase tracking-wider text-[#C5A059]/80">Cross-Border Desk</span>
                 </div>
               </div>
               {selected === 'nri' && (
-                <span className="size-2 rounded-full bg-amber-400 animate-pulse" />
+                <span className="size-1.5 rounded-full bg-[#C5A059] animate-pulse" />
               )}
             </div>
 
-            <p className="text-[11px] text-neutral-300 mt-2 line-clamp-2">
+            <p className="text-[11px] text-[#B8B4AA] mt-2 line-clamp-2 font-light">
               Indian e-visas, international flight sync, forex billing &amp; multi-timezone liaison.
             </p>
 
             <div className="mt-3 pt-2 border-t border-white/10 flex items-center justify-between">
               <a
-                href="https://wa.me/919820072774?text=Hello%20Sarrin%20Holidays%20NRI%20Desk,%20I%20am%20inquiring%20from%20abroad%20regarding%20bespoke%20travel%20curation."
+                href="https://wa.me/918419887730?text=Hello%20Sarrin%20Holidays%20NRI%20Desk,%20I%20am%20inquiring%20from%20abroad%20regarding%20bespoke%20travel%20curation."
                 target="_blank"
                 rel="noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="text-[10px] font-mono text-amber-300 hover:underline flex items-center gap-1"
+                className="text-[10px] font-sans text-[#C5A059] hover:underline flex items-center gap-1"
               >
                 <Globe className="size-3" />
                 NRI WhatsApp Line
@@ -151,7 +151,7 @@ export function GlobalConciergeRouting({
               <a
                 href="/contact?desk=nri"
                 onClick={(e) => e.stopPropagation()}
-                className="text-[10px] font-semibold text-white/80 hover:text-amber-300 flex items-center gap-0.5"
+                className="text-[10px] font-sans font-medium uppercase tracking-wider text-[#F4F2EC]/80 hover:text-[#C5A059] flex items-center gap-0.5"
               >
                 <span>Select Desk</span>
                 <ArrowUpRight className="size-3" />
@@ -168,21 +168,21 @@ export function GlobalConciergeRouting({
     <div className={`space-y-6 ${className}`}>
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-primary backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 px-3 py-0.5 text-[10px] font-sans font-medium uppercase tracking-[0.22em] text-[#C5A059]">
             <Globe className="size-3" />
             Global Concierge Routing System
           </div>
-          <h3 className="font-serif text-2xl sm:text-3xl text-white font-normal tracking-tight">
+          <h3 className="font-serif text-2xl sm:text-3xl text-[#F4F2EC] font-light tracking-tight">
             Tailored Logistical Support for Discerning Travelers
           </h3>
-          <p className="text-xs sm:text-sm text-neutral-400 max-w-2xl font-light">
+          <p className="text-xs sm:text-sm text-[#B8B4AA] max-w-2xl font-light">
             Whether organizing corporate aviation clearances across India or coordinating cross-border visas and long-haul flights from abroad, our dedicated desks anticipate your requirements.
           </p>
         </div>
 
-        <div className="flex items-center gap-2 text-xs font-mono text-neutral-400">
+        <div className="flex items-center gap-2 text-xs font-sans text-[#B8B4AA]">
           <span className="size-2 rounded-full bg-emerald-400 animate-ping" />
-          <span>Both Desks Active &bull; &lt;2h Response</span>
+          <span className="text-[11px] uppercase tracking-wider">Both Desks Active &bull; &lt;2h Response</span>
         </div>
       </div>
 
@@ -193,61 +193,61 @@ export function GlobalConciergeRouting({
         {/* =================================================================== */}
         <div
           onClick={() => handleDeskClick('domestic')}
-          className={`group relative rounded-3xl border p-6 sm:p-8 backdrop-blur-2xl transition-all duration-300 cursor-pointer overflow-hidden shadow-2xl flex flex-col justify-between ${
+          className={`group relative rounded-sm border p-6 sm:p-8 transition-all duration-300 cursor-pointer overflow-hidden shadow-2xl flex flex-col justify-between ${
             selected === 'domestic'
-              ? 'border-primary/60 bg-gradient-to-br from-neutral-900/90 via-slate-950/90 to-primary/10 ring-1 ring-primary/40 shadow-primary/10'
-              : 'border-white/12 bg-neutral-900/60 hover:border-white/30 hover:bg-neutral-900/80'
+              ? 'border-[#C5A059]/60 bg-[#141310] ring-1 ring-[#C5A059]/40 shadow-[#C5A059]/10'
+              : 'border-white/10 bg-[#141310]/80 hover:border-white/30 hover:bg-[#141310]'
           }`}
         >
           {/* Subtle Ambient Glow */}
-          <div className="pointer-events-none absolute -top-12 -right-12 size-40 rounded-full bg-primary/15 blur-[60px]" />
+          <div className="pointer-events-none absolute -top-12 -right-12 size-40 rounded-full bg-[#C5A059]/10 blur-[60px]" />
 
           <div>
             {/* Header row */}
             <div className="flex items-start justify-between">
               <div className="flex items-center gap-3">
-                <div className="flex size-12 items-center justify-center rounded-2xl bg-primary/20 text-primary border border-primary/30 shadow-md">
+                <div className="flex size-12 items-center justify-center rounded-sm bg-[#C5A059]/10 text-[#C5A059] border border-[#C5A059]/30 shadow-md">
                   <Building2 className="size-6" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary block">
+                  <span className="text-[10px] font-sans uppercase tracking-[0.2em] text-[#C5A059] block">
                     Pan-India Resident Operations
                   </span>
-                  <h4 className="font-serif text-2xl text-white font-medium">
+                  <h4 className="font-serif text-2xl text-[#F4F2EC] font-light">
                     Domestic (India)
                   </h4>
                 </div>
               </div>
 
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-[11px] font-mono text-white/90 border border-white/15">
+              <span className="inline-flex items-center gap-1.5 rounded-sm bg-white/5 px-3 py-1 text-[11px] font-sans uppercase tracking-wider text-[#F4F2EC]/90 border border-white/10">
                 IST Timezone
               </span>
             </div>
 
-            <p className="mt-4 text-xs sm:text-sm text-neutral-300 leading-relaxed font-light">
+            <p className="mt-4 text-xs sm:text-sm text-[#B8B4AA] leading-relaxed font-light">
               Designed for resident patrons, Indian corporate leadership, and royal celebration organizers requiring seamless intra-India hospitality.
             </p>
 
             {/* Anticipated Logistical Needs */}
             <div className="mt-6 space-y-3">
-              <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block">
+              <span className="text-[10px] font-sans uppercase tracking-[0.16em] text-[#C5A059] block">
                 Anticipated Logistical Services:
               </span>
-              <ul className="space-y-2.5 text-xs text-neutral-300">
+              <ul className="space-y-2.5 text-xs text-[#B8B4AA] font-light">
                 <li className="flex items-start gap-2.5">
-                  <span className="size-1.5 rounded-full bg-primary/80 shrink-0 mt-1.5" />
+                  <span className="size-1.5 rounded-full bg-[#C5A059] shrink-0 mt-1.5" />
                   <span>Inter-state private aviation permits &amp; high-altitude helicopter transit</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <span className="size-1.5 rounded-full bg-primary/80 shrink-0 mt-1.5" />
+                  <span className="size-1.5 rounded-full bg-[#C5A059] shrink-0 mt-1.5" />
                   <span>Exclusive palace &amp; private island buyouts across Rajasthan &amp; Kerala</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <span className="size-1.5 rounded-full bg-primary/80 shrink-0 mt-1.5" />
+                  <span className="size-1.5 rounded-full bg-[#C5A059] shrink-0 mt-1.5" />
                   <span>VIP armored chauffeur motorcades with state protocol clearances</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <span className="size-1.5 rounded-full bg-primary/80 shrink-0 mt-1.5" />
+                  <span className="size-1.5 rounded-full bg-[#C5A059] shrink-0 mt-1.5" />
                   <span>Transparent Indian GST invoicing with corporate billing support</span>
                 </li>
               </ul>
@@ -256,34 +256,34 @@ export function GlobalConciergeRouting({
 
           {/* Action Row */}
           <div className="mt-8 pt-6 border-t border-white/10 space-y-3">
-            <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
-              <span className="text-neutral-400">Direct Operations Desk:</span>
+            <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-sans">
+              <span className="text-[#B8B4AA]">Direct Operations Desk:</span>
               <a
-                href="tel:+912269825500"
+                href="tel:+918419887730"
                 onClick={(e) => e.stopPropagation()}
-                className="text-primary hover:underline flex items-center gap-1.5 font-semibold"
+                className="text-[#C5A059] hover:underline flex items-center gap-1.5 font-medium"
               >
                 <Phone className="size-3.5" />
-                +91 (0) 22 6982 5500
+                +91 8419887730
               </a>
             </div>
 
             <div className="grid grid-cols-2 gap-2 pt-2">
               <a
-                href="https://wa.me/919820044810?text=Hello%20Sarrin%20Holidays%20Domestic%20Desk%2C%20I%20would%20like%20to%20inquire%20about%20a%20luxury%20journey%20within%20India."
+                href="https://wa.me/918419887730?text=Hello%20Sarrin%20Holidays%20Domestic%20Desk%2C%20I%20would%20like%20to%20inquire%20about%20a%20luxury%20journey%20within%20India."
                 target="_blank"
                 rel="noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-primary/20 hover:bg-primary/30 border border-primary/40 text-xs font-semibold text-primary transition-colors text-center"
+                className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-sm bg-[#C5A059]/10 hover:bg-[#C5A059]/20 border border-[#C5A059]/30 text-xs font-sans font-medium uppercase tracking-wider text-[#C5A059] transition-colors text-center cursor-pointer"
               >
                 <span>WhatsApp Desk</span>
                 <ArrowUpRight className="size-3" />
               </a>
 
               <a
-                href="mailto:domestic.ops@sarrinholidays.com"
+                href="mailto:info@sarrinholidays.com"
                 onClick={(e) => e.stopPropagation()}
-                className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-neutral-300 hover:text-white transition-colors text-center"
+                className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-sm bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-sans font-medium uppercase tracking-wider text-[#B8B4AA] hover:text-[#F4F2EC] transition-colors text-center cursor-pointer"
               >
                 <Mail className="size-3.5" />
                 <span>Email Ops</span>
@@ -297,69 +297,69 @@ export function GlobalConciergeRouting({
         {/* =================================================================== */}
         <div
           onClick={() => handleDeskClick('nri')}
-          className={`group relative rounded-3xl border p-6 sm:p-8 backdrop-blur-2xl transition-all duration-300 cursor-pointer overflow-hidden shadow-2xl flex flex-col justify-between ${
+          className={`group relative rounded-sm border p-6 sm:p-8 transition-all duration-300 cursor-pointer overflow-hidden shadow-2xl flex flex-col justify-between ${
             selected === 'nri'
-              ? 'border-amber-500/60 bg-gradient-to-br from-neutral-900/90 via-slate-950/90 to-amber-500/10 ring-1 ring-amber-500/40 shadow-amber-950/20'
-              : 'border-white/12 bg-neutral-900/60 hover:border-white/30 hover:bg-neutral-900/80'
+              ? 'border-[#C5A059]/60 bg-[#141310] ring-1 ring-[#C5A059]/40 shadow-[#C5A059]/10'
+              : 'border-white/10 bg-[#141310]/80 hover:border-white/30 hover:bg-[#141310]'
           }`}
         >
           {/* Subtle Amber Glow */}
-          <div className="pointer-events-none absolute -top-12 -right-12 size-40 rounded-full bg-amber-500/15 blur-[60px]" />
+          <div className="pointer-events-none absolute -top-12 -right-12 size-40 rounded-full bg-[#C5A059]/10 blur-[60px]" />
 
           <div>
             {/* Header row */}
             <div className="flex items-start justify-between">
               <div className="flex items-center gap-3">
-                <div className="flex size-12 items-center justify-center rounded-2xl bg-amber-500/20 text-amber-400 border border-amber-500/30 shadow-md">
+                <div className="flex size-12 items-center justify-center rounded-sm bg-[#C5A059]/10 text-[#C5A059] border border-[#C5A059]/30 shadow-md">
                   <Plane className="size-6" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-amber-400 block">
+                  <span className="text-[10px] font-sans uppercase tracking-[0.2em] text-[#C5A059] block">
                     Global Patrons &bull; US &bull; UK &bull; UAE &bull; EU
                   </span>
-                  <h4 className="font-serif text-2xl text-white font-medium">
+                  <h4 className="font-serif text-2xl text-[#F4F2EC] font-light">
                     International / NRI
                   </h4>
                 </div>
               </div>
 
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/20 px-3 py-1 text-[11px] font-mono text-amber-300 border border-amber-500/30">
+              <span className="inline-flex items-center gap-1.5 rounded-sm bg-[#C5A059]/10 px-3 py-1 text-[11px] font-sans uppercase tracking-wider text-[#C5A059] border border-[#C5A059]/30">
                 Multi-Timezone
               </span>
             </div>
 
-            <p className="mt-4 text-xs sm:text-sm text-neutral-300 leading-relaxed font-light">
+            <p className="mt-4 text-xs sm:text-sm text-[#B8B4AA] leading-relaxed font-light">
               Specifically structured for Non-Resident Indians (NRIs) and international patrons seeking flawless end-to-end voyage curation from departure home airport to arrival in India.
             </p>
 
             {/* Anticipated Logistical Needs */}
             <div className="mt-6 space-y-3">
-              <span className="text-[10px] font-mono uppercase tracking-wider text-amber-300/80 block">
+              <span className="text-[10px] font-sans uppercase tracking-[0.16em] text-[#C5A059] block">
                 Anticipated Cross-Border Services:
               </span>
-              <ul className="space-y-2.5 text-xs text-neutral-300">
+              <ul className="space-y-2.5 text-xs text-[#B8B4AA] font-light">
                 <li className="flex items-start gap-2.5">
-                  <span className="size-1.5 rounded-full bg-amber-400/80 shrink-0 mt-1.5" />
+                  <span className="size-1.5 rounded-full bg-[#C5A059] shrink-0 mt-1.5" />
                   <span>
-                    <strong className="text-white font-medium">Indian E-Visa &amp; Consular Guidance:</strong> Expedited pre-clearance advisory &amp; biometric support
+                    <strong className="text-[#F4F2EC] font-medium">Indian E-Visa &amp; Consular Guidance:</strong> Expedited pre-clearance advisory &amp; biometric support
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <span className="size-1.5 rounded-full bg-amber-400/80 shrink-0 mt-1.5" />
+                  <span className="size-1.5 rounded-full bg-[#C5A059] shrink-0 mt-1.5" />
                   <span>
-                    <strong className="text-white font-medium">International Flight Synchronization:</strong> Tarmac VIP meet &amp; greet upon arrival at DEL / BOM / BLR
+                    <strong className="text-[#F4F2EC] font-medium">International Flight Synchronization:</strong> Tarmac VIP meet &amp; greet upon arrival at DEL / BOM / BLR
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <span className="size-1.5 rounded-full bg-amber-400/80 shrink-0 mt-1.5" />
+                  <span className="size-1.5 rounded-full bg-[#C5A059] shrink-0 mt-1.5" />
                   <span>
-                    <strong className="text-white font-medium">Multi-Currency Transparent Forex:</strong> Direct billing in USD, GBP, EUR, AED with locked rates
+                    <strong className="text-[#F4F2EC] font-medium">Multi-Currency Transparent Forex:</strong> Direct billing in USD, GBP, EUR, AED with locked rates
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <span className="size-1.5 rounded-full bg-amber-400/80 shrink-0 mt-1.5" />
+                  <span className="size-1.5 rounded-full bg-[#C5A059] shrink-0 mt-1.5" />
                   <span>
-                    <strong className="text-white font-medium">24/7 Timezone Matching:</strong> Dedicated liaison on EST, PST, GMT, GST, or SGT schedules
+                    <strong className="text-[#F4F2EC] font-medium">24/7 Timezone Matching:</strong> Dedicated liaison on EST, PST, GMT, GST, or SGT schedules
                   </span>
                 </li>
               </ul>
@@ -368,36 +368,36 @@ export function GlobalConciergeRouting({
 
           {/* Action Row */}
           <div className="mt-8 pt-6 border-t border-white/10 space-y-3">
-            <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
-              <span className="text-neutral-400">Global NRI Hotline:</span>
+            <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-sans">
+              <span className="text-[#B8B4AA]">Global NRI Hotline:</span>
               <a
-                href="https://wa.me/919820072774?text=Hello%20Sarrin%20Holidays%20NRI%20Desk,%20I%20am%20inquiring%20from%20abroad%20regarding%20bespoke%20travel%20curation."
+                href="https://wa.me/918419887730?text=Hello%20Sarrin%20Holidays%20NRI%20Desk,%20I%20am%20inquiring%20from%20abroad%20regarding%20bespoke%20travel%20curation."
                 target="_blank"
                 rel="noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="text-amber-400 hover:underline flex items-center gap-1.5 font-semibold"
+                className="text-[#C5A059] hover:underline flex items-center gap-1.5 font-medium"
               >
                 <Globe className="size-3.5" />
-                +91 98200 SARRIN (NRI Priority)
+                +91 8419887730 (NRI Priority)
               </a>
             </div>
 
             <div className="grid grid-cols-2 gap-2 pt-2">
               <a
-                href="https://wa.me/919820072774?text=Hello%20Sarrin%20Holidays%20NRI%20Desk,%20I%20am%20inquiring%20from%20abroad%20regarding%20bespoke%20travel%20curation."
+                href="https://wa.me/918419887730?text=Hello%20Sarrin%20Holidays%20NRI%20Desk,%20I%20am%20inquiring%20from%20abroad%20regarding%20bespoke%20travel%20curation."
                 target="_blank"
                 rel="noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-xs font-semibold text-amber-300 transition-colors text-center"
+                className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-sm bg-[#C5A059]/10 hover:bg-[#C5A059]/20 border border-[#C5A059]/30 text-xs font-sans font-medium uppercase tracking-wider text-[#C5A059] transition-colors text-center cursor-pointer"
               >
                 <span>NRI WhatsApp</span>
                 <ArrowUpRight className="size-3" />
               </a>
 
               <a
-                href="mailto:nri.concierge@sarrinholidays.com?subject=International%20/%20NRI%20Bespoke%20Expedition%20Inquiry"
+                href="mailto:info@sarrinholidays.com?subject=International%20/%20NRI%20Bespoke%20Expedition%20Inquiry"
                 onClick={(e) => e.stopPropagation()}
-                className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-neutral-300 hover:text-white transition-colors text-center"
+                className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-sm bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-sans font-medium uppercase tracking-wider text-[#B8B4AA] hover:text-[#F4F2EC] transition-colors text-center cursor-pointer"
               >
                 <Mail className="size-3.5" />
                 <span>NRI Email Desk</span>

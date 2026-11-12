@@ -234,3 +234,4 @@ export function MobileStickyBookingBar({ pkg }: PackageStickyBookingCardProps) {
     </div>
   )
 }
+

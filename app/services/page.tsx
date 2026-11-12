@@ -67,17 +67,17 @@ export default async function ServicesPage() {
       </section>
 
       {/* Concierge Desk & Operations Banner */}
-      <section className="relative border-t border-white/10 bg-slate-950/80 py-16 md:py-24">
+      <section className="relative border-t border-white/10 bg-[#0C0B09] py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8 rounded-3xl border border-white/12 bg-white/5 p-8 md:p-12 backdrop-blur-xl">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 rounded-sm border border-white/10 bg-[#141310] p-8 md:p-12 shadow-2xl">
             <div className="max-w-xl text-center md:text-left">
-              <span className="text-xs uppercase tracking-[0.25em] text-primary font-mono">
+              <span className="text-xs uppercase tracking-[0.25em] text-[#C5A059] font-sans font-medium">
                 Direct Concierge Desk
               </span>
-              <h2 className="mt-2 font-serif text-3xl text-foreground sm:text-4xl">
+              <h2 className="mt-3 font-serif font-light text-3xl sm:text-4xl text-[#F4F2EC] tracking-tight">
                 Ready to Architect an Extraordinary Escape?
               </h2>
-              <p className="mt-3 text-sm text-foreground/70 leading-relaxed">
+              <p className="mt-3 text-sm text-[#B8B4AA] leading-relaxed font-light">
                 Connect directly with our senior travel curators for custom flight routes, private island buyouts,
                 or confidential security escorts.
               </p>
@@ -86,15 +86,15 @@ export default async function ServicesPage() {
             <div className="flex flex-col sm:flex-row gap-4 shrink-0 w-full sm:w-auto">
               <a
                 href="mailto:concierge@sarrinholidays.com"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/5 px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-foreground hover:bg-white/10 transition-colors"
+                className="inline-flex items-center justify-center gap-2 rounded-sm border border-white/15 bg-white/[0.03] px-6 py-3.5 text-xs font-sans font-medium uppercase tracking-[0.16em] text-[#F4F2EC] hover:bg-white/[0.06] transition-colors"
               >
-                <Mail className="size-4 text-primary" />
+                <Mail className="size-4 text-[#C5A059]" />
                 <span>concierge@sarrinholidays.com</span>
               </a>
 
               <a
                 href="tel:+918419887730"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-primary px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-primary-foreground shadow-lg shadow-primary/25 hover:bg-primary/90 transition-transform hover:scale-105"
+                className="inline-flex items-center justify-center gap-2 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] px-6 py-3.5 text-xs font-sans font-medium uppercase tracking-[0.16em] text-[#0C0B09] shadow-lg shadow-[#C5A059]/20 transition-colors"
               >
                 <Phone className="size-4" />
                 <span>+91 84198 87730</span>
