@@ -531,7 +531,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
       '@type': 'TravelAgency',
       name: 'Sarrin Holidays',
       url: siteUrl,
-      telephone: '+91-22-6982-5500',
+      telephone: '+91-84198-87730',
     },
   }
 

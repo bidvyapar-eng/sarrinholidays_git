@@ -2,14 +2,34 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { ArrowUpRight } from 'lucide-react'
+import { Phone, MessageCircle } from 'lucide-react'
 import type { PackageItem } from '@/lib/cms'
 import { optimizeUnsplashUrl } from '@/lib/cms'
-import { openConciergeDrawer } from '@/components/ConciergeDrawer'
 
 export interface PackageCardProps {
   pkg: PackageItem
   onSelect?: (pkg: PackageItem) => void
+}
+
+const SILENT_LUXURY_COPY: Record<string, string> = {
+  'kerala-gods-own-country-8d':
+    'Traverse mist-cloaked tea estates, emerald backwater canals, and tranquil Kovalam coastlines with unhurried private estate stewardship.',
+  'kerala-backwaters-hills-5d':
+    'Retreat through cascading Munnar tea valleys, organic spice plantations, and serene overnight backwater catamaran cruises.',
+  'kashmir-paradise-valleys-7d':
+    'Sojourn through snow-crested alpine valleys, private Dal Lake cedar houseboats, and authentic multi-course Wazwan royal feasts.',
+  'blissful-goa-beach-getaway-4d':
+    'Unwind along secluded South Goa sands, private sunset Mandovi yacht charters, and preserved Portuguese heritage estates.',
+  'experience-varanasi-dev-deepawali-3d':
+    'Witness thousands of golden earthen ghat lamps from private ceremonial river barges along sacred Kashi waters.',
+  'royal-rajasthan-tour':
+    'Inhabit sovereign Rajputana fortresses, torchlit Lake Pichola marble ramparts, and regal living royal palace suites.',
+  'kerala-houseboat-retreat':
+    'Drift through quiet palm-fringed Vembanad lagoons aboard an exclusive private houseboat with bespoke on-deck Ayurvedic wellness.',
+  'himalayan-wellness-escapade':
+    'Restore harmony with physician-led Ayurvedic immersions, private Ganga river barges, and tranquil Himalayan mountain sanctuary vistas.',
+  'wild-untamed-tiger-safari':
+    'Track Royal Bengal Tigers across pristine forest corridors with private naturalists and luxury open-air tented pavilions.',
 }
 
 function getPackageImage(pkg: PackageItem) {
@@ -37,23 +57,22 @@ function getPackageImage(pkg: PackageItem) {
   return 'https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=800&q=75'
 }
 
-function formatPricingDisplay(price?: number) {
-  if (!price || price <= 0) {
-    return 'Bespoke Charter · On Request'
-  }
-  const inrValue = price < 1000 ? price * 1000 : price
-  return `From ₹${inrValue.toLocaleString('en-IN')} / Guest`
-}
-
 export function PackageCard({ pkg }: PackageCardProps) {
   const imageUrl = optimizeUnsplashUrl(getPackageImage(pkg))
   const tier = pkg.scarcity_status || (pkg.is_trending ? 'Curated Circuit' : 'Private Heritage')
-  const routeEyebrow = pkg.destinations && pkg.destinations.length > 0 ? pkg.destinations.join(' • ') : ''
+  const routeEyebrow = pkg.destinations && pkg.destinations.length > 0 ? pkg.destinations.join(' · ') : ''
+  const silentLuxuryCopy =
+    SILENT_LUXURY_COPY[pkg.slug] ||
+    pkg.description ||
+    'Experience handcrafted Indian circuits featuring private chauffeur transit, heritage sanctuaries, and discreet bespoke travel stewardship.'
+
+  const whatsappMessage = `Hello Sarrin Holidays, I would like to enquire about the ${pkg.title} journey.`
+  const whatsappHref = `https://wa.me/918419887730?text=${encodeURIComponent(whatsappMessage)}`
 
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-sm border border-white/10 bg-[#141310] shadow-xl shadow-black/50 transition-all duration-500 ease-out hover:border-[#C5A059]/60 hover:shadow-2xl hover:shadow-black/70">
       {/* Visual Media Header: aspect-[4/3] */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#0C0B09]">
+      <Link href={`/packages/${pkg.slug}`} className="block relative aspect-[4/3] w-full overflow-hidden bg-[#0C0B09]">
         <img
           src={imageUrl}
           alt={pkg.title}
@@ -78,69 +97,66 @@ export function PackageCard({ pkg }: PackageCardProps) {
             {tier}
           </span>
         </div>
-      </div>
+      </Link>
 
       {/* Card Content Body */}
       <div className="flex flex-1 flex-col p-6">
         {/* Route Eyebrow in #C5A059 */}
         {routeEyebrow && (
-          <div className="text-[11px] tracking-[0.1em] uppercase text-[#C5A059] font-medium mb-2 truncate">
+          <div className="text-[11px] tracking-[0.1em] uppercase text-[#C5A059] font-sans font-medium mb-2.5 truncate">
             {routeEyebrow}
           </div>
         )}
 
-        {/* Title: 2 lines fully readable without single-line ellipses */}
+        {/* Title: text-[20px] font-semibold text-white tracking-normal leading-snug */}
         <Link href={`/packages/${pkg.slug}`} className="block group-hover:text-[#C5A059] transition-colors">
-          <h3 className="font-serif text-2xl text-[#F6F3EC] leading-snug line-clamp-2 min-h-[3.5rem] font-medium">
+          <h3 className="text-[20px] font-semibold text-white tracking-normal leading-snug line-clamp-2 min-h-[3.25rem]">
             {pkg.title}
           </h3>
         </Link>
 
-        {/* Description */}
-        <p className="mt-2 text-pretty text-sm leading-relaxed text-[#E5E2DC] line-clamp-2 font-normal">
-          {pkg.description}
+        {/* Short Silent Luxury Copy: text-[15px] font-normal text-[#EAE6DF] leading-relaxed */}
+        <p className="mt-2.5 text-[15px] font-normal text-[#EAE6DF] leading-relaxed line-clamp-2">
+          {silentLuxuryCopy}
         </p>
 
-        {/* Highlights Bullet Previews */}
-        {pkg.highlights && pkg.highlights.length > 0 && (
-          <ul className="mt-4 space-y-2 border-t border-white/10 pt-3.5">
-            {pkg.highlights.slice(0, 2).map((hl, idx) => (
-              <li key={idx} className="flex items-start gap-2.5 text-xs text-[#E5E2DC]">
-                <span className="size-1.5 rounded-full bg-[#C5A059] mt-1 shrink-0" />
-                <span className="truncate font-normal">{hl}</span>
-              </li>
-            ))}
-          </ul>
-        )}
+        {/* Typographic Line in #C5A059 gold: Private Chauffeur · Curated Stays · 24/7 Concierge */}
+        <div className="mt-3.5 text-xs font-sans font-medium text-[#C5A059] tracking-wide">
+          Private Chauffeur · Curated Stays · 24/7 Concierge
+        </div>
 
-        {/* Card Footer Pricing & Actions */}
-        <div className="mt-auto pt-5 border-t border-white/10 flex items-center justify-between gap-3">
-          <div className="flex flex-col">
-            <span className="text-xs font-semibold text-[#C5A059] tracking-wider font-sans uppercase">
-              {formatPricingDisplay(pkg.price)}
-            </span>
-            <Link
-              href={`/packages/${pkg.slug}`}
-              className="mt-0.5 text-[10px] text-[#E5E2DC] hover:text-[#C5A059] tracking-wider uppercase transition-colors"
-            >
-              View Itinerary →
-            </Link>
-          </div>
-
-          <button
-            type="button"
-            onClick={() =>
-              openConciergeDrawer({
-                packageTitle: pkg.title,
-                route: routeEyebrow,
-                slug: pkg.slug,
-              })
-            }
-            className="inline-flex min-h-[38px] items-center gap-1.5 rounded-sm bg-[#C5A059] px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-[#0C0B09] transition-colors hover:bg-[#D4B475] active:scale-95 shadow-sm shrink-0 cursor-pointer"
+        {/* Quiet link to View Full Itinerary */}
+        <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-sans">
+          <Link
+            href={`/packages/${pkg.slug}`}
+            className="text-[#E5E2DC]/75 hover:text-[#C5A059] transition-colors uppercase tracking-wider font-medium"
           >
-            <span>Plan a Trip</span>
-            <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </button>
+            Explore Complete Itinerary —
+          </Link>
+          <span className="text-[#C5A059]/70 uppercase tracking-widest text-[10px]">Bespoke Lead</span>
+        </div>
+
+        {/* Card Footer: 2 Direct Lead-Generation Actions (Strictly Zero Pricing) */}
+        <div className="mt-auto pt-4 border-t border-white/10 grid grid-cols-1 sm:grid-cols-12 gap-2">
+          {/* Primary Action Button: WhatsApp Concierge */}
+          <a
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="sm:col-span-8 inline-flex items-center justify-center gap-2 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] px-3.5 py-2.5 text-xs font-semibold uppercase tracking-wider text-[#0C0B09] transition-all shadow-md active:scale-[0.98] text-center"
+          >
+            <MessageCircle className="size-3.5 shrink-0" strokeWidth={1.5} />
+            <span>WhatsApp Concierge</span>
+          </a>
+
+          {/* Secondary Action Button: Call Desk */}
+          <a
+            href="tel:+918419887730"
+            className="sm:col-span-4 inline-flex items-center justify-center gap-1.5 rounded-sm border border-white/20 bg-white/5 hover:bg-white/10 px-3 py-2.5 text-xs font-medium uppercase tracking-wider text-[#F4F2EC] transition-colors text-center"
+          >
+            <Phone className="size-3.5 text-[#C5A059] shrink-0" strokeWidth={1.5} />
+            <span>Call Desk</span>
+          </a>
         </div>
       </div>
     </article>

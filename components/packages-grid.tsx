@@ -199,9 +199,8 @@ export function PackagesGrid() {
     setActiveCategory("All Circuits")
   }
 
-  const formatPrice = (price: number) => {
-    const inrValue = price < 10000 ? price * 100 : price
-    return `₹${inrValue.toLocaleString('en-IN')}`
+  const formatPrice = (_price: number) => {
+    return 'Tariff on Request'
   }
 
   const getPackageImage = (pkg: PackageItem) => {
@@ -492,7 +491,7 @@ export function PackagesGrid() {
                   Bespoke Private Itinerary
                 </span>
                 <span className="font-serif text-2xl font-semibold text-white">
-                  Pricing on Request
+                  Tariff on Request
                 </span>
                 <span className="block text-xs text-foreground/60 mt-0.5">Customized to your travel dates & party</span>
               </div>

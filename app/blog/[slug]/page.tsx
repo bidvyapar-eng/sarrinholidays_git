@@ -277,8 +277,8 @@ export default async function BlogPost({ params }: BlogPostProps) {
                 </div>
                 <div className="flex items-center justify-between pt-4 mt-3 border-t border-white/10 text-xs">
                   <span className="font-sans uppercase tracking-wider text-[#E5E2DC]">Duration: {relatedPackage.duration}</span>
-                  <span className="font-serif text-[#F4F2EC] text-base">
-                    From ₹{(relatedPackage.price < 10000 ? relatedPackage.price * 100 : relatedPackage.price).toLocaleString('en-IN')}
+                  <span className="font-sans uppercase tracking-wider text-[#C5A059] text-xs font-semibold">
+                    Tariff on Request
                   </span>
                 </div>
               </div>

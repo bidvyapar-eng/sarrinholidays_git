@@ -66,14 +66,11 @@ export function PackageStickyBookingCard({ pkg }: PackageStickyBookingCardProps)
         {/* Dynamic Pricing Header */}
         <div>
           <span className="text-[11px] uppercase font-sans tracking-[0.1em] text-[#C5A059] font-medium block mb-1">
-            Estimated Starting Tariff
+            Bespoke Lead-Generation &amp; Consultation
           </span>
           <div className="flex items-baseline gap-2">
             <span className="font-serif text-3xl sm:text-4xl text-[#F4F2EC] font-medium tracking-tight">
-              From ₹{currentPrice.toLocaleString('en-IN')}
-            </span>
-            <span className="text-xs font-sans uppercase tracking-wider text-[#E5E2DC]">
-              / Guest
+              Tariff on Request
             </span>
           </div>
           <p className="text-sm text-[#E5E2DC] mt-2 leading-relaxed font-normal">
@@ -199,13 +196,12 @@ export function MobileStickyBookingBar({ pkg }: PackageStickyBookingCardProps) {
       <div className="mx-auto flex max-w-lg items-center justify-between gap-3">
         <div className="min-w-0">
           <span className="text-[10px] font-sans uppercase tracking-[0.1em] text-[#C5A059] block truncate font-medium">
-            Starting Tariff
+            Bespoke Itinerary
           </span>
           <div className="flex items-baseline gap-1">
             <span className="font-serif text-xl sm:text-2xl font-medium text-[#F4F2EC]">
-              ₹{normalizedBase.toLocaleString('en-IN')}
+              Tariff on Request
             </span>
-            <span className="text-[10px] font-sans uppercase text-[#E5E2DC]">/ guest</span>
           </div>
         </div>
 
