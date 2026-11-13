@@ -83,7 +83,7 @@ const defaultFormData: PackageFormData = {
   rating: 4.9,
   highlightsStr: 'Taj Lake Palace Suite, Private Helicopter Transit, Amber Fort VIP Access',
   themeTagsStr: 'Heritage & Palaces, Royal Fortresses, Living Heritage',
-  inclusionsStr: 'Luxury 5-Star Palace Stays\nArmored SUV Chauffeur Fleet\nPersonal Royal Historian Guide\n24/7 Dedicated Sarrin Concierge',
+  inclusionsStr: 'Luxury 5-Star Palace Stays\nArmored SUV Chauffeur Fleet\nPersonal Royal Historian Guide\n24/7 Dedicated Sarrin Holidays Liaison',
   exclusionsStr: 'Commercial International Airfares\nConsular Visa Procurement Fees\nDiscretionary Palace Staff Gratuities',
 }
 

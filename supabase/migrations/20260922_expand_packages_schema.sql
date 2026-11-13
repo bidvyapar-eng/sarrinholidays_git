@@ -13,7 +13,7 @@ ALTER TABLE public.packages
 
 -- 2. Add documentation comments
 COMMENT ON COLUMN public.packages.theme_tags IS 'Curated thematic classifications such as Sacred & Spiritual, Wellness, Legacy & Heritage.';
-COMMENT ON COLUMN public.packages.inclusions IS 'Explicit list of luxury amenities, private charters, and high-touch concierge services included in the tariff.';
+COMMENT ON COLUMN public.packages.inclusions IS 'Explicit list of luxury amenities, private charters, and high-touch Sarrin Holidays services included in the tariff.';
 COMMENT ON COLUMN public.packages.exclusions IS 'Transparent disclosures of items not covered (e.g., International Airfare, Visa Fees).';
 COMMENT ON COLUMN public.packages.scarcity_status IS 'Real-time or high-demand availability alert (e.g., Limited Diwali Availability).';
 
@@ -29,7 +29,7 @@ SET
         'Vintage Rolls-Royce and armored luxury SUV chauffeur fleet throughout',
         'Personal royal historian liaison for exclusive Amber Fort and City Palace night access',
         'Private Thar Desert tented camp with royal banquet & sunset camel caravan',
-        'Dedicated 24/7 Sarrin Private Concierge and all royal palace courtyard dining'
+        'Dedicated 24/7 Sarrin Holidays liaison and all royal palace courtyard dining'
     ],
     exclusions = ARRAY[
         'International commercial or private aviation to New Delhi (available upon request)',

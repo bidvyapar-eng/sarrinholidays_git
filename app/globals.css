@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
@@ -6,8 +6,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: var(--font-sans-inter), var(--font-sans), var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-serif-cormorant), 'Cormorant Garamond', Georgia, serif;
+  --font-sans: var(--font-sans), 'Plus Jakarta Sans', var(--font-sans-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-serif), 'Playfair Display', var(--font-serif-cormorant), Georgia, serif;
   --color-sand: var(--sand);
   --color-ocean: var(--ocean);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -67,8 +67,10 @@
   --secondary: #1E1D19;
   --secondary-foreground: #F4F2EC;
   --muted: #1E1D19;
-  /* Warm Stone Muted Text */
-  --muted-foreground: #B8B4AA;
+  /* Warm High-Contrast Stone Muted Text */
+  --muted-foreground: #E5E2DC;
+  --font-serif-cormorant: var(--font-serif);
+  --font-sans-inter: var(--font-sans);
   --accent: rgba(197, 160, 89, 0.15);
   --accent-foreground: #C5A059;
   --destructive: #E5484D;
@@ -106,7 +108,9 @@
   --secondary: #1E1D19;
   --secondary-foreground: #F4F2EC;
   --muted: #1E1D19;
-  --muted-foreground: #B8B4AA;
+  --muted-foreground: #E5E2DC;
+  --font-serif-cormorant: var(--font-serif);
+  --font-sans-inter: var(--font-sans);
   --accent: rgba(197, 160, 89, 0.15);
   --accent-foreground: #C5A059;
   --destructive: #E5484D;
@@ -142,7 +146,9 @@
     --secondary: #1E1D19;
     --secondary-foreground: #F4F2EC;
     --muted: #1E1D19;
-    --muted-foreground: #B8B4AA;
+    --muted-foreground: #E5E2DC;
+    --font-serif-cormorant: var(--font-serif);
+    --font-sans-inter: var(--font-sans);
     --accent: rgba(197, 160, 89, 0.15);
     --accent-foreground: #C5A059;
     --destructive: #E5484D;
@@ -170,15 +176,16 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/20 selection:text-primary;
+    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/20 selection:text-primary text-base font-normal;
   }
-  h1, h2, h3, h4 {
-    font-family: var(--font-serif), ui-serif, Georgia, serif;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif), 'Playfair Display', ui-serif, Georgia, serif;
+    font-weight: 500;
     letter-spacing: -0.015em;
     color: var(--foreground);
   }
   p {
-    @apply leading-relaxed text-foreground/80;
+    @apply leading-relaxed text-[#E5E2DC] font-normal;
   }
 }
 
@@ -274,14 +281,14 @@
 }
 
 /* =========================================================================
-   TRUE EDITORIAL SERIF & SANS-SERIF FONT BINDING (Aman / Oberoi Benchmark)
+   TRUE EDITORIAL SERIF & SANS-SERIF FONT BINDING (Playfair Display / Plus Jakarta Sans)
    ========================================================================= */
 .font-serif {
-  font-family: var(--font-serif-cormorant), "Cormorant Garamond", Georgia, serif !important;
+  font-family: var(--font-serif), "Playfair Display", Georgia, serif !important;
 }
 
 .font-sans {
-  font-family: var(--font-sans-inter), "Inter", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-family: var(--font-sans), "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
 

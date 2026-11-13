@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS public.services (
 );
 
 -- 2. Add comment descriptions
-COMMENT ON TABLE public.services IS 'Curated bespoke concierge and luxury travel services for Sarrin Holidays.';
+COMMENT ON TABLE public.services IS 'Curated bespoke luxury travel services for Sarrin Holidays.';
 COMMENT ON COLUMN public.services.icon_name IS 'Lucide React icon component identifier (e.g. Plane, Crown, Sparkles, ShieldCheck).';
 COMMENT ON COLUMN public.services.hero_image IS 'High-resolution Unsplash visual asset for the service showcase.';
 
@@ -55,7 +55,7 @@ INSERT INTO public.services (
     'Private Aviation & Charters',
     'private-aviation-charters',
     'Helicopter transfers to the Himalayas and private jet inter-city travel.',
-    'Bypass conventional transit friction with on-demand turboprops, ultra-long-range private jets, and high-altitude helicopters. Seamlessly connect between metropolitan hubs and remote sanctuaries—from direct mountain helipad landings at exclusive Himalayan wellness retreats in Rishikesh and Ladakh to private jet charters linking Delhi, Mumbai, Udaipur, and Kochi with bespoke in-flight concierge services.',
+    'Bypass conventional transit friction with on-demand turboprops, ultra-long-range private jets, and high-altitude helicopters. Seamlessly connect between metropolitan hubs and remote sanctuaries—from direct mountain helipad landings at exclusive Himalayan wellness retreats in Rishikesh and Ladakh to private jet charters linking Delhi, Mumbai, Udaipur, and Kochi with bespoke in-flight Sarrin Holidays services.',
     'Plane',
     'https://images.unsplash.com/photo-1583416750470-965b2707b355?auto=format&fit=crop&q=80&w=1200',
     1,
@@ -65,8 +65,8 @@ INSERT INTO public.services (
     'c7a10001-3829-4d8e-9001-000000000002',
     'Royal Celebrations & Weddings',
     'royal-celebrations-weddings',
-    'Palace buyouts and event concierge in Rajasthan.',
-    'Transform Rajasthan’s most majestic 18th-century fortresses and floating lake palaces into your personal royal court. We coordinate exclusive full-property palace buyouts across Udaipur, Jaipur, and Jodhpur, orchestrating bespoke celebration architecture, regal torchlit courtyard banquets, private desert sangeets beneath Thar constellations, and discreet 24/7 event concierge liaisons.',
+    'Palace buyouts and event curation in Rajasthan by Sarrin Holidays.',
+    'Transform Rajasthan’s most majestic 18th-century fortresses and floating lake palaces into your personal royal court. We coordinate exclusive full-property palace buyouts across Udaipur, Jaipur, and Jodhpur, orchestrating bespoke celebration architecture, regal torchlit courtyard banquets, private desert sangeets beneath Thar constellations, and discreet 24/7 Sarrin Holidays liaisons.',
     'Crown',
     'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=1200',
     2,

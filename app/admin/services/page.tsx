@@ -34,7 +34,7 @@ const AVAILABLE_ICONS = [
   { name: 'Plane', label: 'Aviation & Charters', icon: Plane },
   { name: 'Compass', label: 'Expeditions & Wellness', icon: Compass },
   { name: 'ShieldCheck', label: 'VIP Security & Escort', icon: ShieldCheck },
-  { name: 'HeartHandshake', label: 'Concierge & Stewardship', icon: HeartHandshake },
+  { name: 'HeartHandshake', label: 'Stewardship & Care', icon: HeartHandshake },
   { name: 'Award', label: 'Heritage & Diplomatic', icon: Award },
   { name: 'Clock', label: '24/7 Rapid Liaison', icon: Clock },
 ] as const
@@ -372,7 +372,7 @@ export default function AdminServicesPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-6">
         <div>
           <div className="flex items-center gap-2.5">
-            <span className="text-xs font-mono uppercase tracking-[0.25em] text-primary font-medium">
+            <span className="text-xs font-mono uppercase tracking-[0.1em] text-primary font-medium">
               Operations Atelier
             </span>
             <span className="rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 text-[10px] font-mono text-primary font-semibold">
@@ -382,7 +382,7 @@ export default function AdminServicesPage() {
           <h1 className="mt-2 font-serif text-3xl sm:text-4xl text-white font-normal tracking-tight">
             Bespoke Services Manager
           </h1>
-          <p className="mt-1.5 text-xs sm:text-sm text-foreground/70 font-light max-w-2xl leading-relaxed">
+          <p className="mt-1.5 text-xs sm:text-sm text-foreground/70 font-normal max-w-2xl leading-relaxed">
             Create, edit, and organize private aviation charters, palace buyouts, wellness retreats, and VIP escort protocols. Everything published here syncs seamlessly to the public website.
           </p>
         </div>
@@ -540,7 +540,7 @@ export default function AdminServicesPage() {
 
                     {/* Short Description */}
                     <td className="py-4 px-4 align-middle max-w-xs">
-                      <p className="line-clamp-2 text-foreground/70 font-light leading-relaxed">
+                      <p className="line-clamp-2 text-foreground/70 font-normal leading-relaxed">
                         {service.short_desc}
                       </p>
                     </td>
@@ -718,7 +718,7 @@ export default function AdminServicesPage() {
                     <h3 className="font-serif text-2xl text-white font-normal">
                       {formData.title || 'Untitled Service'}
                     </h3>
-                    <p className="mt-2 text-xs sm:text-sm text-foreground/75 leading-relaxed font-light">
+                    <p className="mt-2 text-xs sm:text-sm text-foreground/75 leading-relaxed font-normal">
                       {formData.short_desc || 'Brief descriptive summary of this luxury service...'}
                     </p>
                   </div>
@@ -883,7 +883,7 @@ export default function AdminServicesPage() {
                     required
                     value={formData.full_desc}
                     onChange={(e) => setFormData(prev => ({ ...prev, full_desc: e.target.value }))}
-                    placeholder="Provide a comprehensive narrative describing the execution, aircraft types, palace alliances, security protocols, and concierge coordination..."
+                    placeholder="Provide a comprehensive narrative describing the execution, aircraft types, palace alliances, security protocols, and Sarrin Holidays coordination..."
                     className="w-full px-4 py-3 rounded-xl bg-neutral-950 border border-white/15 text-xs text-white placeholder:text-foreground/40 focus:outline-none focus:border-primary resize-none leading-relaxed"
                   />
                 </div>

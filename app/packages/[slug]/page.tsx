@@ -556,7 +556,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
         {/* Hero Content */}
         <div className="relative z-10 mx-auto max-w-7xl w-full">
           {/* Breadcrumb Navigation */}
-          <div className="flex items-center gap-2 text-xs font-sans uppercase tracking-[0.16em] text-[#B8B4AA] mb-5">
+          <div className="flex items-center gap-2 text-xs font-sans uppercase tracking-[0.1em] text-[#E5E2DC] mb-5">
             <Link href="/" className="hover:text-[#C5A059] transition-colors">
               Home
             </Link>
@@ -572,19 +572,19 @@ export default async function PackageDetailPage({ params }: PageProps) {
 
           {/* Clean Editorial Eyebrow (Replaces 8-Pill Badge Row) */}
           <div className="mb-3.5">
-            <span className="text-xs font-sans font-medium tracking-[0.2em] uppercase text-[#C5A059] block">
+            <span className="text-xs font-sans font-medium tracking-[0.1em] uppercase text-[#C5A059] block">
               {pkg.duration ? pkg.duration.toUpperCase() : 'MULTI-DAY'} &nbsp;·&nbsp; PRIVATE CURATED JOURNEY
             </span>
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#F4F2EC] font-light tracking-tight max-w-4xl leading-[1.1]">
+          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#F4F2EC] font-medium tracking-tight max-w-4xl leading-[1.1]">
             {pkg.title}
           </h1>
 
           {/* Destinations Strip & Social Share */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-6 pt-5 border-t border-white/10">
             {pkg.destinations && pkg.destinations.length > 0 && (
-              <div className="flex items-center gap-2 text-[#B8B4AA] text-xs sm:text-sm font-sans tracking-wide">
+              <div className="flex items-center gap-2 text-[#E5E2DC] text-xs sm:text-sm font-sans tracking-wide">
                 <MapPin className="size-4 text-[#C5A059] shrink-0" />
                 <span className="uppercase tracking-[0.14em]">{pkg.destinations.join('  •  ')}</span>
               </div>
@@ -601,27 +601,27 @@ export default async function PackageDetailPage({ params }: PageProps) {
           <div className="lg:col-span-8 space-y-16">
             {/* Editorial Overview */}
             <section className="space-y-4">
-              <span className="text-xs uppercase font-sans tracking-[0.2em] text-[#C5A059] font-medium block">
+              <span className="text-xs uppercase font-sans tracking-[0.1em] text-[#C5A059] font-medium block">
                 Curator&apos;s Prologue
               </span>
-              <h2 className="font-serif text-2xl sm:text-3xl text-[#F4F2EC] font-light tracking-tight">
+              <h2 className="font-serif text-2xl sm:text-3xl text-[#F4F2EC] font-medium tracking-tight">
                 The Essence of the Expedition
               </h2>
-              <p className="text-base sm:text-lg text-[#F4F2EC]/90 leading-relaxed font-light">
+              <p className="text-base sm:text-lg text-[#F4F2EC]/90 leading-relaxed font-normal">
                 {pkg.description}
               </p>
-              <p className="text-sm text-[#B8B4AA] leading-relaxed font-light">
-                Handcrafted by our senior Indian expedition directors, this journey marries exclusive access to living royal palaces with private chauffeur transit, discreet concierge logistics, and authentic regional culinary mastery. Every transfer, private suite reservation, and cultural encounter is personally coordinated by your dedicated personal concierge.
+              <p className="text-base text-[#E5E2DC] leading-relaxed font-normal">
+                Handcrafted by our senior Indian expedition directors, this journey marries exclusive access to living royal palaces with private chauffeur transit, discreet Sarrin Holidays logistics, and authentic regional culinary mastery. Every transfer, private suite reservation, and cultural encounter is personally coordinated by your dedicated personal Sarrin Holidays director.
               </p>
             </section>
 
             {/* Signature Highlights */}
             {pkg.highlights && pkg.highlights.length > 0 && (
               <section className="space-y-6">
-                <span className="text-xs uppercase font-sans tracking-[0.2em] text-[#C5A059] font-medium block">
+                <span className="text-xs uppercase font-sans tracking-[0.1em] text-[#C5A059] font-medium block">
                   Signature Inclusions
                 </span>
-                <h2 className="font-serif text-2xl sm:text-3xl text-[#F4F2EC] font-light tracking-tight">
+                <h2 className="font-serif text-2xl sm:text-3xl text-[#F4F2EC] font-medium tracking-tight">
                   Itinerary Highlights
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -635,7 +635,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
                       </span>
                       <div>
                         <h3 className="text-sm font-normal text-[#F4F2EC] leading-snug">{highlight}</h3>
-                        <p className="text-xs text-[#B8B4AA] mt-1 font-light leading-relaxed">
+                        <p className="text-sm text-[#E5E2DC] mt-1 font-normal leading-relaxed">
                           Private access coordinated through our sovereign hospitality partnerships.
                         </p>
                       </div>
@@ -648,10 +648,10 @@ export default async function PackageDetailPage({ params }: PageProps) {
             {/* Destinations Breakdown */}
             {pkg.destinations && pkg.destinations.length > 0 && (
               <section className="space-y-6">
-                <span className="text-xs uppercase font-sans tracking-[0.2em] text-[#C5A059] font-medium block">
+                <span className="text-xs uppercase font-sans tracking-[0.1em] text-[#C5A059] font-medium block">
                   Route Architecture
                 </span>
-                <h2 className="font-serif text-2xl sm:text-3xl text-[#F4F2EC] font-light tracking-tight">
+                <h2 className="font-serif text-2xl sm:text-3xl text-[#F4F2EC] font-medium tracking-tight">
                   Destinations Visited
                 </h2>
                 <div className="flex flex-wrap gap-2.5">
@@ -675,13 +675,13 @@ export default async function PackageDetailPage({ params }: PageProps) {
             <section className="relative overflow-hidden rounded-sm border border-white/10 bg-[#141310] p-6 sm:p-9 shadow-2xl shadow-black/60 space-y-8">
               {/* Section Header */}
               <div className="relative z-10 pb-6 border-b border-white/10">
-                <span className="text-xs font-sans uppercase tracking-[0.2em] text-[#C5A059] font-medium block mb-2">
+                <span className="text-xs font-sans uppercase tracking-[0.1em] text-[#C5A059] font-medium block mb-2">
                   Signature Privileges &amp; Specifics
                 </span>
-                <h2 className="font-serif text-2xl sm:text-3xl text-[#F4F2EC] font-light tracking-tight">
+                <h2 className="font-serif text-2xl sm:text-3xl text-[#F4F2EC] font-medium tracking-tight">
                   Journey Inclusions &amp; White-Glove Standards
                 </h2>
-                <p className="text-xs sm:text-sm text-[#B8B4AA] mt-2 font-light max-w-2xl leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#E5E2DC] mt-2 font-normal max-w-2xl leading-relaxed">
                   Every element of your journey is privately negotiated and accompanied by uncompromising hospitality covenants, transparent inclusions, and dedicated on-ground management.
                 </p>
               </div>
@@ -689,7 +689,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
               {/* 5 Flagship Domestic Luxury Pillars */}
               <div className="relative z-10 space-y-3">
                 <div className="flex items-center gap-2">
-                  <span className="text-[11px] font-sans uppercase tracking-[0.2em] text-[#C5A059] font-medium">
+                  <span className="text-[11px] font-sans uppercase tracking-[0.1em] text-[#C5A059] font-medium">
                     Domestic Travel Specifications
                   </span>
                   <div className="h-px flex-1 bg-white/10" />
@@ -709,7 +709,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
                           <h4 className="text-xs font-medium text-[#F4F2EC] leading-snug">
                             {pillar.title}
                           </h4>
-                          <p className="text-[11px] text-[#B8B4AA] leading-relaxed font-light">
+                          <p className="text-[11px] text-[#E5E2DC] leading-relaxed font-normal">
                             {pillar.desc}
                           </p>
                         </div>
@@ -726,10 +726,10 @@ export default async function PackageDetailPage({ params }: PageProps) {
                   <div className="space-y-4">
                     <div className="pb-3 border-b border-white/10 flex items-center justify-between">
                       <div>
-                        <span className="text-[10px] font-sans text-[#C5A059] uppercase tracking-[0.2em] font-medium block">
+                        <span className="text-[10px] font-sans text-[#C5A059] uppercase tracking-[0.1em] font-medium block">
                           Included Within Tariff
                         </span>
-                        <h3 className="font-serif text-xl sm:text-2xl text-[#F4F2EC] font-light mt-0.5">
+                        <h3 className="font-serif text-xl sm:text-2xl text-[#F4F2EC] font-medium mt-0.5">
                           Curated Inclusions
                         </h3>
                       </div>
@@ -738,24 +738,24 @@ export default async function PackageDetailPage({ params }: PageProps) {
                       </span>
                     </div>
 
-                    <ul className="space-y-3.5 text-xs sm:text-sm text-[#B8B4AA]">
+                    <ul className="space-y-3.5 text-xs sm:text-sm text-[#E5E2DC]">
                       {(pkg.inclusions && pkg.inclusions.length > 0 ? pkg.inclusions : [
                         '5-Star Palace & Luxury Resort stays (Presidential Suites & Private Pool Villas)',
                         'Inter-city luxury transfers via Mercedes-Maybach / Toyota Vellfire & Helicopter charters',
                         'Curated regional cuisine & Private Chef degustations across royal properties',
                         'Monument VIP passes & fast-track clearances with private royal historians',
                         'All domestic state entry taxes, highway Fastag tolls, and green clearances pre-paid',
-                        'Dedicated 24/7 personal concierge liaison and white-glove baggage service'
+                        'Dedicated 24/7 personal Sarrin Holidays liaison and white-glove baggage service'
                       ]).map((inc, i) => (
                         <li key={i} className="flex items-start gap-3">
                           <Check className="size-4 text-[#C5A059] shrink-0 mt-0.5" />
-                          <span className="leading-relaxed font-light">{inc}</span>
+                          <span className="leading-relaxed font-normal">{inc}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="pt-4 border-t border-white/10 text-[11px] text-[#B8B4AA]/70 flex items-center gap-2 font-sans tracking-wide">
+                  <div className="pt-4 border-t border-white/10 text-[11px] text-[#E5E2DC]/70 flex items-center gap-2 font-sans tracking-wide">
                     <span className="size-1 rounded-full bg-[#C5A059] shrink-0" />
                     <span>All regional permits, chauffeurs &amp; luxury palace taxes pre-cleared</span>
                   </div>
@@ -766,19 +766,19 @@ export default async function PackageDetailPage({ params }: PageProps) {
                   <div className="space-y-4">
                     <div className="pb-3 border-b border-white/10 flex items-center justify-between">
                       <div>
-                        <span className="text-[10px] font-sans text-stone-400 uppercase tracking-[0.2em] font-medium block">
+                        <span className="text-[10px] font-sans text-stone-200 uppercase tracking-[0.1em] font-medium block">
                           Discretionary &amp; Self-Arranged
                         </span>
-                        <h3 className="font-serif text-xl sm:text-2xl text-[#F4F2EC] font-light mt-0.5">
+                        <h3 className="font-serif text-xl sm:text-2xl text-[#F4F2EC] font-medium mt-0.5">
                           Client Discretionary Items
                         </h3>
                       </div>
-                      <span className="text-[10px] font-sans uppercase tracking-wider text-stone-400 bg-white/5 px-2.5 py-1 rounded-sm border border-white/10">
+                      <span className="text-[10px] font-sans uppercase tracking-wider text-stone-200 bg-white/5 px-2.5 py-1 rounded-sm border border-white/10">
                         Excluded
                       </span>
                     </div>
 
-                    <ul className="space-y-3.5 text-xs sm:text-sm text-stone-400">
+                    <ul className="space-y-3.5 text-xs sm:text-sm text-stone-200">
                       {(pkg.exclusions && pkg.exclusions.length > 0 ? pkg.exclusions : [
                         'Commercial transcontinental or international long-haul aviation',
                         'Consular visa procurement fees for international accompanying guests',
@@ -787,7 +787,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
                       ]).map((exc, i) => (
                         <li key={i} className="flex items-start gap-3">
                           <Minus className="size-3.5 text-stone-500 shrink-0 mt-1" />
-                          <span className="leading-relaxed font-light">{exc}</span>
+                          <span className="leading-relaxed font-normal">{exc}</span>
                         </li>
                       ))}
                     </ul>
@@ -811,8 +811,8 @@ export default async function PackageDetailPage({ params }: PageProps) {
                       <h4 className="text-xs font-medium text-[#F4F2EC]">
                         Global &amp; NRI Traveler Logistics Protocol
                       </h4>
-                      <p className="text-[11px] text-[#B8B4AA] leading-relaxed mt-0.5 font-light">
-                        While international flights are client-arranged, our Global Concierge provides complimentary flight synchronization, VIP tarmac meet &amp; greet at BOM/DEL, and regional transit coordination.
+                      <p className="text-[11px] text-[#E5E2DC] leading-relaxed mt-0.5 font-normal">
+                        While international flights are client-arranged, our Global Sarrin Holidays Desk provides complimentary flight synchronization, VIP tarmac meet &amp; greet at BOM/DEL, and regional transit coordination.
                       </p>
                     </div>
                   </div>
@@ -830,16 +830,16 @@ export default async function PackageDetailPage({ params }: PageProps) {
 
             {/* Inclusions & Guarantees (The Sarrin White-Glove Standard) */}
             <section className="p-8 rounded-sm bg-[#141310] border border-white/10 space-y-6">
-              <span className="text-xs font-sans uppercase tracking-[0.2em] text-[#C5A059] font-medium block">
+              <span className="text-xs font-sans uppercase tracking-[0.1em] text-[#C5A059] font-medium block">
                 Uncompromising Covenants
               </span>
-              <h3 className="font-serif text-xl sm:text-2xl text-[#F4F2EC] font-light tracking-tight">
+              <h3 className="font-serif text-xl sm:text-2xl text-[#F4F2EC] font-medium tracking-tight">
                 The Sarrin White-Glove Standard
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-[#B8B4AA] font-light">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-[#E5E2DC] font-normal">
                 <div className="flex items-start gap-3">
                   <span className="size-1.5 rounded-full bg-[#C5A059] shrink-0 mt-2" />
-                  <span className="leading-relaxed">Dedicated 24/7 travelling concierge liaison throughout the entirety of your Indian itinerary</span>
+                  <span className="leading-relaxed">Dedicated 24/7 travelling Sarrin Holidays liaison throughout the entirety of your Indian itinerary</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="size-1.5 rounded-full bg-[#C5A059] shrink-0 mt-2" />

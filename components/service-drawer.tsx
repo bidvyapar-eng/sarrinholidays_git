@@ -108,7 +108,7 @@ export const SEASONS = [
     label: 'Long Weekend Getaways',
     subtitle: '3 – 4 Day Curated Escapes',
     desc: 'Holi, Independence / Republic Day & festive private fortress retreats',
-    urgencyBadge: 'Priority Concierge Allocation',
+    urgencyBadge: 'Priority Sarrin Holidays Allocation',
     urgencyClass: 'border-emerald-500/40 bg-emerald-500/15 text-emerald-300 shadow-sm shadow-emerald-500/20',
   },
   {
@@ -395,7 +395,7 @@ export function ServiceDrawer({
                     {/* Top Row: Tag, Reference, Close */}
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/20 px-3 py-0.5 text-[10px] font-mono font-semibold uppercase tracking-[0.2em] text-primary backdrop-blur-md">
+                        <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/20 px-3 py-0.5 text-[10px] font-mono font-semibold uppercase tracking-[0.1em] text-primary backdrop-blur-md">
                           <Crown className="size-3" />
                           {classification}
                         </span>
@@ -493,13 +493,13 @@ export function ServiceDrawer({
 
                         {/* Heading & Subtitle */}
                         <div className="space-y-2 max-w-md mx-auto">
-                          <span className="inline-flex items-center text-[10px] font-mono uppercase tracking-[0.25em] text-primary">
+                          <span className="inline-flex items-center text-[10px] font-mono uppercase tracking-[0.1em] text-primary">
                             Confidential Brief Logged
                           </span>
                           <h3 className="font-serif text-3xl text-white font-normal">
                             Dossier Transmitted
                           </h3>
-                          <p className="text-xs sm:text-sm text-foreground/70 leading-relaxed font-light">
+                          <p className="text-xs sm:text-sm text-foreground/70 leading-relaxed font-normal">
                             Thank you, <strong className="text-white">{title} {fullName}</strong>. Your bespoke expedition requirements have been logged into our Chief Operations desk.
                           </p>
                         </div>
@@ -1233,7 +1233,7 @@ export function ServiceDrawer({
                               onClick={goToNextStep}
                               whileHover={{ scale: 1.015 }}
                               whileTap={{ scale: 0.98 }}
-                              className="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gradient-to-r from-gold via-[#e0c774] to-gold hover:from-[#c5a030] hover:to-[#b89326] border border-gold/50 py-3.5 px-6 text-xs font-semibold uppercase tracking-[0.18em] text-[#0B0F19] shadow-xl shadow-gold/25 transition-all duration-300 hover:brightness-105 cursor-pointer"
+                              className="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gradient-to-r from-gold via-[#e0c774] to-gold hover:from-[#c5a030] hover:to-[#b89326] border border-gold/50 py-3.5 px-6 text-xs font-semibold uppercase tracking-[0.1em] text-[#0B0F19] shadow-xl shadow-gold/25 transition-all duration-300 hover:brightness-105 cursor-pointer"
                             >
                               <span>Next Step</span>
                               <ArrowRight className="size-3.5 text-[#0B0F19]" />
@@ -1244,7 +1244,7 @@ export function ServiceDrawer({
                               disabled={isPending}
                               whileHover={{ scale: isPending ? 1 : 1.015 }}
                               whileTap={{ scale: isPending ? 1 : 0.98 }}
-                              className="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gradient-to-r from-gold via-[#e0c774] to-gold hover:from-[#c5a030] hover:to-[#b89326] border border-gold/50 py-3.5 px-7 text-xs font-semibold uppercase tracking-[0.2em] text-[#0B0F19] shadow-xl shadow-gold/25 transition-all duration-300 hover:brightness-105 disabled:opacity-50 cursor-pointer"
+                              className="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gradient-to-r from-gold via-[#e0c774] to-gold hover:from-[#c5a030] hover:to-[#b89326] border border-gold/50 py-3.5 px-7 text-xs font-semibold uppercase tracking-[0.1em] text-[#0B0F19] shadow-xl shadow-gold/25 transition-all duration-300 hover:brightness-105 disabled:opacity-50 cursor-pointer"
                             >
                               {isPending ? (
                                 <>

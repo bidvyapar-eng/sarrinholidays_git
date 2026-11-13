@@ -934,7 +934,7 @@ def build_pdf():
         <span class="spec-label">Verified Specifications</span>
         <ul class="feature-list">
           <li><strong>Verified Phone Number:</strong> +91 84198 87730 (24/7 Concierge Hotline).</li>
-          <li><strong>Verified Concierge Email:</strong> concierge@sarrinholidays.com.</li>
+          <li><strong>Verified Sarrin Holidays Email:</strong> help@sarrinholidays.com.</li>
           <li><strong>Unified Sans-Serif:</strong> All links and contact info rendered in elegant Inter typography.</li>
           <li><strong>Official Affiliations:</strong> Indian Heritage Hotels Association (IHHA), IATA Partner Network, and Sovereign Aviation Network.</li>
         </ul>

@@ -148,18 +148,18 @@ export default async function BlogPost({ params }: BlogPostProps) {
         <div className="flex items-center justify-between mb-10">
           <Link
             href="/blog"
-            className="inline-flex items-center text-xs font-sans uppercase tracking-[0.16em] text-[#B8B4AA] hover:text-[#C5A059] transition-colors cursor-pointer"
+            className="inline-flex items-center text-xs font-sans uppercase tracking-[0.1em] text-[#E5E2DC] hover:text-[#C5A059] transition-colors cursor-pointer"
           >
             <ArrowLeft className="size-3.5 mr-2" /> Return to Editorial Journal
           </Link>
-          <span className="text-xs font-sans text-[#C5A059] uppercase tracking-[0.18em]">
+          <span className="text-xs font-sans text-[#C5A059] uppercase tracking-[0.1em]">
             {blog.category || 'Special Dispatch'}
           </span>
         </div>
 
         {/* Editorial Article Header */}
         <header className="mb-12">
-          <div className="flex items-center gap-3 text-xs font-sans text-[#B8B4AA]/70 uppercase tracking-wider mb-4">
+          <div className="flex items-center gap-3 text-xs font-sans text-[#E5E2DC]/70 uppercase tracking-wider mb-4">
             <span>{new Date(displayDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
             <span className="opacity-40">•</span>
             <span className="flex items-center gap-1 text-[#C5A059]">
@@ -169,12 +169,12 @@ export default async function BlogPost({ params }: BlogPostProps) {
             <span>By Sarrin Research Desk</span>
           </div>
 
-          <h1 className="font-serif font-light text-3xl sm:text-5xl md:text-6xl leading-[1.15] text-[#F4F2EC] tracking-tight mb-6">
+          <h1 className="font-serif font-medium text-3xl sm:text-5xl md:text-6xl leading-[1.15] text-[#F4F2EC] tracking-tight mb-6">
             {blog.title}
           </h1>
 
           {blog.excerpt && (
-            <p className="text-lg sm:text-xl text-[#B8B4AA] leading-relaxed font-light border-l-2 border-[#C5A059]/60 pl-5 my-6 italic">
+            <p className="text-lg sm:text-xl text-[#E5E2DC] leading-relaxed font-normal border-l-2 border-[#C5A059]/60 pl-5 my-6 italic">
               {blog.excerpt}
             </p>
           )}
@@ -197,7 +197,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
         )}
 
         {/* Article Body Content */}
-        <div className="space-y-6 text-[#B8B4AA] font-light text-base sm:text-lg leading-relaxed">
+        <div className="space-y-6 text-[#E5E2DC] font-normal text-base sm:text-lg leading-relaxed">
           {blog.body?.split('\n\n').map((paragraph: string, idx: number) => {
             if (!paragraph.trim()) return null
             return (
@@ -222,10 +222,10 @@ export default async function BlogPost({ params }: BlogPostProps) {
           </div>
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="font-serif text-base text-[#F4F2EC] font-light">Sarrin Holidays Editorial Desk</span>
+              <span className="font-serif text-base text-[#F4F2EC] font-medium">Sarrin Holidays Editorial Desk</span>
             </div>
-            <p className="text-xs text-[#B8B4AA] leading-relaxed font-light">
-              Authored in collaboration with royal historians, regional palace concierges, and private aviation advisors across Rajasthan, Kerala, and Uttarakhand.
+            <p className="text-xs text-[#E5E2DC] leading-relaxed font-normal">
+              Authored in collaboration with royal historians, regional palace curators, and private aviation advisors across Rajasthan, Kerala, and Uttarakhand.
             </p>
           </div>
         </div>
@@ -235,16 +235,16 @@ export default async function BlogPost({ params }: BlogPostProps) {
           <div className="mt-16 pt-12 border-t border-white/10">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <span className="text-xs font-sans uppercase tracking-[0.2em] text-[#C5A059] font-medium">
+                <span className="text-xs font-sans uppercase tracking-[0.1em] text-[#C5A059] font-medium">
                   Connected Expedition
                 </span>
-                <h3 className="font-serif font-light text-2xl text-[#F4F2EC] mt-1">
+                <h3 className="font-serif font-medium text-2xl text-[#F4F2EC] mt-1">
                   Experience This Journey Firsthand
                 </h3>
               </div>
               <Link
                 href={`/packages/${relatedPackage.slug}`}
-                className="hidden sm:inline-flex items-center gap-1.5 text-xs font-sans font-medium uppercase tracking-[0.16em] text-[#C5A059] hover:underline cursor-pointer"
+                className="hidden sm:inline-flex items-center gap-1.5 text-xs font-sans font-medium uppercase tracking-[0.1em] text-[#C5A059] hover:underline cursor-pointer"
               >
                 <span>View Full Itinerary</span>
                 <ArrowRight className="size-3.5" />
@@ -268,15 +268,15 @@ export default async function BlogPost({ params }: BlogPostProps) {
                     <MapPin className="size-3" />
                     <span>{(relatedPackage.destinations || []).join(' • ')}</span>
                   </div>
-                  <h4 className="font-serif font-light text-xl text-[#F4F2EC] group-hover:text-[#C5A059] transition-colors mb-2">
+                  <h4 className="font-serif font-medium text-xl text-[#F4F2EC] group-hover:text-[#C5A059] transition-colors mb-2">
                     {relatedPackage.title}
                   </h4>
-                  <p className="text-xs sm:text-sm text-[#B8B4AA] line-clamp-2 font-light">
+                  <p className="text-sm text-[#E5E2DC] line-clamp-2 font-normal">
                     {relatedPackage.description}
                   </p>
                 </div>
                 <div className="flex items-center justify-between pt-4 mt-3 border-t border-white/10 text-xs">
-                  <span className="font-sans uppercase tracking-wider text-[#B8B4AA]">Duration: {relatedPackage.duration}</span>
+                  <span className="font-sans uppercase tracking-wider text-[#E5E2DC]">Duration: {relatedPackage.duration}</span>
                   <span className="font-serif text-[#F4F2EC] text-base">
                     From ₹{(relatedPackage.price < 10000 ? relatedPackage.price * 100 : relatedPackage.price).toLocaleString('en-IN')}
                   </span>

@@ -16,9 +16,9 @@ export interface IntegrationSettings {
 
 export const defaultIntegrationSettings: IntegrationSettings = {
   emailEnabled: false,
-  recipientEmail: 'concierge@sarrinholidays.com',
+  recipientEmail: 'help@sarrinholidays.com',
   resendApiKey: '',
-  fromEmail: 'Sarrin Concierge <onboarding@resend.dev>',
+  fromEmail: 'Sarrin Holidays <onboarding@resend.dev>',
   webhookEnabled: false,
   webhookUrl: '',
 }
@@ -171,7 +171,7 @@ export async function dispatchLeadNotification(
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: settings.fromEmail || 'Sarrin Concierge <onboarding@resend.dev>',
+          from: settings.fromEmail || 'Sarrin Holidays <onboarding@resend.dev>',
           to: [settings.recipientEmail.trim()],
           subject: `[${payload.type === 'VIP_INQUIRY' ? 'VIP DOSSIER' : 'LEAD'}] ${payload.referenceId} — ${payload.clientName}`,
           html: emailHtml,

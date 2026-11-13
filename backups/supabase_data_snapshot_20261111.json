@@ -781,7 +781,7 @@
           "brandName": "Sarrin Holidays",
           "heroBadge": "Rated 4.9 by 12,000+ travelers",
           "heroTitle": "Journeys crafted for the extraordinary",
-          "contactEmail": "concierge@sarrinholidays.com",
+          "contactEmail": "help@sarrinholidays.com",
           "contactPhone": "+91 8419887730",
           "heroDescription": "From royal Rajasthan palaces to sacred Himalayan heights, discover handcrafted escapes to the subcontinent's most breathtaking places."
         },
@@ -790,11 +790,11 @@
       {
         "key": "integrations",
         "value": {
-          "fromEmail": "Sarrin Concierge <concierge@sarrinholidays.com>",
+          "fromEmail": "Sarrin Holidays <help@sarrinholidays.com>",
           "webhookUrl": "",
           "emailEnabled": false,
           "resendApiKey": "",
-          "recipientEmail": "concierge@sarrinholidays.com",
+          "recipientEmail": "help@sarrinholidays.com",
           "webhookEnabled": false
         },
         "updated_at": "2026-11-05T06:59:22.497485+00:00"

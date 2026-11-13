@@ -15,15 +15,15 @@ export function ItineraryAccordion({ items, duration }: ItineraryAccordionProps)
     <section className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <span className="text-[11px] uppercase font-sans tracking-[0.2em] text-[#C5A059] font-medium">
+          <span className="text-[11px] uppercase font-sans tracking-[0.1em] text-[#C5A059] font-medium">
             Curated Progression
           </span>
-          <h2 className="font-serif text-2xl sm:text-3xl text-[#F4F2EC] font-light tracking-tight mt-1">
+          <h2 className="font-serif text-2xl sm:text-3xl text-[#F4F2EC] font-medium tracking-tight mt-1">
             Day-by-Day Expedition Itinerary
           </h2>
         </div>
         {duration && (
-          <div className="hidden sm:flex items-center gap-2 text-xs font-sans text-[#B8B4AA]">
+          <div className="hidden sm:flex items-center gap-2 text-xs font-sans text-[#E5E2DC]">
             <Compass className="size-4 text-[#C5A059]" />
             <span className="tracking-wider uppercase">{duration}</span>
           </div>
@@ -50,38 +50,38 @@ export function ItineraryAccordion({ items, duration }: ItineraryAccordionProps)
                   </div>
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="text-[10px] font-sans font-medium uppercase tracking-[0.16em] text-[#C5A059]">
+                      <span className="text-[10px] font-sans font-medium uppercase tracking-[0.1em] text-[#C5A059]">
                         {item.day}
                       </span>
                       <span className="text-stone-600 text-xs hidden sm:inline">•</span>
-                      <div className="flex items-center gap-1.5 text-xs text-[#B8B4AA]">
+                      <div className="flex items-center gap-1.5 text-xs text-[#E5E2DC]">
                         <MapPin className="size-3 text-[#C5A059] shrink-0" />
                         <span className="font-normal text-[#F4F2EC] truncate max-w-[200px] sm:max-w-none">
                           {item.destination}
                         </span>
                       </div>
                     </div>
-                    <h3 className="font-serif text-sm sm:text-base text-[#F4F2EC] font-light mt-1 group-hover:text-[#C5A059] transition-colors leading-snug">
+                    <h3 className="font-serif text-sm sm:text-base text-[#F4F2EC] font-medium mt-1 group-hover:text-[#C5A059] transition-colors leading-snug">
                       {item.highlight}
                     </h3>
                   </div>
                 </div>
 
-                <div className="flex size-8 items-center justify-center rounded-sm bg-white/5 border border-white/10 text-[#B8B4AA] shrink-0 group-hover:text-white transition-colors ml-2">
+                <div className="flex size-8 items-center justify-center rounded-sm bg-white/5 border border-white/10 text-[#E5E2DC] shrink-0 group-hover:text-white transition-colors ml-2">
                   <ChevronDown className="size-4 transition-transform duration-300 ease-out group-data-[state=open]:rotate-180 text-[#C5A059]" />
                 </div>
               </Accordion.Trigger>
             </Accordion.Header>
 
             <Accordion.Content className="overflow-hidden data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up px-4 sm:px-5 pb-5 pt-2 border-t border-white/5">
-              <p className="text-xs sm:text-sm text-[#B8B4AA] leading-relaxed font-light">
+              <p className="text-xs sm:text-sm text-[#E5E2DC] leading-relaxed font-normal">
                 {item.description}
               </p>
               <div className="flex flex-wrap gap-2 pt-3">
                 {item.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-2.5 py-1 rounded-sm bg-white/[0.03] border border-white/10 text-[10px] font-sans uppercase tracking-wider text-[#B8B4AA]"
+                    className="px-2.5 py-1 rounded-sm bg-white/[0.03] border border-white/10 text-[10px] font-sans uppercase tracking-wider text-[#E5E2DC]"
                   >
                     {tag}
                   </span>

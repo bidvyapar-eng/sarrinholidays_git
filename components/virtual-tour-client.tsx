@@ -19,7 +19,7 @@ export const VirtualTour = dynamic(
           <p className="mt-4 font-serif text-lg text-foreground/80">
             Initializing 360° VR Spatial Environment…
           </p>
-          <span className="mt-1 text-xs uppercase tracking-[0.2em] text-primary">
+          <span className="mt-1 text-xs uppercase tracking-[0.1em] text-primary">
             Sarrin Bespoke Curations
           </span>
         </div>

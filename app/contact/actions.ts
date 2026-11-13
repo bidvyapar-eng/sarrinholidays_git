@@ -52,7 +52,7 @@ export async function submitContactInquiry(
   const formattedNotes = `${metadataLines}\n\n${message}`
 
   // Log dispatch to server stdout (guaranteed captured in PM2 / EC2 / CloudWatch logs)
-  console.log(`[CONCIERGE DISPATCH PRIORITY LEAD] Ref: ${referenceId} | Client: ${name} <${email}> | Phone: ${phone || 'N/A'}`)
+  console.log(`[SARRIN HOLIDAYS DISPATCH PRIORITY LEAD] Ref: ${referenceId} | Client: ${name} <${email}> | Phone: ${phone || 'N/A'}`)
   console.log(`[DOSSIER DETAILS]:\n${formattedNotes}\n------------------------------------------`)
 
   // Dispatch notifications via Resend email and universal webhook (non-blocking)
@@ -114,7 +114,7 @@ export async function submitContactInquiry(
     console.warn(`[BACKUP DISPATCH ACTIVATED] Lead ${referenceId} captured in server runtime logs.`)
     return {
       success: true,
-      message: 'Your dossier has been logged and assigned to our Senior Private Concierge.',
+      message: 'Your dossier has been logged and assigned to the Sarrin Holidays Team.',
       referenceId,
     }
   } catch (err: any) {

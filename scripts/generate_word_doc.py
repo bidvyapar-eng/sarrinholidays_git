@@ -274,7 +274,7 @@ def create_document():
 
     add_custom_h2("2.6 Self-Service Email & Webhook Alerts Center (/admin → Email & Alerts)")
     add_body("Allows the client to connect notifications without writing a single line of code:")
-    add_bullet("Resend Transactional Email:", "Enable/disable toggle, recipient email input (e.g. concierge@sarrinholidays.com), Resend API key field, and custom sender header.")
+    add_bullet("Resend Transactional Email:", "Enable/disable toggle, recipient email input (e.g. help@sarrinholidays.com), Resend API key field, and custom sender header.")
     add_bullet("Universal Webhook Dispatch:", "Enable/disable toggle and webhook URL input for instant push alerts into Slack, Discord, Zapier, or a private CRM.")
     add_bullet("'Send Test Lead Notification' Button:", "Live in-app trigger that dispatches a simulated VIP lead and displays immediate delivery status.")
 

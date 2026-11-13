@@ -16,7 +16,7 @@ const VirtualTourViewer = dynamic(() => import('@/components/virtual-tour-viewer
       <p className="mt-4 font-serif text-lg text-foreground/80">
         Initializing 360° VR Spatial Environment…
       </p>
-      <span className="mt-1 text-xs uppercase tracking-[0.2em] text-primary">
+      <span className="mt-1 text-xs uppercase tracking-[0.1em] text-primary">
         Sarrin Bespoke Curations
       </span>
     </div>
@@ -49,7 +49,7 @@ export const defaultScenes: VirtualTourScene[] = [
         title: 'Private Butler Station',
         subtitle: '24/7 dedicated royal butler service',
         description: 'A gilded private service pantry for personalized high teas, champagne pairings, and bespoke dining.',
-        tag: 'Concierge',
+        tag: 'Sarrin Holidays',
         position: { yaw: -1.2, pitch: -0.15 },
       },
       {
@@ -72,7 +72,7 @@ export const defaultScenes: VirtualTourScene[] = [
     thumbnail: '/scene-waterfall.png',
     description:
       'Immerse in the rhythmic stillness of the Vembanad waters. Handcrafted teakwood interiors, open-air sun decks, and bespoke Ayurvedic culinary masters catering aboard your private vessel.',
-    features: ['Private Vessel Master', 'On-Deck Sunset Dining', 'Ayurvedic Wellness Concierge', 'Rare Bird Sanctuary Access'],
+    features: ['Private Vessel Master', 'On-Deck Sunset Dining', 'Ayurvedic Wellness Host', 'Rare Bird Sanctuary Access'],
     hotspots: [
       {
         id: 'kerala-spa',
@@ -145,13 +145,13 @@ export function VirtualTour() {
     <section id="virtual-tour" className="relative mx-auto max-w-7xl px-4 sm:px-6 py-16 md:py-24">
       {/* Section Headline */}
       <div className="mx-auto max-w-3xl text-center">
-        <span className="text-xs font-sans uppercase tracking-[0.3em] text-[#C5A059] font-medium block">
+        <span className="text-xs font-sans uppercase tracking-[0.1em] text-[#C5A059] font-medium block">
           Spatial Previews
         </span>
-        <h2 className="mt-4 font-serif font-light text-4xl leading-tight tracking-tight text-[#F4F2EC] sm:text-5xl lg:text-6xl">
+        <h2 className="mt-4 font-serif font-medium text-4xl leading-tight tracking-tight text-[#F4F2EC] sm:text-5xl lg:text-6xl">
           Step inside our finest living palace suites
         </h2>
-        <p className="mt-4 text-pretty text-base leading-relaxed text-[#B8B4AA] sm:text-lg">
+        <p className="mt-4 text-pretty text-base leading-relaxed text-[#E5E2DC] sm:text-lg">
           Before you embark, experience every corridor, hand-carved arch, and sun-drenched terrace. Drag or swipe to look around in high-fidelity equirectangular detail.
         </p>
       </div>

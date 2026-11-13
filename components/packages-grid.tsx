@@ -16,7 +16,7 @@ import {
   Crown,
 } from "lucide-react"
 import { createClient } from "@/lib/supabase/client"
-import { fallbackPackages, type PackageItem } from "@/lib/cms"
+import { fallbackPackages, optimizeUnsplashUrl, type PackageItem } from "@/lib/cms"
 import { PackageCard } from "@/components/package-card"
 import { openConciergeDrawer } from "@/components/ConciergeDrawer"
 
@@ -206,7 +206,7 @@ export function PackagesGrid() {
 
   const getPackageImage = (pkg: PackageItem) => {
     if (pkg.slug === 'experience-varanasi-dev-deepawali-3d' || pkg.featured_image?.includes('photo-1561361513-2d000a50f0dc')) {
-      return 'https://images.unsplash.com/photo-1687753578819-08e5a39d715a?auto=format&fit=crop&q=80&w=1200'
+      return 'https://images.unsplash.com/photo-1687753578819-08e5a39d715a?auto=format&fit=crop&w=800&q=75'
     }
     if (
       pkg.slug === 'kerala-backwaters-hills-5d' ||
@@ -220,20 +220,20 @@ export function PackagesGrid() {
     if (!pkg.featured_image || pkg.featured_image.includes("photo-1599661559902")) {
       return "/scene-desert.png"
     }
-    return pkg.featured_image
+    return optimizeUnsplashUrl(pkg.featured_image)
   }
 
   return (
     <section id="destinations" className="relative mx-auto max-w-7xl px-4 sm:px-6 py-16 md:py-24">
       {/* Section Header */}
       <div className="mx-auto max-w-3xl text-center">
-        <span className="text-xs font-sans uppercase tracking-[0.3em] text-[#C5A059] font-medium block">
+        <span className="text-xs font-sans uppercase tracking-[0.1em] text-[#C5A059] font-medium block">
           Curated Expeditions
         </span>
-        <h2 className="mt-4 text-balance font-serif font-light text-4xl leading-tight tracking-tight text-[#F4F2EC] sm:text-5xl lg:text-6xl">
+        <h2 className="mt-4 text-balance font-serif font-medium text-4xl leading-tight tracking-tight text-[#F4F2EC] sm:text-5xl lg:text-6xl">
           Curated Indian Journeys
         </h2>
-        <p className="mt-4 text-pretty text-base leading-relaxed text-[#B8B4AA] font-light sm:text-lg">
+        <p className="mt-4 text-pretty text-base leading-relaxed text-[#E5E2DC] font-normal sm:text-lg">
           Each itinerary is architected end-to-end with private chauffeurs, palace heritage stays, and bespoke culinary hosts.
         </p>
       </div>
@@ -251,7 +251,7 @@ export function PackagesGrid() {
                 className={`inline-flex items-center whitespace-nowrap rounded-sm px-4 py-2 text-xs font-medium uppercase tracking-wider transition-all ${
                   isSelected
                     ? "border border-[#C5A059] bg-[#C5A059]/15 text-[#C5A059] shadow-sm"
-                    : "border border-white/10 bg-[#141310] text-[#B8B4AA] hover:border-[#C5A059]/40 hover:text-[#F4F2EC]"
+                    : "border border-white/10 bg-[#141310] text-[#E5E2DC] hover:border-[#C5A059]/40 hover:text-[#F4F2EC]"
                 }`}
               >
                 {category}
@@ -262,18 +262,18 @@ export function PackagesGrid() {
 
         {/* Quick In-Grid Keyword Filter */}
         <div className="relative w-full sm:w-72">
-          <Search className="pointer-events-none absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-[#B8B4AA]/60" />
+          <Search className="pointer-events-none absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-[#E5E2DC]/60" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search destination, style..."
-            className="w-full rounded-sm border border-white/15 bg-[#141310] py-2 pl-9 pr-8 text-xs font-medium text-[#F4F2EC] placeholder:text-[#B8B4AA]/50 backdrop-blur-md outline-none transition-colors focus:border-[#C5A059]/60"
+            className="w-full rounded-sm border border-white/15 bg-[#141310] py-2 pl-9 pr-8 text-xs font-medium text-[#F4F2EC] placeholder:text-[#E5E2DC]/50 backdrop-blur-md outline-none transition-colors focus:border-[#C5A059]/60"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery("")}
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 rounded-sm p-1 text-[#B8B4AA]/60 hover:text-[#F4F2EC]"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 rounded-sm p-1 text-[#E5E2DC]/60 hover:text-[#F4F2EC]"
             >
               <X className="size-3.5" />
             </button>
@@ -284,7 +284,7 @@ export function PackagesGrid() {
       {/* Active Filter Indicators */}
       {(searchQuery || activeCategory !== "All Circuits") && (
         <div className="mt-4 flex flex-wrap items-center gap-2">
-          <span className="text-xs text-[#B8B4AA]/80">Filtered by:</span>
+          <span className="text-xs text-[#E5E2DC]/80">Filtered by:</span>
           {activeCategory !== "All Circuits" && (
             <span className="inline-flex items-center gap-1.5 rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 px-3 py-1 text-xs text-[#C5A059]">
               Category: {activeCategory}
@@ -307,7 +307,7 @@ export function PackagesGrid() {
           >
             Reset all
           </button>
-          <span className="ml-auto text-xs text-[#B8B4AA]/60">
+          <span className="ml-auto text-xs text-[#E5E2DC]/60">
             {filteredPackages.length} {filteredPackages.length === 1 ? "journey" : "journeys"} found
           </span>
         </div>
@@ -338,7 +338,7 @@ export function PackagesGrid() {
         <div className="mt-14 rounded-sm border border-dashed border-white/15 bg-[#141310] py-16 text-center">
           <Compass className="mx-auto size-12 text-[#C5A059]/60" />
           <h3 className="mt-4 font-serif text-2xl text-[#F4F2EC]">No matching journeys found</h3>
-          <p className="mt-2 text-sm text-[#B8B4AA]">
+          <p className="mt-2 text-sm text-[#E5E2DC]">
             We couldn&apos;t find any curations matching &ldquo;{searchQuery}&rdquo;. Try another destination or view all journeys.
           </p>
           <button
@@ -409,6 +409,8 @@ export function PackagesGrid() {
               <img
                 src={getPackageImage(selectedPackage)}
                 alt={selectedPackage.title}
+                loading="lazy"
+                decoding="async"
                 onError={(e) => {
                   e.currentTarget.src = "/scene-desert.png"
                 }}
@@ -418,7 +420,7 @@ export function PackagesGrid() {
 
             {/* Description */}
             <div className="mt-6">
-              <h4 className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">
+              <h4 className="text-xs uppercase tracking-[0.1em] text-primary font-semibold">
                 Itinerary Narrative
               </h4>
               <p className="mt-2 text-sm leading-relaxed text-foreground/80 sm:text-base">
@@ -429,7 +431,7 @@ export function PackagesGrid() {
             {/* Destinations Path */}
             {selectedPackage.destinations && selectedPackage.destinations.length > 0 && (
               <div className="mt-6">
-                <h4 className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">
+                <h4 className="text-xs uppercase tracking-[0.1em] text-primary font-semibold">
                   Destinations En Route
                 </h4>
                 <div className="mt-3 flex flex-wrap items-center gap-2">
@@ -452,7 +454,7 @@ export function PackagesGrid() {
             {/* Curated Highlights */}
             {selectedPackage.highlights && selectedPackage.highlights.length > 0 && (
               <div className="mt-6">
-                <h4 className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">
+                <h4 className="text-xs uppercase tracking-[0.1em] text-primary font-semibold">
                   Exclusive Inclusions & Highlights
                 </h4>
                 <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
@@ -483,7 +485,7 @@ export function PackagesGrid() {
               </div>
             )}
 
-            {/* Bottom Concierge Checkout / Inquiry Bar */}
+            {/* Bottom Sarrin Holidays Inquiry Bar */}
             <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-white/15 pt-6">
               <div>
                 <span className="block text-xs uppercase tracking-wider text-[#C5A059] font-sans font-medium">

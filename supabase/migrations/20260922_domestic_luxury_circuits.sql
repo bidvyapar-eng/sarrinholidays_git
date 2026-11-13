@@ -33,7 +33,7 @@ SET
         'Vintage Rolls-Royce and armored luxury SUV chauffeur fleet throughout',
         'Personal royal historian liaison for exclusive Amber Fort and City Palace night access',
         'Private Thar Desert tented camp with royal banquet & sunset camel caravan',
-        'Dedicated 24/7 Sarrin Private Concierge and all royal palace courtyard dining'
+        'Dedicated 24/7 Sarrin Holidays liaison and all royal palace courtyard dining'
     ],
     exclusions = ARRAY[
         'Commercial or private transcontinental long-haul flights',
@@ -150,7 +150,7 @@ SELECT
         'Private chartered turboprop transfers between regional national park airstrips',
         'Torchlit bush dinners with local folk musicians and stargazing telescopes',
         'Exclusive buffer zone night drives and elephant-assisted photographic tracking',
-        'All luxury meals, park entrance permits, forest conservation levies, and 24/7 dedicated wildlife curator concierge'
+        'All luxury meals, park entrance permits, forest conservation levies, and 24/7 dedicated wildlife curator liaison'
     ],
     ARRAY[
         'High-magnification telephoto camera bodies and lens rental packages',
@@ -181,7 +181,7 @@ SET
         'Private chartered turboprop transfers between regional national park airstrips',
         'Torchlit bush dinners with local folk musicians and stargazing telescopes',
         'Exclusive buffer zone night drives and elephant-assisted photographic tracking',
-        'All luxury meals, park entrance permits, forest conservation levies, and 24/7 dedicated wildlife curator concierge'
+        'All luxury meals, park entrance permits, forest conservation levies, and 24/7 dedicated wildlife curator liaison'
     ],
     exclusions = ARRAY[
         'High-magnification telephoto camera bodies and lens rental packages',

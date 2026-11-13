@@ -132,10 +132,10 @@ function AdminLayoutShell({ children }: { children: React.ReactNode }) {
                   <ShieldCheck className="size-5" />
                 </div>
                 <div>
-                  <span className="block font-sans text-xs font-bold uppercase tracking-[0.2em] text-foreground">
+                  <span className="block font-sans text-xs font-bold uppercase tracking-[0.1em] text-foreground">
                     Sarrin
                   </span>
-                  <span className="block font-mono text-[9px] uppercase tracking-[0.25em] text-primary">
+                  <span className="block font-mono text-[9px] uppercase tracking-[0.1em] text-primary">
                     Command Shell
                   </span>
                 </div>

@@ -40,7 +40,7 @@ const PUBLIC_ROUTES = [
   // Press, About, Contact & Auth
   { path: '/about', label: 'About Atelier Page' },
   { path: '/press', label: 'Press Room & Media Kit' },
-  { path: '/contact', label: 'Concierge Contact Desk' },
+  { path: '/contact', label: 'Sarrin Holidays Contact Desk' },
   { path: '/login', label: 'Admin VIP Login Portal' },
   
   // Off-Page SEO, Feeds & Technical Endpoints

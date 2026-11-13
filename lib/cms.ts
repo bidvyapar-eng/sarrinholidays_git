@@ -43,7 +43,7 @@ export const fallbackPackages: PackageItem[] = [
     price: 85000,
     duration: '8 Days / 7 Nights',
     destinations: ['Kochi', 'Munnar', 'Thekkady', 'Alleppey', 'Kovalam'],
-    featured_image: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80&w=1200',
+    featured_image: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=75',
     gallery: [
       'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80&w=800',
       'https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&q=80&w=800',
@@ -66,7 +66,7 @@ export const fallbackPackages: PackageItem[] = [
       '01 Night private buyout of climate-controlled luxury Kettuvallam Houseboat in Alleppey',
       '02 Nights oceanfront suite accommodation at Kovalam — The Leela Kovalam',
       'Full curatorial dining plan (Daily Breakfast, Gourmet High Tea, and Curated Regional Dinners)',
-      'Dedicated private luxury vehicle with all highway tolls, parking, and concierge liaison',
+      'Dedicated private luxury vehicle with all highway tolls, parking, and Sarrin Holidays liaison',
       'Curated private boat safaris, royal spice trails, and temple heritage entrance privileges',
     ],
     exclusions: [
@@ -122,7 +122,7 @@ export const fallbackPackages: PackageItem[] = [
     price: 95000,
     duration: '7 Days / 6 Nights',
     destinations: ['Srinagar', 'Gulmarg', 'Pahalgam', 'Dal Lake'],
-    featured_image: 'https://images.unsplash.com/photo-1598091383021-15ddea10925d?auto=format&fit=crop&q=80&w=1200',
+    featured_image: 'https://images.unsplash.com/photo-1598091383021-15ddea10925d?auto=format&fit=crop&w=800&q=75',
     gallery: [
       'https://images.unsplash.com/photo-1598091383021-15ddea10925d?auto=format&fit=crop&q=80&w=800',
     ],
@@ -161,7 +161,7 @@ export const fallbackPackages: PackageItem[] = [
     price: 65000,
     duration: '4 Days / 3 Nights',
     destinations: ['Colva', 'Old Goa', 'Mandovi', 'South Goa'],
-    featured_image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&q=80&w=1200',
+    featured_image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=75',
     gallery: [
       'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&q=80&w=800',
     ],
@@ -198,7 +198,7 @@ export const fallbackPackages: PackageItem[] = [
     price: 75000,
     duration: '3 Days / 2 Nights',
     destinations: ['Varanasi', 'Kashi Vishwanath', 'Assi Ghat', 'Sarnath'],
-    featured_image: 'https://images.unsplash.com/photo-1687753578819-08e5a39d715a?auto=format&fit=crop&q=80&w=1200',
+    featured_image: 'https://images.unsplash.com/photo-1687753578819-08e5a39d715a?auto=format&fit=crop&w=800&q=75',
     gallery: [
       'https://images.unsplash.com/photo-1687753578819-08e5a39d715a?auto=format&fit=crop&q=80&w=800',
       'https://images.unsplash.com/photo-1561359313-0639aad49ca6?auto=format&fit=crop&q=80&w=800',
@@ -220,7 +220,7 @@ export const fallbackPackages: PackageItem[] = [
       'Private double-decker sunset Bajra boat chartered exclusively for Dev Deepawali Maha Aarti',
       'Temple liaison assistance for Kashi Vishwanath Corridor, Annapurna, and Kal Bhairav darshans',
       'Private excursion to Buddhist heritage sanctuary at Sarnath & Dhamek Stupa with expert scholar',
-      'All tolls, boat charters, temple offerings, and dedicated concierge host throughout',
+      'All tolls, boat charters, temple offerings, and dedicated Sarrin Holidays host throughout',
     ],
     exclusions: [
       'Commercial airfare to/from Varanasi',
@@ -237,7 +237,7 @@ export const fallbackPackages: PackageItem[] = [
     price: 185000,
     duration: '10 Days / 9 Nights',
     destinations: ['Udaipur', 'Jaipur', 'Jodhpur'],
-    featured_image: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&q=80&w=1200',
+    featured_image: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=800&q=75',
     gallery: ['https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&q=80&w=800'],
     highlights: [
       'Living Palace Suites at Taj Lake Palace & Rambagh Palace',
@@ -254,7 +254,7 @@ export const fallbackPackages: PackageItem[] = [
       'Vintage Rolls-Royce and armored luxury SUV chauffeur fleet throughout',
       'Personal royal historian liaison for exclusive Amber Fort and City Palace night access',
       'Private Thar Desert tented camp with royal banquet & sunset camel caravan',
-      'Dedicated 24/7 Sarrin Private Concierge and all royal palace courtyard dining',
+      'Dedicated 24/7 Sarrin Holidays liaison and all royal palace courtyard dining',
     ],
     exclusions: [
       'Commercial or private transcontinental long-haul flights',
@@ -307,7 +307,7 @@ export const fallbackPackages: PackageItem[] = [
     price: 165000,
     duration: '8 Days / 7 Nights',
     destinations: ['Rishikesh', 'Ananda in Himalayas', 'Varanasi'],
-    featured_image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&q=80&w=1200',
+    featured_image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=800&q=75',
     gallery: ['https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&q=80&w=800'],
     highlights: [
       'Palace Suite at Ananda in the Himalayas',
@@ -342,7 +342,7 @@ export const fallbackPackages: PackageItem[] = [
     price: 195000,
     duration: '9 Days / 8 Nights',
     destinations: ['Ranthambore', 'Bandhavgarh', 'Corbett'],
-    featured_image: 'https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&q=80&w=1200',
+    featured_image: 'https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=800&q=75',
     gallery: [
       'https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&q=80&w=800',
       'https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800',
@@ -362,7 +362,7 @@ export const fallbackPackages: PackageItem[] = [
       'Private chartered turboprop transfers between regional national park airstrips',
       'Torchlit bush dinners with local folk musicians and stargazing telescopes',
       'Exclusive buffer zone night drives and elephant-assisted photographic tracking',
-      'All luxury meals, park entrance permits, forest conservation levies, and 24/7 dedicated wildlife curator concierge',
+      'All luxury meals, park entrance permits, forest conservation levies, and 24/7 dedicated wildlife curator liaison',
     ],
     exclusions: [
       'High-magnification telephoto camera bodies and lens rental packages',
@@ -381,7 +381,7 @@ export const fallbackServices: ServiceItem[] = [
     title: 'Private Aviation & Charters',
     slug: 'private-aviation-charters',
     short_desc: 'Helicopter transfers to the Himalayas and private jet inter-city travel.',
-    full_desc: 'Bypass conventional transit friction with on-demand turboprops, ultra-long-range private jets, and high-altitude helicopters. Seamlessly connect between metropolitan hubs and remote sanctuaries—from direct mountain helipad landings at exclusive Himalayan wellness retreats in Rishikesh and Ladakh to private jet charters linking Delhi, Mumbai, Udaipur, and Kochi with bespoke in-flight concierge services.',
+    full_desc: 'Bypass conventional transit friction with on-demand turboprops, ultra-long-range private jets, and high-altitude helicopters. Seamlessly connect between metropolitan hubs and remote sanctuaries—from direct mountain helipad landings at exclusive Himalayan wellness retreats in Rishikesh and Ladakh to private jet charters linking Delhi, Mumbai, Udaipur, and Kochi with bespoke in-flight Sarrin Holidays services.',
     icon_name: 'Plane',
     hero_image: 'https://images.unsplash.com/photo-1583416750470-965b2707b355?auto=format&fit=crop&q=80&w=1200',
     sort_order: 1,
@@ -391,8 +391,8 @@ export const fallbackServices: ServiceItem[] = [
     id: 'c7a10001-3829-4d8e-9001-000000000002',
     title: 'Royal Celebrations & Weddings',
     slug: 'royal-celebrations-weddings',
-    short_desc: 'Palace buyouts and event concierge in Rajasthan.',
-    full_desc: 'Transform Rajasthan’s most majestic 18th-century fortresses and floating lake palaces into your personal royal court. We coordinate exclusive full-property palace buyouts across Udaipur, Jaipur, and Jodhpur, orchestrating bespoke celebration architecture, regal torchlit courtyard banquets, private desert sangeets beneath Thar constellations, and discreet 24/7 event concierge liaisons.',
+    short_desc: 'Palace buyouts and event curation in Rajasthan by Sarrin Holidays.',
+    full_desc: 'Transform Rajasthan’s most majestic 18th-century fortresses and floating lake palaces into your personal royal court. We coordinate exclusive full-property palace buyouts across Udaipur, Jaipur, and Jodhpur, orchestrating bespoke celebration architecture, regal torchlit courtyard banquets, private desert sangeets beneath Thar constellations, and discreet 24/7 Sarrin Holidays liaisons.',
     icon_name: 'Crown',
     hero_image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=1200',
     sort_order: 2,
@@ -500,6 +500,22 @@ export async function getPublicContent() {
     experiences: experiences ?? [],
     journal: journal?.length ? journal : fallbackJournalPosts,
     services: services?.length ? services : fallbackServices,
+  }
+}
+
+export function optimizeUnsplashUrl(url?: string | null, width = 800, quality = 75): string {
+  if (!url) return ''
+  if (!url.includes('images.unsplash.com')) return url
+  try {
+    const urlObj = new URL(url)
+    urlObj.searchParams.set('auto', 'format')
+    urlObj.searchParams.set('fit', 'crop')
+    urlObj.searchParams.set('w', width.toString())
+    urlObj.searchParams.set('q', quality.toString())
+    return urlObj.toString()
+  } catch {
+    const baseUrl = url.split('?')[0]
+    return `${baseUrl}?auto=format&fit=crop&w=${width}&q=${quality}`
   }
 }
 

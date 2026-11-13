@@ -1,22 +1,21 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Cormorant_Garamond, Inter } from 'next/font/google'
+import { Playfair_Display, Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
-import { JsonLd } from '@/components/json-ld'
 import { ConciergeDrawer } from '@/components/ConciergeDrawer'
 
-const sans = Inter({
+const sans = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  variable: '--font-sans-inter',
+  weight: ['400', '500', '600'],
+  variable: '--font-sans',
   display: 'swap',
 })
 
-const serif = Cormorant_Garamond({
+const serif = Playfair_Display({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
+  weight: ['500', '600', '700'],
   style: ['normal', 'italic'],
-  variable: '--font-serif-cormorant',
+  variable: '--font-serif',
   display: 'swap',
 })
 
@@ -86,39 +85,7 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: [
-      {
-        url: '/icon-32x32.png?v=sarrin2026',
-        sizes: '32x32',
-        type: 'image/png',
-      },
-      {
-        url: '/icon-16x16.png?v=sarrin2026',
-        sizes: '16x16',
-        type: 'image/png',
-      },
-      {
-        url: '/icon-light-32x32.png?v=sarrin2026',
-        sizes: '32x32',
-        type: 'image/png',
-      },
-      {
-        url: '/icon.svg?v=sarrin2026',
-        type: 'image/svg+xml',
-      },
-      {
-        url: '/favicon.ico?v=sarrin2026',
-        sizes: 'any',
-      },
-    ],
-    shortcut: '/favicon.ico?v=sarrin2026',
-    apple: [
-      {
-        url: '/apple-icon.png?v=sarrin2026',
-        sizes: '180x180',
-        type: 'image/png',
-      },
-    ],
+    icon: '/favicon.ico',
   },
   robots: {
     index: true,
@@ -144,80 +111,21 @@ const travelAgencySchema = {
   url: siteUrl,
   logo: `${siteUrl}/sarrin-holidays-logo.png`,
   image: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&q=80&w=1200',
-  telephone: '+91 84198 87730',
-  email: 'concierge@sarrinholidays.com',
+  telephone: '+91-84198-87730',
+  email: 'help@sarrinholidays.com',
+  identifier: 'UDYAM-MH-23-0433487',
+  address: '42, Jagtap Complex, Satpur, Nashik, Maharashtra 422012, IN',
+  areaServed: 'IN',
   priceRange: '$$$$',
   currenciesAccepted: 'USD, EUR, GBP, INR',
   paymentAccepted: 'Wire Transfer, Credit Card',
   foundingDate: '2012',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Level 18, The Capital, G Block, Bandra Kurla Complex (BKC)',
-    addressLocality: 'Mumbai',
-    addressRegion: 'Maharashtra',
-    postalCode: '400051',
-    addressCountry: 'IN',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 19.0657,
-    longitude: 72.8688,
-  },
-  areaServed: [
-    {
-      '@type': 'AdministrativeArea',
-      name: 'Rajasthan',
-    },
-    {
-      '@type': 'AdministrativeArea',
-      name: 'Kerala',
-    },
-    {
-      '@type': 'AdministrativeArea',
-      name: 'Himalayas & Uttarakhand',
-    },
-    {
-      '@type': 'Country',
-      name: 'India',
-    },
-  ],
-  knowsAbout: [
-    'Private Aviation Charters',
-    'Palace Buyouts & Royal Heritage',
-    'Ayurvedic Sanctuaries & Panchakarma',
-    'VIP Armored Chauffeur & Diplomatic Security',
-    'Bespoke Cultural Expeditions',
-  ],
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    bestRating: '5.0',
-    worstRating: '1.0',
-    ratingCount: '184',
-    reviewCount: '142',
-  },
-  award: [
-    'Indian Heritage Hospitality Excellence Recognition',
-    'Sovereign Aviation Concierge Partner 2025',
-    'Condé Nast Traveler Recommended Specialist Network',
-  ],
-  memberOf: [
-    {
-      '@type': 'Organization',
-      name: 'Indian Heritage Hotels Association',
-    },
-    {
-      '@type': 'Organization',
-      name: 'International Air Transport Association (IATA) Partner Network',
-    },
-  ],
   sameAs: [
     'https://www.instagram.com/sarrinholidays',
     'https://www.linkedin.com/company/sarrinholidays',
     'https://twitter.com/sarrinholidays',
     'https://www.facebook.com/sarrinholidays',
     'https://www.youtube.com/@sarrinholidays',
-    'https://maps.google.com/?cid=18294719284719284719',
   ],
 }
 
@@ -232,10 +140,14 @@ export default function RootLayout({
       className={`${sans.variable} ${serif.variable} bg-background`}
       suppressHydrationWarning
     >
-      <head>
-        <JsonLd data={travelAgencySchema} id="travel-agency-schema" />
-      </head>
       <body className={`${sans.variable} ${serif.variable} font-sans antialiased overflow-x-hidden min-w-[320px] max-w-[100vw]`}>
+        <script
+          type="application/ld+json"
+          id="travel-agency-schema"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(travelAgencySchema),
+          }}
+        />
         {children}
         <ConciergeDrawer />
         {process.env.NODE_ENV === 'production' && <Analytics />}

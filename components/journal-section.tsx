@@ -12,7 +12,7 @@ import {
   Navigation,
   Calendar,
 } from 'lucide-react'
-import type { JournalPost } from '@/lib/cms'
+import { optimizeUnsplashUrl, type JournalPost } from '@/lib/cms'
 import type { MappedArticle } from '@/components/journal-map'
 
 // Dynamically import Leaflet map with ssr: false to prevent window is not defined
@@ -22,7 +22,7 @@ const JournalMap = dynamic(() => import('@/components/journal-map'), {
     <div className="relative flex h-[560px] md:h-[620px] w-full items-center justify-center rounded-sm border border-white/10 bg-[#0C0B09] backdrop-blur-md">
       <div className="flex flex-col items-center gap-3">
         <div className="size-10 animate-spin rounded-full border-2 border-[#C5A059] border-t-transparent" />
-        <p className="text-xs font-sans uppercase tracking-[0.25em] text-[#C5A059]">
+        <p className="text-xs font-sans uppercase tracking-[0.1em] text-[#C5A059]">
           Initializing Cartographic Discovery...
         </p>
       </div>
@@ -45,7 +45,7 @@ const DEFAULT_MAPPED_ARTICLES: MappedArticle[] = [
     readTime: '6 min read',
     bestSeason: 'October – March',
     idealDuration: '8 – 10 Days',
-    imageUrl: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&q=80&w=1200',
+    imageUrl: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=800&q=75',
     relatedPackageSlug: 'royal-rajasthan-tour',
     highlights: [
       'Presidential suites at Taj Lake Palace & Rambagh Palace',
@@ -66,7 +66,7 @@ const DEFAULT_MAPPED_ARTICLES: MappedArticle[] = [
     readTime: '5 min read',
     bestSeason: 'September – April',
     idealDuration: '5 – 8 Days',
-    imageUrl: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80&w=1200',
+    imageUrl: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=75',
     relatedPackageSlug: 'kerala-gods-own-country-8d',
     highlights: [
       'Exclusive climate-controlled Kettuvallam with personal chef',
@@ -87,7 +87,7 @@ const DEFAULT_MAPPED_ARTICLES: MappedArticle[] = [
     readTime: '7 min read',
     bestSeason: 'May – Oct (Summer) / Dec – Feb (Snow)',
     idealDuration: '7 – 10 Days',
-    imageUrl: 'https://images.unsplash.com/photo-1598091383021-15ddea10925d?auto=format&fit=crop&q=80&w=1200',
+    imageUrl: 'https://images.unsplash.com/photo-1598091383021-15ddea10925d?auto=format&fit=crop&w=800&q=75',
     relatedPackageSlug: 'kashmir-paradise-valleys-7d',
     highlights: [
       'VIP Gondola Passes to Gulmarg Apharwat Ridge',
@@ -108,7 +108,7 @@ const DEFAULT_MAPPED_ARTICLES: MappedArticle[] = [
     readTime: '5 min read',
     bestSeason: 'October – March',
     idealDuration: '3 – 5 Days',
-    imageUrl: 'https://images.unsplash.com/photo-1687753578819-08e5a39d715a?auto=format&fit=crop&q=80&w=1200',
+    imageUrl: 'https://images.unsplash.com/photo-1687753578819-08e5a39d715a?auto=format&fit=crop&w=800&q=75',
     relatedPackageSlug: 'experience-varanasi-dev-deepawali-3d',
     highlights: [
       'Private chartered Sunset Bajra for Dashashwamedh Maha Aarti',
@@ -129,7 +129,7 @@ const DEFAULT_MAPPED_ARTICLES: MappedArticle[] = [
     readTime: '6 min read',
     bestSeason: 'November – May',
     idealDuration: '6 – 9 Days',
-    imageUrl: 'https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&q=80&w=1200',
+    imageUrl: 'https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=800&q=75',
     relatedPackageSlug: 'wild-untamed-tiger-safari',
     highlights: [
       'Aman-i-Khas & Taj Safari luxury forest pavilions',
@@ -150,7 +150,7 @@ const DEFAULT_MAPPED_ARTICLES: MappedArticle[] = [
     readTime: '4 min read',
     bestSeason: 'October – April',
     idealDuration: '4 – 6 Days',
-    imageUrl: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&q=80&w=1200',
+    imageUrl: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=75',
     relatedPackageSlug: 'blissful-goa-beach-getaway-4d',
     highlights: [
       'Private luxury catamaran and yacht charter at sunset',
@@ -171,7 +171,7 @@ const DEFAULT_MAPPED_ARTICLES: MappedArticle[] = [
     readTime: '8 min read',
     bestSeason: 'October – April',
     idealDuration: '7 – 10 Days',
-    imageUrl: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1200',
+    imageUrl: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=75',
     relatedPackageSlug: 'wild-untamed-tiger-safari',
     highlights: [
       'Private guided trek to UNESCO living root bridges of Nongriat',
@@ -249,14 +249,14 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-xs uppercase tracking-[0.25em] text-[#C5A059] font-sans font-medium">
+              <span className="text-xs uppercase tracking-[0.1em] text-[#C5A059] font-sans font-medium">
                 From The Journal
               </span>
             </div>
-            <h2 className="mt-3 font-serif font-light text-4xl text-[#F4F2EC] sm:text-5xl tracking-tight">
+            <h2 className="mt-3 font-serif font-medium text-4xl text-[#F4F2EC] sm:text-5xl tracking-tight">
               Field notes for curious travellers.
             </h2>
-            <p className="mt-3 max-w-2xl text-base text-[#B8B4AA] leading-relaxed font-light">
+            <p className="mt-3 max-w-2xl text-base text-[#E5E2DC] leading-relaxed font-normal">
               Explore dispatches across royal desert heartlands, emerald backwater lagoons, high-altitude alpine passes, and sacred riverfront ghats. Visually navigate articles by region across the Indian subcontinent.
             </p>
           </div>
@@ -269,7 +269,7 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
               className={`flex items-center gap-2 rounded-sm px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 ${
                 viewMode === 'map'
                   ? 'bg-[#C5A059] text-[#0C0B09] shadow-md shadow-[#C5A059]/20'
-                  : 'text-[#B8B4AA] hover:text-[#F4F2EC] hover:bg-white/5'
+                  : 'text-[#E5E2DC] hover:text-[#F4F2EC] hover:bg-white/5'
               }`}
             >
               <Compass className="size-4" />
@@ -286,7 +286,7 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
               className={`flex items-center gap-2 rounded-sm px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 ${
                 viewMode === 'grid'
                   ? 'bg-[#C5A059] text-[#0C0B09] shadow-md shadow-[#C5A059]/20'
-                  : 'text-[#B8B4AA] hover:text-[#F4F2EC] hover:bg-white/5'
+                  : 'text-[#E5E2DC] hover:text-[#F4F2EC] hover:bg-white/5'
               }`}
             >
               <LayoutGrid className="size-4" />
@@ -301,7 +301,7 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
             {/* Regional Filter Bar (8 Tabs: All India + 7 Iconic Regions) */}
             <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-4">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="text-xs uppercase tracking-wider text-[#B8B4AA]/70 mr-1 flex items-center gap-1 font-sans">
+                <span className="text-xs uppercase tracking-wider text-[#E5E2DC]/70 mr-1 flex items-center gap-1 font-sans">
                   <MapPin className="size-3.5 text-[#C5A059]" /> Region:
                 </span>
                 {REGION_TABS.map((tab) => {
@@ -313,7 +313,7 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
                       className={`rounded-sm px-3.5 py-1.5 text-xs font-medium uppercase tracking-wider transition-all ${
                         isActive
                           ? 'border border-[#C5A059] bg-[#C5A059]/15 text-[#C5A059] shadow-sm'
-                          : 'border border-white/10 bg-[#141310] text-[#B8B4AA] hover:border-[#C5A059]/40 hover:text-[#F4F2EC]'
+                          : 'border border-white/10 bg-[#141310] text-[#E5E2DC] hover:border-[#C5A059]/40 hover:text-[#F4F2EC]'
                       }`}
                     >
                       {tab.label}
@@ -322,7 +322,7 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
                 })}
               </div>
 
-              <div className="text-xs text-[#B8B4AA]/60 hidden lg:block font-sans">
+              <div className="text-xs text-[#E5E2DC]/60 hidden lg:block font-sans">
                 <span>Click pins on the map to inspect story field notes</span>
               </div>
             </div>
@@ -351,8 +351,10 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
                       {/* Top Image Preview with Badges */}
                       <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm border border-white/10 shadow-lg bg-[#0C0B09]">
                         <img
-                          src={activeArticle.imageUrl}
+                          src={optimizeUnsplashUrl(activeArticle.imageUrl)}
                           alt={activeArticle.title}
+                          loading="lazy"
+                          decoding="async"
                           className="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
@@ -375,13 +377,13 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
 
                       {/* Title & Description */}
                       <div className="mt-5">
-                        <span className="text-[11px] font-sans font-medium uppercase tracking-[0.2em] text-[#C5A059]">
+                        <span className="text-[11px] font-sans font-medium uppercase tracking-[0.1em] text-[#C5A059]">
                           Featured Field Dispatch
                         </span>
-                        <h3 className="mt-2 font-serif text-2xl text-[#F4F2EC] font-light leading-snug group-hover:text-[#C5A059] transition-colors">
+                        <h3 className="mt-2 font-serif text-2xl text-[#F4F2EC] font-medium leading-snug group-hover:text-[#C5A059] transition-colors">
                           {activeArticle.title}
                         </h3>
-                        <p className="mt-2.5 text-xs text-[#B8B4AA] leading-relaxed font-light">
+                        <p className="mt-2.5 text-sm text-[#E5E2DC] leading-relaxed font-normal">
                           {activeArticle.excerpt}
                         </p>
                       </div>
@@ -392,7 +394,7 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
                           <span className="text-[10px] uppercase tracking-wider text-[#C5A059] font-medium flex items-center gap-1">
                             <Calendar className="size-3 text-[#C5A059]" /> Best Season
                           </span>
-                          <span className="mt-1 text-[#F4F2EC] font-light">
+                          <span className="mt-1 text-[#F4F2EC] font-normal">
                             {activeArticle.bestSeason || 'October – March'}
                           </span>
                         </div>
@@ -400,7 +402,7 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
                           <span className="text-[10px] uppercase tracking-wider text-[#C5A059] font-medium flex items-center gap-1">
                             <Clock className="size-3 text-[#C5A059]" /> Ideal Duration
                           </span>
-                          <span className="mt-1 text-[#F4F2EC] font-light">
+                          <span className="mt-1 text-[#F4F2EC] font-normal">
                             {activeArticle.idealDuration || '7 – 9 Days'}
                           </span>
                         </div>
@@ -409,14 +411,14 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
                       {/* Curated Inclusions list */}
                       {activeArticle.highlights && activeArticle.highlights.length > 0 && (
                         <div className="mt-4 space-y-2">
-                          <span className="text-[10px] uppercase tracking-wider text-[#B8B4AA]/70 block font-sans">
+                          <span className="text-[10px] uppercase tracking-wider text-[#E5E2DC]/70 block font-sans">
                             Curated Inclusions
                           </span>
                           <div className="space-y-1.5">
                             {activeArticle.highlights.map((h, i) => (
-                              <div key={i} className="flex items-start gap-2 text-xs text-[#B8B4AA]">
+                              <div key={i} className="flex items-start gap-2 text-xs text-[#E5E2DC]">
                                 <span className="size-1.5 rounded-full bg-[#C5A059] mt-1 shrink-0" />
-                                <span className="font-light line-clamp-1">{h}</span>
+                                <span className="font-normal line-clamp-1">{h}</span>
                               </div>
                             ))}
                           </div>
@@ -468,8 +470,10 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
                   >
                     <div className="aspect-[16/10] w-full overflow-hidden rounded-sm bg-[#0C0B09] mb-2.5">
                       <img
-                        src={article.imageUrl}
+                        src={optimizeUnsplashUrl(article.imageUrl)}
                         alt={article.region}
+                        loading="lazy"
+                        decoding="async"
                         className="size-full object-cover"
                       />
                     </div>
@@ -479,7 +483,7 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
                     <h4 className="mt-0.5 text-xs font-serif font-normal text-[#F4F2EC] truncate">
                       {article.locationName}
                     </h4>
-                    <span className="mt-1.5 flex items-center gap-1 text-[10px] text-[#B8B4AA]/70 font-sans">
+                    <span className="mt-1.5 flex items-center gap-1 text-[10px] text-[#E5E2DC]/70 font-sans">
                       <Navigation className="size-2.5 text-[#C5A059]" /> Inspect Pin
                     </span>
                   </button>
@@ -500,8 +504,10 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
                 >
                   <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#0C0B09]">
                     <img
-                      src={post.imageUrl}
+                      src={optimizeUnsplashUrl(post.imageUrl)}
                       alt={post.title}
+                      loading="lazy"
+                      decoding="async"
                       className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
@@ -511,17 +517,17 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
                   </div>
 
                   <div className="flex flex-1 flex-col p-6">
-                    <span className="text-[10px] font-sans uppercase tracking-[0.2em] text-[#C5A059]">
+                    <span className="text-[10px] font-sans uppercase tracking-[0.1em] text-[#C5A059]">
                       {post.category}
                     </span>
-                    <h3 className="mt-2 font-serif text-xl font-light text-[#F4F2EC] leading-snug group-hover:text-[#C5A059] transition-colors">
+                    <h3 className="mt-2 font-serif text-xl font-medium text-[#F4F2EC] leading-snug group-hover:text-[#C5A059] transition-colors">
                       {post.title}
                     </h3>
-                    <p className="mt-2 text-xs leading-relaxed text-[#B8B4AA] font-light line-clamp-2">
+                    <p className="mt-2 text-sm leading-relaxed text-[#E5E2DC] font-normal line-clamp-2">
                       {post.excerpt}
                     </p>
 
-                    <div className="mt-4 grid grid-cols-2 gap-2 border-y border-white/10 py-2.5 text-[11px] font-sans text-[#B8B4AA]">
+                    <div className="mt-4 grid grid-cols-2 gap-2 border-y border-white/10 py-2.5 text-[11px] font-sans text-[#E5E2DC]">
                       <div>
                         <span className="text-[9px] uppercase tracking-wider text-[#C5A059] block">Season</span>
                         <span className="text-[#F4F2EC]">{post.bestSeason}</span>
@@ -533,7 +539,7 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
                     </div>
 
                     <div className="mt-auto pt-4 flex items-center justify-between border-t border-white/10">
-                      <span className="text-xs text-[#B8B4AA] font-light">{post.readTime}</span>
+                      <span className="text-xs text-[#E5E2DC] font-normal">{post.readTime}</span>
                       <Link
                         href={`/blog/${post.slug}`}
                         className="inline-flex items-center gap-1 text-xs font-sans font-medium text-[#C5A059] hover:text-[#D4B475]"
@@ -552,3 +558,6 @@ export function JournalSection({ initialPosts = [] }: JournalSectionProps) {
     </section>
   )
 }
+
+export const CartographicDiscoveryMap = JournalSection
+export default JournalSection

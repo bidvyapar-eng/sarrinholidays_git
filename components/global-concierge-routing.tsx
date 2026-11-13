@@ -47,14 +47,14 @@ export function GlobalConciergeRouting({
             </div>
             <div>
               <h4 className="text-xs font-serif text-[#F4F2EC] tracking-wide">
-                Global Concierge Routing
+                Global Logistics Routing
               </h4>
-              <p className="text-[10px] text-[#B8B4AA]">
+              <p className="text-[10px] text-[#E5E2DC]">
                 Select your logistical operations desk
               </p>
             </div>
           </div>
-          <span className="text-[10px] font-sans text-[#C5A059] uppercase tracking-[0.16em]">
+          <span className="text-[10px] font-sans text-[#C5A059] uppercase tracking-[0.1em]">
             24/7 Dedicated
           </span>
         </div>
@@ -77,7 +77,7 @@ export function GlobalConciergeRouting({
                 </div>
                 <div>
                   <h5 className="text-xs font-serif font-medium text-[#F4F2EC]">Domestic (India)</h5>
-                  <span className="text-[9px] font-sans uppercase tracking-wider text-[#B8B4AA]">Pan-India Operations</span>
+                  <span className="text-[9px] font-sans uppercase tracking-wider text-[#E5E2DC]">Pan-India Operations</span>
                 </div>
               </div>
               {selected === 'domestic' && (
@@ -85,7 +85,7 @@ export function GlobalConciergeRouting({
               )}
             </div>
 
-            <p className="text-[11px] text-[#B8B4AA] mt-2 line-clamp-2 font-light">
+            <p className="text-[11px] text-[#E5E2DC] mt-2 line-clamp-2 font-normal">
               Chauffeur fleets, private aviation charters, palace buyouts &amp; IST logistics.
             </p>
 
@@ -133,7 +133,7 @@ export function GlobalConciergeRouting({
               )}
             </div>
 
-            <p className="text-[11px] text-[#B8B4AA] mt-2 line-clamp-2 font-light">
+            <p className="text-[11px] text-[#E5E2DC] mt-2 line-clamp-2 font-normal">
               Indian e-visas, international flight sync, forex billing &amp; multi-timezone liaison.
             </p>
 
@@ -168,25 +168,25 @@ export function GlobalConciergeRouting({
     <div className={`space-y-6 ${className}`}>
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-2 rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 px-3 py-0.5 text-[10px] font-sans font-medium uppercase tracking-[0.22em] text-[#C5A059]">
+          <div className="inline-flex items-center gap-2 rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 px-3 py-0.5 text-[10px] font-sans font-medium uppercase tracking-[0.1em] text-[#C5A059]">
             <Globe className="size-3" />
-            Global Concierge Routing System
+            Global Sarrin Holidays Routing System
           </div>
-          <h3 className="font-serif text-2xl sm:text-3xl text-[#F4F2EC] font-light tracking-tight">
+          <h3 className="font-serif text-2xl sm:text-3xl text-[#F4F2EC] font-medium tracking-tight">
             Tailored Logistical Support for Discerning Travelers
           </h3>
-          <p className="text-xs sm:text-sm text-[#B8B4AA] max-w-2xl font-light">
+          <p className="text-xs sm:text-sm text-[#E5E2DC] max-w-2xl font-normal">
             Whether organizing corporate aviation clearances across India or coordinating cross-border visas and long-haul flights from abroad, our dedicated desks anticipate your requirements.
           </p>
         </div>
 
-        <div className="flex items-center gap-2 text-xs font-sans text-[#B8B4AA]">
+        <div className="flex items-center gap-2 text-xs font-sans text-[#E5E2DC]">
           <span className="size-2 rounded-full bg-emerald-400 animate-ping" />
           <span className="text-[11px] uppercase tracking-wider">Both Desks Active &bull; &lt;2h Response</span>
         </div>
       </div>
 
-      {/* Side-by-Side Full Concierge Desks */}
+      {/* Side-by-Side Full Operational Desks */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* =================================================================== */}
         {/* OPTION 1: DOMESTIC (INDIA) */}
@@ -210,10 +210,10 @@ export function GlobalConciergeRouting({
                   <Building2 className="size-6" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-sans uppercase tracking-[0.2em] text-[#C5A059] block">
+                  <span className="text-[10px] font-sans uppercase tracking-[0.1em] text-[#C5A059] block">
                     Pan-India Resident Operations
                   </span>
-                  <h4 className="font-serif text-2xl text-[#F4F2EC] font-light">
+                  <h4 className="font-serif text-2xl text-[#F4F2EC] font-medium">
                     Domestic (India)
                   </h4>
                 </div>
@@ -224,16 +224,16 @@ export function GlobalConciergeRouting({
               </span>
             </div>
 
-            <p className="mt-4 text-xs sm:text-sm text-[#B8B4AA] leading-relaxed font-light">
+            <p className="mt-4 text-xs sm:text-sm text-[#E5E2DC] leading-relaxed font-normal">
               Designed for resident patrons, Indian corporate leadership, and royal celebration organizers requiring seamless intra-India hospitality.
             </p>
 
             {/* Anticipated Logistical Needs */}
             <div className="mt-6 space-y-3">
-              <span className="text-[10px] font-sans uppercase tracking-[0.16em] text-[#C5A059] block">
+              <span className="text-[10px] font-sans uppercase tracking-[0.1em] text-[#C5A059] block">
                 Anticipated Logistical Services:
               </span>
-              <ul className="space-y-2.5 text-xs text-[#B8B4AA] font-light">
+              <ul className="space-y-2.5 text-xs text-[#E5E2DC] font-normal">
                 <li className="flex items-start gap-2.5">
                   <span className="size-1.5 rounded-full bg-[#C5A059] shrink-0 mt-1.5" />
                   <span>Inter-state private aviation permits &amp; high-altitude helicopter transit</span>
@@ -257,7 +257,7 @@ export function GlobalConciergeRouting({
           {/* Action Row */}
           <div className="mt-8 pt-6 border-t border-white/10 space-y-3">
             <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-sans">
-              <span className="text-[#B8B4AA]">Direct Operations Desk:</span>
+              <span className="text-[#E5E2DC]">Direct Operations Desk:</span>
               <a
                 href="tel:+918419887730"
                 onClick={(e) => e.stopPropagation()}
@@ -283,7 +283,7 @@ export function GlobalConciergeRouting({
               <a
                 href="mailto:info@sarrinholidays.com"
                 onClick={(e) => e.stopPropagation()}
-                className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-sm bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-sans font-medium uppercase tracking-wider text-[#B8B4AA] hover:text-[#F4F2EC] transition-colors text-center cursor-pointer"
+                className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-sm bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-sans font-medium uppercase tracking-wider text-[#E5E2DC] hover:text-[#F4F2EC] transition-colors text-center cursor-pointer"
               >
                 <Mail className="size-3.5" />
                 <span>Email Ops</span>
@@ -314,10 +314,10 @@ export function GlobalConciergeRouting({
                   <Plane className="size-6" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-sans uppercase tracking-[0.2em] text-[#C5A059] block">
+                  <span className="text-[10px] font-sans uppercase tracking-[0.1em] text-[#C5A059] block">
                     Global Patrons &bull; US &bull; UK &bull; UAE &bull; EU
                   </span>
-                  <h4 className="font-serif text-2xl text-[#F4F2EC] font-light">
+                  <h4 className="font-serif text-2xl text-[#F4F2EC] font-medium">
                     International / NRI
                   </h4>
                 </div>
@@ -328,16 +328,16 @@ export function GlobalConciergeRouting({
               </span>
             </div>
 
-            <p className="mt-4 text-xs sm:text-sm text-[#B8B4AA] leading-relaxed font-light">
+            <p className="mt-4 text-xs sm:text-sm text-[#E5E2DC] leading-relaxed font-normal">
               Specifically structured for Non-Resident Indians (NRIs) and international patrons seeking flawless end-to-end voyage curation from departure home airport to arrival in India.
             </p>
 
             {/* Anticipated Logistical Needs */}
             <div className="mt-6 space-y-3">
-              <span className="text-[10px] font-sans uppercase tracking-[0.16em] text-[#C5A059] block">
+              <span className="text-[10px] font-sans uppercase tracking-[0.1em] text-[#C5A059] block">
                 Anticipated Cross-Border Services:
               </span>
-              <ul className="space-y-2.5 text-xs text-[#B8B4AA] font-light">
+              <ul className="space-y-2.5 text-xs text-[#E5E2DC] font-normal">
                 <li className="flex items-start gap-2.5">
                   <span className="size-1.5 rounded-full bg-[#C5A059] shrink-0 mt-1.5" />
                   <span>
@@ -369,7 +369,7 @@ export function GlobalConciergeRouting({
           {/* Action Row */}
           <div className="mt-8 pt-6 border-t border-white/10 space-y-3">
             <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-sans">
-              <span className="text-[#B8B4AA]">Global NRI Hotline:</span>
+              <span className="text-[#E5E2DC]">Global NRI Hotline:</span>
               <a
                 href="https://wa.me/918419887730?text=Hello%20Sarrin%20Holidays%20NRI%20Desk,%20I%20am%20inquiring%20from%20abroad%20regarding%20bespoke%20travel%20curation."
                 target="_blank"
@@ -397,7 +397,7 @@ export function GlobalConciergeRouting({
               <a
                 href="mailto:info@sarrinholidays.com?subject=International%20/%20NRI%20Bespoke%20Expedition%20Inquiry"
                 onClick={(e) => e.stopPropagation()}
-                className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-sm bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-sans font-medium uppercase tracking-wider text-[#B8B4AA] hover:text-[#F4F2EC] transition-colors text-center cursor-pointer"
+                className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-sm bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-sans font-medium uppercase tracking-wider text-[#E5E2DC] hover:text-[#F4F2EC] transition-colors text-center cursor-pointer"
               >
                 <Mail className="size-3.5" />
                 <span>NRI Email Desk</span>

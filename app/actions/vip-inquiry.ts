@@ -112,7 +112,7 @@ export async function submitVipInquiry(payload: VipInquiryPayload): Promise<VipI
   )
 
   // Log dispatch to server stdout (guaranteed captured in PM2 / EC2 / CloudWatch logs)
-  console.log(`[VIP CONCIERGE DISPATCH DOSSIER] Ref: ${referenceId} | Client: ${title ? `${title} ` : ''}${fullName} <${email}> | Phone: ${phone}`)
+  console.log(`[VIP SARRIN HOLIDAYS DISPATCH DOSSIER] Ref: ${referenceId} | Client: ${title ? `${title} ` : ''}${fullName} <${email}> | Phone: ${phone}`)
   console.log(`[VIP DOSSIER SPECIFICATIONS]:\n${formattedNotes}\n------------------------------------------`)
 
   // Dispatch lead notifications via Resend email and universal webhook (non-blocking)

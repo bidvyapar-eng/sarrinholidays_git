@@ -65,26 +65,26 @@ export function PackageStickyBookingCard({ pkg }: PackageStickyBookingCardProps)
       <div className="rounded-sm border border-white/10 bg-[#141310] p-6 sm:p-8 backdrop-blur-xl shadow-2xl shadow-black/80 space-y-6">
         {/* Dynamic Pricing Header */}
         <div>
-          <span className="text-[11px] uppercase font-sans tracking-[0.2em] text-[#C5A059] font-medium block mb-1">
+          <span className="text-[11px] uppercase font-sans tracking-[0.1em] text-[#C5A059] font-medium block mb-1">
             Estimated Starting Tariff
           </span>
           <div className="flex items-baseline gap-2">
-            <span className="font-serif text-3xl sm:text-4xl text-[#F4F2EC] font-light tracking-tight">
+            <span className="font-serif text-3xl sm:text-4xl text-[#F4F2EC] font-medium tracking-tight">
               From ₹{currentPrice.toLocaleString('en-IN')}
             </span>
-            <span className="text-xs font-sans uppercase tracking-wider text-[#B8B4AA]">
+            <span className="text-xs font-sans uppercase tracking-wider text-[#E5E2DC]">
               / Guest
             </span>
           </div>
-          <p className="text-xs text-[#B8B4AA] mt-2 leading-relaxed font-light">
+          <p className="text-sm text-[#E5E2DC] mt-2 leading-relaxed font-normal">
             Privately tailored to your chosen party size, room categories, and seasonal dates with zero hidden surcharges.
           </p>
         </div>
 
         {/* Interactive 3-Tier Switcher */}
         <div className="space-y-2.5 pt-2 border-t border-white/10">
-          <div className="flex items-center justify-between text-[11px] font-sans uppercase tracking-[0.16em]">
-            <span className="text-[#B8B4AA]">Hospitality Tier</span>
+          <div className="flex items-center justify-between text-[11px] font-sans uppercase tracking-[0.1em]">
+            <span className="text-[#E5E2DC]">Hospitality Tier</span>
             <span className="text-[#C5A059] font-medium">{selectedTier}</span>
           </div>
 
@@ -99,7 +99,7 @@ export function PackageStickyBookingCard({ pkg }: PackageStickyBookingCardProps)
                   className={`px-2 py-2 text-center rounded-sm text-xs font-sans transition-all duration-300 cursor-pointer ${
                     isActive
                       ? 'bg-[#C5A059] text-[#0C0B09] font-medium shadow-sm'
-                      : 'text-[#B8B4AA] hover:text-[#F4F2EC] hover:bg-white/[0.04]'
+                      : 'text-[#E5E2DC] hover:text-[#F4F2EC] hover:bg-white/[0.04]'
                   }`}
                 >
                   <span className="block truncate text-[11px]">{t.label}</span>
@@ -111,25 +111,25 @@ export function PackageStickyBookingCard({ pkg }: PackageStickyBookingCardProps)
           {/* Tier Description Box */}
           <div className="p-3 rounded-sm bg-[#0C0B09]/60 border border-white/5 text-[11px] leading-relaxed">
             <span className="text-[#F4F2EC] font-medium block">{tierObj.description}</span>
-            <span className="text-stone-400 text-[10px] mt-0.5 block">{tierObj.properties}</span>
+            <span className="text-stone-200 text-[10px] mt-0.5 block">{tierObj.properties}</span>
           </div>
         </div>
 
         {/* Itinerary Metadata Summary */}
         <div className="border-t border-white/10 pt-4 space-y-2.5 text-xs font-sans">
-          <div className="flex justify-between text-[#B8B4AA]">
+          <div className="flex justify-between text-[#E5E2DC]">
             <span>Duration</span>
             <span className="font-medium text-[#F4F2EC]">{pkg.duration}</span>
           </div>
           {pkg.destinations && pkg.destinations.length > 0 && (
-            <div className="flex justify-between text-[#B8B4AA] gap-3">
+            <div className="flex justify-between text-[#E5E2DC] gap-3">
               <span className="shrink-0">Circuit</span>
               <span className="font-medium text-[#F4F2EC] truncate text-right">
                 {pkg.destinations.join(' • ')}
               </span>
             </div>
           )}
-          <div className="flex justify-between text-[#B8B4AA]">
+          <div className="flex justify-between text-[#E5E2DC]">
             <span>Availability</span>
             <span className="font-medium text-[#C5A059]">Bespoke Scheduling</span>
           </div>
@@ -140,7 +140,7 @@ export function PackageStickyBookingCard({ pkg }: PackageStickyBookingCardProps)
           <button
             type="button"
             onClick={handleOpenDrawer}
-            className="w-full flex items-center justify-center gap-2 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] text-[#0C0B09] py-3.5 px-5 text-xs font-sans font-medium uppercase tracking-[0.16em] transition-all duration-300 shadow-lg shadow-[#C5A059]/20 cursor-pointer"
+            className="w-full flex items-center justify-center gap-2 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] text-[#0C0B09] py-3.5 px-5 text-xs font-sans font-medium uppercase tracking-[0.1em] transition-all duration-300 shadow-lg shadow-[#C5A059]/20 cursor-pointer"
           >
             <span>Design This Journey</span>
             <ArrowUpRight className="size-4" />
@@ -155,24 +155,24 @@ export function PackageStickyBookingCard({ pkg }: PackageStickyBookingCardProps)
             className="w-full flex items-center justify-center gap-2 rounded-sm bg-emerald-950/40 hover:bg-emerald-900/40 border border-emerald-500/30 py-3 px-4 text-xs font-sans text-emerald-300 transition-colors"
           >
             <Phone className="size-3.5" />
-            <span>Instant WhatsApp Concierge</span>
+            <span>Instant WhatsApp Consultation</span>
           </a>
         </div>
 
         <div className="border-t border-white/10 pt-4 text-center">
-          <p className="text-[11px] text-[#B8B4AA]/70 font-sans tracking-wider uppercase">
-            Direct Concierge Desk: +91 84198 87730
+          <p className="text-[11px] text-[#E5E2DC]/70 font-sans tracking-wider uppercase">
+            Direct Sarrin Holidays Desk: +91 84198 87730
           </p>
         </div>
       </div>
 
       {/* Security & Confidentiality Card */}
-      <div className="p-5 rounded-sm bg-[#141310] border border-white/10 text-xs text-[#B8B4AA] space-y-2">
+      <div className="p-5 rounded-sm bg-[#141310] border border-white/10 text-xs text-[#E5E2DC] space-y-2">
         <div className="flex items-center gap-2 text-[#F4F2EC] font-medium">
           <ShieldCheck className="size-4 text-[#C5A059]" />
           <span>Strict Non-Disclosure &amp; VIP Security</span>
         </div>
-        <p className="text-[11px] leading-relaxed text-stone-400 font-light">
+        <p className="text-[11px] leading-relaxed text-stone-200 font-normal">
           Client passenger manifests, special security requirements, and custom flight requests are safeguarded under strict legal confidentiality covenants.
         </p>
       </div>
@@ -198,14 +198,14 @@ export function MobileStickyBookingBar({ pkg }: PackageStickyBookingCardProps) {
     <div className="block lg:hidden fixed bottom-0 inset-x-0 z-50 bg-[#0C0B09]/95 backdrop-blur-2xl border-t border-white/10 p-3 sm:p-4 shadow-[0_-10px_35px_rgba(0,0,0,0.85)]">
       <div className="mx-auto flex max-w-lg items-center justify-between gap-3">
         <div className="min-w-0">
-          <span className="text-[10px] font-sans uppercase tracking-[0.16em] text-[#C5A059] block truncate font-medium">
+          <span className="text-[10px] font-sans uppercase tracking-[0.1em] text-[#C5A059] block truncate font-medium">
             Starting Tariff
           </span>
           <div className="flex items-baseline gap-1">
-            <span className="font-serif text-xl sm:text-2xl font-light text-[#F4F2EC]">
+            <span className="font-serif text-xl sm:text-2xl font-medium text-[#F4F2EC]">
               ₹{normalizedBase.toLocaleString('en-IN')}
             </span>
-            <span className="text-[10px] font-sans uppercase text-[#B8B4AA]">/ guest</span>
+            <span className="text-[10px] font-sans uppercase text-[#E5E2DC]">/ guest</span>
           </div>
         </div>
 

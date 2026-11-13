@@ -942,9 +942,9 @@ function ThemeEditor() {
 function IntegrationsEditor({ showToast }: { showToast: (msg: string, type?: 'success' | 'error') => void }) {
   const [settings, setSettings] = useState<IntegrationSettings>({
     emailEnabled: false,
-    recipientEmail: 'concierge@sarrinholidays.com',
+    recipientEmail: 'help@sarrinholidays.com',
     resendApiKey: '',
-    fromEmail: 'Sarrin Concierge <onboarding@resend.dev>',
+    fromEmail: 'Sarrin Holidays <onboarding@resend.dev>',
     webhookEnabled: false,
     webhookUrl: '',
   })
@@ -1035,7 +1035,7 @@ function IntegrationsEditor({ showToast }: { showToast: (msg: string, type?: 'su
               type="email"
               value={settings.recipientEmail}
               onChange={(e) => setSettings({ ...settings, recipientEmail: e.target.value })}
-              placeholder="concierge@sarrinholidays.com"
+              placeholder="help@sarrinholidays.com"
               className="w-full rounded-2xl border border-white/10 bg-background/60 px-4 py-3 text-xs sm:text-sm text-white placeholder:text-foreground/40 outline-none focus:border-primary"
             />
             <span className="mt-1.5 block text-[11px] text-foreground/45">Where incoming VIP dossiers are delivered</span>
@@ -1063,7 +1063,7 @@ function IntegrationsEditor({ showToast }: { showToast: (msg: string, type?: 'su
               type="text"
               value={settings.fromEmail}
               onChange={(e) => setSettings({ ...settings, fromEmail: e.target.value })}
-              placeholder="Sarrin Concierge <concierge@sarrinholidays.com>"
+              placeholder="Sarrin Holidays <help@sarrinholidays.com>"
               className="w-full rounded-2xl border border-white/10 bg-background/60 px-4 py-3 text-xs sm:text-sm text-white placeholder:text-foreground/40 outline-none focus:border-primary"
             />
             <span className="mt-1.5 block text-[11px] text-foreground/45">Use <code className="text-primary">onboarding@resend.dev</code> during testing or your verified domain</span>

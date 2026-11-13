@@ -242,7 +242,7 @@ export default function JournalMap({
 
       {/* Subcontinent HUD Info Badge */}
       <div className="absolute top-5 left-5 z-[500] pointer-events-none hidden sm:flex items-center rounded-sm border border-white/10 bg-[#0C0B09]/85 backdrop-blur-md px-3.5 py-1.5 shadow-lg">
-        <span className="text-[11px] font-sans font-medium uppercase tracking-[0.2em] text-[#C5A059]">
+        <span className="text-[11px] font-sans font-medium uppercase tracking-[0.1em] text-[#C5A059]">
           Cartographic Discovery • Pan-India Circuits
         </span>
       </div>

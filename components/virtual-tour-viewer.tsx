@@ -317,7 +317,7 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
               <span className="absolute size-full animate-ping rounded-full bg-primary/20" />
               <Compass className="size-10 animate-spin text-primary duration-1000" />
             </div>
-            <p className="mt-4 font-sans text-xs uppercase tracking-[0.25em] text-primary">
+            <p className="mt-4 font-sans text-xs uppercase tracking-[0.1em] text-primary">
               Streaming Equirectangular 360° Canvas…
             </p>
           </div>
@@ -372,7 +372,7 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
           <div className="absolute left-3 sm:left-6 top-3 sm:top-6 z-30 w-[calc(100%-1.5rem)] max-w-xs sm:max-w-sm rounded-2xl border border-primary/30 bg-black/85 p-4 sm:p-5 shadow-2xl backdrop-blur-xl animate-in fade-in slide-in-from-top-3 duration-200">
             <div className="flex items-start justify-between gap-3">
               <div>
-                <span className="inline-block rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 text-[10px] font-mono font-medium uppercase tracking-[0.15em] text-primary">
+                <span className="inline-block rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 text-[10px] font-mono font-medium uppercase tracking-[0.1em] text-primary">
                   {activeHotspot.tag || 'Amenity Highlight'}
                 </span>
                 <h4 className="mt-1.5 font-serif text-base sm:text-lg font-medium text-white">
@@ -395,7 +395,7 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
             )}
 
             {activeHotspot.description && (
-              <p className="mt-2 text-xs leading-relaxed text-foreground/75 font-light">
+              <p className="mt-2 text-xs leading-relaxed text-foreground/75 font-normal">
                 {activeHotspot.description}
               </p>
             )}
@@ -421,18 +421,18 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
           {/* DESKTOP SUITE META: Expanded Rich Card (>= lg) */}
           <div className="hidden lg:block pointer-events-auto max-w-sm sm:max-w-md rounded-sm border border-white/15 bg-[#0C0B09]/90 p-5 backdrop-blur-md transition-all hover:bg-[#0C0B09]/95 shadow-xl shadow-black/50">
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-sans font-medium uppercase tracking-[0.2em] text-[#C5A059]">
+              <span className="text-[10px] font-sans font-medium uppercase tracking-[0.1em] text-[#C5A059]">
                 {activeScene.location}
               </span>
               <span className="size-1 rounded-full bg-[#C5A059]/40" />
-              <span className="text-[10px] font-sans text-[#B8B4AA] uppercase tracking-wider">
+              <span className="text-[10px] font-sans text-[#E5E2DC] uppercase tracking-wider">
                 {activeScene.tag}
               </span>
             </div>
-            <h3 className="mt-1.5 font-serif text-lg lg:text-xl font-light tracking-tight text-[#F4F2EC]">
+            <h3 className="mt-1.5 font-serif text-lg lg:text-xl font-medium tracking-tight text-[#F4F2EC]">
               {activeScene.title}
             </h3>
-            <p className="mt-2 text-xs leading-relaxed text-[#B8B4AA] font-light">
+            <p className="mt-2 text-sm leading-relaxed text-[#E5E2DC] font-normal">
               {activeScene.description}
             </p>
 
@@ -441,7 +441,7 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
               {activeScene.features.slice(0, 3).map((feat) => (
                 <span
                   key={feat}
-                  className="rounded-sm border border-white/10 bg-white/5 px-2.5 py-0.5 text-[10px] font-sans font-medium text-[#B8B4AA]"
+                  className="rounded-sm border border-white/10 bg-white/5 px-2.5 py-0.5 text-[10px] font-sans font-medium text-[#E5E2DC]"
                 >
                   {feat}
                 </span>
@@ -474,15 +474,15 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
                     type="button"
                     onClick={() => setIsInfoExpanded(false)}
                     aria-label="Close details"
-                    className="size-7 rounded-sm bg-white/10 hover:bg-white/20 flex items-center justify-center text-xs text-[#B8B4AA] hover:text-white cursor-pointer"
+                    className="size-7 rounded-sm bg-white/10 hover:bg-white/20 flex items-center justify-center text-xs text-[#E5E2DC] hover:text-white cursor-pointer"
                   >
                     <X className="size-3.5" />
                   </button>
                 </div>
-                <p className="text-xs text-[#B8B4AA] leading-relaxed font-light">{activeScene.description}</p>
+                <p className="text-base text-[#E5E2DC] leading-relaxed font-normal">{activeScene.description}</p>
                 <div className="mt-3 flex flex-wrap gap-1.5">
                   {activeScene.features.map((feat) => (
-                    <span key={feat} className="rounded-sm border border-white/10 bg-white/5 px-2.5 py-0.5 text-[10px] font-sans text-[#B8B4AA]">
+                    <span key={feat} className="rounded-sm border border-white/10 bg-white/5 px-2.5 py-0.5 text-[10px] font-sans text-[#E5E2DC]">
                       {feat}
                     </span>
                   ))}
@@ -507,7 +507,7 @@ export default function VirtualTourViewer({ scenes, initialSceneId }: VirtualTou
                 <span className="font-serif text-xs font-medium text-[#F4F2EC] truncate">
                   {activeScene.title.split('—')[0].trim()}
                 </span>
-                <span className="text-[10px] text-[#B8B4AA] truncate hidden sm:inline">• {activeScene.location}</span>
+                <span className="text-[10px] text-[#E5E2DC] truncate hidden sm:inline">• {activeScene.location}</span>
               </div>
               <button
                 type="button"

@@ -87,7 +87,7 @@ function LoginForm() {
       <div className="absolute top-6 left-6 z-20">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 rounded-sm border border-white/10 bg-[#141310] px-4 py-2 text-xs font-sans uppercase tracking-[0.16em] text-[#B8B4AA] hover:border-[#C5A059]/40 hover:text-[#C5A059] transition-all"
+          className="inline-flex items-center gap-2 rounded-sm border border-white/10 bg-[#141310] px-4 py-2 text-xs font-sans uppercase tracking-[0.1em] text-[#E5E2DC] hover:border-[#C5A059]/40 hover:text-[#C5A059] transition-all"
         >
           <ArrowLeft className="size-3.5" />
           <span>Return to Sarrin Holidays</span>
@@ -108,14 +108,14 @@ function LoginForm() {
             <div className="absolute inset-0 rounded-sm bg-[#C5A059]/20 blur-md pointer-events-none" />
           </div>
 
-          <span className="inline-flex items-center text-[11px] font-sans font-medium uppercase tracking-[0.25em] text-[#C5A059]">
+          <span className="inline-flex items-center text-[11px] font-sans font-medium uppercase tracking-[0.1em] text-[#C5A059]">
             Atelier Operations
           </span>
 
-          <h1 className="mt-2 font-serif font-light text-3xl tracking-tight text-[#F4F2EC]">
+          <h1 className="mt-2 font-serif font-medium text-3xl tracking-tight text-[#F4F2EC]">
             Admin Command
           </h1>
-          <p className="mt-2 text-xs text-[#B8B4AA] leading-relaxed max-w-xs mx-auto font-light">
+          <p className="mt-2 text-xs text-[#E5E2DC] leading-relaxed max-w-xs mx-auto font-normal">
             Restricted access portal for Sarrin Holidays operations directors and managing curators.
           </p>
         </div>
@@ -205,7 +205,7 @@ function LoginForm() {
           <button
             type="submit"
             disabled={isPending}
-            className="w-full inline-flex items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-primary via-amber-500 to-primary py-3.5 px-6 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground shadow-xl shadow-primary/25 transition-all hover:scale-[1.01] hover:shadow-primary/40 active:scale-95 disabled:opacity-50 cursor-pointer"
+            className="w-full inline-flex items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-primary via-amber-500 to-primary py-3.5 px-6 text-xs font-semibold uppercase tracking-[0.1em] text-primary-foreground shadow-xl shadow-primary/25 transition-all hover:scale-[1.01] hover:shadow-primary/40 active:scale-95 disabled:opacity-50 cursor-pointer"
           >
             {isPending ? (
               <>

@@ -48,7 +48,7 @@ export function ServiceInquiryCard({
       {/* Pricing Header */}
       <div className="border-b border-white/10 pb-6">
         <div className="flex items-center justify-between">
-          <span className="text-[11px] font-sans uppercase tracking-[0.2em] text-[#C5A059] font-medium">
+          <span className="text-[11px] font-sans uppercase tracking-[0.1em] text-[#C5A059] font-medium">
             Curated Pricing Tier
           </span>
           <span className="inline-flex items-center gap-1.5 rounded-sm bg-emerald-500/10 px-2 py-0.5 text-[10px] font-sans font-medium uppercase tracking-wider text-emerald-400 border border-emerald-500/20">
@@ -58,16 +58,16 @@ export function ServiceInquiryCard({
         </div>
 
         <div className="mt-3 flex items-baseline gap-2">
-          <span className="font-serif text-3xl sm:text-4xl text-[#F4F2EC] font-light tracking-tight">
+          <span className="font-serif text-3xl sm:text-4xl text-[#F4F2EC] font-medium tracking-tight">
             {pricing}
           </span>
         </div>
-        <p className="mt-1 text-xs text-[#B8B4AA] font-light leading-relaxed">
+        <p className="mt-1 text-xs text-[#E5E2DC] font-normal leading-relaxed">
           Tailored to your itinerary, aircraft classification, or palace buyout scale.
         </p>
 
         {/* Lead time badge */}
-        <div className="mt-4 flex items-center gap-2 rounded-sm bg-white/[0.03] px-3 py-2 text-xs text-[#B8B4AA] border border-white/10 font-sans">
+        <div className="mt-4 flex items-center gap-2 rounded-sm bg-white/[0.03] px-3 py-2 text-xs text-[#E5E2DC] border border-white/10 font-sans">
           <Clock className="size-3.5 text-[#C5A059] shrink-0" />
           <span>Operational Lead Time: <strong className="text-[#F4F2EC] font-medium">{leadTime}</strong></span>
         </div>
@@ -77,7 +77,7 @@ export function ServiceInquiryCard({
           <button
             type="button"
             onClick={() => setDrawerOpen(true)}
-            className="w-full group inline-flex items-center justify-center gap-2.5 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] py-3.5 px-4 text-xs font-sans font-medium uppercase tracking-[0.16em] text-[#0C0B09] shadow-lg shadow-[#C5A059]/20 transition-all cursor-pointer"
+            className="w-full group inline-flex items-center justify-center gap-2.5 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] py-3.5 px-4 text-xs font-sans font-medium uppercase tracking-[0.1em] text-[#0C0B09] shadow-lg shadow-[#C5A059]/20 transition-all cursor-pointer"
           >
             <span>Request this Service</span>
             <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
@@ -94,12 +94,12 @@ export function ServiceInquiryCard({
 
       {/* Inclusions list */}
       <div className="py-5 border-b border-white/10">
-        <span className="text-[11px] uppercase tracking-wider text-[#B8B4AA] font-sans">
+        <span className="text-[11px] uppercase tracking-wider text-[#E5E2DC] font-sans">
           Executive Inclusions
         </span>
         <div className="mt-3 space-y-2">
           {inclusions.map((item, i) => (
-            <div key={i} className="flex items-start gap-2.5 text-xs text-[#B8B4AA] font-light">
+            <div key={i} className="flex items-start gap-2.5 text-xs text-[#E5E2DC] font-normal">
               <span className="size-1.5 rounded-full bg-[#C5A059] shrink-0 mt-1.5" />
               <span className="leading-snug">{item}</span>
             </div>
@@ -114,8 +114,8 @@ export function ServiceInquiryCard({
             <div className="mx-auto flex size-12 items-center justify-center rounded-sm bg-[#C5A059]/20 text-[#C5A059]">
               <Check className="size-6" />
             </div>
-            <h4 className="font-serif text-xl text-[#F4F2EC] font-light">Dossier Dispatched</h4>
-            <p className="text-xs text-[#B8B4AA] leading-relaxed font-light">
+            <h4 className="font-serif text-xl text-[#F4F2EC] font-medium">Dossier Dispatched</h4>
+            <p className="text-xs text-[#E5E2DC] leading-relaxed font-normal">
               Your parameters have been transmitted to our Chief Operations Curator. Expect a confidential reply within 2 hours.
             </p>
             <button
@@ -131,7 +131,7 @@ export function ServiceInquiryCard({
               <span className="text-xs font-sans font-medium uppercase tracking-wider text-[#F4F2EC]">
                 Confidential Inquiry
               </span>
-              <span className="text-[10px] uppercase font-sans tracking-wider text-[#B8B4AA]/70">
+              <span className="text-[10px] uppercase font-sans tracking-wider text-[#E5E2DC]/70">
                 NDA Protected
               </span>
             </div>
@@ -188,7 +188,7 @@ export function ServiceInquiryCard({
 
             <button
               type="submit"
-              className="w-full inline-flex items-center justify-center gap-2 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] py-3 text-xs font-sans font-medium uppercase tracking-[0.16em] text-[#0C0B09] shadow-lg shadow-[#C5A059]/20 transition-all cursor-pointer"
+              className="w-full inline-flex items-center justify-center gap-2 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] py-3 text-xs font-sans font-medium uppercase tracking-[0.1em] text-[#0C0B09] shadow-lg shadow-[#C5A059]/20 transition-all cursor-pointer"
             >
               <Send className="size-3.5" />
               <span>Inquire for {serviceTitle.split(' ')[0]}</span>
@@ -197,19 +197,19 @@ export function ServiceInquiryCard({
         )}
       </div>
 
-      {/* Immediate Concierge Direct Call Footer */}
-      <div className="mt-6 pt-5 border-t border-white/10 flex items-center justify-between text-xs text-[#B8B4AA]">
+      {/* Immediate Sarrin Holidays Direct Call Footer */}
+      <div className="mt-6 pt-5 border-t border-white/10 flex items-center justify-between text-xs text-[#E5E2DC]">
         <a
           href="tel:+918419887730"
-          className="flex items-center gap-1.5 text-[#B8B4AA] hover:text-[#C5A059] transition-colors font-sans"
+          className="flex items-center gap-1.5 text-[#E5E2DC] hover:text-[#C5A059] transition-colors font-sans"
         >
           <Phone className="size-3.5 text-[#C5A059]" />
           <span>+91 84198 87730</span>
         </a>
 
         <a
-          href="mailto:concierge@sarrinholidays.com"
-          className="flex items-center gap-1.5 text-[#B8B4AA] hover:text-[#C5A059] transition-colors font-sans"
+          href="mailto:help@sarrinholidays.com"
+          className="flex items-center gap-1.5 text-[#E5E2DC] hover:text-[#C5A059] transition-colors font-sans"
         >
           <Mail className="size-3.5 text-[#C5A059]" />
           <span>Desk Email</span>

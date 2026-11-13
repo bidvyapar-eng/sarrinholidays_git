@@ -974,7 +974,7 @@ def main():
           Specialized for NRIs, PIOs, and international dignitaries traveling from North America, Europe, the Middle East, and APAC.
         </p>
         <div class="bullet-item"><span class="bullet-dot"></span><span><strong>Direct Helpline:</strong> +91 98200 72774</span></div>
-        <div class="bullet-item"><span class="bullet-dot"></span><span><strong>Concierge Email:</strong> nri.concierge@sarrinholidays.com</span></div>
+        <div class="bullet-item"><span class="bullet-dot"></span><span><strong>Direct Email:</strong> help@sarrinholidays.com</span></div>
         <div class="bullet-item"><span class="bullet-dot"></span><span><strong>Multi-Currency Forex:</strong> Direct billing in USD, GBP, EUR, AED.</span></div>
         <div class="bullet-item"><span class="bullet-dot"></span><span><strong>Tarmac VIP Escort:</strong> Fast-track immigration upon arrival at DEL/BOM/BLR.</span></div>
         <div class="bullet-item"><span class="bullet-dot"></span><span><strong>24/7 Timezone Matching:</strong> Dedicated liaison on EST, PST, GMT, GST, SGT.</span></div>

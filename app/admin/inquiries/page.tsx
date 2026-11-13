@@ -82,7 +82,7 @@ const INITIAL_DEMO_INQUIRIES: InquiryRecord[] = [
     name: 'Vikramaditya Singhania',
     email: 'v.singhania@singhania-familyoffice.com',
     phone: '+91 98200 44810',
-    subject: 'Palace Buyout & Royal Wedding Concierge',
+    subject: 'Palace Buyout & Royal Wedding Service',
     source: 'VIP Service',
     status: 'pending',
     notes:
@@ -501,7 +501,7 @@ export default function InquiriesPage() {
           <button
             onClick={handleExportCSV}
             className="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-xs font-medium text-amber-300 transition-all cursor-pointer"
-            title="Download CSV report for VIP Concierge desk"
+            title="Download CSV report for VIP Sarrin Holidays desk"
           >
             <Download className="w-3.5 h-3.5" />
             <span>Export CSV</span>

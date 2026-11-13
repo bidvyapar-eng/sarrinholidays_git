@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Image from "next/image"
 
 type Scene = {
   label: string
@@ -37,11 +38,19 @@ export function VideoBackground() {
           aria-hidden="true"
         >
           <div
-            className={`absolute inset-0 size-full bg-cover bg-center ${
+            className={`absolute inset-0 size-full ${
               i === active ? "animate-kenburns" : ""
             }`}
-            style={{ backgroundImage: `url(${scene.poster})` }}
-          />
+          >
+            <Image
+              src={scene.poster}
+              alt={scene.label}
+              fill
+              priority={i === 0}
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+          </div>
         </div>
       ))}
 

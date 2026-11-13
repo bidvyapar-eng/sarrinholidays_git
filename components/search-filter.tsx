@@ -303,7 +303,7 @@ export function SearchFilter() {
       <div className="flex flex-col gap-1.5 md:flex-row md:items-center">
         
         {/* ======================= FIELD 1: DESTINATION ======================= */}
-        <div className="relative flex-1">
+        <div className="relative flex-[1.5]">
           <div
             className={`flex min-h-[50px] items-center gap-3 rounded-none md:rounded-sm px-4 py-2.5 transition-all cursor-text ${
               active === "destination"
@@ -314,7 +314,7 @@ export function SearchFilter() {
           >
             <MapPin className="size-5 shrink-0 text-[#C5A059]" />
             <div className="flex w-full flex-col text-left">
-              <span className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#B8B4AA]">
+              <span className="text-[10px] font-medium uppercase tracking-[0.1em] text-[#E5E2DC]">
                 Destination
               </span>
               <input
@@ -326,8 +326,8 @@ export function SearchFilter() {
                   if (active !== "destination") setActive("destination")
                 }}
                 onFocus={() => setActive("destination")}
-                placeholder="Rajasthan, Kerala, Ladakh"
-                className="w-full bg-transparent text-[16px] md:text-sm font-medium text-[#F4F2EC] placeholder:text-[#B8B4AA]/50 focus:outline-none"
+                placeholder="Rajasthan, Kerala, Goa"
+                className="w-full bg-transparent text-[16px] md:text-sm font-medium text-[#F4F2EC] placeholder:text-[#E5E2DC]/50 focus:outline-none"
                 autoComplete="off"
               />
             </div>
@@ -345,10 +345,10 @@ export function SearchFilter() {
               >
                 {/* Dropdown Content Area with Custom Neutral Frosted Scrollbar */}
                 <div className="max-h-[280px] overflow-y-auto space-y-1.5 pr-1.5 [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.2)_transparent] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-white/40">
-                  {/* IF OUT OF THE BOX DESTINATION: Concierge Call Prompt */}
+                  {/* IF OUT OF THE BOX DESTINATION: Sarrin Holidays Call Prompt */}
                   {isOutOfTheBox ? (
                     <div className="p-4 rounded-sm bg-white/[0.04] border border-white/15 shadow-xl">
-                      <p className="text-xs text-foreground/80 leading-relaxed font-light">
+                      <p className="text-xs text-foreground/80 leading-relaxed font-normal">
                         We arrange custom private travel to <span className="text-foreground font-semibold">&ldquo;{destinationQuery}&rdquo;</span>. Connect with our desk to plan your itinerary.
                       </p>
                       <button
@@ -375,6 +375,8 @@ export function SearchFilter() {
                             <img
                               src={pkg.featured_image}
                               alt={pkg.title}
+                              loading="lazy"
+                              decoding="async"
                               className="size-full object-cover group-hover:scale-105 transition-transform duration-300"
                             />
                           ) : (
@@ -391,7 +393,7 @@ export function SearchFilter() {
                             </span>
                           </div>
                           {pkg.destinations && pkg.destinations.length > 0 && (
-                            <div className="flex items-center gap-1.5 text-[11px] text-[#B8B4AA] truncate mt-0.5 font-light">
+                            <div className="flex items-center gap-1.5 text-[11px] text-[#E5E2DC] truncate mt-0.5 font-normal">
                               <MapPin className="size-3 shrink-0 text-[#C5A059]" />
                               <span className="truncate">{pkg.destinations.join(" • ")}</span>
                             </div>
@@ -418,7 +420,7 @@ export function SearchFilter() {
           >
             <CalendarDays className="size-5 shrink-0 text-[#C5A059]" />
             <div className="flex w-full flex-col text-left">
-              <span className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#B8B4AA]">
+              <span className="text-[10px] font-medium uppercase tracking-[0.1em] text-[#E5E2DC]">
                 When
               </span>
               <span className="text-[16px] md:text-sm font-medium text-[#F4F2EC] truncate">
@@ -492,7 +494,7 @@ export function SearchFilter() {
                       setEndDate(null)
                       setSelectedDatesStr("")
                     }}
-                    className="text-[#B8B4AA] hover:text-foreground font-sans cursor-pointer"
+                    className="text-[#E5E2DC] hover:text-foreground font-sans cursor-pointer"
                   >
                     Clear dates
                   </button>
@@ -521,7 +523,7 @@ export function SearchFilter() {
           >
             <Users className="size-5 shrink-0 text-[#C5A059]" />
             <div className="flex w-full flex-col text-left">
-              <span className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#B8B4AA]">
+              <span className="text-[10px] font-medium uppercase tracking-[0.1em] text-[#E5E2DC]">
                 TRAVEL STYLE
               </span>
               <span className="text-[16px] md:text-sm font-medium text-[#F4F2EC] truncate">
@@ -544,7 +546,7 @@ export function SearchFilter() {
                 <div className="flex items-center justify-between py-2 border-b border-white/10">
                   <div>
                     <div className="text-sm font-semibold text-foreground">Adults</div>
-                    <div className="text-xs text-[#B8B4AA] font-light">12+ Years</div>
+                    <div className="text-xs text-[#E5E2DC] font-normal">12+ Years</div>
                   </div>
                   <div className="flex items-center gap-3">
                     <button
@@ -572,7 +574,7 @@ export function SearchFilter() {
                 <div className="flex items-center justify-between py-2 border-b border-white/10">
                   <div>
                     <div className="text-sm font-semibold text-foreground">Children</div>
-                    <div className="text-xs text-[#B8B4AA] font-light">2 - 12 yrs</div>
+                    <div className="text-xs text-[#E5E2DC] font-normal">2 - 12 yrs</div>
                   </div>
                   <div className="flex items-center gap-3">
                     <button
@@ -600,7 +602,7 @@ export function SearchFilter() {
                 <div className="flex items-center justify-between py-2 border-b border-white/10">
                   <div>
                     <div className="text-sm font-semibold text-foreground">Infants</div>
-                    <div className="text-xs text-[#B8B4AA] font-light">Below 2 yrs</div>
+                    <div className="text-xs text-[#E5E2DC] font-normal">Below 2 yrs</div>
                   </div>
                   <div className="flex items-center gap-3">
                     <button
@@ -626,7 +628,7 @@ export function SearchFilter() {
 
                 {/* Class / Tier Pills */}
                 <div className="pt-3">
-                  <div className="text-[10px] uppercase tracking-wider text-[#B8B4AA] mb-2 font-medium">Curated Tier</div>
+                  <div className="text-[10px] uppercase tracking-wider text-[#E5E2DC] mb-2 font-medium">Curated Tier</div>
                   <div className="flex flex-wrap gap-2">
                     {["Private Suite Tier", "Royal Heritage", "Aviation Charter", "First Class"].map((cls) => (
                       <button
@@ -636,7 +638,7 @@ export function SearchFilter() {
                         className={`px-3 py-1 text-xs font-medium transition-all cursor-pointer ${
                           travelClass === cls
                             ? "border border-[#C5A059] bg-[#C5A059]/15 text-[#C5A059] font-semibold"
-                            : "border border-white/15 text-[#B8B4AA] hover:border-[#C5A059]/50"
+                            : "border border-white/15 text-[#E5E2DC] hover:border-[#C5A059]/50"
                         }`}
                       >
                         {cls}
@@ -663,7 +665,7 @@ export function SearchFilter() {
         {/* ======================= SEARCH SUBMIT BUTTON ======================= */}
         <button
           type="submit"
-          className="flex min-h-[50px] w-full md:w-auto items-center justify-center gap-2 rounded-none md:rounded-sm bg-[#C5A059] px-7 py-3 text-xs font-semibold uppercase tracking-[0.15em] text-[#0C0B09] hover:bg-[#D4B475] transition-colors cursor-pointer shrink-0 shadow-sm"
+          className="flex min-h-[50px] w-full md:w-auto items-center justify-center gap-2 rounded-none md:rounded-sm bg-[#C5A059] px-7 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-[#0C0B09] hover:bg-[#D4B475] transition-colors cursor-pointer shrink-0 shadow-sm"
         >
           <Search className="size-4" />
           <span className="md:hidden">Search Curated Journeys</span>

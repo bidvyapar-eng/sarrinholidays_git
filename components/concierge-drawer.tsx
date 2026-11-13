@@ -187,7 +187,7 @@ export function ConciergeDrawer({
     const routeText = packageDetail?.route ? `\n• Route: ${packageDetail.route}` : ''
     const guestText = fullName.trim() ? `\n• Guest: ${fullName.trim()}` : ''
 
-    const message = `Namaste Sarrin Concierge,\n\nI would like to design a bespoke journey with your curatorial atelier:\n\n• Selected Circuit: ${journeyTitle}${routeText}\n• Preferred Hospitality: ${tier}\n• Travel Season: ${season}\n• Party: ${party}${guestText}\n\nPlease share your curatorial recommendations and itinerary tariffs.`
+    const message = `Namaste Sarrin Holidays,\n\nI would like to design a bespoke journey with your curatorial atelier:\n\n• Selected Circuit: ${journeyTitle}${routeText}\n• Preferred Hospitality: ${tier}\n• Travel Season: ${season}\n• Party: ${party}${guestText}\n\nPlease share your curatorial recommendations and itinerary tariffs.`
 
     return `https://wa.me/918419887730?text=${encodeURIComponent(message)}`
   }
@@ -247,7 +247,7 @@ export function ConciergeDrawer({
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Sarrin Holidays Concierge Drawer"
+      aria-label="Sarrin Holidays Drawer"
       className="fixed inset-0 z-50 flex justify-end"
     >
       {/* Backdrop */}
@@ -262,18 +262,18 @@ export function ConciergeDrawer({
         {/* Drawer Header */}
         <div className="flex items-center justify-between border-b border-white/10 bg-[#141310] px-6 py-5 sm:px-8">
           <div>
-            <span className="text-[10px] font-sans font-medium uppercase tracking-[0.3em] text-[#C5A059]">
-              Sarrin Concierge Desk
+            <span className="text-[10px] font-sans font-medium uppercase tracking-[0.1em] text-[#C5A059]">
+              Sarrin Holidays Desk
             </span>
-            <h2 className="mt-1 font-serif text-2xl sm:text-3xl font-light text-[#F4F2EC] leading-tight">
+            <h2 className="mt-1 font-serif text-2xl sm:text-3xl font-medium text-[#F4F2EC] leading-tight">
               Design Your Journey
             </h2>
           </div>
           <button
             type="button"
             onClick={handleClose}
-            aria-label="Close concierge drawer"
-            className="flex size-10 items-center justify-center rounded-sm border border-white/10 bg-white/5 text-[#B8B4AA] transition-colors hover:border-[#C5A059]/40 hover:bg-[#C5A059]/10 hover:text-[#C5A059] cursor-pointer"
+            aria-label="Close drawer"
+            className="flex size-10 items-center justify-center rounded-sm border border-white/10 bg-white/5 text-[#E5E2DC] transition-colors hover:border-[#C5A059]/40 hover:bg-[#C5A059]/10 hover:text-[#C5A059] cursor-pointer"
           >
             <X className="size-5" />
           </button>
@@ -289,20 +289,20 @@ export function ConciergeDrawer({
                 <CheckCircle2 className="size-8" />
               </div>
               <div>
-                <span className="text-xs uppercase tracking-[0.25em] text-[#C5A059] font-medium">
+                <span className="text-xs uppercase tracking-[0.1em] text-[#C5A059] font-medium">
                   Confidential Dossier Initialized
                 </span>
-                <h3 className="mt-2 font-serif text-3xl font-light text-[#F4F2EC]">
+                <h3 className="mt-2 font-serif text-3xl font-medium text-[#F4F2EC]">
                   Inquiry Received with Honour
                 </h3>
-                <p className="mt-3 text-sm text-[#B8B4AA] leading-relaxed max-w-md mx-auto font-light">
+                <p className="mt-3 text-sm text-[#E5E2DC] leading-relaxed max-w-md mx-auto font-normal">
                   Our Senior Curatorial Desk has received your bespoke journey parameters. A private itinerary proposal with guaranteed palace inventory will be presented within 2 hours.
                 </p>
               </div>
 
               {/* Reference ID Pill */}
               <div className="inline-block rounded-sm border border-[#C5A059]/40 bg-[#141310] px-5 py-3 text-center">
-                <span className="block text-[10px] uppercase tracking-[0.2em] text-[#B8B4AA]">
+                <span className="block text-[10px] uppercase tracking-[0.1em] text-[#E5E2DC]">
                   VIP Dossier Reference
                 </span>
                 <span className="mt-0.5 font-mono text-base font-semibold text-[#C5A059]">
@@ -316,7 +316,7 @@ export function ConciergeDrawer({
                   href={generateWhatsAppUrl()}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex w-full items-center justify-center gap-2 rounded-sm bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/40 px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300 transition-colors"
+                  className="flex w-full items-center justify-center gap-2 rounded-sm bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/40 px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.1em] text-emerald-300 transition-colors"
                 >
                   <MessageSquare className="size-4" />
                   <span>Connect Directly via WhatsApp Now</span>
@@ -325,7 +325,7 @@ export function ConciergeDrawer({
                 <button
                   type="button"
                   onClick={handleClose}
-                  className="w-full rounded-sm border border-white/10 bg-white/5 py-3 text-xs font-medium uppercase tracking-wider text-[#B8B4AA] hover:bg-white/10 transition-colors cursor-pointer"
+                  className="w-full rounded-sm border border-white/10 bg-white/5 py-3 text-xs font-medium uppercase tracking-wider text-[#E5E2DC] hover:bg-white/10 transition-colors cursor-pointer"
                 >
                   Return to Atelier
                 </button>
@@ -339,13 +339,13 @@ export function ConciergeDrawer({
                 <div className="rounded-sm border border-[#C5A059]/40 bg-[#141310] p-4.5 sm:p-5 relative overflow-hidden">
                   <div className="absolute top-0 right-0 h-16 w-16 bg-[#C5A059]/5 blur-2xl pointer-events-none" />
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-[#C5A059]">
+                    <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.1em] text-[#C5A059]">
                       Selected Expedition
                     </span>
                     <button
                       type="button"
                       onClick={() => setPackageDetail(null)}
-                      className="text-[10px] text-[#B8B4AA] hover:text-[#C5A059] uppercase tracking-wider transition-colors cursor-pointer"
+                      className="text-[10px] text-[#E5E2DC] hover:text-[#C5A059] uppercase tracking-wider transition-colors cursor-pointer"
                     >
                       Change Circuit
                     </button>
@@ -362,13 +362,13 @@ export function ConciergeDrawer({
                 </div>
               ) : (
                 <div className="rounded-sm border border-white/10 bg-[#141310] p-4.5 sm:p-5">
-                  <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-[#C5A059]">
+                  <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.1em] text-[#C5A059]">
                     Expedition Focus
                   </span>
                   <h4 className="mt-1 font-serif text-xl text-[#F4F2EC] font-normal">
                     Custom Pan-Indian Bespoke Expedition
                   </h4>
-                  <p className="mt-1 text-xs text-[#B8B4AA] font-light">
+                  <p className="mt-1 text-xs text-[#E5E2DC] font-normal">
                     Handcrafted to your choice of royal palaces, backwaters, or high mountain passes.
                   </p>
                 </div>
@@ -377,7 +377,7 @@ export function ConciergeDrawer({
               {/* 2. Interactive 3-Tier Hospitality Selector */}
               <div>
                 <div className="flex items-center justify-between">
-                  <label className="text-xs font-sans font-semibold uppercase tracking-[0.16em] text-[#F4F2EC]">
+                  <label className="text-xs font-sans font-semibold uppercase tracking-[0.1em] text-[#F4F2EC]">
                     Accommodation Standard
                   </label>
                   <span className="text-[10px] uppercase tracking-wider text-[#C5A059]">
@@ -404,7 +404,7 @@ export function ConciergeDrawer({
                               className={`mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-sm border transition-colors ${
                                 isSelected
                                   ? 'border-[#C5A059] bg-[#C5A059] text-[#0C0B09]'
-                                  : 'border-white/15 bg-white/5 text-[#B8B4AA] group-hover:text-[#F4F2EC]'
+                                  : 'border-white/15 bg-white/5 text-[#E5E2DC] group-hover:text-[#F4F2EC]'
                               }`}
                             >
                               <IconComponent className="size-4" />
@@ -423,7 +423,7 @@ export function ConciergeDrawer({
                               <div className="mt-1 text-[11px] font-medium text-[#C5A059]">
                                 {item.subtitle}
                               </div>
-                              <p className="mt-1.5 text-xs leading-relaxed text-[#B8B4AA] font-light">
+                              <p className="mt-1.5 text-xs leading-relaxed text-[#E5E2DC] font-normal">
                                 {item.description}
                               </p>
                             </div>
@@ -450,7 +450,7 @@ export function ConciergeDrawer({
               <div className="grid gap-5 sm:grid-cols-2">
                 {/* Travel Month / Season */}
                 <div>
-                  <label className="text-xs font-sans font-semibold uppercase tracking-[0.16em] text-[#F4F2EC] flex items-center gap-1.5">
+                  <label className="text-xs font-sans font-semibold uppercase tracking-[0.1em] text-[#F4F2EC] flex items-center gap-1.5">
                     <Calendar className="size-3.5 text-[#C5A059]" />
                     <span>Travel Season</span>
                   </label>
@@ -465,7 +465,7 @@ export function ConciergeDrawer({
                           className={`flex flex-col items-start rounded-sm border px-3 py-1.5 text-left transition-all cursor-pointer ${
                             isSelected
                               ? 'border-[#C5A059] bg-[#C5A059] text-[#0C0B09]'
-                              : 'border-white/10 bg-[#141310] text-[#B8B4AA] hover:border-white/25 hover:text-[#F4F2EC]'
+                              : 'border-white/10 bg-[#141310] text-[#E5E2DC] hover:border-white/25 hover:text-[#F4F2EC]'
                           }`}
                         >
                           <span className="text-[11px] font-semibold tracking-wider">
@@ -486,7 +486,7 @@ export function ConciergeDrawer({
 
                 {/* Party Size */}
                 <div>
-                  <label className="text-xs font-sans font-semibold uppercase tracking-[0.16em] text-[#F4F2EC] flex items-center gap-1.5">
+                  <label className="text-xs font-sans font-semibold uppercase tracking-[0.1em] text-[#F4F2EC] flex items-center gap-1.5">
                     <Users className="size-3.5 text-[#C5A059]" />
                     <span>Party Architecture</span>
                   </label>
@@ -501,7 +501,7 @@ export function ConciergeDrawer({
                           className={`flex flex-col items-start rounded-sm border px-3 py-1.5 text-left transition-all cursor-pointer ${
                             isSelected
                               ? 'border-[#C5A059] bg-[#C5A059] text-[#0C0B09]'
-                              : 'border-white/10 bg-[#141310] text-[#B8B4AA] hover:border-white/25 hover:text-[#F4F2EC]'
+                              : 'border-white/10 bg-[#141310] text-[#E5E2DC] hover:border-white/25 hover:text-[#F4F2EC]'
                           }`}
                         >
                           <span className="text-[11px] font-semibold tracking-wider">
@@ -509,7 +509,7 @@ export function ConciergeDrawer({
                           </span>
                           <span
                             className={`text-[9px] uppercase tracking-wider ${
-                              isSelected ? 'text-[#0C0B09]/80' : 'text-[#B8B4AA]/70'
+                              isSelected ? 'text-[#0C0B09]/80' : 'text-[#E5E2DC]/70'
                             }`}
                           >
                             {p.sub}
@@ -523,14 +523,14 @@ export function ConciergeDrawer({
 
               {/* 4. Guest Contact Information */}
               <div className="space-y-4 border-t border-white/10 pt-6">
-                <span className="text-xs font-sans font-semibold uppercase tracking-[0.16em] text-[#F4F2EC] block">
+                <span className="text-xs font-sans font-semibold uppercase tracking-[0.1em] text-[#F4F2EC] block">
                   Guest Identity &amp; Channel
                 </span>
 
                 <div className="space-y-3.5">
                   {/* Full Name */}
                   <div>
-                    <label className="block text-[11px] uppercase tracking-wider text-[#B8B4AA] mb-1 font-medium">
+                    <label className="block text-[11px] uppercase tracking-wider text-[#E5E2DC] mb-1 font-medium">
                       Full Name *
                     </label>
                     <input
@@ -539,14 +539,14 @@ export function ConciergeDrawer({
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
                       placeholder="e.g. Maharani Gayatri / Lord Sterling"
-                      className="w-full rounded-sm border border-white/10 bg-[#141310] px-4 py-2.5 text-sm text-[#F4F2EC] placeholder:text-[#B8B4AA]/40 focus:border-[#C5A059] focus:outline-none focus:ring-1 focus:ring-[#C5A059]"
+                      className="w-full rounded-sm border border-white/10 bg-[#141310] px-4 py-2.5 text-sm text-[#F4F2EC] placeholder:text-[#E5E2DC]/40 focus:border-[#C5A059] focus:outline-none focus:ring-1 focus:ring-[#C5A059]"
                     />
                   </div>
 
                   {/* Email & Phone Grid */}
                   <div className="grid gap-3 sm:grid-cols-2">
                     <div>
-                      <label className="block text-[11px] uppercase tracking-wider text-[#B8B4AA] mb-1 font-medium">
+                      <label className="block text-[11px] uppercase tracking-wider text-[#E5E2DC] mb-1 font-medium">
                         Primary Email *
                       </label>
                       <input
@@ -554,12 +554,12 @@ export function ConciergeDrawer({
                         required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        placeholder="concierge@bespoke.com"
-                        className="w-full rounded-sm border border-white/10 bg-[#141310] px-4 py-2.5 text-sm text-[#F4F2EC] placeholder:text-[#B8B4AA]/40 focus:border-[#C5A059] focus:outline-none focus:ring-1 focus:ring-[#C5A059]"
+                        placeholder="traveler@domain.com"
+                        className="w-full rounded-sm border border-white/10 bg-[#141310] px-4 py-2.5 text-sm text-[#F4F2EC] placeholder:text-[#E5E2DC]/40 focus:border-[#C5A059] focus:outline-none focus:ring-1 focus:ring-[#C5A059]"
                       />
                     </div>
                     <div>
-                      <label className="block text-[11px] uppercase tracking-wider text-[#B8B4AA] mb-1 font-medium">
+                      <label className="block text-[11px] uppercase tracking-wider text-[#E5E2DC] mb-1 font-medium">
                         Telephone / WhatsApp *
                       </label>
                       <input
@@ -568,14 +568,14 @@ export function ConciergeDrawer({
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                         placeholder="+91 98765 43210"
-                        className="w-full rounded-sm border border-white/10 bg-[#141310] px-4 py-2.5 text-sm text-[#F4F2EC] placeholder:text-[#B8B4AA]/40 focus:border-[#C5A059] focus:outline-none focus:ring-1 focus:ring-[#C5A059]"
+                        className="w-full rounded-sm border border-white/10 bg-[#141310] px-4 py-2.5 text-sm text-[#F4F2EC] placeholder:text-[#E5E2DC]/40 focus:border-[#C5A059] focus:outline-none focus:ring-1 focus:ring-[#C5A059]"
                       />
                     </div>
                   </div>
 
                   {/* Special Requests / Notes */}
                   <div>
-                    <label className="block text-[11px] uppercase tracking-wider text-[#B8B4AA] mb-1 font-medium">
+                    <label className="block text-[11px] uppercase tracking-wider text-[#E5E2DC] mb-1 font-medium">
                       Bespoke Requests &amp; Discretion Notes (Optional)
                     </label>
                     <textarea
@@ -583,7 +583,7 @@ export function ConciergeDrawer({
                       value={specialRequests}
                       onChange={(e) => setSpecialRequests(e.target.value)}
                       placeholder="Dietary preferences, private aviation requirements, celebration dates, or specific palace suites..."
-                      className="w-full rounded-sm border border-white/10 bg-[#141310] px-4 py-2.5 text-sm text-[#F4F2EC] placeholder:text-[#B8B4AA]/40 focus:border-[#C5A059] focus:outline-none focus:ring-1 focus:ring-[#C5A059] resize-none"
+                      className="w-full rounded-sm border border-white/10 bg-[#141310] px-4 py-2.5 text-sm text-[#F4F2EC] placeholder:text-[#E5E2DC]/40 focus:border-[#C5A059] focus:outline-none focus:ring-1 focus:ring-[#C5A059] resize-none"
                     />
                   </div>
                 </div>
@@ -602,12 +602,12 @@ export function ConciergeDrawer({
                 <button
                   type="submit"
                   disabled={isPending}
-                  className="flex w-full min-h-[46px] items-center justify-center gap-2 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] active:scale-[0.99] text-[#0C0B09] font-semibold px-6 py-3 text-xs uppercase tracking-[0.16em] transition-all duration-200 cursor-pointer disabled:opacity-50 shadow-lg shadow-[#C5A059]/10"
+                  className="flex w-full min-h-[46px] items-center justify-center gap-2 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] active:scale-[0.99] text-[#0C0B09] font-semibold px-6 py-3 text-xs uppercase tracking-[0.1em] transition-all duration-200 cursor-pointer disabled:opacity-50 shadow-lg shadow-[#C5A059]/10"
                 >
                   {isPending ? (
                     <>
                       <Loader2 className="size-4 animate-spin" />
-                      <span>Transmitting Dossier to Concierge...</span>
+                      <span>Transmitting Dossier to Sarrin Holidays...</span>
                     </>
                   ) : (
                     <>
@@ -617,7 +617,7 @@ export function ConciergeDrawer({
                   )}
                 </button>
 
-                {/* Secondary Instant Action: WhatsApp Concierge */}
+                {/* Secondary Instant Action: WhatsApp */}
                 <a
                   href={generateWhatsAppUrl()}
                   target="_blank"
@@ -625,11 +625,11 @@ export function ConciergeDrawer({
                   className="flex w-full min-h-[44px] items-center justify-center gap-2 rounded-sm border border-[#C5A059]/40 bg-[#141310] hover:bg-[#C5A059]/10 text-[#C5A059] font-medium px-5 py-2.5 text-xs uppercase tracking-[0.14em] transition-colors"
                 >
                   <MessageSquare className="size-3.5 text-[#C5A059]" />
-                  <span>Connect Instantly via WhatsApp Concierge</span>
+                  <span>Connect Instantly via WhatsApp</span>
                 </a>
 
                 {/* Sovereign Discretion Footnote */}
-                <div className="flex items-center justify-center gap-1.5 pt-1 text-center text-[10px] text-[#B8B4AA]/70 font-light">
+                <div className="flex items-center justify-center gap-1.5 pt-1 text-center text-[10px] text-[#E5E2DC]/70 font-normal">
                   <ShieldCheck className="size-3.5 text-[#C5A059]/70 shrink-0" />
                   <span>Strict Non-Disclosure &amp; Confidential Guest Privacy Protocol</span>
                 </div>

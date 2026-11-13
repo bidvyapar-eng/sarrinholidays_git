@@ -105,12 +105,12 @@ const SERVICE_DOSSIERS: Record<
       {
         step: '02',
         title: 'VIP Tarmac Escort',
-        desc: 'Arrive at the private terminal where your personal concierge coordinates direct vehicle tarmac boarding without entering public airport infrastructure.',
+        desc: 'Arrive at the private terminal where your dedicated Sarrin Holidays liaison coordinates direct vehicle tarmac boarding without entering public airport infrastructure.',
       },
       {
         step: '03',
         title: 'Direct Mountain / City Touchdown',
-        desc: 'Touch down directly on the helipad of your heritage palace or Himalayan estate, where the local concierge team awaits with private transfers.',
+        desc: 'Touch down directly on the helipad of your heritage palace or Himalayan estate, where the local Sarrin Holidays team awaits with private transfers.',
       },
     ],
     faqs: [
@@ -129,7 +129,7 @@ const SERVICE_DOSSIERS: Record<
     ],
   },
   'royal-celebrations-weddings': {
-    subtitle: 'Exclusive heritage palace buyouts, royal courtyards, and sovereign celebration concierge.',
+    subtitle: 'Exclusive heritage palace buyouts, royal courtyards, and sovereign celebration curation by Sarrin Holidays.',
     pricing: 'From $45,000 / buyout day',
     leadTime: '3 - 6 Months Preferred',
     classification: 'Full Property Buyout & Royal Protocol',
@@ -139,7 +139,7 @@ const SERVICE_DOSSIERS: Record<
       'Regal torchlit courtyard banquets with multi-course royal thali feasts',
       'Private desert sangeets & astronomy galas beneath Thar sand dune constellations',
       'Ceremonial welcomes with royal vintage motorcades & heritage fanfare',
-      'Full white-glove event production & guest concierge logistics liaisons',
+      'Full white-glove event production & guest coordination logistics liaisons',
     ],
     editorial: {
       lead: 'A milestone celebration or wedding in Rajasthan is not merely an event—it is the staging of a sovereign history. Sarrin Holidays opens doors to private palaces and fortresses that remain completely inaccessible to the commercial public.',
@@ -164,7 +164,7 @@ const SERVICE_DOSSIERS: Record<
       },
       {
         title: 'Comprehensive Guest Logistics',
-        desc: 'VIP airport meet-and-greets, vintage motorcade transfers, suite allocation, and 24/7 dedicated concierges for every attending guest.',
+        desc: 'VIP airport meet-and-greets, vintage motorcade transfers, suite allocation, and 24/7 dedicated Sarrin Holidays liaisons for every attending guest.',
         metric: 'Zero Guest Friction',
       },
     ],
@@ -387,15 +387,15 @@ export async function generateMetadata({
   if (!service) {
     return {
       title: 'Bespoke Private Service | Sarrin Holidays',
-      description: 'Bespoke luxury Indian travel and VIP concierge services.',
+      description: 'Bespoke luxury Indian travel and VIP services by Sarrin Holidays.',
     }
   }
 
-  const title = `${service.title} | Indian Luxury Concierge | Sarrin Holidays`
+  const title = `${service.title} | Luxury Travel | Sarrin Holidays`
   const description =
     service.short_desc ||
     service.full_desc?.slice(0, 160) ||
-    'Bespoke luxury Indian concierge service by Sarrin Holidays.'
+    'Bespoke luxury Indian travel service by Sarrin Holidays.'
   const imageUrl =
     service.hero_image ||
     'https://images.unsplash.com/photo-1583416750470-965b2707b355?auto=format&fit=crop&q=80&w=1200'
@@ -460,7 +460,7 @@ export default async function ServiceDetailPage({
     classification: 'Tier 01 Private Service',
     coverage: 'Pan-India',
     inclusions: [
-      'Dedicated personal concierge liaison',
+      'Dedicated personal Sarrin Holidays liaison',
       'Custom itinerary and schedule architecture',
       'White-glove ground execution',
       'Confidentiality under strict NDA protocol',
@@ -490,7 +490,7 @@ export default async function ServiceDetailPage({
     faqs: [
       {
         q: 'How do I initiate a private booking?',
-        a: 'Submit your requirements via the confidential inquiry card or contact our senior concierge directly.',
+        a: 'Submit your requirements via the confidential inquiry card or contact Sarrin Holidays directly.',
       },
     ],
   }
@@ -556,7 +556,7 @@ export default async function ServiceDetailPage({
           {/* Back Navigation Link */}
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 text-xs font-sans uppercase tracking-[0.16em] text-[#B8B4AA] hover:text-[#C5A059] transition-colors mb-6 group"
+            className="inline-flex items-center gap-2 text-xs font-sans uppercase tracking-[0.1em] text-[#E5E2DC] hover:text-[#C5A059] transition-colors mb-6 group"
           >
             <ArrowLeft className="size-3.5 transition-transform group-hover:-translate-x-1" />
             <span>Back to Services Hub</span>
@@ -564,23 +564,23 @@ export default async function ServiceDetailPage({
 
           {/* Service Classification Eyebrow Badge */}
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
-            <span className="inline-flex items-center gap-1.5 rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 px-3.5 py-1 text-xs font-sans font-medium uppercase tracking-[0.18em] text-[#C5A059]">
+            <span className="inline-flex items-center gap-1.5 rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 px-3.5 py-1 text-xs font-sans font-medium uppercase tracking-[0.1em] text-[#C5A059]">
               <ServiceIcon name={service.icon_name} className="size-3.5" />
               {dossier.classification}
             </span>
 
-            <span className="rounded-sm border border-white/10 bg-[#141310] px-3 py-1 text-xs font-sans uppercase tracking-wider text-[#B8B4AA] hidden sm:inline-block">
+            <span className="rounded-sm border border-white/10 bg-[#141310] px-3 py-1 text-xs font-sans uppercase tracking-wider text-[#E5E2DC] hidden sm:inline-block">
               {dossier.coverage}
             </span>
           </div>
 
           {/* Service Main Headline */}
-          <h1 className="font-serif font-light text-4xl sm:text-6xl lg:text-7xl leading-[1.08] text-[#F4F2EC] max-w-4xl tracking-tight">
+          <h1 className="font-serif font-medium text-4xl sm:text-6xl lg:text-7xl leading-[1.08] text-[#F4F2EC] max-w-4xl tracking-tight">
             {service.title}
           </h1>
 
           {/* Subtitle / Teaser */}
-          <p className="mt-4 max-w-2xl text-base sm:text-lg text-[#B8B4AA] font-light leading-relaxed">
+          <p className="mt-4 max-w-2xl text-base sm:text-lg text-[#E5E2DC] font-normal leading-relaxed">
             {dossier.subtitle}
           </p>
 
@@ -595,19 +595,19 @@ export default async function ServiceDetailPage({
           </div>
 
           {/* Bottom Fast-Facts Bar */}
-          <div className="mt-8 flex flex-wrap items-center gap-4 sm:gap-8 pt-6 border-t border-white/10 text-xs text-[#B8B4AA] font-sans">
+          <div className="mt-8 flex flex-wrap items-center gap-4 sm:gap-8 pt-6 border-t border-white/10 text-xs text-[#E5E2DC] font-sans">
             <div>
-              <span className="text-[#B8B4AA]/60 block text-[10px] uppercase font-sans tracking-wider">Standard Pricing</span>
+              <span className="text-[#E5E2DC]/60 block text-[10px] uppercase font-sans tracking-wider">Standard Pricing</span>
               <span className="text-[#C5A059] font-medium text-sm">{dossier.pricing}</span>
             </div>
             <div className="hidden sm:block h-6 w-[1px] bg-white/10" />
             <div>
-              <span className="text-[#B8B4AA]/60 block text-[10px] uppercase font-sans tracking-wider">Lead Dispatch</span>
+              <span className="text-[#E5E2DC]/60 block text-[10px] uppercase font-sans tracking-wider">Lead Dispatch</span>
               <span className="text-[#F4F2EC] font-normal">{dossier.leadTime}</span>
             </div>
             <div className="hidden sm:block h-6 w-[1px] bg-white/10" />
             <div>
-              <span className="text-[#B8B4AA]/60 block text-[10px] uppercase font-sans tracking-wider">Confidentiality</span>
+              <span className="text-[#E5E2DC]/60 block text-[10px] uppercase font-sans tracking-wider">Confidentiality</span>
               <span className="text-[#F4F2EC] font-normal">Strict NDA Standard</span>
             </div>
           </div>
@@ -627,15 +627,15 @@ export default async function ServiceDetailPage({
             <div>
               <div className="flex items-center gap-2 mb-3">
                 <FileText className="size-4 text-[#C5A059]" />
-                <span className="text-xs uppercase tracking-[0.2em] text-[#C5A059] font-sans font-medium">
+                <span className="text-xs uppercase tracking-[0.1em] text-[#C5A059] font-sans font-medium">
                   Curator Perspective
                 </span>
               </div>
-              <h2 className="font-serif font-light text-3xl sm:text-4xl text-[#F4F2EC] leading-snug tracking-tight">
+              <h2 className="font-serif font-medium text-3xl sm:text-4xl text-[#F4F2EC] leading-snug tracking-tight">
                 The Philosophy of Frictionless Execution
               </h2>
 
-              <div className="mt-6 space-y-5 text-base sm:text-lg text-[#B8B4AA] leading-relaxed font-light">
+              <div className="mt-6 space-y-5 text-base sm:text-lg text-[#E5E2DC] leading-relaxed font-normal">
                 <p className="text-xl sm:text-2xl text-[#F4F2EC] font-serif leading-relaxed border-l-2 border-[#C5A059]/50 pl-5 italic">
                   &ldquo;{dossier.editorial.lead}&rdquo;
                 </p>
@@ -646,10 +646,10 @@ export default async function ServiceDetailPage({
 
             {/* Section 2: Four Core Operational Pillars */}
             <div className="pt-4">
-              <span className="text-xs uppercase tracking-[0.2em] text-[#C5A059] font-sans font-medium">
+              <span className="text-xs uppercase tracking-[0.1em] text-[#C5A059] font-sans font-medium">
                 Operational Framework
               </span>
-              <h3 className="mt-2 font-serif font-light text-2xl sm:text-3xl text-[#F4F2EC] tracking-tight">
+              <h3 className="mt-2 font-serif font-medium text-2xl sm:text-3xl text-[#F4F2EC] tracking-tight">
                 Sovereign Standards &amp; Capabilities
               </h3>
 
@@ -665,7 +665,7 @@ export default async function ServiceDetailPage({
                     <h4 className="font-serif text-lg text-[#F4F2EC] font-normal">
                       {pillar.title}
                     </h4>
-                    <p className="mt-2 text-xs sm:text-sm text-[#B8B4AA] leading-relaxed font-light">
+                    <p className="mt-2 text-sm text-[#E5E2DC] leading-relaxed font-normal">
                       {pillar.desc}
                     </p>
                   </div>
@@ -675,10 +675,10 @@ export default async function ServiceDetailPage({
 
             {/* Section 3: The 3-Step Execution Sequence */}
             <div className="pt-4 border-t border-white/10">
-              <span className="text-xs uppercase tracking-[0.2em] text-[#C5A059] font-sans font-medium">
-                Concierge Protocol
+              <span className="text-xs uppercase tracking-[0.1em] text-[#C5A059] font-sans font-medium">
+                Sarrin Holidays Protocol
               </span>
-              <h3 className="mt-2 font-serif font-light text-2xl sm:text-3xl text-[#F4F2EC] tracking-tight">
+              <h3 className="mt-2 font-serif font-medium text-2xl sm:text-3xl text-[#F4F2EC] tracking-tight">
                 How Your Service Unfolds
               </h3>
 
@@ -688,14 +688,14 @@ export default async function ServiceDetailPage({
                     key={i}
                     className="flex flex-col sm:flex-row items-start gap-5 rounded-sm border border-white/10 bg-[#141310] p-6"
                   >
-                    <div className="flex size-11 items-center justify-center rounded-sm bg-[#C5A059]/15 text-[#C5A059] font-serif font-light text-lg shrink-0 border border-[#C5A059]/30">
+                    <div className="flex size-11 items-center justify-center rounded-sm bg-[#C5A059]/15 text-[#C5A059] font-serif font-medium text-lg shrink-0 border border-[#C5A059]/30">
                       {item.step}
                     </div>
                     <div>
                       <h4 className="font-serif text-xl text-[#F4F2EC] font-normal">
                         {item.title}
                       </h4>
-                      <p className="mt-1.5 text-sm text-[#B8B4AA] leading-relaxed font-light">
+                      <p className="mt-1.5 text-sm text-[#E5E2DC] leading-relaxed font-normal">
                         {item.desc}
                       </p>
                     </div>
@@ -706,10 +706,10 @@ export default async function ServiceDetailPage({
 
             {/* Section 4: Frequently Asked Inquiries */}
             <div className="pt-4 border-t border-white/10">
-              <span className="text-xs uppercase tracking-[0.2em] text-[#C5A059] font-sans font-medium">
+              <span className="text-xs uppercase tracking-[0.1em] text-[#C5A059] font-sans font-medium">
                 Client Intelligence
               </span>
-              <h3 className="mt-2 font-serif font-light text-2xl sm:text-3xl text-[#F4F2EC] tracking-tight">
+              <h3 className="mt-2 font-serif font-medium text-2xl sm:text-3xl text-[#F4F2EC] tracking-tight">
                 Frequently Asked Inquiries
               </h3>
 
@@ -725,7 +725,7 @@ export default async function ServiceDetailPage({
                         <h4 className="font-serif text-lg text-[#F4F2EC] font-normal">
                           {faq.q}
                         </h4>
-                        <p className="mt-2 text-sm text-[#B8B4AA] leading-relaxed font-light">
+                        <p className="mt-2 text-sm text-[#E5E2DC] leading-relaxed font-normal">
                           {faq.a}
                         </p>
                       </div>
@@ -748,9 +748,9 @@ export default async function ServiceDetailPage({
               />
 
               {/* Security & Confidentiality Advisory Badge */}
-              <div className="rounded-sm border border-white/10 bg-[#141310] p-5 text-xs text-[#B8B4AA] space-y-2 font-light">
+              <div className="rounded-sm border border-white/10 bg-[#141310] p-5 text-xs text-[#E5E2DC] space-y-2 font-normal">
                 <div className="flex items-center gap-2 text-[#C5A059] font-sans font-medium uppercase tracking-wider text-[11px]">
-                  <Award className="size-4" /> Sovereign Concierge Guarantee
+                  <Award className="size-4" /> Sovereign Sarrin Holidays Guarantee
                 </div>
                 <p className="leading-relaxed">
                   Every booking is protected by our global operations warranty. Direct satellite flight tracking, VIP tarmac protocol, and zero cancellation penalties up to 48 hours prior to dispatch.
@@ -769,17 +769,17 @@ export default async function ServiceDetailPage({
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
             <div>
-              <span className="text-xs uppercase tracking-[0.2em] text-[#C5A059] font-sans font-medium">
+              <span className="text-xs uppercase tracking-[0.1em] text-[#C5A059] font-sans font-medium">
                 Sarrin Private Atelier
               </span>
-              <h2 className="mt-2 font-serif font-light text-3xl sm:text-4xl text-[#F4F2EC] tracking-tight">
+              <h2 className="mt-2 font-serif font-medium text-3xl sm:text-4xl text-[#F4F2EC] tracking-tight">
                 Companion Private Services
               </h2>
             </div>
 
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 text-xs font-sans font-medium uppercase tracking-[0.16em] text-[#C5A059] hover:underline"
+              className="inline-flex items-center gap-2 text-xs font-sans font-medium uppercase tracking-[0.1em] text-[#C5A059] hover:underline"
             >
               <span>View All Services</span>
               <ArrowUpRight className="size-4" />
@@ -807,10 +807,10 @@ export default async function ServiceDetailPage({
                 </div>
 
                 <div className="mt-4 flex flex-col flex-1">
-                  <h4 className="font-serif font-light text-xl text-[#F4F2EC] group-hover:text-[#C5A059] transition-colors">
+                  <h4 className="font-serif font-medium text-xl text-[#F4F2EC] group-hover:text-[#C5A059] transition-colors">
                     {other.title}
                   </h4>
-                  <p className="mt-2 text-xs text-[#B8B4AA] line-clamp-2 leading-relaxed flex-1 font-light">
+                  <p className="mt-2 text-sm text-[#E5E2DC] line-clamp-2 leading-relaxed flex-1 font-normal">
                     {other.short_desc}
                   </p>
                   <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-sans font-medium uppercase tracking-[0.14em] text-[#C5A059]">

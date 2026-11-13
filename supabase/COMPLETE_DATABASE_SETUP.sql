@@ -307,7 +307,7 @@ VALUES
     'Private Aviation & Charters',
     'private-aviation-charters',
     'Helicopter transfers to the Himalayas and private jet inter-city travel.',
-    'Bypass conventional transit friction with on-demand turboprops, ultra-long-range private jets, and high-altitude helicopters. Seamlessly connect between metropolitan hubs and remote sanctuaries—from direct mountain helipad landings at exclusive Himalayan wellness retreats in Rishikesh and Ladakh to private jet charters linking Delhi, Mumbai, Udaipur, and Kochi with bespoke in-flight concierge services.',
+    'Bypass conventional transit friction with on-demand turboprops, ultra-long-range private jets, and high-altitude helicopters. Seamlessly connect between metropolitan hubs and remote sanctuaries—from direct mountain helipad landings at exclusive Himalayan wellness retreats in Rishikesh and Ladakh to private jet charters linking Delhi, Mumbai, Udaipur, and Kochi with bespoke in-flight Sarrin Holidays services.',
     'Plane',
     'https://images.unsplash.com/photo-1583416750470-965b2707b355?auto=format&fit=crop&q=80&w=1200',
     1,
@@ -317,8 +317,8 @@ VALUES
     'c7a10001-3829-4d8e-9001-000000000002',
     'Royal Celebrations & Weddings',
     'royal-celebrations-weddings',
-    'Palace buyouts and event concierge in Rajasthan.',
-    'Transform Rajasthan’s most majestic 18th-century fortresses and floating lake palaces into your personal royal court. We coordinate exclusive full-property palace buyouts across Udaipur, Jaipur, and Jodhpur, orchestrating bespoke celebration architecture, regal torchlit courtyard banquets, private desert sangeets beneath Thar constellations, and discreet 24/7 event concierge liaisons.',
+    'Palace buyouts and event curation in Rajasthan by Sarrin Holidays.',
+    'Transform Rajasthan’s most majestic 18th-century fortresses and floating lake palaces into your personal royal court. We coordinate exclusive full-property palace buyouts across Udaipur, Jaipur, and Jodhpur, orchestrating bespoke celebration architecture, regal torchlit courtyard banquets, private desert sangeets beneath Thar constellations, and discreet 24/7 Sarrin Holidays liaisons.',
     'Crown',
     'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=1200',
     2,
@@ -548,7 +548,7 @@ VALUES
         'Vintage Rolls-Royce and armored luxury SUV chauffeur fleet throughout',
         'Personal royal historian liaison for exclusive Amber Fort and City Palace night access',
         'Private Thar Desert tented camp with royal banquet & sunset camel caravan',
-        'Dedicated 24/7 Sarrin Private Concierge and all royal palace courtyard dining'
+        'Dedicated 24/7 Sarrin Holidays liaison and all royal palace courtyard dining'
     ],
     ARRAY[
         'Commercial or private transcontinental long-haul flights',
@@ -641,7 +641,7 @@ VALUES
         'Private chartered turboprop transfers between regional national park airstrips',
         'Torchlit bush dinners with local folk musicians and stargazing telescopes',
         'Exclusive buffer zone night drives and elephant-assisted photographic tracking',
-        'All luxury meals, park entrance permits, forest conservation levies, and 24/7 dedicated wildlife curator concierge'
+        'All luxury meals, park entrance permits, forest conservation levies, and 24/7 dedicated wildlife curator liaison'
     ],
     ARRAY[
         'High-magnification telephoto camera bodies and lens rental packages',
@@ -685,7 +685,7 @@ VALUES
     ARRAY['24/7 Private Butler', 'Panoramic Harbor Views', 'Heritage Antiques', 'Private Chauffeur'],
     '[
         {"id": "taj-harbor", "title": "Arabian Sea Harbor View", "subtitle": "Gateway of India panoramic vantage", "tag": "Scenic View", "position": {"yaw": 0.35, "pitch": 0.02}},
-        {"id": "taj-butler", "title": "Private Butler Station", "subtitle": "24/7 dedicated royal butler service", "tag": "Concierge", "position": {"yaw": -1.2, "pitch": -0.15}},
+        {"id": "taj-butler", "title": "Private Butler Station", "subtitle": "24/7 dedicated royal butler service", "tag": "Sarrin Holidays", "position": {"yaw": -1.2, "pitch": -0.15}},
         {"id": "taj-chandelier", "title": "Belgian Crystal Chandelier", "subtitle": "19th century hand-cut heirloom", "tag": "Heritage", "position": {"yaw": 1.6, "pitch": 0.3}}
     ]'::jsonb,
     1,
@@ -819,7 +819,7 @@ VALUES
         "heroTitle": "Journeys crafted for the extraordinary",
         "heroDescription": "From royal Rajasthan palaces to sacred Himalayan heights, discover handcrafted escapes to the subcontinent''s most breathtaking places.",
         "heroBadge": "Rated 4.9 by 12,000+ travelers",
-        "contactEmail": "concierge@sarrinholidays.com",
+        "contactEmail": "help@sarrinholidays.com",
         "contactPhone": "+91 8419887730"
     }'::jsonb
 ),
@@ -827,9 +827,9 @@ VALUES
     'integrations',
     '{
         "emailEnabled": false,
-        "recipientEmail": "concierge@sarrinholidays.com",
+        "recipientEmail": "help@sarrinholidays.com",
         "resendApiKey": "",
-        "fromEmail": "Sarrin Concierge <concierge@sarrinholidays.com>",
+        "fromEmail": "Sarrin Holidays <help@sarrinholidays.com>",
         "webhookEnabled": false,
         "webhookUrl": ""
     }'::jsonb

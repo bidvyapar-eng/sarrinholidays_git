@@ -26,6 +26,7 @@ CLAUDE.md
 # Local scratch and test artifacts
 temp_test_imgs/
 screenshots_pdf/
+updated_website_screenshots/
 *.pdf
 scripts/check_images.py
 scripts/download_*.py

@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import type { PackageItem } from '@/lib/cms'
+import { optimizeUnsplashUrl } from '@/lib/cms'
 import { openConciergeDrawer } from '@/components/ConciergeDrawer'
 
 export interface PackageCardProps {
@@ -17,7 +18,7 @@ function getPackageImage(pkg: PackageItem) {
     pkg.slug === 'experience-varanasi-dev-deepawali-3d' ||
     pkg.featured_image?.includes('photo-1561361513-2d000a50f0dc')
   ) {
-    return 'https://images.unsplash.com/photo-1687753578819-08e5a39d715a?auto=format&fit=crop&q=80&w=1200'
+    return 'https://images.unsplash.com/photo-1687753578819-08e5a39d715a?auto=format&fit=crop&w=800&q=75'
   }
   // Ensure Kerala 5D uses distinct tea gardens photo instead of duplicate houseboat or highway
   if (
@@ -31,9 +32,9 @@ function getPackageImage(pkg: PackageItem) {
     return '/kerala-coastal-lagoon.jpg'
   }
   if (pkg.featured_image && !pkg.featured_image.includes('photo-1599661559902')) {
-    return pkg.featured_image
+    return optimizeUnsplashUrl(pkg.featured_image)
   }
-  return 'https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&q=80&w=1200'
+  return 'https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=800&q=75'
 }
 
 function formatPricingDisplay(price?: number) {
@@ -45,7 +46,7 @@ function formatPricingDisplay(price?: number) {
 }
 
 export function PackageCard({ pkg }: PackageCardProps) {
-  const imageUrl = getPackageImage(pkg)
+  const imageUrl = optimizeUnsplashUrl(getPackageImage(pkg))
   const tier = pkg.scarcity_status || (pkg.is_trending ? 'Curated Circuit' : 'Private Heritage')
   const routeEyebrow = pkg.destinations && pkg.destinations.length > 0 ? pkg.destinations.join(' • ') : ''
 
@@ -56,6 +57,8 @@ export function PackageCard({ pkg }: PackageCardProps) {
         <img
           src={imageUrl}
           alt={pkg.title}
+          loading="lazy"
+          decoding="async"
           onError={(e) => {
             e.currentTarget.src = '/scene-desert.png'
           }}
@@ -81,20 +84,20 @@ export function PackageCard({ pkg }: PackageCardProps) {
       <div className="flex flex-1 flex-col p-6">
         {/* Route Eyebrow in #C5A059 */}
         {routeEyebrow && (
-          <div className="text-[11px] tracking-[0.16em] uppercase text-[#C5A059] font-medium mb-2 truncate">
+          <div className="text-[11px] tracking-[0.1em] uppercase text-[#C5A059] font-medium mb-2 truncate">
             {routeEyebrow}
           </div>
         )}
 
         {/* Title: 2 lines fully readable without single-line ellipses */}
         <Link href={`/packages/${pkg.slug}`} className="block group-hover:text-[#C5A059] transition-colors">
-          <h3 className="font-serif text-2xl text-[#F6F3EC] leading-snug line-clamp-2 min-h-[3.5rem] font-light">
+          <h3 className="font-serif text-2xl text-[#F6F3EC] leading-snug line-clamp-2 min-h-[3.5rem] font-medium">
             {pkg.title}
           </h3>
         </Link>
 
         {/* Description */}
-        <p className="mt-2 text-pretty text-xs leading-relaxed text-[#B8B4AA] line-clamp-2 font-light">
+        <p className="mt-2 text-pretty text-sm leading-relaxed text-[#E5E2DC] line-clamp-2 font-normal">
           {pkg.description}
         </p>
 
@@ -102,9 +105,9 @@ export function PackageCard({ pkg }: PackageCardProps) {
         {pkg.highlights && pkg.highlights.length > 0 && (
           <ul className="mt-4 space-y-2 border-t border-white/10 pt-3.5">
             {pkg.highlights.slice(0, 2).map((hl, idx) => (
-              <li key={idx} className="flex items-start gap-2.5 text-xs text-[#B8B4AA]">
+              <li key={idx} className="flex items-start gap-2.5 text-xs text-[#E5E2DC]">
                 <span className="size-1.5 rounded-full bg-[#C5A059] mt-1 shrink-0" />
-                <span className="truncate font-light">{hl}</span>
+                <span className="truncate font-normal">{hl}</span>
               </li>
             ))}
           </ul>
@@ -118,7 +121,7 @@ export function PackageCard({ pkg }: PackageCardProps) {
             </span>
             <Link
               href={`/packages/${pkg.slug}`}
-              className="mt-0.5 text-[10px] text-[#B8B4AA] hover:text-[#C5A059] tracking-wider uppercase transition-colors"
+              className="mt-0.5 text-[10px] text-[#E5E2DC] hover:text-[#C5A059] tracking-wider uppercase transition-colors"
             >
               View Itinerary →
             </Link>

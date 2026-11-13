@@ -69,7 +69,7 @@ const SERVICE_HIGHLIGHTS: Record<
     specs: [
       'Full exclusive property buyouts across Udaipur, Jaipur & Jodhpur',
       'Regal torchlit courtyard banquets & desert sangeets in Thar',
-      'Discreet round-the-clock ceremonial event concierge team',
+      'Discreet round-the-clock ceremonial event coordination team',
     ],
     pills: ['Udaipur & Lake Pichola', '300-Year-Old Citadels', 'White-Glove Protocol'],
     ctaText: 'Explore Palace Buyouts',
@@ -211,7 +211,7 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
                     {meta.pills.map((pill, i) => (
                       <span
                         key={i}
-                        className="rounded-sm bg-[#141310]/80 backdrop-blur-md px-2 py-0.5 text-[10px] font-sans font-medium tracking-wide uppercase text-[#B8B4AA] border border-white/10"
+                        className="rounded-sm bg-[#141310]/80 backdrop-blur-md px-2 py-0.5 text-[10px] font-sans font-medium tracking-wide uppercase text-[#E5E2DC] border border-white/10"
                       >
                         {pill}
                       </span>
@@ -225,34 +225,34 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
                     <div className="flex size-7 items-center justify-center rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 text-[#C5A059]">
                       <ServiceIcon name={service.icon_name} className="size-3.5" />
                     </div>
-                    <span className="font-sans text-[11px] uppercase tracking-[0.18em] text-[#C5A059] font-medium">
+                    <span className="font-sans text-[11px] uppercase tracking-[0.1em] text-[#C5A059] font-medium">
                       Tier 01 Private Service
                     </span>
                   </div>
 
                   <Link href={`/services/${service.slug}`} className="block group/title">
-                    <h3 className="mt-3 font-serif font-light text-2xl text-[#F4F2EC] sm:text-3xl leading-snug group-hover/title:text-[#C5A059] transition-colors duration-300 tracking-tight">
+                    <h3 className="mt-3 font-serif font-medium text-2xl text-[#F4F2EC] sm:text-3xl leading-snug group-hover/title:text-[#C5A059] transition-colors duration-300 tracking-tight">
                       {service.title}
                     </h3>
                   </Link>
 
-                  <p className="mt-2 text-sm font-light text-[#C5A059] leading-relaxed">
+                  <p className="mt-2 text-sm font-normal text-[#C5A059] leading-relaxed">
                     {service.short_desc}
                   </p>
 
-                  <p className="mt-3 text-xs leading-relaxed text-[#B8B4AA] font-light line-clamp-3">
+                  <p className="mt-3 text-sm leading-relaxed text-[#E5E2DC] font-normal line-clamp-3">
                     {service.full_desc}
                   </p>
                 </div>
 
                 {/* Key Specifications Bulleted Grid */}
                 <div className="mt-6 space-y-2 border-t border-white/10 pt-4">
-                  <span className="text-[11px] uppercase tracking-wider text-[#B8B4AA] font-sans">
+                  <span className="text-[11px] uppercase tracking-wider text-[#E5E2DC] font-sans">
                     Service Standards &amp; Protocol
                   </span>
                   <div className="space-y-1.5 pt-1">
                     {meta.specs.map((spec, i) => (
-                      <div key={i} className="flex items-start gap-2.5 text-xs text-[#B8B4AA] font-light">
+                      <div key={i} className="flex items-start gap-2.5 text-xs text-[#E5E2DC] font-normal">
                         <span className="size-1.5 rounded-full bg-[#C5A059] shrink-0 mt-1.5" />
                         <span className="leading-snug">{spec}</span>
                       </div>
@@ -293,14 +293,14 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
           <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
             <div className="max-w-2xl">
               <div className="flex items-center gap-2">
-                <span className="inline-flex items-center rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 px-3 py-1 text-[11px] font-sans font-medium uppercase tracking-[0.2em] text-[#C5A059]">
+                <span className="inline-flex items-center rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 px-3 py-1 text-[11px] font-sans font-medium uppercase tracking-[0.1em] text-[#C5A059]">
                   Bespoke Operations Atelier
                 </span>
               </div>
-              <h3 className="mt-4 font-serif font-light text-3xl sm:text-4xl text-[#F4F2EC] tracking-tight">
+              <h3 className="mt-4 font-serif font-medium text-3xl sm:text-4xl text-[#F4F2EC] tracking-tight">
                 Have a Complex or Sovereign Requirement?
               </h3>
-              <p className="mt-3 text-sm text-[#B8B4AA] leading-relaxed font-light">
+              <p className="mt-3 text-base text-[#E5E2DC] leading-relaxed font-normal">
                 Whether arranging multi-city private jet positioning, confidential diplomatic escorts, or historic
                 courtyard galas under NDA, our senior operations curators engineer every detail in strict confidence.
               </p>
@@ -321,7 +321,7 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
                     }
                   )
                 }
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] px-8 py-3.5 text-xs font-sans font-medium uppercase tracking-[0.16em] text-[#0C0B09] shadow-xl shadow-[#C5A059]/20 transition-all cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] px-8 py-3.5 text-xs font-sans font-medium uppercase tracking-[0.1em] text-[#0C0B09] shadow-xl shadow-[#C5A059]/20 transition-all cursor-pointer"
               >
                 <span>Request Private Consultation</span>
                 <ArrowUpRight className="size-4" />
@@ -331,7 +331,7 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
         </motion.div>
       </motion.div>
 
-      {/* Interactive Concierge Inquiry Modal */}
+      {/* Interactive Sarrin Holidays Inquiry Modal */}
       <AnimatePresence>
         {selectedService && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -354,7 +354,7 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
               {/* Close Button */}
               <button
                 onClick={() => setSelectedService(null)}
-                className="absolute right-5 top-5 rounded-sm p-2 text-[#B8B4AA] transition-colors hover:bg-white/10 hover:text-white"
+                className="absolute right-5 top-5 rounded-sm p-2 text-[#E5E2DC] transition-colors hover:bg-white/10 hover:text-white"
               >
                 <X className="size-5" />
               </button>
@@ -364,8 +364,8 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
                   <div className="mx-auto flex size-14 items-center justify-center rounded-sm bg-[#C5A059]/10 border border-[#C5A059]/30 text-[#C5A059]">
                     <Check className="size-7" />
                   </div>
-                  <h4 className="font-serif font-light text-2xl text-[#F4F2EC]">Inquiry Received</h4>
-                  <p className="text-sm text-[#B8B4AA] max-w-sm mx-auto leading-relaxed font-light">
+                  <h4 className="font-serif font-medium text-2xl text-[#F4F2EC]">Inquiry Received</h4>
+                  <p className="text-sm text-[#E5E2DC] max-w-sm mx-auto leading-relaxed font-normal">
                     Thank you. A Senior Travel Curator has been notified and will reach out discreetly within 2 hours.
                   </p>
                 </div>
@@ -375,21 +375,21 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
                     <div className="flex size-7 items-center justify-center rounded-sm bg-[#C5A059]/10 text-[#C5A059]">
                       <ServiceIcon name={selectedService.icon_name} className="size-3.5" />
                     </div>
-                    <span className="text-[11px] font-sans font-medium uppercase tracking-[0.2em] text-[#C5A059]">
-                      Concierge Dispatch
+                    <span className="text-[11px] font-sans font-medium uppercase tracking-[0.1em] text-[#C5A059]">
+                      Sarrin Holidays Dispatch
                     </span>
                   </div>
 
-                  <h4 className="mt-2 font-serif font-light text-2xl text-[#F4F2EC] leading-snug">
+                  <h4 className="mt-2 font-serif font-medium text-2xl text-[#F4F2EC] leading-snug">
                     {selectedService.title}
                   </h4>
-                  <p className="mt-1 text-xs text-[#B8B4AA] font-light">
+                  <p className="mt-1 text-xs text-[#E5E2DC] font-normal">
                     Submit your parameters below for a personalized private service dossier.
                   </p>
 
                   <form onSubmit={handleSubmit} className="mt-6 space-y-4">
                     <div>
-                      <label className="block text-[11px] font-sans font-medium uppercase tracking-wider text-[#B8B4AA] mb-1">
+                      <label className="block text-[11px] font-sans font-medium uppercase tracking-wider text-[#E5E2DC] mb-1">
                         Full Name
                       </label>
                       <input
@@ -398,13 +398,13 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="e.g. Lord Alistair Vance"
-                        className="w-full rounded-sm border border-white/10 bg-[#0C0B09] px-4 py-2.5 text-sm text-[#F4F2EC] placeholder-[#B8B4AA]/30 outline-none focus:border-[#C5A059]"
+                        className="w-full rounded-sm border border-white/10 bg-[#0C0B09] px-4 py-2.5 text-sm text-[#F4F2EC] placeholder-[#E5E2DC]/30 outline-none focus:border-[#C5A059]"
                       />
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-[11px] font-sans font-medium uppercase tracking-wider text-[#B8B4AA] mb-1">
+                        <label className="block text-[11px] font-sans font-medium uppercase tracking-wider text-[#E5E2DC] mb-1">
                           Private Email
                         </label>
                         <input
@@ -413,11 +413,11 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="client@sanctuary.com"
-                          className="w-full rounded-sm border border-white/10 bg-[#0C0B09] px-4 py-2.5 text-sm text-[#F4F2EC] placeholder-[#B8B4AA]/30 outline-none focus:border-[#C5A059]"
+                          className="w-full rounded-sm border border-white/10 bg-[#0C0B09] px-4 py-2.5 text-sm text-[#F4F2EC] placeholder-[#E5E2DC]/30 outline-none focus:border-[#C5A059]"
                         />
                       </div>
                       <div>
-                        <label className="block text-[11px] font-sans font-medium uppercase tracking-wider text-[#B8B4AA] mb-1">
+                        <label className="block text-[11px] font-sans font-medium uppercase tracking-wider text-[#E5E2DC] mb-1">
                           Phone / WhatsApp
                         </label>
                         <input
@@ -426,13 +426,13 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           placeholder="+91 or international"
-                          className="w-full rounded-sm border border-white/10 bg-[#0C0B09] px-4 py-2.5 text-sm text-[#F4F2EC] placeholder-[#B8B4AA]/30 outline-none focus:border-[#C5A059]"
+                          className="w-full rounded-sm border border-white/10 bg-[#0C0B09] px-4 py-2.5 text-sm text-[#F4F2EC] placeholder-[#E5E2DC]/30 outline-none focus:border-[#C5A059]"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-sans font-medium uppercase tracking-wider text-[#B8B4AA] mb-1">
+                      <label className="block text-[11px] font-sans font-medium uppercase tracking-wider text-[#E5E2DC] mb-1">
                         Dates, Routing & Special Instructions
                       </label>
                       <textarea
@@ -440,21 +440,21 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
                         value={formData.notes}
                         onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                         placeholder="Mention helicopter routing, palace guest count, or security requirements..."
-                        className="w-full rounded-sm border border-white/10 bg-[#0C0B09] px-4 py-2.5 text-sm text-[#F4F2EC] placeholder-[#B8B4AA]/30 outline-none focus:border-[#C5A059] resize-none"
+                        className="w-full rounded-sm border border-white/10 bg-[#0C0B09] px-4 py-2.5 text-sm text-[#F4F2EC] placeholder-[#E5E2DC]/30 outline-none focus:border-[#C5A059] resize-none"
                       />
                     </div>
 
                     <div className="pt-2">
                       <button
                         type="submit"
-                        className="w-full inline-flex items-center justify-center gap-2 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] py-3 text-xs font-sans font-medium uppercase tracking-[0.16em] text-[#0C0B09] shadow-lg shadow-[#C5A059]/20 transition-all cursor-pointer"
+                        className="w-full inline-flex items-center justify-center gap-2 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] py-3 text-xs font-sans font-medium uppercase tracking-[0.1em] text-[#0C0B09] shadow-lg shadow-[#C5A059]/20 transition-all cursor-pointer"
                       >
                         <Send className="size-3.5" />
                         <span>Transmit Confidential Request</span>
                       </button>
                     </div>
 
-                    <p className="text-center text-[10px] text-[#B8B4AA]/60 font-light">
+                    <p className="text-center text-[10px] text-[#E5E2DC]/60 font-normal">
                       All communications are protected under strict non-disclosure covenants.
                     </p>
                   </form>

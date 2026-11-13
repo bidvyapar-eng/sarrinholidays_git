@@ -82,7 +82,7 @@ if (validRes.success && validRes.referenceId.startsWith('SRN-')) {
 }
 
 // 2. Test VIP Inquiry Payload Validation & Dossier Construction
-console.log('\n--- TEST 2: VIP CONCIERGE MULTI-STEP INQUIRY ACTION ---')
+console.log('\n--- TEST 2: VIP SARRIN HOLIDAYS MULTI-STEP INQUIRY ACTION ---')
 
 function validateAndProcessVipInquiry(payload) {
   const {
@@ -127,7 +127,7 @@ function validateAndProcessVipInquiry(payload) {
   const resolvedCity = departureCity === 'Other City' ? (customDepartureCity || 'Other Indian City') : (departureCity || 'Pan-India Flight Hub')
 
   const dossierLines = [
-    `=== CONFIDENTIAL VIP CONCIERGE DOSSIER ===`,
+    `=== CONFIDENTIAL VIP SARRIN HOLIDAYS DOSSIER ===`,
     `Reference ID: ${referenceId}`,
     `Subject: ${serviceOrPackageTitle} (${classification})`,
     `Origin Departure Hub: ${resolvedCity}`,

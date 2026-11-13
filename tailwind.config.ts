@@ -32,7 +32,10 @@ const config: Config = {
           800: '#1E1D19', // Elevated interactive surface
         },
         stone: {
-          warm: '#B8B4AA', // Warm stone body text
+          warm: '#E5E2DC', // Warm high-contrast stone body text
+          200: '#E5E2DC',
+          300: '#D6D2C8',
+          400: '#B8B4AA',
         },
         offwhite: {
           50: '#F4F2EC', // Refined warm off-white
@@ -47,12 +50,12 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['var(--font-sans-inter)', 'var(--font-sans)', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        serif: ['var(--font-serif-cormorant)', 'var(--font-serif)', 'Cormorant Garamond', 'Georgia', 'serif'],
+        sans: ['var(--font-sans)', 'var(--font-sans-inter)', 'Plus Jakarta Sans', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-serif)', 'var(--font-serif-cormorant)', 'Playfair Display', 'Cormorant Garamond', 'Georgia', 'serif'],
       },
       letterSpacing: {
-        widest: '0.2em',
-        editorial: '0.25em',
+        widest: '0.1em',
+        editorial: '0.1em',
       },
       lineHeight: {
         relaxed: '1.75',

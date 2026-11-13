@@ -56,36 +56,36 @@ export function Footer() {
           {/* Column 1: Brand & Atelier Identity (2 cols on large screens) */}
           <div className="lg:col-span-2 space-y-6">
             <Link href="/" className="inline-flex flex-col items-start justify-center group">
-              <span className="font-serif text-3xl font-light tracking-[0.25em] text-[#F4F2EC] leading-none">
+              <span className="font-serif text-3xl font-medium tracking-[0.1em] text-[#F4F2EC] leading-none">
                 SARRIN
               </span>
-              <span className="mt-1.5 text-[9px] font-medium tracking-[0.35em] text-[#C5A059] uppercase leading-none">
+              <span className="mt-1.5 text-[9px] font-medium tracking-[0.1em] text-[#C5A059] uppercase leading-none">
                 HOLIDAYS · INDIA
               </span>
             </Link>
 
-            <p className="text-sm text-[#B8B4AA] font-light leading-relaxed max-w-sm">
+            <p className="text-sm text-[#E5E2DC] font-normal leading-relaxed max-w-sm">
               India’s premier bespoke travel atelier. Curating living palace suites in Rajasthan,
               private aviation charters, secluded Kerala houseboat buyouts, and transformative
               Himalayan wellness sanctuaries under strict non-disclosure covenants.
             </p>
 
-            {/* Direct Concierge Contact Strip */}
-            <div className="space-y-2.5 pt-2 text-xs font-sans text-[#B8B4AA]">
-              <div className="flex items-center gap-2.5">
-                <MapPin className="size-4 text-[#C5A059] shrink-0" />
-                <span>Shop No 42, Jagtap Complex, Satpur, Nashik, Maharashtra - 422012</span>
+            {/* Direct Sarrin Holidays Contact Strip */}
+            <div className="space-y-2.5 pt-2 text-xs font-sans text-[#E5E2DC]">
+              <div className="flex items-start gap-2.5">
+                <MapPin className="size-4 text-[#C5A059] shrink-0 mt-0.5" />
+                <span className="leading-snug">Registered Headquarters: 42, Jagtap Complex, Satpur, Nashik, Maharashtra – 422012 (All other destinations operated remotely)</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="size-4 text-[#C5A059] shrink-0" />
                 <a href="tel:+918419887730" className="hover:text-[#F4F2EC] transition-colors">
-                  +91 84198 87730 (Official Concierge Desk)
+                  +91 84198 87730 (Official Sarrin Holidays Desk)
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="size-4 text-[#C5A059] shrink-0" />
-                <a href="mailto:concierge@sarrinholidays.com" className="hover:text-[#F4F2EC] transition-colors">
-                  concierge@sarrinholidays.com
+                <a href="mailto:help@sarrinholidays.com" className="hover:text-[#F4F2EC] transition-colors">
+                  help@sarrinholidays.com
                 </a>
               </div>
             </div>
@@ -99,10 +99,10 @@ export function Footer() {
 
           {/* Column 2: Flagship Expeditions */}
           <div className="space-y-4">
-            <h4 className="text-xs font-sans uppercase tracking-[0.2em] text-[#C5A059] font-semibold">
+            <h4 className="text-xs font-sans uppercase tracking-[0.1em] text-[#C5A059] font-semibold">
               Curated Circuits
             </h4>
-            <ul className="space-y-2.5 text-xs sm:text-sm text-[#B8B4AA] font-light">
+            <ul className="space-y-2.5 text-xs sm:text-sm text-[#E5E2DC] font-normal">
               <li>
                 <Link href="/packages/kerala-gods-own-country-8d" className="hover:text-[#F4F2EC] transition-colors">
                   Kerala — God’s Own Country (8D)
@@ -120,7 +120,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/packages/blissful-goa-beach-getaway-4d" className="hover:text-[#F4F2EC] transition-colors">
-                  Blissful Goa Getaway (4D)
+                  Blissful Goa Coastal & Heritage Escape (4D)
                 </Link>
               </li>
               <li>
@@ -129,7 +129,7 @@ export function Footer() {
                 </Link>
               </li>
               <li className="pt-1">
-                <Link href="/packages" className="text-[#C5A059] hover:underline font-medium inline-flex items-center gap-1">
+                <Link href="/#destinations" className="text-[#C5A059] hover:underline font-medium inline-flex items-center gap-1">
                   <span>View All Expeditions</span>
                   <ArrowRight className="size-3" />
                 </Link>
@@ -139,10 +139,10 @@ export function Footer() {
 
           {/* Column 3: Atelier Services */}
           <div className="space-y-4">
-            <h4 className="text-xs font-sans uppercase tracking-[0.2em] text-[#C5A059] font-semibold">
+            <h4 className="text-xs font-sans uppercase tracking-[0.1em] text-[#C5A059] font-semibold">
               Private Services
             </h4>
-            <ul className="space-y-2.5 text-xs sm:text-sm text-[#B8B4AA] font-light">
+            <ul className="space-y-2.5 text-xs sm:text-sm text-[#E5E2DC] font-normal">
               <li>
                 <Link href="/services/private-aviation-charters" className="hover:text-[#F4F2EC] transition-colors">
                   Private Aviation & Helicopters
@@ -174,10 +174,10 @@ export function Footer() {
 
           {/* Column 4: The Sarrin Gazette & Private Access */}
           <div className="space-y-4">
-            <h4 className="text-xs font-sans uppercase tracking-[0.2em] text-[#C5A059] font-semibold">
+            <h4 className="text-xs font-sans uppercase tracking-[0.1em] text-[#C5A059] font-semibold">
               The Private Gazette
             </h4>
-            <p className="text-xs text-[#B8B4AA] font-light leading-relaxed">
+            <p className="text-xs text-[#E5E2DC] font-normal leading-relaxed">
               Confidential dispatches on seasonal palace buyouts, private aviation corridors, and new cultural expeditions.
             </p>
 
@@ -196,7 +196,7 @@ export function Footer() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter private email address..."
-                    className="w-full rounded-sm border border-white/15 bg-white/5 px-3.5 py-2.5 text-xs text-foreground placeholder:text-[#B8B4AA]/50 outline-none transition-all focus:border-[#C5A059] focus:bg-white/10 disabled:opacity-50"
+                    className="w-full rounded-sm border border-white/15 bg-white/5 px-3.5 py-2.5 text-xs text-foreground placeholder:text-[#E5E2DC]/50 outline-none transition-all focus:border-[#C5A059] focus:bg-white/10 disabled:opacity-50"
                   />
                   <button
                     type="submit"
@@ -217,16 +217,16 @@ export function Footer() {
                     <span>{errorMsg}</span>
                   </div>
                 )}
-                <span className="text-[10px] font-sans text-[#B8B4AA]/60 block">
+                <span className="text-[10px] font-sans text-[#E5E2DC]/60 block">
                   Strictly non-commercial. Maximum 4 dispatches per year.
                 </span>
               </form>
             )}
 
             {/* Quick Navigation Links */}
-            <div className="pt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-[#B8B4AA] font-sans">
-              <Link href="/about" className="hover:text-[#F4F2EC] transition-colors">About Us</Link>
-              <Link href="/press" className="hover:text-[#F4F2EC] transition-colors">Press Room</Link>
+            <div className="pt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-[#E5E2DC] font-sans">
+              <Link href="/#about" className="hover:text-[#F4F2EC] transition-colors">About Us</Link>
+              <Link href="/contact" className="hover:text-[#F4F2EC] transition-colors">Press Room</Link>
               <Link href="/blog" className="hover:text-[#F4F2EC] transition-colors">The Journal</Link>
               <Link href="/contact" className="hover:text-[#F4F2EC] transition-colors">Contact</Link>
               <Link href="/feed.xml" target="_blank" className="hover:text-[#F4F2EC] transition-colors">RSS Feed</Link>
@@ -235,7 +235,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Trust & Compliance Bar */}
-        <div className="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-sans text-[#B8B4AA]/70">
+        <div className="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-sans text-[#E5E2DC]/70">
           <div className="flex flex-wrap items-center justify-center gap-4 text-center md:text-left">
             <span>© 2026 Sarrin Holidays Atelier Pvt. Ltd. All rights reserved.</span>
             <span className="hidden md:inline">•</span>

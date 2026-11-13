@@ -1,19 +1,53 @@
 import { Suspense } from "react"
 import type { Metadata } from "next"
+import dynamic from "next/dynamic"
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
-import { VirtualTour } from "@/components/virtual-tour-client"
 import { PackagesGrid } from "@/components/packages-grid"
-import { PublicContent } from "@/components/public-content"
+import { ExperiencesSection } from "@/components/experiences-section"
+import { AboutSection } from "@/components/about-section"
 import { Footer } from "@/components/footer"
 import { JsonLd } from "@/components/json-ld"
+
+// Lazy-Load Heavy Below-the-Fold Interactive Components
+const VirtualTour = dynamic(() => import("@/components/virtual-tour-client"), {
+  loading: () => (
+    <section id="virtual-tour" className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6">
+      <div className="mx-auto aspect-[16/10] w-full min-h-[500px] flex flex-col items-center justify-center rounded-sm border border-white/15 bg-white/5 backdrop-blur-2xl">
+        <div className="size-10 animate-spin rounded-full border-2 border-[#C5A059] border-t-transparent" />
+        <p className="mt-4 font-serif text-lg text-foreground/80">
+          Initializing 360° VR Spatial Environment…
+        </p>
+        <span className="mt-1 text-xs uppercase tracking-[0.1em] text-[#C5A059]">
+          Sarrin Bespoke Curations
+        </span>
+      </div>
+    </section>
+  ),
+})
+
+const CartographicDiscoveryMap = dynamic(
+  () => import("@/components/journal-section"),
+  {
+    loading: () => (
+      <div className="relative flex h-[560px] md:h-[620px] w-full items-center justify-center rounded-sm border border-white/10 bg-[#0C0B09] backdrop-blur-md">
+        <div className="flex flex-col items-center gap-3">
+          <div className="size-10 animate-spin rounded-full border-2 border-[#C5A059] border-t-transparent" />
+          <p className="text-xs font-sans uppercase tracking-[0.1em] text-[#C5A059]">
+            Initializing Cartographic Discovery...
+          </p>
+        </div>
+      </div>
+    ),
+  }
+)
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sarrinholidays.com'
 
 export const metadata: Metadata = {
   title: 'Sarrin Holidays | Luxury Indian Travel, Royal Palace Stays & Private Expeditions',
   description:
-    'India’s premier bespoke travel atelier. Handcrafted private journeys across Rajasthan’s 18th-century royal palaces, secluded Kerala houseboat retreats, and high-altitude Himalayan wellness sanctuaries. Unrivaled access, private aviation, and 24/7 sovereign concierge service.',
+    'India’s premier bespoke travel atelier. Handcrafted private journeys across Rajasthan’s 18th-century royal palaces, secluded Kerala houseboat retreats, and high-altitude Himalayan wellness sanctuaries. Unrivaled access, private aviation, and 24/7 dedicated Sarrin Holidays service.',
   alternates: {
     canonical: siteUrl,
   },
@@ -149,7 +183,7 @@ export default function Page() {
       {/* Hero Section */}
       <Hero />
 
-      {/* 360° VR Spatial Tour */}
+      {/* 360° VR Spatial Tour (Lazy-loaded below the fold) */}
       <VirtualTour />
 
       {/* Flagship Curated Indian Journeys Grid with Suspense */}
@@ -168,8 +202,14 @@ export default function Page() {
         </Suspense>
       </div>
 
-      {/* Experiences, Journal & About Section */}
-      <PublicContent />
+      {/* Curated Experiences & Philosophy Section */}
+      <ExperiencesSection />
+
+      {/* Cartographic Discovery Map Section (Lazy-loaded below the fold) */}
+      <CartographicDiscoveryMap />
+
+      {/* The Sarrin Atelier Custodianship & About Section */}
+      <AboutSection />
 
       {/* Global Luxury Footer */}
       <Footer />

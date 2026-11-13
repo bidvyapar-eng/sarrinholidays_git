@@ -55,10 +55,10 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
           aria-label="Sarrin Holidays home"
           className="group flex flex-col items-start justify-center text-left transition-opacity hover:opacity-90"
         >
-          <span className="font-serif text-2xl font-light tracking-[0.25em] text-[#F4F2EC] leading-none">
+          <span className="font-serif text-2xl font-medium tracking-[0.1em] text-[#F4F2EC] leading-none">
             SARRIN
           </span>
-          <span className="mt-1.5 text-[9px] font-medium tracking-[0.35em] text-[#C5A059] uppercase leading-none">
+          <span className="mt-1.5 text-[9px] font-medium tracking-[0.1em] text-[#C5A059] uppercase leading-none">
             HOLIDAYS · INDIA
           </span>
         </a>
@@ -68,7 +68,7 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
             <li key={link.label}>
               <a
                 href={link.href}
-                className="px-3.5 py-2 text-xs font-medium uppercase tracking-[0.16em] text-[#B8B4AA] transition-colors hover:text-[#F4F2EC] whitespace-nowrap"
+                className="px-3.5 py-2 text-xs font-medium uppercase tracking-[0.1em] text-[#E5E2DC] transition-colors hover:text-[#F4F2EC] whitespace-nowrap"
               >
                 {link.label}
               </a>
@@ -77,12 +77,12 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
         </ul>
 
         <div className="flex items-center gap-3 shrink-0">
-          {/* Header Action: Global Concierge (if enabled) OR Domestic Concierge Hotline */}
+          {/* Header Action: Global Desk (if enabled) OR Domestic Sarrin Holidays Hotline */}
           {ENABLE_GLOBAL_CONCIERGE ? (
             <button
               onClick={() => setConciergeOpen((v) => !v)}
               aria-expanded={conciergeOpen}
-              aria-label="Toggle Global Concierge Routing"
+              aria-label="Toggle Global Desk Routing"
               className={`hidden sm:inline-flex items-center gap-1.5 border px-3.5 py-2 text-xs font-semibold uppercase tracking-wider transition-all backdrop-blur-md whitespace-nowrap shrink-0 ${
                 conciergeOpen
                   ? "border-primary bg-primary text-primary-foreground shadow-lg shadow-primary/25"
@@ -90,7 +90,7 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
               }`}
             >
               <Globe className="size-3.5" />
-              <span>Global Concierge</span>
+              <span>Global Desk</span>
               <ChevronDown
                 className={`size-3 transition-transform duration-200 ${
                   conciergeOpen ? "rotate-180" : ""
@@ -101,7 +101,7 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
             <a
               href="tel:+918419887730"
               className="hidden sm:inline-flex items-center gap-2 border border-[#C5A059]/30 bg-[#C5A059]/10 hover:bg-[#C5A059]/20 px-3.5 py-2 text-xs font-medium text-[#C5A059] transition-all whitespace-nowrap shrink-0 tracking-wider"
-              aria-label="Concierge Desk: +91 84198 87730"
+              aria-label="Sarrin Holidays Desk: +91 84198 87730"
             >
               <Phone className="size-3.5 text-[#C5A059]" />
               <span>+91 84198 87730</span>
@@ -111,7 +111,7 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
           <button
             type="button"
             onClick={() => openConciergeDrawer()}
-            className="hidden md:inline-flex items-center justify-center bg-[#C5A059] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.15em] text-[#0C0B09] hover:bg-[#D4B475] transition-colors whitespace-nowrap shrink-0 shadow-sm cursor-pointer"
+            className="hidden md:inline-flex items-center justify-center bg-[#C5A059] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.1em] text-[#0C0B09] hover:bg-[#D4B475] transition-colors whitespace-nowrap shrink-0 shadow-sm cursor-pointer"
           >
             Design Your Journey
           </button>
@@ -149,7 +149,7 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
                 <a
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block px-3 py-2 text-sm font-medium uppercase tracking-wider text-[#B8B4AA] transition-colors hover:text-[#C5A059]"
+                  className="block px-3 py-2 text-sm font-medium uppercase tracking-wider text-[#E5E2DC] transition-colors hover:text-[#C5A059]"
                 >
                   {link.label}
                 </a>
@@ -157,7 +157,7 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
             ))}
           </ul>
 
-          {/* Concierge Section in Mobile Menu */}
+          {/* Sarrin Holidays Section in Mobile Menu */}
           {ENABLE_GLOBAL_CONCIERGE ? (
             <div className="border-t border-white/10 pt-3 px-1">
               <GlobalConciergeRouting
@@ -167,8 +167,8 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
             </div>
           ) : (
             <div className="border-t border-white/10 pt-3 px-2 space-y-2">
-              <div className="flex items-center justify-between text-[11px] text-[#B8B4AA]">
-                <span>Concierge Desk</span>
+              <div className="flex items-center justify-between text-[11px] text-[#E5E2DC]">
+                <span>Sarrin Holidays Desk</span>
                 <span className="text-[#C5A059] font-medium">24/7 Operations</span>
               </div>
               <div className="grid grid-cols-2 gap-2 text-xs">

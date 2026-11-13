@@ -234,16 +234,16 @@ export function CuratedByIntention() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3.5 sm:space-y-4">
-          <span className="text-xs font-sans uppercase tracking-[0.3em] text-[#C5A059] font-medium block">
+          <span className="text-xs font-sans uppercase tracking-[0.1em] text-[#C5A059] font-medium block">
             Curated by Intention
           </span>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#F4F2EC] font-light tracking-tight leading-[1.15]">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#F4F2EC] font-medium tracking-tight leading-[1.15]">
             Thematic Indian Circuits
           </h2>
 
-          <p className="text-xs sm:text-sm md:text-base text-[#B8B4AA] font-light leading-relaxed max-w-2xl mx-auto">
-            Experience our sovereign domestic luxury circuits. Handcrafted exclusively for Indian patrons, featuring palace buyouts, private charters, and high-touch concierge care.
+          <p className="text-base text-[#E5E2DC] font-normal leading-relaxed max-w-2xl mx-auto">
+            Experience our sovereign domestic luxury circuits. Handcrafted exclusively for Indian patrons, featuring palace buyouts, private charters, and high-touch Sarrin Holidays care.
           </p>
         </div>
 
@@ -268,7 +268,7 @@ export function CuratedByIntention() {
                   <Icon className={`size-4 shrink-0 ${isSelected ? 'text-primary' : 'text-foreground/50 group-hover:text-foreground/80'}`} />
                   <span className="font-mono text-xs uppercase tracking-wider whitespace-nowrap">{tab.label}</span>
                 </div>
-                <span className="text-[10px] text-foreground/50 tracking-normal font-sans font-light mt-0.5 whitespace-nowrap">
+                <span className="text-[10px] text-foreground/50 tracking-normal font-sans font-normal mt-0.5 whitespace-nowrap">
                   {tab.destinations}
                 </span>
                 {isSelected && (
@@ -297,7 +297,7 @@ export function CuratedByIntention() {
               <h3 className="font-serif text-base sm:text-lg text-primary italic">
                 &ldquo;{activeTab.headline}&rdquo;
               </h3>
-              <p className="text-xs sm:text-sm text-foreground/60 leading-relaxed font-light">
+              <p className="text-xs sm:text-sm text-foreground/60 leading-relaxed font-normal">
                 {activeTab.description}
               </p>
             </motion.div>
@@ -306,7 +306,7 @@ export function CuratedByIntention() {
 
         {/* Navigation Info & Carousel Controls */}
         <div className="mt-8 sm:mt-10 flex items-center justify-between pb-3 border-b border-white/10">
-          <div className="flex items-center gap-2 text-xs font-sans text-[#B8B4AA]">
+          <div className="flex items-center gap-2 text-xs font-sans text-[#E5E2DC]">
             <span className="text-[#C5A059] font-bold">
               0{filteredPackages.length > 0 ? (carouselIndex % filteredPackages.length) + 1 : 0}
             </span>
