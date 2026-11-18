@@ -1,12 +1,8 @@
-import { Suspense } from "react"
 import { supabase } from "@/lib/supabaseClient"
 import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
 import { fallbackServices, type ServiceItem } from "@/lib/cms"
 import { ServicesBentoGrid } from "@/components/services-bento-grid"
-import { TravelServicesGrid } from "@/components/TravelServicesGrid"
-import { PackagesGrid } from "@/components/packages-grid"
-import { Phone, Mail, Compass } from "lucide-react"
+import { Phone, Mail } from "lucide-react"
 
 export const dynamic = 'force-dynamic'
 
@@ -70,41 +66,6 @@ export default async function ServicesPage() {
         </div>
       </section>
 
-      {/* 7 Dedicated Travel Logistics & Hospitality Services (Full Expanded Grid) */}
-      <section className="relative border-t border-white/10 bg-[#0C0B09]">
-        <TravelServicesGrid variant="full" />
-      </section>
-
-      {/* Flagship Holiday Tour Packages Section */}
-      <section id="holiday-packages" className="relative border-t border-white/10 bg-[#0C0B09] py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-8 text-center max-w-3xl">
-          <span className="text-xs font-sans uppercase tracking-[0.15em] text-[#C5A059] font-medium block mb-2">
-            CURATED EXPEDITIONS &amp; CIRCUITS
-          </span>
-          <h2 className="font-serif font-medium text-3xl sm:text-4xl lg:text-5xl text-[#F4F2EC] tracking-tight">
-            Signature Holiday Tour Packages
-          </h2>
-          <p className="mt-3 text-sm sm:text-base text-stone-300 font-normal leading-relaxed">
-            Pair your standalone logistics with our master-curated itineraries across living Rajputana palaces, Kerala backwaters, and Himalayan passes.
-          </p>
-        </div>
-
-        <div className="scroll-mt-24">
-          <Suspense
-            fallback={
-              <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6">
-                <div className="animate-pulse space-y-4 text-center">
-                  <div className="mx-auto h-4 w-36 rounded-sm bg-white/10" />
-                  <div className="mx-auto h-10 w-96 rounded-sm bg-white/10" />
-                </div>
-              </div>
-            }
-          >
-            <PackagesGrid />
-          </Suspense>
-        </div>
-      </section>
-
       {/* Sarrin Holidays Desk & Operations Banner */}
       <section className="relative border-t border-white/10 bg-[#0C0B09] py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -142,9 +103,6 @@ export default async function ServicesPage() {
           </div>
         </div>
       </section>
-
-      {/* Global Luxury Footer */}
-      <Footer />
     </main>
   )
 }

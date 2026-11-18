@@ -34,30 +34,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
-    {
-      url: `${siteUrl}/privacy-policy`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${siteUrl}/terms-and-conditions`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${siteUrl}/refund-policy`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${siteUrl}/sitemap`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.6,
-    },
   ]
 
   // 2. Fetch Packages from Supabase with fallback resilience

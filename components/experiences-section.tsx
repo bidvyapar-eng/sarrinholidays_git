@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { optimizeUnsplashUrl, type Experience } from '@/lib/cms'
-import { HimalayanBikeTrack } from '@/components/HimalayanBikeTrack'
 
 const AUTHENTIC_INDIAN_EXPERIENCES: Experience[] = [
   {
@@ -124,9 +123,6 @@ export function ExperiencesSection() {
             </article>
           ))}
         </div>
-
-        {/* Trans-Himalayan Motorcycle Expedition Track */}
-        <HimalayanBikeTrack />
       </div>
     </section>
   )

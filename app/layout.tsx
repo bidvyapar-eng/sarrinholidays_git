@@ -3,7 +3,6 @@ import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 import { ConciergeDrawer } from '@/components/ConciergeDrawer'
-import { WelcomeTripModal } from '@/components/WelcomeTripModal'
 
 const sans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -20,7 +19,7 @@ const serif = Playfair_Display({
   display: 'swap',
 })
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sarrin.bidvyapar.com'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sarrinholidays.com'
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -89,15 +88,13 @@ export const metadata: Metadata = {
     icon: '/favicon.ico',
   },
   robots: {
-    index: false,
-    follow: false,
-    nocache: true,
+    index: true,
+    follow: true,
     googleBot: {
-      index: false,
-      follow: false,
-      noimageindex: true,
+      index: true,
+      follow: true,
       'max-video-preview': -1,
-      'max-image-preview': 'none',
+      'max-image-preview': 'large',
       'max-snippet': -1,
     },
   },
@@ -153,7 +150,6 @@ export default function RootLayout({
         />
         {children}
         <ConciergeDrawer />
-        <WelcomeTripModal />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

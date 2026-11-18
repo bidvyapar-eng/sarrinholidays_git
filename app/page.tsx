@@ -4,7 +4,8 @@ import dynamic from "next/dynamic"
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
 import { PackagesGrid } from "@/components/packages-grid"
-import { TravelServicesGrid } from "@/components/TravelServicesGrid"
+import { ExperiencesSection } from "@/components/experiences-section"
+import { AboutSection } from "@/components/about-section"
 import { Footer } from "@/components/footer"
 import { JsonLd } from "@/components/json-ld"
 
@@ -41,35 +42,9 @@ const CartographicDiscoveryMap = dynamic(
   }
 )
 
-const ExperiencesSection = dynamic(
-  () => import("@/components/experiences-section").then((mod) => mod.ExperiencesSection),
-  {
-    loading: () => (
-      <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6">
-        <div className="h-96 w-full animate-pulse rounded-sm border border-white/5 bg-white/[0.02]" />
-      </div>
-    ),
-  }
-)
-
-const AboutSection = dynamic(
-  () => import("@/components/about-section").then((mod) => mod.AboutSection),
-  {
-    loading: () => (
-      <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6">
-        <div className="h-96 w-full animate-pulse rounded-sm border border-white/5 bg-white/[0.02]" />
-      </div>
-    ),
-  }
-)
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sarrin.bidvyapar.com'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sarrinholidays.com'
 
 export const metadata: Metadata = {
-  robots: {
-    index: false,
-    follow: false,
-  },
   title: 'Sarrin Holidays | Luxury Indian Travel, Royal Palace Stays & Private Expeditions',
   description:
     'India’s premier bespoke travel atelier. Handcrafted private journeys across Rajasthan’s 18th-century royal palaces, secluded Kerala houseboat retreats, and high-altitude Himalayan wellness sanctuaries. Unrivaled access, private aviation, and 24/7 dedicated Sarrin Holidays service.',
@@ -226,9 +201,6 @@ export default function Page() {
           <PackagesGrid />
         </Suspense>
       </div>
-
-      {/* 7 Core Travel Services Strip */}
-      <TravelServicesGrid variant="compact" />
 
       {/* Curated Experiences & Philosophy Section */}
       <ExperiencesSection />
