@@ -97,6 +97,76 @@ export function Footer() {
               <ShieldCheck className="size-3.5 text-[#C5A059]" />
               <span>MSME Registered: UDYAM-MH-23-0433487</span>
             </div>
+
+            {/* Theme-Matched Architectural Social Media Links */}
+            <div className="pt-2 space-y-2">
+              <span className="text-[10px] font-mono uppercase tracking-[0.15em] text-[#C5A059] block">
+                Official Channels
+              </span>
+              <div className="flex items-center gap-2">
+                <a
+                  href="https://instagram.com/sarrinholidays"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="w-9 h-9 border border-white/15 bg-[#141310] text-[#B8B4AA] hover:border-[#C5A059] hover:text-[#C5A059] rounded-sm flex items-center justify-center transition-colors"
+                >
+                  <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.25} strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                  </svg>
+                </a>
+                <a
+                  href="https://facebook.com/sarrinholidays"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="w-9 h-9 border border-white/15 bg-[#141310] text-[#B8B4AA] hover:border-[#C5A059] hover:text-[#C5A059] rounded-sm flex items-center justify-center transition-colors"
+                >
+                  <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.25} strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                  </svg>
+                </a>
+                <a
+                  href="https://linkedin.com/company/sarrinholidays"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="w-9 h-9 border border-white/15 bg-[#141310] text-[#B8B4AA] hover:border-[#C5A059] hover:text-[#C5A059] rounded-sm flex items-center justify-center transition-colors"
+                >
+                  <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.25} strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                </a>
+                <a
+                  href="https://youtube.com/@sarrinholidays"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                  className="w-9 h-9 border border-white/15 bg-[#141310] text-[#B8B4AA] hover:border-[#C5A059] hover:text-[#C5A059] rounded-sm flex items-center justify-center transition-colors"
+                >
+                  <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.25} strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
+                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+                  </svg>
+                </a>
+                <a
+                  href="https://wa.me/918419887730"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="WhatsApp"
+                  className="w-9 h-9 border border-white/15 bg-[#141310] text-[#B8B4AA] hover:border-[#C5A059] hover:text-[#C5A059] rounded-sm flex items-center justify-center transition-colors"
+                >
+                  <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.25} strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+                    <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" />
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Column 2: Flagship Expeditions */}
@@ -233,6 +303,24 @@ export function Footer() {
               <Link href="/contact" className="hover:text-[#F4F2EC] transition-colors">Contact</Link>
               <Link href="/feed.xml" target="_blank" className="hover:text-[#F4F2EC] transition-colors">RSS Feed</Link>
             </div>
+
+            {/* "Coming Soon Mobile App" Card */}
+            <div className="border border-[#C5A059]/30 bg-[#141310] p-4 rounded-sm mt-6 space-y-2.5">
+              <span className="text-[10px] font-mono uppercase tracking-[0.15em] text-[#C5A059] font-semibold block">
+                SARRIN CONCIERGE APP · COMING SOON
+              </span>
+              <p className="text-xs text-[#B8B4AA] font-normal leading-relaxed">
+                Live itinerary tracking, offline vouchers, and one-tap concierge for iOS &amp; Android.
+              </p>
+              <div className="flex items-center gap-2 pt-1">
+                <span className="border border-white/15 bg-[#0C0B09] px-3 py-1.5 text-[11px] text-white rounded-sm font-sans tracking-wide">
+                  App Store · Soon
+                </span>
+                <span className="border border-white/15 bg-[#0C0B09] px-3 py-1.5 text-[11px] text-white rounded-sm font-sans tracking-wide">
+                  Google Play · Soon
+                </span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -244,14 +332,17 @@ export function Footer() {
             <span>Accredited Indian Heritage Specialist</span>
           </div>
 
-          <div className="flex items-center gap-6">
-            <Link href="/#about" className="hover:text-foreground transition-colors">
-              Philosophy
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-6 gap-y-2">
+            <Link href="/privacy-policy" className="hover:text-[#F4F2EC] transition-colors">
+              Privacy Policy
             </Link>
-            <Link href="/contact" className="hover:text-foreground transition-colors">
-              Discretion & NDA
+            <Link href="/terms-and-conditions" className="hover:text-[#F4F2EC] transition-colors">
+              Terms &amp; Conditions
             </Link>
-            <Link href="/sitemap.xml" className="hover:text-foreground transition-colors">
+            <Link href="/refund-policy" className="hover:text-[#F4F2EC] transition-colors">
+              Refund &amp; Cancellation
+            </Link>
+            <Link href="/sitemap" className="hover:text-[#F4F2EC] transition-colors">
               Sitemap
             </Link>
           </div>
