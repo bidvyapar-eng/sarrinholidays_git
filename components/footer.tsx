@@ -2,6 +2,7 @@
 
 import React, { useState, useTransition } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { subscribeToNewsletter } from '@/app/actions/newsletter'
 import {
   Compass,
@@ -55,13 +56,14 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-5 md:grid-cols-2">
           {/* Column 1: Brand & Atelier Identity (2 cols on large screens) */}
           <div className="lg:col-span-2 space-y-6">
-            <Link href="/" className="inline-flex flex-col items-start justify-center group">
-              <span className="font-serif text-3xl font-medium tracking-[0.1em] text-[#F4F2EC] leading-none">
-                SARRIN
-              </span>
-              <span className="mt-1.5 text-[9px] font-medium tracking-[0.1em] text-[#C5A059] uppercase leading-none">
-                HOLIDAYS · INDIA
-              </span>
+            <Link href="/" aria-label="Sarrin Holidays home" className="inline-flex items-start justify-center group">
+              <Image
+                src="/images/sarrin-logo.png"
+                alt="Sarrin Holidays"
+                width={160}
+                height={44}
+                className="h-11 w-auto object-contain"
+              />
             </Link>
 
             <p className="text-sm text-[#E5E2DC] font-normal leading-relaxed max-w-sm">

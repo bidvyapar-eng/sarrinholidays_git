@@ -1,6 +1,8 @@
 "use client"
 
 import { useEffect, useState, useRef } from "react"
+import Link from "next/link"
+import Image from "next/image"
 import { Menu, X, Globe, ChevronDown, Phone } from "lucide-react"
 import { GlobalConciergeRouting } from "@/components/global-concierge-routing"
 import { ENABLE_GLOBAL_CONCIERGE } from "@/lib/features.config"
@@ -50,18 +52,20 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
   return (
     <header className="fixed inset-x-0 top-0 z-50 h-20 border-b border-white/10 bg-[#0C0B09]/85 backdrop-blur-md">
       <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-6 lg:px-10">
-        <a
+        <Link
           href="/"
           aria-label="Sarrin Holidays home"
-          className="group flex flex-col items-start justify-center text-left transition-opacity hover:opacity-90"
+          className="group flex items-center transition-opacity hover:opacity-90"
         >
-          <span className="font-serif text-2xl font-medium tracking-[0.1em] text-[#F4F2EC] leading-none">
-            SARRIN
-          </span>
-          <span className="mt-1.5 text-[9px] font-medium tracking-[0.1em] text-[#C5A059] uppercase leading-none">
-            HOLIDAYS · INDIA
-          </span>
-        </a>
+          <Image
+            src="/images/sarrin-logo.png"
+            alt="Sarrin Holidays"
+            width={175}
+            height={50}
+            priority
+            className="h-10 md:h-12 w-auto object-contain"
+          />
+        </Link>
 
         <ul className="hidden items-center gap-1 xl:flex">
           {links.map((link) => (

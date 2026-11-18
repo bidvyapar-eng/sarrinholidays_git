@@ -6,7 +6,7 @@ import { Navbar } from '@/components/navbar'
 import { fallbackPackages, type PackageItem } from '@/lib/cms'
 import { JsonLd } from '@/components/json-ld'
 import { PackageStickyBookingCard, MobileStickyBookingBar } from '@/components/package-sticky-booking'
-import { ItineraryAccordion } from '@/components/itinerary-accordion'
+import { ItineraryAccordion, type ItineraryStop } from '@/components/itinerary-accordion'
 import { ENABLE_GLOBAL_CONCIERGE } from '@/lib/features.config'
 import { SocialShare } from '@/components/social-share'
 import {
@@ -24,7 +24,7 @@ import {
   FileText,
 } from 'lucide-react'
 
-export const DOMESTIC_LUXURY_PILLARS = [
+const DOMESTIC_LUXURY_PILLARS = [
   {
     title: '5-Star Palace & Luxury Resort Stays',
     desc: 'Presidential suites, private pool villas, and living royal residences with bespoke butler service.',
@@ -52,15 +52,7 @@ export const DOMESTIC_LUXURY_PILLARS = [
   },
 ]
 
-export interface ItineraryStop {
-  day: string
-  destination: string
-  highlight: string
-  description: string
-  tags: string[]
-}
-
-export function getPackageItinerary(pkg: PackageItem): ItineraryStop[] {
+function getPackageItinerary(pkg: PackageItem): ItineraryStop[] {
   const title = (pkg.title || '').toLowerCase()
   const slug = (pkg.slug || '').toLowerCase()
 

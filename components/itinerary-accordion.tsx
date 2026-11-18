@@ -3,7 +3,14 @@
 import React from 'react'
 import * as Accordion from '@radix-ui/react-accordion'
 import { ChevronDown, MapPin, Navigation, Compass } from 'lucide-react'
-import type { ItineraryStop } from '@/app/packages/[slug]/page'
+
+export interface ItineraryStop {
+  day: string
+  destination: string
+  highlight: string
+  description: string
+  tags: string[]
+}
 
 interface ItineraryAccordionProps {
   items: ItineraryStop[]
