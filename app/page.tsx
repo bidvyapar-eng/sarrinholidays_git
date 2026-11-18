@@ -4,6 +4,7 @@ import dynamic from "next/dynamic"
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
 import { PackagesGrid } from "@/components/packages-grid"
+import { TravelServicesGrid } from "@/components/TravelServicesGrid"
 import { ExperiencesSection } from "@/components/experiences-section"
 import { AboutSection } from "@/components/about-section"
 import { Footer } from "@/components/footer"
@@ -201,6 +202,9 @@ export default function Page() {
           <PackagesGrid />
         </Suspense>
       </div>
+
+      {/* 7 Core Travel Services Strip */}
+      <TravelServicesGrid variant="compact" />
 
       {/* Curated Experiences & Philosophy Section */}
       <ExperiencesSection />
