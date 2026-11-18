@@ -20,7 +20,7 @@ const serif = Playfair_Display({
   display: 'swap',
 })
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sarrinholidays.com'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sarrin.bidvyapar.com'
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -89,13 +89,15 @@ export const metadata: Metadata = {
     icon: '/favicon.ico',
   },
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
+    nocache: true,
     googleBot: {
-      index: true,
-      follow: true,
+      index: false,
+      follow: false,
+      noimageindex: true,
       'max-video-preview': -1,
-      'max-image-preview': 'large',
+      'max-image-preview': 'none',
       'max-snippet': -1,
     },
   },

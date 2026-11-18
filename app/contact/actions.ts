@@ -15,24 +15,27 @@ export async function submitContactInquiry(
   formData: FormData
 ): Promise<ContactActionResult> {
   const name = formData.get('name')?.toString().trim()
-  const email = formData.get('email')?.toString().trim()
+  const emailInput = formData.get('email')?.toString().trim()
   const phone = formData.get('phone')?.toString().trim() || null
+  const email = emailInput || (phone ? `${phone.replace(/\D/g, '')}@inquiry.sarrinholidays.com` : 'desk@sarrinholidays.com')
   const subject = formData.get('subject')?.toString().trim() || 'General Inquiry'
   const message = formData.get('message')?.toString().trim() || ''
 
-  if (!name || !email) {
+  if (!name || (!emailInput && !phone)) {
     return {
       success: false,
-      error: 'Please provide both your Full Name and Email Address.',
+      error: 'Please provide both your Full Name and Phone/WhatsApp Number.',
     }
   }
 
-  // Basic email pattern validation
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  if (!emailRegex.test(email)) {
-    return {
-      success: false,
-      error: 'Please enter a valid email address.',
+  // Basic email pattern validation if email was explicitly provided
+  if (emailInput) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(emailInput)) {
+      return {
+        success: false,
+        error: 'Please enter a valid email address.',
+      }
     }
   }
 
