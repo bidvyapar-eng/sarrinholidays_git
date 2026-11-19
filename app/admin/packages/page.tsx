@@ -261,7 +261,7 @@ export default function AdminPackagesPage() {
       title: pkg.title,
       slug: pkg.slug,
       description: pkg.description || '',
-      price: pkg.price,
+      price: pkg.price ?? 0,
       duration: pkg.duration,
       destinationsStr: (pkg.destinations || []).join(', '),
       featured_image: pkg.featured_image || '',

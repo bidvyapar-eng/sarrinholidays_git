@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { openConciergeDrawer } from '@/components/ConciergeDrawer'
+import { openWelcomeTripModal } from '@/components/WelcomeTripModal'
 import {
   Crown,
   Plane,
@@ -77,7 +78,7 @@ export function AboutSection() {
             </div>
             <h3 className="mt-4 font-serif text-lg text-[#F4F2EC] font-normal">Complete Guest Privacy</h3>
             <p className="mt-2 text-sm text-[#E5E2DC] leading-relaxed font-normal">
-              Your itinerary, personal preferences, and travel party details are protected with unwavering discretion and legal confidentiality.
+              Your itinerary, personal preferences, and travel party details are handled with personal care and guest privacy throughout.
             </p>
           </div>
 
@@ -126,7 +127,10 @@ export function AboutSection() {
         </div>
         <button
           type="button"
-          onClick={() => openConciergeDrawer()}
+          onClick={() => {
+            openWelcomeTripModal()
+            openConciergeDrawer()
+          }}
           className="inline-flex shrink-0 items-center gap-2 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] text-[#0C0B09] font-semibold px-6 py-3.5 text-xs uppercase tracking-widest transition-all duration-300 shadow-md cursor-pointer"
         >
           <span>Connect with Sarrin Holidays</span>

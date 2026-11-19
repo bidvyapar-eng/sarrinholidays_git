@@ -96,7 +96,7 @@ export async function submitVipInquiry(payload: VipInquiryPayload): Promise<VipI
     `DIETARY PRIVILEGES: ${dietaryNeeds.length > 0 ? dietaryNeeds.join(', ') : 'Standard Fine Dining'}`,
     `ACCESSIBILITY & CARE: ${accessibilityNeeds.length > 0 ? accessibilityNeeds.join(', ') : 'Standard Luxury Provisioning'}`,
     `SPECIAL OCCASIONS: ${specialOccasion || 'Private Escapade'}`,
-    `DISCRETION PROTOCOL: Preferred Channel: ${preferredChannel.toUpperCase()} | Bilateral NDA: ${requiresNda ? 'REQUIRED PRIOR TO FULL DISCLOSURE' : 'Standard Confidentiality'}`,
+    `PREFERRED CHANNEL: ${preferredChannel.toUpperCase()} | Guest Discretion: Standard Confidentiality`,
     vipBrief ? `VIP DIRECT BRIEF:\n${vipBrief.trim()}` : null,
   ]
     .filter(Boolean)

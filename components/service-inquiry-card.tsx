@@ -14,14 +14,12 @@ import { ServiceDrawer } from '@/components/service-drawer'
 
 interface ServiceInquiryCardProps {
   serviceTitle: string
-  pricing: string
   leadTime: string
   inclusions: string[]
 }
 
 export function ServiceInquiryCard({
   serviceTitle,
-  pricing,
   leadTime,
   inclusions,
 }: ServiceInquiryCardProps) {
@@ -59,7 +57,7 @@ export function ServiceInquiryCard({
 
         <div className="mt-3 flex items-baseline gap-2">
           <span className="font-serif text-3xl sm:text-4xl text-[#F4F2EC] font-medium tracking-tight">
-            {pricing}
+            Tariff on Request
           </span>
         </div>
         <p className="mt-1 text-xs text-[#E5E2DC] font-normal leading-relaxed">
@@ -114,9 +112,9 @@ export function ServiceInquiryCard({
             <div className="mx-auto flex size-12 items-center justify-center rounded-sm bg-[#C5A059]/20 text-[#C5A059]">
               <Check className="size-6" />
             </div>
-            <h4 className="font-serif text-xl text-[#F4F2EC] font-medium">Dossier Dispatched</h4>
+            <h4 className="font-serif text-xl text-[#F4F2EC] font-medium">Inquiry Received</h4>
             <p className="text-xs text-[#E5E2DC] leading-relaxed font-normal">
-              Your parameters have been transmitted to our Chief Operations Curator. Expect a confidential reply within 2 hours.
+              Your request has been sent to our Nashik desk. Expect a reply within 2 hours.
             </p>
             <button
               onClick={() => setSubmitted(false)}
@@ -129,10 +127,10 @@ export function ServiceInquiryCard({
           <form onSubmit={handleSubmit} className="space-y-3.5">
             <div className="flex items-center justify-between">
               <span className="text-xs font-sans font-medium uppercase tracking-wider text-[#F4F2EC]">
-                Confidential Inquiry
+                Private Inquiry
               </span>
               <span className="text-[10px] uppercase font-sans tracking-wider text-[#E5E2DC]/70">
-                NDA Protected
+                Guest Discretion
               </span>
             </div>
 
@@ -208,7 +206,7 @@ export function ServiceInquiryCard({
         </a>
 
         <a
-          href="mailto:help@sarrinholidays.com"
+          href="mailto:concierge@sarrinholidays.com"
           className="flex items-center gap-1.5 text-[#E5E2DC] hover:text-[#C5A059] transition-colors font-sans"
         >
           <Mail className="size-3.5 text-[#C5A059]" />

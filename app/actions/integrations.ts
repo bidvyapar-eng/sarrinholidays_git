@@ -58,7 +58,7 @@ export async function sendTestNotification(
     expeditionTitle: 'Heritage & Palaces Grand Tour (Udaipur & Jaipur)',
     source: 'Atelier Test Dispatch',
     dossier:
-      '[TEST DISPATCH VERIFICATION]\nPARTY: 2 Adults | SUITE: Grand Presidential Suite\nTRANSIT: Private Twin-Engine Helicopter\nSPECIAL OCCASION: 25th Sovereign Anniversary\nDISCRETION: High Priority / Bilateral NDA Active',
+      '[TEST DISPATCH VERIFICATION]\nPARTY: 2 Adults | SUITE: Grand Presidential Suite\nTRANSIT: Private Twin-Engine Helicopter\nSPECIAL OCCASION: 25th Anniversary\nDISCRETION: High Priority / Standard Confidentiality',
   }
 
   const result = await dispatchLeadNotification(testPayload, settings)

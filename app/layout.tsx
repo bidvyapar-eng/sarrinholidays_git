@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 import { ConciergeDrawer } from '@/components/ConciergeDrawer'
+import { WelcomeTripModal } from '@/components/WelcomeTripModal'
 
 const sans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -25,8 +26,8 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
-  colorScheme: 'dark',
-  themeColor: '#0C0B09',
+  colorScheme: 'light',
+  themeColor: '#FAF8F5',
 }
 
 export const metadata: Metadata = {
@@ -112,13 +113,11 @@ const travelAgencySchema = {
   logo: `${siteUrl}/sarrin-holidays-logo.png`,
   image: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&q=80&w=1200',
   telephone: '+91-84198-87730',
-  email: 'help@sarrinholidays.com',
+  email: 'concierge@sarrinholidays.com',
   identifier: 'UDYAM-MH-23-0433487',
   address: '42, Jagtap Complex, Satpur, Nashik, Maharashtra 422012, IN',
   areaServed: 'IN',
-  priceRange: '$$$$',
-  currenciesAccepted: 'USD, EUR, GBP, INR',
-  paymentAccepted: 'Wire Transfer, Credit Card',
+  paymentAccepted: 'Wire Transfer, Credit Card, UPI',
   foundingDate: '2012',
   sameAs: [
     'https://www.instagram.com/sarrinholidays',
@@ -150,6 +149,7 @@ export default function RootLayout({
         />
         {children}
         <ConciergeDrawer />
+        <WelcomeTripModal />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

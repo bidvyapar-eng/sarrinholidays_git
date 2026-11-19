@@ -16,7 +16,7 @@ export interface IntegrationSettings {
 
 export const defaultIntegrationSettings: IntegrationSettings = {
   emailEnabled: false,
-  recipientEmail: 'help@sarrinholidays.com',
+  recipientEmail: 'concierge@sarrinholidays.com',
   resendApiKey: '',
   fromEmail: 'Sarrin Holidays <onboarding@resend.dev>',
   webhookEnabled: false,

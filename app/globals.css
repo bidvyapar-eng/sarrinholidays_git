@@ -51,31 +51,31 @@
 }
 
 :root {
-  color-scheme: dark;
-  /* Warm Heritage Obsidian Surface */
-  --background: #0C0B09;
-  /* Refined Off-White Foreground */
-  --foreground: #F4F2EC;
-  /* Elevated Card Surface */
-  --card: #141310;
-  --card-foreground: #F4F2EC;
-  --popover: #141310;
-  --popover-foreground: #F4F2EC;
+  color-scheme: light;
+  /* Warm Pearl Background — bright, open, inviting */
+  --background: #FAF8F5;
+  /* Deep warm foreground for high-contrast readability */
+  --foreground: #1A1A1A;
+  /* Soft Sandstone card surface */
+  --card: #F3EFE6;
+  --card-foreground: #1A1A1A;
+  --popover: #F3EFE6;
+  --popover-foreground: #1A1A1A;
   /* Muted Antique Champagne Gold (#C5A059) */
   --primary: #C5A059;
-  --primary-foreground: #0C0B09;
-  --secondary: #1E1D19;
-  --secondary-foreground: #F4F2EC;
-  --muted: #1E1D19;
+  --primary-foreground: #1A1A1A;
+  --secondary: #E9E3D8;
+  --secondary-foreground: #1A1A1A;
+  --muted: #EDE9E0;
   /* Warm High-Contrast Stone Muted Text */
-  --muted-foreground: #E5E2DC;
+  --muted-foreground: #5C554A;
   --font-serif-cormorant: var(--font-serif);
   --font-sans-inter: var(--font-sans);
   --accent: rgba(197, 160, 89, 0.15);
   --accent-foreground: #C5A059;
   --destructive: #E5484D;
-  --border: rgba(197, 160, 89, 0.18);
-  --input: rgba(244, 242, 236, 0.10);
+  --border: rgba(197, 160, 89, 0.25);
+  --input: rgba(26, 26, 26, 0.10);
   --ring: #C5A059;
   --sand: #C5A059;
   --ocean: #4A6B82;
@@ -85,13 +85,13 @@
   --chart-4: #383120;
   --chart-5: #1E1D19;
   --radius: 0.375rem;
-  --sidebar: #141310;
-  --sidebar-foreground: #F4F2EC;
+  --sidebar: #F3EFE6;
+  --sidebar-foreground: #1A1A1A;
   --sidebar-primary: #C5A059;
-  --sidebar-primary-foreground: #0C0B09;
+  --sidebar-primary-foreground: #1A1A1A;
   --sidebar-accent: rgba(197, 160, 89, 0.15);
   --sidebar-accent-foreground: #C5A059;
-  --sidebar-border: rgba(197, 160, 89, 0.18);
+  --sidebar-border: rgba(197, 160, 89, 0.25);
   --sidebar-ring: #C5A059;
 }
 
@@ -185,7 +185,7 @@
     color: var(--foreground);
   }
   p {
-    @apply leading-relaxed text-[#E5E2DC] font-normal;
+    @apply leading-relaxed text-[#5C554A] font-normal;
   }
 }
 
@@ -223,9 +223,9 @@
 }
 
 .psv-tooltip {
-  background: rgba(10, 15, 25, 0.9) !important;
+  background: rgba(26, 26, 26, 0.9) !important;
   backdrop-filter: blur(16px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
   border-radius: 0.85rem !important;
   color: #fff !important;
   box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.6) !important;
@@ -234,17 +234,17 @@
 }
 
 .psv-tooltip-arrow {
-  border-top-color: rgba(10, 15, 25, 0.9) !important;
+  border-top-color: rgba(26, 26, 26, 0.9) !important;
 }
 
 /* Leaflet Custom Luxury Map Styling */
 .leaflet-container {
-  background: #090d16 !important;
+  background: #F3EFE6 !important;
   font-family: inherit !important;
 }
 
 .leaflet-tile-pane {
-  filter: brightness(0.85) contrast(1.15) saturate(0.9);
+  filter: brightness(1.05) contrast(1.0) saturate(1.0);
 }
 
 .custom-journal-marker {
@@ -253,21 +253,21 @@
 }
 
 .leaflet-popup-content-wrapper {
-  background: rgba(13, 20, 36, 0.95) !important;
+  background: rgba(250, 248, 245, 0.95) !important;
   backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
   border-radius: 1.25rem !important;
-  color: #fff !important;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7) !important;
+  color: #1A1A1A !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15) !important;
 }
 
 .leaflet-popup-tip {
-  background: rgba(13, 20, 36, 0.95) !important;
+  background: rgba(250, 248, 245, 0.95) !important;
 }
 
 .leaflet-control-attribution {
-  background: rgba(0, 0, 0, 0.5) !important;
-  color: rgba(255, 255, 255, 0.4) !important;
+  background: rgba(250, 248, 245, 0.8) !important;
+  color: #5C554A !important;
   font-size: 10px !important;
   backdrop-filter: blur(8px) !important;
   border-radius: 4px !important;
@@ -291,4 +291,10 @@
   font-family: var(--font-sans), "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
-
+/* Section background alternation utilities for lighter, airy editorial aesthetic */
+.bg-warm-pearl {
+  background-color: #FAF8F5;
+}
+.bg-soft-sandstone {
+  background-color: #F3EFE6;
+}

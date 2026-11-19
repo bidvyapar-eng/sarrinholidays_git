@@ -187,7 +187,7 @@ export function ConciergeDrawer({
     const routeText = packageDetail?.route ? `\n• Route: ${packageDetail.route}` : ''
     const guestText = fullName.trim() ? `\n• Guest: ${fullName.trim()}` : ''
 
-    const message = `Namaste Sarrin Holidays,\n\nI would like to design a bespoke journey with your curatorial atelier:\n\n• Selected Circuit: ${journeyTitle}${routeText}\n• Preferred Hospitality: ${tier}\n• Travel Season: ${season}\n• Party: ${party}${guestText}\n\nPlease share your curatorial recommendations and itinerary tariffs.`
+    const message = `Namaste Sarrin Holidays,\n\nI would like to design a bespoke journey with your curatorial atelier:\n\n• Selected Circuit: ${journeyTitle}${routeText}\n• Preferred Hospitality: ${tier}\n• Travel Season: ${season}\n• Party: ${party}${guestText}\n\nPlease share your curatorial recommendations and itinerary details.`
 
     return `https://wa.me/918419887730?text=${encodeURIComponent(message)}`
   }
@@ -538,7 +538,7 @@ export function ConciergeDrawer({
                       required
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
-                      placeholder="e.g. Maharani Gayatri / Lord Sterling"
+                      placeholder="e.g. Aarav Mehta"
                       className="w-full rounded-sm border border-white/10 bg-[#141310] px-4 py-2.5 text-sm text-[#F4F2EC] placeholder:text-[#E5E2DC]/40 focus:border-[#C5A059] focus:outline-none focus:ring-1 focus:ring-[#C5A059]"
                     />
                   </div>
@@ -611,7 +611,7 @@ export function ConciergeDrawer({
                     </>
                   ) : (
                     <>
-                      <span>Request Tailored Itinerary &amp; Tariff</span>
+                      <span>Request Tailored Itinerary</span>
                       <ArrowRight className="size-4" />
                     </>
                   )}
@@ -631,7 +631,7 @@ export function ConciergeDrawer({
                 {/* Sovereign Discretion Footnote */}
                 <div className="flex items-center justify-center gap-1.5 pt-1 text-center text-[10px] text-[#E5E2DC]/70 font-normal">
                   <ShieldCheck className="size-3.5 text-[#C5A059]/70 shrink-0" />
-                  <span>Strict Non-Disclosure &amp; Confidential Guest Privacy Protocol</span>
+                  <span>Guest Privacy &amp; Personal Discretion</span>
                 </div>
               </div>
 

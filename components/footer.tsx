@@ -2,6 +2,7 @@
 
 import React, { useState, useTransition } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { subscribeToNewsletter } from '@/app/actions/newsletter'
 import {
   Compass,
@@ -17,6 +18,44 @@ import {
   Loader2,
   AlertCircle,
 } from 'lucide-react'
+
+// Monochrome SVG social icons (fine-line 1.25px style)
+const SocialIcon = ({ name }: { name: string }) => {
+  const icons: Record<string, React.ReactNode> = {
+    instagram: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" className="size-5">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+        <line x1="17.5" y1="17.5" x2="17.51" y2="17.5" />
+      </svg>
+    ),
+    facebook: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" className="size-5">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+      </svg>
+    ),
+    linkedin: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" className="size-5">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect x="2" y="9" width="4" height="12" />
+        <circle cx="4" cy="4" r="2" />
+      </svg>
+    ),
+    youtube: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" className="size-5">
+        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A2.78 2.78 0 0 0 2 12c0 2 2.22 3.26 4.54 5.58C9.04 20.22 15 20.22 15 20.22s5.96 0 8.54-2.64A2.78 2.78 0 0 0 22 12c0-2-2.22-3.26-4.54-5.58z" />
+        <polyline points="10 15 15 12 10 9" />
+      </svg>
+    ),
+    whatsapp: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" className="size-5">
+        <path d="M22 12c0-4.71-3.55-8.53-8-8.94C14.23 2 11 4.28 11 8.42c0 1.19.45 2.29 1.19 3.17L10 14l-2.37 1.67C6.76 16.45 5 17.49 5 19c0 3.97 3.55 7.22 8 7.72 1.06.13 2.12.13 3 .04 4.52-.53 8-4.11 8-8.72z" />
+        <polyline points="22 12 15 15 10 8" />
+      </svg>
+    ),
+  }
+  return icons[name] || <Compass className="size-5" />
+}
 
 export function Footer() {
   const [email, setEmail] = useState('')
@@ -55,19 +94,21 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-5 md:grid-cols-2">
           {/* Column 1: Brand & Atelier Identity (2 cols on large screens) */}
           <div className="lg:col-span-2 space-y-6">
-            <Link href="/" className="inline-flex flex-col items-start justify-center group">
-              <span className="font-serif text-3xl font-medium tracking-[0.1em] text-[#F4F2EC] leading-none">
-                SARRIN
-              </span>
-              <span className="mt-1.5 text-[9px] font-medium tracking-[0.1em] text-[#C5A059] uppercase leading-none">
-                HOLIDAYS · INDIA
-              </span>
+            <Link href="/" className="inline-flex items-center justify-center group">
+              <Image
+                src="/images/sarrin-logo.png"
+                alt="Sarrin Holidays"
+                width={150}
+                height={40}
+                className="h-10 md:h-12 w-auto object-contain"
+                priority
+              />
             </Link>
 
             <p className="text-sm text-[#E5E2DC] font-normal leading-relaxed max-w-sm">
-              India’s premier bespoke travel atelier. Curating living palace suites in Rajasthan,
+              India&rsquo;s premier bespoke travel atelier. Curating living palace suites in Rajasthan,
               private aviation charters, secluded Kerala houseboat buyouts, and transformative
-              Himalayan wellness sanctuaries under strict non-disclosure covenants.
+              Himalayan wellness sanctuaries.
             </p>
 
             {/* Direct Sarrin Holidays Contact Strip */}
@@ -84,8 +125,8 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="size-4 text-[#C5A059] shrink-0" />
-                <a href="mailto:help@sarrinholidays.com" className="hover:text-[#F4F2EC] transition-colors">
-                  help@sarrinholidays.com
+                <a href="mailto:concierge@sarrinholidays.com" className="hover:text-[#F4F2EC] transition-colors">
+                  concierge@sarrinholidays.com
                 </a>
               </div>
             </div>
@@ -94,6 +135,34 @@ export function Footer() {
             <div className="inline-flex items-center gap-2 rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 px-3 py-1 text-[11px] font-sans font-medium text-[#C5A059]">
               <ShieldCheck className="size-3.5 text-[#C5A059]" />
               <span>MSME Registered: UDYAM-MH-23-0433487</span>
+            </div>
+
+            {/* SARRIN CONCIERGE APP · COMING SOON */}
+            <div className="mt-8 rounded-sm border border-[#C5A059]/30 bg-[#141310] p-5">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-[10px] font-sans uppercase tracking-wider text-[#C5A059] font-medium">
+                  Sarrin Concierge App
+                </span>
+                <span className="text-[10px] font-sans uppercase tracking-wider text-[#5C554A] font-medium">
+                  Coming Soon
+                </span>
+              </div>
+              <div className="flex gap-3">
+                <a
+                  href="#"
+                  className="flex-1 flex items-center gap-2 rounded-sm border border-white/10 bg-white/5 px-3 py-2 text-[10px] font-sans font-medium text-[#F4F2EC] hover:border-[#C5A059]/50 transition-colors"
+                >
+                  <span className="text-[9px]">App Store</span>
+                  <span className="text-[#C5A059]">· Soon</span>
+                </a>
+                <a
+                  href="#"
+                  className="flex-1 flex items-center gap-2 rounded-sm border border-white/10 bg-white/5 px-3 py-2 text-[10px] font-sans font-medium text-[#F4F2EC] hover:border-[#C5A059]/50 transition-colors"
+                >
+                  <span className="text-[9px]">Google Play</span>
+                  <span className="text-[#C5A059]">· Soon</span>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -105,7 +174,7 @@ export function Footer() {
             <ul className="space-y-2.5 text-xs sm:text-sm text-[#E5E2DC] font-normal">
               <li>
                 <Link href="/packages/kerala-gods-own-country-8d" className="hover:text-[#F4F2EC] transition-colors">
-                  Kerala — God’s Own Country (8D)
+                  Kerala — God&rsquo;s Own Country (8D)
                 </Link>
               </li>
               <li>
@@ -178,13 +247,13 @@ export function Footer() {
               The Private Gazette
             </h4>
             <p className="text-xs text-[#E5E2DC] font-normal leading-relaxed">
-              Confidential dispatches on seasonal palace buyouts, private aviation corridors, and new cultural expeditions.
+              Dispatches on seasonal palace buyouts, private aviation corridors, and new cultural expeditions.
             </p>
 
             {subscribed ? (
               <div className="rounded-sm border border-[#C5A059]/40 bg-[#C5A059]/10 p-3 text-xs text-[#C5A059] font-sans flex items-center gap-2.5">
                 <span className="size-1.5 rounded-full bg-[#C5A059] shrink-0" />
-                <span>{feedbackMsg || 'You are registered for our confidential seasonal dispatch.'}</span>
+                <span>{feedbackMsg || 'You are registered for our seasonal dispatch.'}</span>
               </div>
             ) : (
               <form onSubmit={handleSubscribe} className="space-y-2">
@@ -223,13 +292,29 @@ export function Footer() {
               </form>
             )}
 
-            {/* Quick Navigation Links */}
-            <div className="pt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-[#E5E2DC] font-sans">
-              <Link href="/#about" className="hover:text-[#F4F2EC] transition-colors">About Us</Link>
-              <Link href="/contact" className="hover:text-[#F4F2EC] transition-colors">Press Room</Link>
-              <Link href="/blog" className="hover:text-[#F4F2EC] transition-colors">The Journal</Link>
-              <Link href="/contact" className="hover:text-[#F4F2EC] transition-colors">Contact</Link>
-              <Link href="/feed.xml" target="_blank" className="hover:text-[#F4F2EC] transition-colors">RSS Feed</Link>
+            {/* Social Media Buttons */}
+            <div className="mt-6 flex flex-wrap gap-3">
+              {[
+                { name: 'instagram', href: 'https://www.instagram.com/sarrinholidays' },
+                { name: 'facebook', href: 'https://www.facebook.com/sarrinholidays' },
+                { name: 'linkedin', href: 'https://www.linkedin.com/company/sarrinholidays' },
+                { name: 'youtube', href: 'https://www.youtube.com/@sarrinholidays' },
+                { name: 'whatsapp', href: 'https://wa.me/918419887730' },
+              ].map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`rounded-sm border border-white/10 bg-white/5 p-2.5 flex items-center justify-center transition-all hover:border-[#C5A059]/50 hover:bg-white/10 ${
+                    social.name === 'whatsapp'
+                      ? 'hover:text-emerald-400'
+                      : 'hover:text-[#C5A059]'
+                  }`}
+                >
+                  <SocialIcon name={social.name} />
+                </a>
+              ))}
             </div>
           </div>
         </div>
@@ -242,14 +327,17 @@ export function Footer() {
             <span>Accredited Indian Heritage Specialist</span>
           </div>
 
-          <div className="flex items-center gap-6">
-            <Link href="/#about" className="hover:text-foreground transition-colors">
-              Philosophy
+          <div className="flex flex-wrap items-center justify-center justify-between md:justify-end gap-3 md:gap-6">
+            <Link href="/privacy-policy" className="hover:text-foreground transition-colors">
+              Privacy Policy
             </Link>
-            <Link href="/contact" className="hover:text-foreground transition-colors">
-              Discretion & NDA
+            <Link href="/terms-and-conditions" className="hover:text-foreground transition-colors">
+              Terms & Conditions
             </Link>
-            <Link href="/sitemap.xml" className="hover:text-foreground transition-colors">
+            <Link href="/refund-policy" className="hover:text-foreground transition-colors">
+              Refund Policy
+            </Link>
+            <Link href="/sitemap" className="hover:text-foreground transition-colors">
               Sitemap
             </Link>
           </div>

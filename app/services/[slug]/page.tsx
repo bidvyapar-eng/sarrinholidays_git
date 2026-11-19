@@ -30,7 +30,6 @@ const SERVICE_DOSSIERS: Record<
   string,
   {
     subtitle: string
-    pricing: string
     leadTime: string
     classification: string
     coverage: string
@@ -58,7 +57,6 @@ const SERVICE_DOSSIERS: Record<
 > = {
   'private-aviation-charters': {
     subtitle: 'Direct mountain helipad landings, executive turboprops, and transcontinental private jets.',
-    pricing: 'From $4,800 / flight hr',
     leadTime: '4 - 6 Hours Notice',
     classification: 'Sovereign & Ultra-Long Range',
     coverage: 'Pan-India, Himalayas & International Corridors',
@@ -91,8 +89,8 @@ const SERVICE_DOSSIERS: Record<
         metric: 'Michelin-Trained Chefs',
       },
       {
-        title: 'Sovereign Manifest Protection',
-        desc: 'Passenger manifests, routing schedules, and client identities are safeguarded under strict non-disclosure security protocols.',
+        title: 'Private Manifest Protection',
+        desc: 'Passenger details, routing schedules, and client identities are handled with personal discretion and privacy.',
         metric: '100% Confidentiality',
       },
     ],
@@ -124,13 +122,12 @@ const SERVICE_DOSSIERS: Record<
       },
       {
         q: 'How are passenger privacy and security guaranteed?',
-        a: 'All flights operate through dedicated private FBO terminals. Manifests are managed under strict NDA agreements, and no flight data is shared with third parties.',
+        a: 'All flights operate through dedicated private FBO terminals. Manifests are managed with personal discretion, and no flight data is shared with third parties.',
       },
     ],
   },
   'royal-celebrations-weddings': {
-    subtitle: 'Exclusive heritage palace buyouts, royal courtyards, and sovereign celebration curation by Sarrin Holidays.',
-    pricing: 'From $45,000 / buyout day',
+    subtitle: 'Exclusive heritage palace buyouts, royal courtyards, and celebration curation by Sarrin Holidays.',
     leadTime: '3 - 6 Months Preferred',
     classification: 'Full Property Buyout & Royal Protocol',
     coverage: 'Udaipur, Jaipur, Jodhpur & Jaisalmer',
@@ -142,7 +139,7 @@ const SERVICE_DOSSIERS: Record<
       'Full white-glove event production & guest coordination logistics liaisons',
     ],
     editorial: {
-      lead: 'A milestone celebration or wedding in Rajasthan is not merely an event—it is the staging of a sovereign history. Sarrin Holidays opens doors to private palaces and fortresses that remain completely inaccessible to the commercial public.',
+      lead: 'A milestone celebration or wedding in Rajasthan is a staging of living heritage. Sarrin Holidays opens doors to private palaces and fortresses that remain largely inaccessible to the commercial public.',
       bodyOne: 'From complete buyouts of floating marble palaces on Lake Pichola to sunset banquets atop the 300-year-old sandstone ramparts of Jodhpur and Jaipur, we architect celebrations that resonate with majesty, authenticity, and impeccable taste.',
       bodyTwo: 'Our dedicated ceremonial production team coordinates every sensory detail: hand-sculpted floral arches, classical royal shehnai and sarangi virtuosos, vintage Rolls-Royce arrivals, and menus derived from authentic royal kitchen archives.',
     },
@@ -202,7 +199,6 @@ const SERVICE_DOSSIERS: Record<
   },
   'wellness-ayurveda-sanctuaries': {
     subtitle: 'Physician-led Panchakarma, private Himalayan yoga pavilions, and coastal Ayurvedic sanctuaries.',
-    pricing: 'From $1,400 / night per suite',
     leadTime: '1 - 2 Weeks Notice',
     classification: 'Physician-Led Holistic Restoration',
     coverage: 'Rishikesh, Tehri Garhwal, Kumarakom & Alleppey',
@@ -273,42 +269,41 @@ const SERVICE_DOSSIERS: Record<
     ],
   },
   'vip-chauffeur-security': {
-    subtitle: 'Armored luxury SUVs, Rolls-Royce ceremonial fleets, and international-standard executive protection.',
-    pricing: 'From $950 / day protected motorcade',
+    subtitle: 'Premium executive mobility with luxury SUVs, ceremonial sedans, and professional chauffeur service.',
     leadTime: '12 - 24 Hours Notice',
-    classification: 'Executive Protection & Armored Fleet',
+    classification: 'Executive Protection & Premium Fleet',
     coverage: 'Delhi, Mumbai, Bengaluru, Rajasthan & Goa',
     inclusions: [
-      'Armored luxury SUVs (B6/B7 certified), Mercedes-Maybach & Rolls-Royce motorcades',
-      'Tactically certified close-protection security officers trained to diplomatic standards',
-      'Multilingual vetted executive chauffeurs with live diplomatic route management',
-      'Real-time operations center tracking & emergency medical response liaison',
-      'Complete counter-surveillance protocols & strict non-disclosure compliance',
+      'Premium luxury SUVs, Mercedes-Maybach sedans & Rolls-Royce motorcades',
+      'Vetted professional executive chauffeurs trained to hospitality standards',
+      'Multilingual drivers with local route knowledge and diplomatic courtesy',
+      'Real-time operations tracking & emergency medical response liaison',
+      'Privacy-first guest handling with strict confidentiality compliance',
     ],
     editorial: {
-      lead: 'Navigating India’s dynamic metropolitan centres and historic terrain demands absolute logistical mastery. Sarrin VIP Chauffeur & Security provides sovereign-grade executive mobility paired with flawless luxury comfort.',
-      bodyOne: 'Our meticulously maintained fleet comprises armored Range Rover Sentinels, Mercedes-Maybach sedans, luxury executive vans with mobile Wi-Fi conference lounges, and vintage convertibles for ceremonial palace arrivals in Udaipur and Jaipur.',
-      bodyTwo: 'Every vehicle is crewed by vetted, tactically trained chauffeurs and close-protection officers with backgrounds in diplomatic security details. With advance route scouting, green-channel traffic management, and constant satellite operations oversight, you move with total assurance.',
+      lead: 'Moving through India’s vibrant cities and historic terrain deserves seamless, comfortable mobility. Sarrin VIP Chauffeur & Security provides dependable executive transport paired with gracious luxury comfort.',
+      bodyOne: 'Our well-maintained fleet includes luxury SUVs, Mercedes-Maybach sedans, executive vans with mobile Wi-Fi lounges, and vintage convertibles for ceremonial palace arrivals in Udaipur and Jaipur.',
+      bodyTwo: 'Every vehicle is driven by vetted, courteous chauffeurs with backgrounds in professional hospitality service. With advance route planning, traffic coordination, and attentive operations oversight, you travel with complete peace of mind.',
     },
     pillars: [
       {
-        title: 'Ballistic Armored Certification',
-        desc: 'B6 and B7 level armored luxury SUVs engineered to provide comprehensive protection against ballistic threats while retaining luxury interiors.',
-        metric: 'B6/B7 European Standard',
+        title: 'Premium Vehicle Standards',
+        desc: 'Well-appointed luxury SUVs and sedans engineered for comfort while retaining elegant interiors.',
+        metric: 'Luxury Fleet Standard',
       },
       {
-        title: 'Diplomatic Close Protection',
-        desc: 'Officers trained in defensive driving, executive escort protocol, counter-surveillance, and emergency medical trauma response.',
-        metric: 'Certified VIP Bodyguards',
+        title: 'Professional Chauffeur Service',
+        desc: 'Drivers trained in defensive driving, executive escort protocol, and emergency response.',
+        metric: 'Certified VIP Drivers',
       },
       {
-        title: 'Live Route Intelligence',
-        desc: 'Our 24/7 central operations room continuously monitors satellite traffic and local conditions, guiding motorcades through clear transit corridors.',
-        metric: 'Real-Time Traffic Bypass',
+        title: 'Live Route Coordination',
+        desc: 'Our operations team monitors traffic and local conditions, guiding journeys through clear transit corridors.',
+        metric: 'Real-Time Traffic Support',
       },
       {
         title: 'Vintage & Ceremonial Collection',
-        desc: 'Immaculately restored 1940s and 50s Rolls-Royce, Cadillac, and Jaguar open-top convertibles for dramatic palace entrances.',
+        desc: 'Immaculately restored classic Rolls-Royce, Cadillac, and Jaguar open-top convertibles for memorable palace entrances.',
         metric: 'Historic Royal Classics',
       },
     ],
@@ -332,11 +327,11 @@ const SERVICE_DOSSIERS: Record<
     faqs: [
       {
         q: 'Are your security officers licensed and vetted?',
-        a: 'Yes. All close-protection personnel are thoroughly vetted, government-cleared, and trained to international embassy and sovereign dignitary standards.',
+        a: 'Yes. All close-protection personnel are thoroughly vetted and trained to professional hospitality and executive escort standards.',
       },
       {
         q: 'Can armored vehicles be positioned in multiple cities simultaneously?',
-        a: 'Yes. We operate dedicated executive garages in New Delhi, Mumbai, Bengaluru, Jaipur, and Hyderabad with seamless inter-city motorcade handovers.',
+        a: 'Yes. Our premium vehicles can be positioned across major cities with coordinated inter-city handovers.',
       },
       {
         q: 'Can we request vintage convertibles for palace wedding entries?',
@@ -455,7 +450,6 @@ export default async function ServiceDetailPage({
 
   const dossier = SERVICE_DOSSIERS[service.slug] || {
     subtitle: service.short_desc,
-    pricing: 'Custom Quote Available',
     leadTime: '24 Hours Notice',
     classification: 'Tier 01 Private Service',
     coverage: 'Pan-India',
@@ -463,12 +457,12 @@ export default async function ServiceDetailPage({
       'Dedicated personal Sarrin Holidays liaison',
       'Custom itinerary and schedule architecture',
       'White-glove ground execution',
-      'Confidentiality under strict NDA protocol',
+      'Personal discretion and guest privacy throughout',
     ],
     editorial: {
       lead: service.short_desc,
       bodyOne: service.full_desc,
-      bodyTwo: 'Every arrangement is engineered by Sarrin Holidays with sovereign-grade attention to detail.',
+      bodyTwo: 'Every arrangement is handled by Sarrin Holidays with careful attention to detail.',
     },
     pillars: [
       {
@@ -478,7 +472,7 @@ export default async function ServiceDetailPage({
       },
       {
         title: 'Discreet Operations',
-        desc: 'Protected under stringent non-disclosure agreements and privacy covenants.',
+        desc: 'Handled with personal discretion and respect for guest privacy.',
         metric: 'Full Discretion',
       },
     ],
@@ -518,11 +512,6 @@ export default async function ServiceDetailPage({
     },
     offers: {
       '@type': 'Offer',
-      priceSpecification: {
-        '@type': 'PriceSpecification',
-        priceCurrency: 'USD',
-        description: dossier.pricing,
-      },
       availability: 'https://schema.org/InStock',
       url: `${siteUrl}/services/${service.slug}`,
     },
@@ -597,8 +586,8 @@ export default async function ServiceDetailPage({
           {/* Bottom Fast-Facts Bar */}
           <div className="mt-8 flex flex-wrap items-center gap-4 sm:gap-8 pt-6 border-t border-white/10 text-xs text-[#E5E2DC] font-sans">
             <div>
-              <span className="text-[#E5E2DC]/60 block text-[10px] uppercase font-sans tracking-wider">Standard Pricing</span>
-              <span className="text-[#C5A059] font-medium text-sm">{dossier.pricing}</span>
+              <span className="text-[#E5E2DC]/60 block text-[10px] uppercase font-sans tracking-wider">Tariff on Request</span>
+              <span className="text-[#C5A059] font-medium text-sm">Custom Quote</span>
             </div>
             <div className="hidden sm:block h-6 w-[1px] bg-white/10" />
             <div>
@@ -608,7 +597,7 @@ export default async function ServiceDetailPage({
             <div className="hidden sm:block h-6 w-[1px] bg-white/10" />
             <div>
               <span className="text-[#E5E2DC]/60 block text-[10px] uppercase font-sans tracking-wider">Confidentiality</span>
-              <span className="text-[#F4F2EC] font-normal">Strict NDA Standard</span>
+              <span className="text-[#F4F2EC] font-normal">Guest Discretion Protocol</span>
             </div>
           </div>
         </div>
@@ -742,7 +731,6 @@ export default async function ServiceDetailPage({
             <div className="sticky top-24 space-y-6">
               <ServiceInquiryCard
                 serviceTitle={service.title}
-                pricing={dossier.pricing}
                 leadTime={dossier.leadTime}
                 inclusions={dossier.inclusions}
               />
@@ -835,7 +823,7 @@ export default async function ServiceDetailPage({
             </span>
             <div className="flex items-baseline gap-1">
               <span className="font-serif text-base sm:text-lg font-bold text-white truncate max-w-[140px]">
-                {dossier.pricing}
+                Tariff on Request
               </span>
             </div>
           </div>
