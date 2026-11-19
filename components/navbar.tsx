@@ -1,12 +1,10 @@
 "use client"
 
 import { useEffect, useState, useRef } from "react"
-import Image from "next/image"
 import { Menu, X, Globe, ChevronDown, Phone } from "lucide-react"
 import { GlobalConciergeRouting } from "@/components/global-concierge-routing"
 import { ENABLE_GLOBAL_CONCIERGE } from "@/lib/features.config"
 import { openConciergeDrawer } from "@/components/ConciergeDrawer"
-import { openWelcomeTripModal } from "@/components/WelcomeTripModal"
 
 const links = [
   { label: "Destinations", href: "/#destinations" },
@@ -55,16 +53,14 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
         <a
           href="/"
           aria-label="Sarrin Holidays home"
-          className="group flex items-center justify-center text-left transition-opacity hover:opacity-90"
+          className="group flex flex-col items-start justify-center text-left transition-opacity hover:opacity-90"
         >
-          <Image
-            src="/images/sarrin-logo.png"
-            alt="Sarrin Holidays"
-            width={150}
-            height={40}
-            className="h-10 md:h-12 w-auto object-contain"
-            priority
-          />
+          <span className="font-serif text-2xl font-medium tracking-[0.1em] text-[#F4F2EC] leading-none">
+            SARRIN
+          </span>
+          <span className="mt-1.5 text-[9px] font-medium tracking-[0.1em] text-[#C5A059] uppercase leading-none">
+            HOLIDAYS · INDIA
+          </span>
         </a>
 
         <ul className="hidden items-center gap-1 xl:flex">
@@ -114,10 +110,7 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
 
           <button
             type="button"
-            onClick={() => {
-              openWelcomeTripModal()
-              openConciergeDrawer()
-            }}
+            onClick={() => openConciergeDrawer()}
             className="hidden md:inline-flex items-center justify-center bg-[#C5A059] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.1em] text-[#0C0B09] hover:bg-[#D4B475] transition-colors whitespace-nowrap shrink-0 shadow-sm cursor-pointer"
           >
             Design Your Journey
@@ -184,7 +177,7 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
                   className="flex min-h-[44px] items-center justify-center gap-1.5 py-2.5 px-3 bg-[#C5A059]/10 border border-[#C5A059]/30 text-[#C5A059] font-medium hover:bg-[#C5A059]/20 transition-colors"
                 >
                   <Phone className="size-3.5" />
-                  <span>+91 84198 87730</span>
+                  <span>Call Desk</span>
                 </a>
                 <a
                   href="https://wa.me/918419887730?text=Hello%20Sarrin%20Holidays%2C%20I%20would%20like%20to%20inquire%20about%20a%20luxury%20journey."
@@ -203,7 +196,6 @@ export function Navbar({ logoText }: { logoText?: string } = {}) {
               type="button"
               onClick={() => {
                 setOpen(false)
-                openWelcomeTripModal()
                 openConciergeDrawer()
               }}
               className="flex min-h-[48px] items-center justify-center w-full text-center bg-[#C5A059] px-5 py-3 text-xs font-semibold uppercase tracking-widest text-[#0C0B09] hover:bg-[#D4B475] transition-colors cursor-pointer"

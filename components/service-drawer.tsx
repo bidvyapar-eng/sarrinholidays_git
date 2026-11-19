@@ -186,7 +186,7 @@ export function ServiceDrawer({
   const [specificDate, setSpecificDate] = useState<string>('')
   const [duration, setDuration] = useState<string>(DURATIONS[1])
   const [isFlexible, setIsFlexible] = useState<boolean>(true)
-  const [departureCity, setDepartureCity] = useState<string>('Nashik')
+  const [departureCity, setDepartureCity] = useState<string>('Mumbai')
   const [customDepartureCity, setCustomDepartureCity] = useState<string>('')
   const [transitPreference, setTransitPreference] = useState<string>('Private Chauffeur Fleet')
 
@@ -208,6 +208,7 @@ export function ServiceDrawer({
   const [email, setEmail] = useState<string>('')
   const [phoneDigits, setPhoneDigits] = useState<string>('')
   const [preferredChannel, setPreferredChannel] = useState<'whatsapp' | 'email' | 'call'>('whatsapp')
+  const [requiresNda, setRequiresNda] = useState<boolean>(false)
 
   // Indian mobile validation helper (+91, exactly 10 digits starting with 6, 7, 8, or 9)
   const isIndianMobileValid = (digits: string) => {
@@ -293,6 +294,7 @@ export function ServiceDrawer({
       email,
       phone: `+91 ${phoneDigits.slice(0, 5)} ${phoneDigits.slice(5)}`.trim(),
       preferredChannel,
+      requiresNda,
     }
 
     startTransition(async () => {
@@ -1185,6 +1187,23 @@ export function ServiceDrawer({
                                 </div>
                               </div>
 
+                              {/* Bilateral NDA Toggle */}
+                              <label className="flex items-start gap-3 p-3 rounded-xl border border-primary/30 bg-primary/10 cursor-pointer hover:bg-primary/15 transition-colors">
+                                <input
+                                  type="checkbox"
+                                  checked={requiresNda}
+                                  onChange={(e) => setRequiresNda(e.target.checked)}
+                                  className="size-4 mt-0.5 rounded border-white/20 bg-white/10 text-primary focus:ring-primary"
+                                />
+                                <div className="text-xs">
+                                  <span className="font-semibold text-white block">
+                                    Request Bilateral Non-Disclosure Agreement (NDA)
+                                  </span>
+                                  <span className="text-[11px] text-foreground/70">
+                                    Execute our legal mutual NDA before final flight manifests or itinerary specifics are transmitted.
+                                  </span>
+                                </div>
+                              </label>
                             </motion.div>
                           )}
                         </AnimatePresence>

@@ -26,21 +26,21 @@ const VirtualTourViewer = dynamic(() => import('@/components/virtual-tour-viewer
 export const defaultScenes: VirtualTourScene[] = [
   {
     id: 'taj-palace-suite',
-    title: 'The Heritage Grand Suite — Taj Lake Palace',
-    subtitle: 'Opulent Gilded Architecture Overlooking Lake Pichola',
-    location: 'Udaipur, Rajasthan',
+    title: 'The Heritage Grand Suite — Taj Mahal Palace',
+    subtitle: 'Opulent Gilded Architecture Overlooking the Arabian Sea',
+    location: 'Mumbai, Maharashtra',
     tag: 'Royal Heritage',
     panorama: '/panoramas/taj-mahal-palace.jpg',
     thumbnail: '/scene-snow.png',
     description:
-      'Step inside the architectural crown jewel of Udaipur. Featuring majestic grand staircases, hand-carved marble, and century-old vaulted ceilings reserved for royal guests and dignitaries.',
+      'Step inside the architectural crowning jewel of Mumbai. Featuring majestic grand staircases, Belgian chandeliers, and century-old vaulted ceilings reserved for dignitaries and royal delegations.',
     features: ['24/7 Private Butler', 'Panoramic Harbor Views', 'Heritage Antiques', 'Private Chauffeur'],
     hotspots: [
       {
         id: 'taj-harbor',
-        title: 'Lake Pichola Harbor View',
-        subtitle: 'Gateway of Udaipur panoramic vantage',
-        description: 'Step out onto the heritage private balcony overlooking the historic Lake Pichola and the Aravalli hills.',
+        title: 'Arabian Sea Harbor View',
+        subtitle: 'Gateway of India panoramic vantage',
+        description: 'Step out onto the heritage private balcony overlooking the historic Gateway of India and the Arabian Sea.',
         tag: 'Scenic View',
         position: { yaw: 0.35, pitch: 0.02 },
       },

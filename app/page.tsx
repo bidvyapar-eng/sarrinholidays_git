@@ -6,7 +6,6 @@ import { Hero } from "@/components/hero"
 import { PackagesGrid } from "@/components/packages-grid"
 import { ExperiencesSection } from "@/components/experiences-section"
 import { AboutSection } from "@/components/about-section"
-import { HimalayanBikeTrack } from "@/components/HimalayanBikeTrack"
 import { Footer } from "@/components/footer"
 import { JsonLd } from "@/components/json-ld"
 
@@ -149,15 +148,15 @@ const frontPageSchemas = [
         name: 'How are luxury itineraries customized by Sarrin Holidays?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Every itinerary is 100% custom-built by our senior curatorial desk. We align private aviation schedules, palace suite reservations, and personal dietary preferences to your exact wishes.',
+          text: 'Every itinerary is 100% custom-built by our senior curatorial desk. We align private aviation schedules, presidential palace suite reservations, licensed royal historian liaisons, and personal dietary curation to your exact preferences.',
         },
       },
       {
         '@type': 'Question',
-        name: 'Does Sarrin Holidays respect guest privacy?',
+        name: 'Does Sarrin Holidays operate under strict Non-Disclosure Agreements (NDA)?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Yes. Discretion is foundational to our atelier. Passenger details, travel plans, and personal identities are handled with personal confidentiality by our Nashik desk.',
+          text: 'Yes. Discretion is foundational to our atelier. Passenger manifests, private flight corridors, security details, and personal identities are safeguarded under strict legal non-disclosure covenants.',
         },
       },
       {
@@ -205,9 +204,6 @@ export default function Page() {
 
       {/* Curated Experiences & Philosophy Section */}
       <ExperiencesSection />
-
-      {/* Himalayan Motorcycle Track (Scroll-Driven) */}
-      <HimalayanBikeTrack />
 
       {/* Cartographic Discovery Map Section (Lazy-loaded below the fold) */}
       <CartographicDiscoveryMap />

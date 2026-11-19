@@ -60,7 +60,7 @@ export async function GET() {
       <category><![CDATA[${post.category || 'Luxury Travel'}]]></category>
       <description><![CDATA[${post.excerpt}]]></description>
       ${enclosure}
-      <author>concierge@sarrinholidays.com (Sarrin Holidays Editorial Desk)</author>
+      <author>help@sarrinholidays.com (Sarrin Holidays Editorial Desk)</author>
     </item>`
     })
     .join('')

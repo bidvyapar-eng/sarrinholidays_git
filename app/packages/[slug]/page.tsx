@@ -496,6 +496,8 @@ export default async function PackageDetailPage({ params }: PageProps) {
     touristType: ['Luxury Traveler', 'High-Net-Worth Individual', 'VIP Expedition'],
     offers: {
       '@type': 'Offer',
+      price: pkg.price < 10000 ? pkg.price * 100 : pkg.price,
+      priceCurrency: 'INR',
       availability: 'https://schema.org/InStock',
       validFrom: '2026-01-01',
       url: `${siteUrl}/packages/${pkg.slug}`,
@@ -626,7 +628,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
                       <div>
                         <h3 className="text-sm font-normal text-[#F4F2EC] leading-snug">{highlight}</h3>
                         <p className="text-sm text-[#E5E2DC] mt-1 font-normal leading-relaxed">
-                          Private access coordinated through our heritage hospitality partnerships.
+                          Private access coordinated through our sovereign hospitality partnerships.
                         </p>
                       </div>
                     </div>

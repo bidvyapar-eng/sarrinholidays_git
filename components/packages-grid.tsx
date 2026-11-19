@@ -19,7 +19,6 @@ import { createClient } from "@/lib/supabase/client"
 import { fallbackPackages, optimizeUnsplashUrl, type PackageItem } from "@/lib/cms"
 import { PackageCard } from "@/components/package-card"
 import { openConciergeDrawer } from "@/components/ConciergeDrawer"
-import { openWelcomeTripModal } from "@/components/WelcomeTripModal"
 
 const categories = [
   "All Circuits",
@@ -511,7 +510,6 @@ export function PackagesGrid() {
                   onClick={() => {
                     const currentPkg = selectedPackage
                     setSelectedPackage(null)
-                    openWelcomeTripModal()
                     openConciergeDrawer({
                       packageTitle: currentPkg.title,
                       route: currentPkg.destinations?.join(' • '),

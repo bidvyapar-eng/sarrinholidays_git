@@ -87,14 +87,14 @@ const SERVICE_HIGHLIGHTS: Record<
     colSpan: 'lg:col-span-5',
   },
   'vip-chauffeur-security': {
-    tag: 'PREMIUM EXECUTIVE MOBILITY',
+    tag: 'ARMORED FLEET & EXECUTIVE PROTECTION',
     specs: [
-      'Premium luxury SUVs and Mercedes-Maybach sedans',
-      'Vintage Rolls-Royce and ceremonial convertibles for palace arrivals',
-      'Vetted multilingual chauffeurs with local route knowledge',
+      'Armored luxury SUVs, Rolls-Royce & vintage ceremonial convertibles',
+      'Tactically certified close-protection security officers',
+      'Multilingual vetted chauffeurs with live diplomatic route management',
     ],
-    pills: ['Executive Fleet', 'Diplomatic Service', 'Vintage Convertibles'],
-    ctaText: 'Arrange VIP Chauffeur Service',
+    pills: ['Executive Fleet', 'Diplomatic Security', 'Vintage Convertibles'],
+    ctaText: 'Arrange VIP Security Fleet',
     colSpan: 'lg:col-span-7',
   },
 }
@@ -298,11 +298,11 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
                 </span>
               </div>
               <h3 className="mt-4 font-serif font-medium text-3xl sm:text-4xl text-[#F4F2EC] tracking-tight">
-                Have a Bespoke Service Requirement?
+                Have a Complex or Sovereign Requirement?
               </h3>
               <p className="mt-3 text-base text-[#E5E2DC] leading-relaxed font-normal">
-                Whether arranging multi-city private jet positioning, VIP guest escorts, or historic
-                courtyard galas, our senior operations curators engineer every detail with personal discretion.
+                Whether arranging multi-city private jet positioning, confidential diplomatic escorts, or historic
+                courtyard galas under NDA, our senior operations curators engineer every detail in strict confidence.
               </p>
             </div>
 
@@ -450,12 +450,12 @@ export function ServicesBentoGrid({ services }: ServicesBentoGridProps) {
                         className="w-full inline-flex items-center justify-center gap-2 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] py-3 text-xs font-sans font-medium uppercase tracking-[0.1em] text-[#0C0B09] shadow-lg shadow-[#C5A059]/20 transition-all cursor-pointer"
                       >
                         <Send className="size-3.5" />
-                        <span>Send Service Request</span>
+                        <span>Transmit Confidential Request</span>
                       </button>
                     </div>
 
                     <p className="text-center text-[10px] text-[#E5E2DC]/60 font-normal">
-                      All communications are handled with personal discretion.
+                      All communications are protected under strict non-disclosure covenants.
                     </p>
                   </form>
                 </>

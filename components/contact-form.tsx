@@ -9,46 +9,61 @@ import {
   PhoneCall,
   Loader2,
   AlertCircle,
+  Sparkles,
   ArrowUpRight,
 } from 'lucide-react'
 import { submitContactInquiry, type ContactActionResult } from '@/app/contact/actions'
+
+type TravelTier = 'Boutique Heritage' | 'Grand Luxury' | 'Presidential Charter'
 
 export function ContactForm() {
   const [isPending, startTransition] = useTransition()
   const [result, setResult] = useState<ContactActionResult | null>(null)
   const [error, setError] = useState<string | null>(null)
 
-  // Form State (4 fields only)
+  // Form State
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
-  const [destination, setDestination] = useState('')
+  const [email, setEmail] = useState('')
+  const [destinations, setDestinations] = useState('')
+  const [selectedTier, setSelectedTier] = useState<TravelTier>('Grand Luxury')
   const [notes, setNotes] = useState('')
 
-  // Prefill when custom destination is passed from search bar
+  // Prefill when custom destination lead is passed from search bar
   const searchParams = useSearchParams()
   const customDest = searchParams?.get('destination')
+  const customDates = searchParams?.get('dates')
+  const customGuests = searchParams?.get('guests')
 
   useEffect(() => {
-    if (customDest) setDestination(customDest)
-  }, [customDest])
+    if (customDest) {
+      const parts = [
+        customDest,
+        customDates ? customDates : null,
+        customGuests ? customGuests : null,
+      ].filter(Boolean)
+      setDestinations(parts.join(' · '))
+    }
+  }, [customDest, customDates, customGuests])
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setError(null)
 
-    if (!name.trim() || !phone.trim() || !destination.trim()) {
+    if (!name.trim() || !email.trim() || !phone.trim() || !destinations.trim()) {
       setError('Please fill in all required fields.')
       return
     }
 
     const data = new FormData()
     data.set('name', name.trim())
+    data.set('email', email.trim())
     data.set('phone', phone.trim())
-    data.set('email', '')
-    data.set('subject', `Enquiry: ${destination.trim()}`)
+    data.set('subject', `Bespoke Inquiry: ${destinations.trim()} [${selectedTier}]`)
 
     const formattedNotes = [
-      `[Destination or Service: ${destination.trim()}]`,
+      `[Hospitality Tier: ${selectedTier}]`,
+      `[Preferred Destinations & Timing: ${destinations.trim()}]`,
       notes.trim() ? `[Client Notes]:\n${notes.trim()}` : null,
     ]
       .filter(Boolean)
@@ -62,7 +77,8 @@ export function ContactForm() {
       if (res.success) {
         setName('')
         setPhone('')
-        setDestination('')
+        setEmail('')
+        setDestinations('')
         setNotes('')
       }
     })
@@ -73,13 +89,10 @@ export function ContactForm() {
     setError(null)
     setName('')
     setPhone('')
-    setDestination('')
+    setEmail('')
+    setDestinations('')
     setNotes('')
   }
-
-  const whatsappHref = `https://wa.me/918419887730?text=${encodeURIComponent(
-    `Hello Sarrin Holidays, I would like to enquire about ${destination.trim()}.`
-  )}`
 
   return (
     <div className="relative overflow-hidden rounded-sm border border-white/10 bg-[#141310] p-6 sm:p-8 lg:p-10 shadow-2xl">
@@ -89,18 +102,21 @@ export function ContactForm() {
       {/* Form Header */}
       <div className="border-b border-white/10 pb-6 mb-6">
         <span className="text-[10px] font-sans font-medium uppercase tracking-[0.1em] text-[#C5A059] block">
-          Travel Enquiry
+          Direct Atelier Consultation
         </span>
         <h2 className="mt-1.5 font-serif text-2xl sm:text-3xl text-[#F4F2EC] font-medium tracking-tight">
           Request a Bespoke Itinerary
         </h2>
         <p className="mt-2 text-xs sm:text-sm text-[#E5E2DC] font-normal leading-relaxed">
-          Share your journey details below. A Sarrin Holidays Concierge will respond via WhatsApp or phone.
+          Please register your journey vision below. A Senior Curatorial Director will prepare your custom proposal within 2 hours.
         </p>
 
         {customDest && (
           <div className="mt-4 rounded-sm border border-[#C5A059]/30 bg-[#C5A059]/10 p-3.5 flex items-center gap-2 text-xs text-[#C5A059]">
-            <span>Pre-selected: <strong className="text-[#F4F2EC] font-normal">&ldquo;{destination}&rdquo;</strong></span>
+            <Sparkles className="size-4 shrink-0 text-[#C5A059]" />
+            <span>
+              Pre-selected expedition for <strong className="text-[#F4F2EC] font-normal">&ldquo;{destinations}&rdquo;</strong>
+            </span>
           </div>
         )}
       </div>
@@ -124,24 +140,15 @@ export function ContactForm() {
                 Reference: {result.referenceId}
               </span>
               <h3 className="font-serif font-medium text-2xl sm:text-3xl text-[#F4F2EC]">
-                Enquiry Received
+                Dossier Transmitted
               </h3>
             </div>
 
             <p className="text-xs sm:text-sm text-[#E5E2DC] leading-relaxed max-w-md mx-auto font-normal">
-              {result.message || 'Your enquiry has been received. A Sarrin Holidays Concierge will contact you directly.'}
+              {result.message || 'Your inquiry has been received into the Sarrin Holidays Operations Manifest. A Senior Curatorial Director will contact you directly.'}
             </p>
 
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a
-                href={whatsappHref || 'https://wa.me/918419887730'}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-sm bg-emerald-950/20 hover:bg-emerald-900/30 border border-emerald-500/30 px-6 py-3 text-xs font-sans font-medium uppercase tracking-[0.1em] text-emerald-300 transition-colors cursor-pointer text-center"
-              >
-                <PhoneCall className="size-3.5 text-emerald-400" />
-                <span>Chat on WhatsApp Now</span>
-              </a>
               <button
                 type="button"
                 onClick={handleReset}
@@ -149,6 +156,13 @@ export function ContactForm() {
               >
                 <span>Submit Another Request</span>
               </button>
+              <a
+                href="tel:+918419887730"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-sm border border-white/10 bg-white/5 px-6 py-3 text-xs font-sans font-medium uppercase tracking-[0.1em] text-[#F4F2EC] hover:bg-white/10 transition-colors"
+              >
+                <PhoneCall className="size-3.5 text-[#C5A059]" />
+                <span>Call Sarrin Holidays Desk</span>
+              </a>
             </div>
           </motion.div>
         ) : (
@@ -176,54 +190,97 @@ export function ContactForm() {
               />
             </div>
 
-            {/* 2. WhatsApp / Phone Number */}
-            <div className="space-y-1.5">
-              <label className="block text-xs font-sans font-medium text-[#E5E2DC] uppercase tracking-wider">
-                WhatsApp / Phone Number *
-              </label>
-              <input
-                type="tel"
-                name="phone"
-                required
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                placeholder="+91 98765 43210"
-                className="w-full rounded-sm border border-white/15 bg-[#0C0B09] px-4 py-3 text-sm text-[#F4F2EC] placeholder-[#E5E2DC]/40 outline-none transition-all duration-200 hover:border-white/25 focus:border-[#C5A059]"
-              />
+            {/* 2. Mobile / WhatsApp & 3. Email Address */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <label className="block text-xs font-sans font-medium text-[#E5E2DC] uppercase tracking-wider">
+                  Mobile / WhatsApp Number *
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  required
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="+91 98765 43210"
+                  className="w-full rounded-sm border border-white/15 bg-[#0C0B09] px-4 py-3 text-sm text-[#F4F2EC] placeholder-[#E5E2DC]/40 outline-none transition-all duration-200 hover:border-white/25 focus:border-[#C5A059]"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="block text-xs font-sans font-medium text-[#E5E2DC] uppercase tracking-wider">
+                  Email Address *
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="name@domain.com"
+                  className="w-full rounded-sm border border-white/15 bg-[#0C0B09] px-4 py-3 text-sm text-[#F4F2EC] placeholder-[#E5E2DC]/40 outline-none transition-all duration-200 hover:border-white/25 focus:border-[#C5A059]"
+                />
+              </div>
             </div>
 
-            {/* 3. Destination or Service Required */}
+            {/* 4. Preferred Destinations & Approximate Travel Month */}
             <div className="space-y-1.5">
               <label className="block text-xs font-sans font-medium text-[#E5E2DC] uppercase tracking-wider">
-                Destination or Service Required *
+                Preferred Destinations &amp; Travel Timing *
               </label>
               <input
                 type="text"
-                name="destination"
+                name="destinations"
                 required
-                value={destination}
-                onChange={(e) => setDestination(e.target.value)}
-                placeholder="e.g. Kerala Houseboat · Rajasthan Palace · Visa Assistance"
+                value={destinations}
+                onChange={(e) => setDestinations(e.target.value)}
+                placeholder="e.g. Udaipur & Jodhpur · December 2026 · 4 Guests"
                 className="w-full rounded-sm border border-white/15 bg-[#0C0B09] px-4 py-3 text-sm text-[#F4F2EC] placeholder-[#E5E2DC]/40 outline-none transition-all duration-200 hover:border-white/25 focus:border-[#C5A059]"
               />
             </div>
 
-            {/* 4. Travel Month & Notes */}
+            {/* 5. Travel Tier Selector */}
+            <div className="space-y-2">
+              <label className="block text-xs font-sans font-medium text-[#E5E2DC] uppercase tracking-wider">
+                Preferred Travel Tier
+              </label>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                {(['Boutique Heritage', 'Grand Luxury', 'Presidential Charter'] as const).map((tier) => {
+                  const isSelected = selectedTier === tier
+                  return (
+                    <button
+                      key={tier}
+                      type="button"
+                      onClick={() => setSelectedTier(tier)}
+                      className={`py-2.5 px-3 rounded-sm border text-xs font-sans transition-all text-center cursor-pointer ${
+                        isSelected
+                          ? 'border-[#C5A059] bg-[#C5A059] text-[#0C0B09] shadow-md shadow-[#C5A059]/20 font-semibold'
+                          : 'border-white/10 bg-[#0C0B09] text-[#E5E2DC] hover:border-white/25 hover:text-[#F4F2EC] font-medium'
+                      }`}
+                    >
+                      {tier}
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+
+            {/* 6. Journey Notes */}
             <div className="space-y-1.5">
               <label className="block text-xs font-sans font-medium text-[#E5E2DC] uppercase tracking-wider">
-                Travel Month & Notes
+                Journey Notes (Optional)
               </label>
               <textarea
                 rows={3}
-                name="notes"
+                name="message"
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                placeholder="e.g. December 2026 · 4 guests · Celebration occasion · Special requests..."
+                placeholder="Share any hotel preferences, celebration occasions, or special requests..."
                 className="w-full rounded-sm border border-white/15 bg-[#0C0B09] px-4 py-3 text-sm text-[#F4F2EC] placeholder-[#E5E2DC]/40 outline-none transition-all duration-200 hover:border-white/25 focus:border-[#C5A059] resize-none leading-relaxed"
               />
             </div>
 
-            {/* Primary Submit Button */}
+            {/* 7. Primary Submit Button */}
             <div className="pt-2">
               <button
                 type="submit"
@@ -238,7 +295,7 @@ export function ContactForm() {
                 ) : (
                   <>
                     <Send className="size-3.5 text-[#0C0B09]" />
-                    <span>Send Enquiry</span>
+                    <span>Request Bespoke Itinerary</span>
                     <ArrowUpRight className="size-4 text-[#0C0B09]" />
                   </>
                 )}
@@ -246,7 +303,7 @@ export function ContactForm() {
             </div>
 
             <p className="text-center text-[11px] text-[#E5E2DC]/70 font-normal leading-relaxed pt-1">
-              Your enquiry is handled with personal discretion by our Nashik desk.
+              All communications are safeguarded under strict non-disclosure covenants.
             </p>
           </form>
         )}

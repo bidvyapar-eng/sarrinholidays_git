@@ -2,31 +2,34 @@
 
 import React, { useState } from 'react'
 import { openConciergeDrawer, type HospitalityTier } from '@/components/ConciergeDrawer'
-import { openWelcomeTripModal } from '@/components/WelcomeTripModal'
 import { Phone, ShieldCheck, ArrowUpRight } from 'lucide-react'
 import type { PackageItem } from '@/lib/cms'
 
 export const HOSPITALITY_TIERS: {
   id: HospitalityTier
   label: string
+  multiplier: number
   description: string
   properties: string
 }[] = [
   {
     id: 'Boutique Heritage',
     label: 'Boutique Heritage',
+    multiplier: 1.0,
     description: 'Curated 4-Star & 5-Star Heritage Havelis and Boutique Plantations',
     properties: 'Abad Atrium · Coconut Lagoon · CGH Earth',
   },
   {
     id: 'Grand Luxury',
     label: 'Grand Luxury',
+    multiplier: 1.55,
     description: 'Palace Stays, Lake & Hill Suites with Private Chauffeur',
     properties: 'Taj Mahal Palace · Oberoi Amarvilas · Leela Palace',
   },
   {
     id: 'Presidential Charter',
     label: 'Presidential',
+    multiplier: 2.85,
     description: 'Exclusive Palace Buyouts, Private Aviation & Master Butler',
     properties: 'Taj Lake Palace Buyout · Rambagh Presidential',
   },
@@ -38,6 +41,14 @@ interface PackageStickyBookingCardProps {
 
 export function PackageStickyBookingCard({ pkg }: PackageStickyBookingCardProps) {
   const [selectedTier, setSelectedTier] = useState<HospitalityTier>('Boutique Heritage')
+
+  const rawPrice = pkg.price && pkg.price > 0 ? pkg.price : 95000
+  const normalizedBase =
+    rawPrice < 1000 ? rawPrice * 1000 : rawPrice < 10000 ? rawPrice * 100 : rawPrice
+
+  const tierObj =
+    HOSPITALITY_TIERS.find((t) => t.id === selectedTier) || HOSPITALITY_TIERS[0]
+  const currentPrice = Math.round(normalizedBase * tierObj.multiplier)
 
   const handleOpenDrawer = () => {
     openConciergeDrawer({
@@ -52,7 +63,7 @@ export function PackageStickyBookingCard({ pkg }: PackageStickyBookingCardProps)
     <div className="sticky top-28 space-y-5">
       {/* Main Architectural Booking Card */}
       <div className="rounded-sm border border-white/10 bg-[#141310] p-6 sm:p-8 backdrop-blur-xl shadow-2xl shadow-black/80 space-y-6">
-        {/* Lead-Generation Header */}
+        {/* Dynamic Pricing Header */}
         <div>
           <span className="text-[11px] uppercase font-sans tracking-[0.1em] text-[#C5A059] font-medium block mb-1">
             Bespoke Lead-Generation &amp; Consultation
@@ -67,7 +78,7 @@ export function PackageStickyBookingCard({ pkg }: PackageStickyBookingCardProps)
           </p>
         </div>
 
-        {/* Interactive 3-Tier Switcher (No Pricing) */}
+        {/* Interactive 3-Tier Switcher */}
         <div className="space-y-2.5 pt-2 border-t border-white/10">
           <div className="flex items-center justify-between text-[11px] font-sans uppercase tracking-[0.1em]">
             <span className="text-[#E5E2DC]">Hospitality Tier</span>
@@ -96,8 +107,8 @@ export function PackageStickyBookingCard({ pkg }: PackageStickyBookingCardProps)
 
           {/* Tier Description Box */}
           <div className="p-3 rounded-sm bg-[#0C0B09]/60 border border-white/5 text-[11px] leading-relaxed">
-            <span className="text-[#F4F2EC] font-medium block">{HOSPITALITY_TIERS.find((t) => t.id === selectedTier)?.description}</span>
-            <span className="text-stone-200 text-[10px] mt-0.5 block">{HOSPITALITY_TIERS.find((t) => t.id === selectedTier)?.properties}</span>
+            <span className="text-[#F4F2EC] font-medium block">{tierObj.description}</span>
+            <span className="text-stone-200 text-[10px] mt-0.5 block">{tierObj.properties}</span>
           </div>
         </div>
 
@@ -125,10 +136,7 @@ export function PackageStickyBookingCard({ pkg }: PackageStickyBookingCardProps)
         <div className="space-y-3 pt-2">
           <button
             type="button"
-            onClick={() => {
-              openWelcomeTripModal()
-              handleOpenDrawer()
-            }}
+            onClick={handleOpenDrawer}
             className="w-full flex items-center justify-center gap-2 rounded-sm bg-[#C5A059] hover:bg-[#D4B475] text-[#0C0B09] py-3.5 px-5 text-xs font-sans font-medium uppercase tracking-[0.1em] transition-all duration-300 shadow-lg shadow-[#C5A059]/20 cursor-pointer"
           >
             <span>Design This Journey</span>
@@ -159,10 +167,10 @@ export function PackageStickyBookingCard({ pkg }: PackageStickyBookingCardProps)
       <div className="p-5 rounded-sm bg-[#141310] border border-white/10 text-xs text-[#E5E2DC] space-y-2">
         <div className="flex items-center gap-2 text-[#F4F2EC] font-medium">
           <ShieldCheck className="size-4 text-[#C5A059]" />
-          <span>Guest Privacy &amp; Discretion</span>
+          <span>Strict Non-Disclosure &amp; VIP Security</span>
         </div>
         <p className="text-[11px] leading-relaxed text-stone-200 font-normal">
-          Client passenger manifests, special requirements, and custom travel requests are handled with personal discretion by our Nashik desk.
+          Client passenger manifests, special security requirements, and custom flight requests are safeguarded under strict legal confidentiality covenants.
         </p>
       </div>
     </div>
@@ -170,6 +178,10 @@ export function PackageStickyBookingCard({ pkg }: PackageStickyBookingCardProps)
 }
 
 export function MobileStickyBookingBar({ pkg }: PackageStickyBookingCardProps) {
+  const rawPrice = pkg.price && pkg.price > 0 ? pkg.price : 95000
+  const normalizedBase =
+    rawPrice < 1000 ? rawPrice * 1000 : rawPrice < 10000 ? rawPrice * 100 : rawPrice
+
   const handleOpenDrawer = () => {
     openConciergeDrawer({
       packageTitle: pkg.title,
@@ -208,10 +220,7 @@ export function MobileStickyBookingBar({ pkg }: PackageStickyBookingCardProps) {
 
           <button
             type="button"
-            onClick={() => {
-              openWelcomeTripModal()
-              handleOpenDrawer()
-            }}
+            onClick={handleOpenDrawer}
             className="flex min-h-[44px] items-center justify-center rounded-sm bg-[#C5A059] hover:bg-[#D4B475] text-[#0C0B09] px-4 py-2 text-xs font-sans font-medium uppercase tracking-[0.14em] transition-colors cursor-pointer"
           >
             <span>Design Journey</span>
@@ -221,3 +230,4 @@ export function MobileStickyBookingBar({ pkg }: PackageStickyBookingCardProps) {
     </div>
   )
 }
+

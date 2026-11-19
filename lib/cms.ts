@@ -18,7 +18,7 @@ export type PackageItem = {
   title: string
   slug: string
   description: string
-  price?: number
+  price: number
   duration: string
   destinations: string[]
   featured_image: string
@@ -40,6 +40,7 @@ export const fallbackPackages: PackageItem[] = [
     title: 'Kerala — God’s Own Country (Grand Circuit)',
     slug: 'kerala-gods-own-country-8d',
     description: "Traverse mist-cloaked tea estates, emerald backwater canals, and tranquil Kovalam coastlines with unhurried private estate stewardship.",
+    price: 85000,
     duration: '8 Days / 7 Nights',
     destinations: ['Kochi', 'Munnar', 'Thekkady', 'Alleppey', 'Kovalam'],
     featured_image: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=75',
@@ -80,6 +81,7 @@ export const fallbackPackages: PackageItem[] = [
     title: 'Kerala Backwaters & Hills Escapade',
     slug: 'kerala-backwaters-hills-5d',
     description: "Retreat through cascading Munnar tea valleys, organic spice plantations, and serene overnight backwater catamaran cruises.",
+    price: 55000,
     duration: '5 Days / 4 Nights',
     destinations: ['Munnar', 'Thekkady', 'Alleppey', 'Kochi'],
     featured_image: '/munnar-tea-hills.jpg',
@@ -117,6 +119,7 @@ export const fallbackPackages: PackageItem[] = [
     title: 'Kashmir — Valleys of Paradise & Gulmarg',
     slug: 'kashmir-paradise-valleys-7d',
     description: 'Sojourn through snow-crested alpine valleys, private Dal Lake cedar houseboats, and authentic multi-course Wazwan royal feasts.',
+    price: 95000,
     duration: '7 Days / 6 Nights',
     destinations: ['Srinagar', 'Gulmarg', 'Pahalgam', 'Dal Lake'],
     featured_image: 'https://images.unsplash.com/photo-1598091383021-15ddea10925d?auto=format&fit=crop&w=800&q=75',
@@ -155,6 +158,7 @@ export const fallbackPackages: PackageItem[] = [
     title: 'Blissful Goa Coastal & Heritage Escape',
     slug: 'blissful-goa-beach-getaway-4d',
     description: 'Unwind along secluded South Goa sands, private sunset Mandovi yacht charters, and preserved Portuguese heritage estates.',
+    price: 65000,
     duration: '4 Days / 3 Nights',
     destinations: ['Colva', 'Old Goa', 'Mandovi', 'South Goa'],
     featured_image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=75',
@@ -191,6 +195,7 @@ export const fallbackPackages: PackageItem[] = [
     title: 'Experience Varanasi & Dev Deepawali Sacred Lights',
     slug: 'experience-varanasi-dev-deepawali-3d',
     description: 'Witness thousands of golden earthen ghat lamps from private ceremonial river barges along sacred Kashi waters.',
+    price: 75000,
     duration: '3 Days / 2 Nights',
     destinations: ['Varanasi', 'Kashi Vishwanath', 'Assi Ghat', 'Sarnath'],
     featured_image: 'https://images.unsplash.com/photo-1687753578819-08e5a39d715a?auto=format&fit=crop&w=800&q=75',
@@ -229,6 +234,7 @@ export const fallbackPackages: PackageItem[] = [
     title: 'Heritage & Palaces Grand Tour',
     slug: 'royal-rajasthan-tour',
     description: "Inhabit sovereign Rajputana fortresses, torchlit Lake Pichola marble ramparts, and regal living royal palace suites.",
+    price: 185000,
     duration: '10 Days / 9 Nights',
     destinations: ['Udaipur', 'Jaipur', 'Jodhpur'],
     featured_image: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=800&q=75',
@@ -263,6 +269,7 @@ export const fallbackPackages: PackageItem[] = [
     title: 'Backwaters & Coastal Sanctuaries',
     slug: 'kerala-houseboat-retreat',
     description: 'Drift through quiet palm-fringed Vembanad lagoons aboard an exclusive private houseboat with bespoke on-deck Ayurvedic wellness.',
+    price: 145000,
     duration: '7 Days / 6 Nights',
     destinations: ['Alleppey', 'Bekal', 'South Goa'],
     featured_image: '/kerala-coastal-lagoon.jpg',
@@ -297,6 +304,7 @@ export const fallbackPackages: PackageItem[] = [
     title: 'Spiritual & Wellness Retreats',
     slug: 'himalayan-wellness-escapade',
     description: 'Restore harmony with physician-led Ayurvedic immersions, private Ganga river barges, and tranquil Himalayan mountain sanctuary vistas.',
+    price: 165000,
     duration: '8 Days / 7 Nights',
     destinations: ['Rishikesh', 'Ananda in Himalayas', 'Varanasi'],
     featured_image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=800&q=75',
@@ -331,6 +339,7 @@ export const fallbackPackages: PackageItem[] = [
     title: 'Wild & Untamed: Royal Tiger Safaris',
     slug: 'wild-untamed-tiger-safari',
     description: 'Track Royal Bengal Tigers across pristine forest corridors with private naturalists and luxury open-air tented pavilions.',
+    price: 195000,
     duration: '9 Days / 8 Nights',
     destinations: ['Ranthambore', 'Bandhavgarh', 'Corbett'],
     featured_image: 'https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=800&q=75',

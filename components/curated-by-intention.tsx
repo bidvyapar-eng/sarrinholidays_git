@@ -243,7 +243,7 @@ export function CuratedByIntention() {
           </h2>
 
           <p className="text-base text-[#E5E2DC] font-normal leading-relaxed max-w-2xl mx-auto">
-            Experience our handcrafted Indian journeys. Designed for discerning travelers, featuring palace stays, private charters, and attentive Sarrin Holidays care.
+            Experience our sovereign domestic luxury circuits. Handcrafted exclusively for Indian patrons, featuring palace buyouts, private charters, and high-touch Sarrin Holidays care.
           </p>
         </div>
 
